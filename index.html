@@ -306,6 +306,19 @@ body{background:#04070e!important;color:#f2f6fd}
 .ln-side{border-right:1px solid rgba(148,184,255,.1);padding:20px 14px;display:flex;flex-direction:column;gap:4px;overflow-y:auto;max-height:560px}
 .ln-side a{cursor:pointer}
 .ln-cards{transition:opacity .25s ease}
+.ln-card{position:relative;display:flex;align-items:center;gap:13px;overflow:hidden;animation:cardIn .55s var(--ease-out-expo) backwards;animation-delay:calc(var(--d,0)*95ms)}
+.ln-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--ac,#5b9dff);border-radius:3px}
+.ln-card>i{flex:0 0 34px;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--ac,#5b9dff);background:color-mix(in srgb,var(--ac,#5b9dff) 14%,transparent)}
+.ln-card p{margin-bottom:0;flex:1}
+.ln-card .ok{flex-shrink:0}
+@keyframes cardIn{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.ln-node.hot{border-color:color-mix(in srgb,var(--ac,#5b9dff) 55%,transparent)}
+.ln-node.hot i{color:var(--ac,#5b9dff)}
+.ln-side a{position:relative;overflow:hidden}
+.ln-side a.on::after{content:'';position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--ac,#2f7ff7);transform-origin:left;animation:sideProg 4.5s linear forwards}
+.ln-dash.paused .ln-side a.on::after{animation-play-state:paused}
+@keyframes sideProg{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media(prefers-reduced-motion:reduce){.ln-card{animation:none}.ln-side a.on::after{animation:none}}
 .ln-cards.fade{opacity:0}
 .ln-side-brand{padding:2px 10px 16px}.ln-side-brand img{height:24px}
 .ln-side a{display:flex;align-items:center;gap:11px;font-size:13.5px;color:#8b98b8;padding:9px 12px;border-radius:9px;font-weight:500}
@@ -457,14 +470,14 @@ body{background:#04070e!important;color:#f2f6fd}
             <div class="ln-flow">
               <div class="ln-node"><i class="fa-solid fa-bolt"></i><span>Trigger</span></div>
               <div class="ln-link"></div>
-              <div class="ln-node hot"><i class="fa-solid fa-tablet-screen-button" id="flowIcon"></i><span id="flowName">Mobilient MDM</span></div>
+              <div class="ln-node hot" style="--ac:#5b9dff"><i class="fa-solid fa-tablet-screen-button" id="flowIcon"></i><span id="flowName">Mobilient MDM</span></div>
               <div class="ln-link"></div>
               <div class="ln-node"><i class="fa-solid fa-circle-check"></i><span>Deployed</span></div>
             </div>
             <div class="ln-cards" id="panelCards">
-              <div class="ln-card"><p>Zero-Touch Corporate Device Enrollment &amp; Kiosk Mode</p><span class="ok">Active</span></div>
-              <div class="ln-card"><p>Remote Wipe &amp; Stolen Asset Lockdown Command</p><span class="ok">Active</span></div>
-              <div class="ln-card"><p>Enterprise Private App Catalog Distribution</p><span class="ok">Active</span></div>
+              <div class="ln-card" style="--ac:#5b9dff;--d:0"><i class="fa-solid fa-tablet-screen-button"></i><p>Zero-Touch Corporate Device Enrollment &amp; Kiosk Mode</p><span class="ok">Active</span></div>
+              <div class="ln-card" style="--ac:#5b9dff;--d:1"><i class="fa-solid fa-tablet-screen-button"></i><p>Remote Wipe &amp; Stolen Asset Lockdown Command</p><span class="ok">Active</span></div>
+              <div class="ln-card" style="--ac:#5b9dff;--d:2"><i class="fa-solid fa-tablet-screen-button"></i><p>Enterprise Private App Catalog Distribution</p><span class="ok">Active</span></div>
             </div>
             <svg class="ln-chart" viewBox="0 0 600 120" preserveAspectRatio="none" aria-hidden="true">
               <defs><linearGradient id="lnag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f7ff7" stop-opacity=".45"/><stop offset="1" stop-color="#2f7ff7" stop-opacity="0"/></linearGradient></defs>
@@ -1356,41 +1369,62 @@ if(matchMedia('(hover:hover)').matches){
 })();
 </script>
 <script>
-// ===== Interactive product explorer panel =====
+// ===== Interactive product explorer panel (distinct cards + auto-cycle) =====
 (function(){
   const P={
-    mdm:{fa:"fa-tablet-screen-button",name:"Mobilient MDM",sub:"Device Fleet Security",feats:["Zero-Touch Corporate Device Enrollment & Kiosk Mode","Remote Wipe & Stolen Asset Lockdown Command","Enterprise Private App Catalog Distribution"]},
-    ai:{fa:"fa-brain",name:"AI Automation",sub:"AI Automation",feats:["AI Chatbots & Assistants","Process Automation","Predictive Analytics"]},
-    ship:{fa:"fa-box",name:"Ship Flow",sub:"Maritime & Freight Management",feats:["Real-time Live Vessel & Container GPS Telematics","Automated Bill of Lading (BL) & Manifest Generator","Customs Duty Calculator & Clearance Workflow"]},
-    track:{fa:"fa-truck-fast",name:"TrackOnMoves",sub:"Fleet Telematics Platform",feats:["High-Frequency Sub-Second Live GPS Vehicle Tracking","Ultrasonic Fuel Sensor & Theft Siphon Alerts","Smart Multi-Stop Route Optimization & Geofencing"]},
-    buzz:{fa:"fa-bullhorn",name:"BuzzFlow",sub:"All-In-One Enterprise Platform",feats:["Encrypted Departmental Team Chat & Channels","Milestone Tracking & Sprint Task Boards","Full Lifecycle Customer Relationship Management (CRM)"]},
-    post:{fa:"fa-shield-halved",name:"Post Marrow",sub:"Cybersecurity & Email Protection",feats:["AI-Powered Zero-Day Phishing & Malware Scanners","Automated PGP / S-MIME Email Vault Encryption","DMARC, DKIM & SPF Automated Alignment Engine"]},
-    sign:{fa:"fa-tv",name:"Signvero",sub:"Digital Display Network",feats:["Central Cloud Media Scheduler for 4K Video/Graphics","Instant Emergency Alert Override Broadcasting","Multi-Zone Layouts (Weather, News, Live Tickers)"]},
-    itm:{fa:"fa-cart-shopping",name:"Itmenaan",sub:"Online Marketplace",feats:["Quick Ad Posting with Photos & Categories","Smart Search & Filters by City and Price","Direct Buyer\u2013Seller Messaging"]},
-    hosp:{fa:"fa-hospital",name:"Hospital Management",sub:"Comprehensive Healthcare Ecosystem",feats:["Doctors OPD Queue & Digital Prescription Portal","IPD Bed Allocation, Vitals & Nurse Station Monitoring","Automated Pharmacy Inventory & Batch Expiry Warnings"]},
-    ms:{fa:"fa-briefcase",name:"Microsoft 365",sub:"Productivity & Cloud",feats:["Word, Excel, PowerPoint & Outlook Apps","AI-powered Copilot Assistance","Secure Cloud Storage with OneDrive"]},
-    erp:{fa:"fa-diagram-project",name:"ERP & CRM",sub:"Core Enterprise Engine",feats:["Multi-Warehouse Automated Inventory Reordering","Human Resources, Biometric Attendance & Payroll","Sales Pipeline Forecasting & Quotation Engine"]}
+    mdm:{fa:"fa-tablet-screen-button",c:"#5b9dff",name:"Mobilient MDM",sub:"Device Fleet Security",feats:["Zero-Touch Corporate Device Enrollment & Kiosk Mode","Remote Wipe & Stolen Asset Lockdown Command","Enterprise Private App Catalog Distribution"]},
+    ai:{fa:"fa-brain",c:"#a78bfa",name:"AI Automation",sub:"AI Automation",feats:["AI Chatbots & Assistants","Process Automation","Predictive Analytics"]},
+    ship:{fa:"fa-box",c:"#38bdf8",name:"Ship Flow",sub:"Maritime & Freight Management",feats:["Real-time Live Vessel & Container GPS Telematics","Automated Bill of Lading (BL) & Manifest Generator","Customs Duty Calculator & Clearance Workflow"]},
+    track:{fa:"fa-truck-fast",c:"#34d399",name:"TrackOnMoves",sub:"Fleet Telematics Platform",feats:["High-Frequency Sub-Second Live GPS Vehicle Tracking","Ultrasonic Fuel Sensor & Theft Siphon Alerts","Smart Multi-Stop Route Optimization & Geofencing"]},
+    buzz:{fa:"fa-bullhorn",c:"#fbbf24",name:"BuzzFlow",sub:"All-In-One Enterprise Platform",feats:["Encrypted Departmental Team Chat & Channels","Milestone Tracking & Sprint Task Boards","Full Lifecycle Customer Relationship Management (CRM)"]},
+    post:{fa:"fa-shield-halved",c:"#f87171",name:"Post Marrow",sub:"Cybersecurity & Email Protection",feats:["AI-Powered Zero-Day Phishing & Malware Scanners","Automated PGP / S-MIME Email Vault Encryption","DMARC, DKIM & SPF Automated Alignment Engine"]},
+    sign:{fa:"fa-tv",c:"#22d3ee",name:"Signvero",sub:"Digital Display Network",feats:["Central Cloud Media Scheduler for 4K Video/Graphics","Instant Emergency Alert Override Broadcasting","Multi-Zone Layouts (Weather, News, Live Tickers)"]},
+    itm:{fa:"fa-cart-shopping",c:"#fb923c",name:"Itmenaan",sub:"Online Marketplace",feats:["Quick Ad Posting with Photos & Categories","Smart Search & Filters by City and Price","Direct Buyer\u2013Seller Messaging"]},
+    hosp:{fa:"fa-hospital",c:"#4ade80",name:"Hospital Management",sub:"Comprehensive Healthcare Ecosystem",feats:["Doctors OPD Queue & Digital Prescription Portal","IPD Bed Allocation, Vitals & Nurse Station Monitoring","Automated Pharmacy Inventory & Batch Expiry Warnings"]},
+    ms:{fa:"fa-briefcase",c:"#60a5fa",name:"Microsoft 365",sub:"Productivity & Cloud",feats:["Word, Excel, PowerPoint & Outlook Apps","AI-powered Copilot Assistance","Secure Cloud Storage with OneDrive"]},
+    erp:{fa:"fa-diagram-project",c:"#c084fc",name:"ERP & CRM",sub:"Core Enterprise Engine",feats:["Multi-Warehouse Automated Inventory Reordering","Human Resources, Biometric Attendance & Payroll","Sales Pipeline Forecasting & Quotation Engine"]}
   };
-  const title=document.getElementById('panelTitle'),sub=document.getElementById('panelSub'),
+  const keys=Object.keys(P),CYCLE=4500;
+  const dash=document.querySelector('.ln-dash'),
+        title=document.getElementById('panelTitle'),sub=document.getElementById('panelSub'),
         fic=document.getElementById('flowIcon'),fnm=document.getElementById('flowName'),
-        cards=document.getElementById('panelCards');
-  if(!title||!cards)return;
-  function show(k){
+        cards=document.getElementById('panelCards'),
+        links=Array.from(document.querySelectorAll('.ln-side a[data-p]'));
+  if(!title||!cards||!links.length)return;
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let idx=0,timer=null;
+  function render(k){
     const p=P[k];if(!p)return;
-    cards.classList.add('fade');
-    setTimeout(()=>{
-      title.textContent=p.name;sub.textContent=p.sub;
-      fic.className='fa-solid '+p.fa;fnm.textContent=p.name;
-      cards.innerHTML=p.feats.map(f=>'<div class="ln-card"><p>'+f+'</p><span class="ok">Active</span></div>').join('');
-      cards.classList.remove('fade');
-    },180);
+    title.textContent=p.name;sub.textContent=p.sub;
+    fic.className='fa-solid '+p.fa;fnm.textContent=p.name;
+    const hot=fic.closest('.ln-node.hot');if(hot)hot.style.setProperty('--ac',p.c);
+    links.forEach(x=>{x.classList.remove('on');x.style.setProperty('--ac',P[x.dataset.p].c);});
+    const act=links.find(x=>x.dataset.p===k);if(act)act.classList.add('on');
+    cards.innerHTML=p.feats.map((f,i)=>'<div class="ln-card" style="--ac:'+p.c+';--d:'+i+'"><i class="fa-solid '+p.fa+'"></i><p>'+f+'</p><span class="ok">Active</span></div>').join('');
   }
-  document.querySelectorAll('.ln-side a[data-p]').forEach(a=>{
-    a.addEventListener('click',()=>{
-      document.querySelectorAll('.ln-side a[data-p]').forEach(x=>x.classList.remove('on'));
-      a.classList.add('on');show(a.dataset.p);
-    });
+  function show(k){
+    idx=keys.indexOf(k);
+    cards.classList.add('fade');
+    setTimeout(()=>{render(k);cards.classList.remove('fade');},180);
+  }
+  function activate(k){ // instant switch used by auto-cycle (restart progress bar)
+    const act=links.find(x=>x.dataset.p===k);
+    if(act){act.classList.remove('on');void act.offsetWidth;}
+    render(k);
+  }
+  function next(){idx=(idx+1)%keys.length;activate(keys[idx]);}
+  function start(){stop();if(reduce)return;timer=setInterval(next,CYCLE);}
+  function stop(){if(timer){clearInterval(timer);timer=null;}}
+  links.forEach(a=>{
+    a.style.setProperty('--ac',P[a.dataset.p].c);
+    a.addEventListener('click',()=>{show(a.dataset.p);start();});
   });
+  if(dash){
+    dash.addEventListener('mouseenter',()=>{stop();dash.classList.add('paused');});
+    dash.addEventListener('mouseleave',()=>{dash.classList.remove('paused');start();});
+  }
+  document.addEventListener('visibilitychange',()=>{document.hidden?stop():start();});
+  render(keys[0]);start();
 })();
 </script>
 <script>
