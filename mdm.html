@@ -2,18 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI &amp; Machine Learning &ndash; Devniques</title>
-<meta name="description" content="Devniques AI Automation: AI chatbots, machine learning models, process automation and predictive analytics.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" href="logo-dark.png">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mobilient MDM &ndash; Devniques</title>
+<link rel="icon" href="logo-white.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
+
 :root{
-  --bg:#0a1633; --bg-deep:#071026; --ink:#ffffff; --muted:#b9c8e4;
+  --bg:#0e1e45; --bg-deep:#101f4a; --ink:#ffffff; --muted:#b9c8e4;
   --line:rgba(140,180,255,.16); --line-soft:rgba(140,180,255,.10);
   --blue:#2f7ff7; --blue-dark:#0d55c4; --cyan:#00f0ff;
   --card:rgba(255,255,255,.028);
@@ -140,7 +136,7 @@ section{padding:96px 0}
 .m-pri.cta-white{background:#fff;color:#0a1738;box-shadow:0 8px 26px rgba(0,0,0,.25)}
 .m-pri.cta-white:hover{background:#eef4ff;transform:translateY(-2px)}
 /* ===== FOOTER ===== */
-footer{position:relative;border-top:2px solid rgba(91,157,255,.45);background:#0d1a3d;padding:72px 0 32px;box-shadow:0 -20px 60px rgba(0,0,0,.35)}
+footer{border-top:1px solid var(--line-soft);background:#050d24;padding:72px 0 32px}
 .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1.3fr;gap:40px;margin-bottom:56px}
 .f-brand img{height:38px;width:auto;margin-bottom:18px}
 .f-brand p{color:var(--muted);font-size:14.5px;line-height:1.7;margin-bottom:20px}
@@ -213,128 +209,41 @@ radial-gradient(ellipse 55% 40% at 85% 25%,rgba(80,60,220,.12),transparent 70%),
 radial-gradient(ellipse 70% 50% at 50% 100%,rgba(30,90,200,.14),transparent 70%);
 filter:blur(60px);}
 
-</style>
-<style>
-/* page-specific */
-.cap-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
-.cap-card{background:var(--card);border:1px solid var(--line-soft);border-radius:var(--radius);padding:34px 26px;text-align:center;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
-.cap-card:hover{transform:translateY(-5px);border-color:rgba(140,180,255,.35);box-shadow:0 16px 40px rgba(0,0,0,.35)}
-.cap-card .srv-icon{margin:0 auto 18px}
-.cap-card .srv-title{margin-bottom:0}
-.ai-hero{padding:110px 24px 70px;text-align:center;background:radial-gradient(ellipse 70% 55% at 50% 0%,rgba(47,127,247,.14),transparent 70%)}
-.ai-hero .eyebrow{margin-bottom:24px}
-.ai-hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(36px,5vw,58px);font-weight:700;letter-spacing:-.02em;margin-bottom:20px}
-.ai-hero p{color:var(--muted);font-size:17.5px;max-width:680px;margin:0 auto;line-height:1.65}
-@media(max-width:1024px){.cap-grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:768px){.cap-grid{grid-template-columns:1fr}.ai-hero{padding:84px 20px 56px}}
-</style>
-<style>
-/* ===== MOTION SYSTEM (Linear-style) ===== */
-:root{
-  --ease-out-expo:cubic-bezier(.16,1,.3,1);
-  --ease-out-quart:cubic-bezier(.25,1,.5,1);
-  --ease-spring:cubic-bezier(.34,1.56,.64,1);
-}
-/* --- premium loader (restored) --- */
-#loader{position:fixed;inset:0;z-index:10000;background:#0e1e45;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:clip-path .9s cubic-bezier(.76,0,.24,1)}
-#loader.out{clip-path:inset(0 0 100% 0);pointer-events:none}
-#loader.gone{display:none}
-#loader img{height:54px;animation:ldPulse 1.6s ease-in-out infinite}
-@keyframes ldPulse{50%{transform:scale(1.07)}}
-.ld-bar{width:220px;height:3px;border-radius:3px;background:rgba(255,255,255,.12);overflow:hidden}
-.ld-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),#9cc4ff);animation:ldFill 1.35s cubic-bezier(.6,0,.2,1) forwards}
-@keyframes ldFill{to{width:100%}}
-#loader small{color:#8fa6cf;font-size:12px;letter-spacing:4px;text-transform:uppercase}
-body:not(.loaded){overflow:hidden!important}
-#sprog{position:fixed;top:0;left:0;height:2px;width:0;background:var(--blue);z-index:9999}
-/* --- hero entrance (gated on body.loaded) --- */
-[data-hero]{opacity:0;transform:translateY(26px)}
-body.loaded [data-hero]{opacity:1;transform:none;transition:opacity .75s var(--ease-out-expo),transform .75s var(--ease-out-expo);transition-delay:calc(var(--hd,0)*110ms)}
-.hero h1 .w,
-.hero h1 .wi,.ai-hero h1 .wi{display:inline-block;transform:translateY(115%);transition:transform .85s var(--ease-out-expo);transition-delay:calc(150ms + var(--wi,0)*50ms)}
-body.loaded .hero h1 .wi,
-.hero h1 .w,
-.hero h1 .wi,.ai-hero h1 .wi{display:inline-block;transform:translateY(115%);transition:transform .85s var(--ease-out-expo);transition-delay:calc(150ms + var(--wi,0)*50ms)}
-body.loaded .hero h1 .wi,body.loaded .ai-hero h1 .wi{transform:none}
-/* --- upgraded scroll reveals + stagger --- */
-.rv{transition:opacity .7s var(--ease-out-expo),transform .7s var(--ease-out-expo);transition-delay:calc(var(--i,0)*70ms)}
-/* --- nav: hide on scroll-down + link underline --- */
-.nav{transition:border-color .25s,box-shadow .2s,transform .35s var(--ease-out-quart)}
-.nav-hidden{transform:translateY(-100%)}
-.nav-links a{position:relative}
-.nav-links a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--blue);transform:scaleX(0);transform-origin:left;transition:transform .25s var(--ease-out-quart)}
-.nav-links a:hover::after{transform:scaleX(1)}
-/* --- button physics + sheen --- */
-.btn,.m-pri,.m-sec{transition:transform .18s var(--ease-spring),background .2s,box-shadow .25s,border-color .2s,color .2s}
-.btn:active,.m-pri:active,.m-sec:active{transform:scale(.96)}
-.btn{position:relative;overflow:hidden}
-.btn:not(.btn-outline)::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.22) 50%,transparent 70%);transform:translateX(-130%);transition:transform .65s var(--ease-out-quart);pointer-events:none}
-.btn:not(.btn-outline):hover::before{transform:translateX(130%)}
-/* --- service card hover micro-interaction --- */
-.srv-icon{transition:transform .35s var(--ease-spring)}
-.service-card:hover .srv-icon{transform:scale(1.12) rotate(6deg)}
-.srv-go i{transition:transform .25s var(--ease-out-quart)}
-.service-card:hover .srv-go i{transform:translateX(5px)}
-/* --- carousel arrow press --- */
-.car-btn{transition:border-color .2s,color .2s,transform .18s var(--ease-spring)}
-.car-btn:active{transform:scale(.88)}
-/* --- modal open/close --- */
-.modal-card{transition:transform .38s var(--ease-out-expo),opacity .3s ease}
-.modal-overlay.is-closing{opacity:0;transition:opacity .18s ease}
-.modal-overlay.is-closing .modal-card{transform:translateY(14px) scale(.95);opacity:0}
-/* --- AI panel parallax bg --- */
-.ai-panel{position:relative}
-.ai-panel-bg{position:absolute;inset:-12% 0;background:radial-gradient(55% 60% at 50% 30%,rgba(47,127,247,.10),transparent 70%);pointer-events:none}
-.ai-left,.ai-right{position:relative;z-index:1}
-/* --- magnetic CTA --- */
-.cta-box .m-pri{transition:transform .18s ease-out,background .2s,box-shadow .25s}
-@media(prefers-reduced-motion:reduce){#loader{display:none!important}}
-</style>
-<style>
-/* ================= LINEAR REBUILD (AI page) ================= */
-body{background:#0e1e45!important;color:#f2f6fd}
-.ln-nav{position:fixed;top:0;left:0;right:0;z-index:200;border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
-.ln-nav.scrolled{background:rgba(4,7,14,.8);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom-color:rgba(148,184,255,.1)}
-.ln-nav-inner{display:flex;align-items:center;height:68px;position:relative}
-.ln-nav .brand img{height:34px;width:auto;display:block}
-.ln-links{position:absolute;left:50%;transform:translateX(-50%);display:flex;gap:34px;list-style:none;margin:0;padding:0;white-space:nowrap}
-.ln-links a{color:#a9b6d3;font-size:14.5px;font-weight:500;transition:color .2s}
-.ln-links a:hover{color:#fff}
-.ln-links a.on{color:#fff}
-.ln-nav-cta{margin-left:auto;flex-shrink:0}
-.ln-nav .burger{display:none;background:none;border:none;cursor:pointer;padding:8px;margin-left:auto}
-.grad{background:linear-gradient(115deg,#9dc0ff 0%,#2f7ff7 55%,#1e5fe0 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.ln-aihero{position:relative;padding:200px 0 180px;overflow:hidden;text-align:center}
-.ai-bg{position:absolute;inset:0;z-index:0;pointer-events:none}
 
-.ai-bg-shade{position:absolute;inset:0;background:radial-gradient(ellipse 75% 65% at 50% 42%,rgba(0,0,0,.04),rgba(0,0,0,.52) 78%),linear-gradient(180deg,rgba(0,0,0,.42),rgba(0,0,0,.12) 42%,rgba(0,0,0,.62))}
-.ln-aihero .wrap{position:relative;z-index:1}
-.ln-aihero::before{content:"";position:absolute;inset:0;background:radial-gradient(58% 42% at 50% 0%,rgba(47,127,247,.17),transparent 70%);pointer-events:none}
-.ln-aihero .wrap{position:relative;z-index:1}
-.ln-aihero h1{font-size:clamp(42px,6.4vw,80px);line-height:1.04;letter-spacing:-.034em;font-weight:700;margin:26px 0 0;color:#f4f7fc}
-.ln-aihero p{color:#8b98b8;font-size:clamp(16px,2vw,19px);line-height:1.65;max-width:700px;margin:24px auto 0}
-.ln-vidshot{position:relative;max-width:980px;margin:64px auto 0}
-.ln-shot-glow{position:absolute;inset:-60px -30px;background:radial-gradient(52% 55% at 50% 42%,rgba(47,127,247,.32),transparent 72%);pointer-events:none}
-.ln-vidframe{position:relative;border:1px solid rgba(148,184,255,.18);border-radius:18px;overflow:hidden;background:#101f4a;box-shadow:0 50px 140px rgba(0,0,0,.65)}
-.ln-vidframe video{width:100%;height:auto;display:block;aspect-ratio:16/9;object-fit:cover}
-@media(max-width:900px){
-.ln-nav .burger{display:block}
-.ln-links{position:fixed;top:68px;left:12px;right:12px;transform:none;flex-direction:column;gap:0;background:#0a1428;border:1px solid rgba(148,184,255,.16);border-radius:14px;padding:10px;display:none;box-shadow:0 30px 60px rgba(0,0,0,.5);z-index:300}
-.ln-links.open{display:flex}
-.ln-links li a{display:block;padding:13px 16px;font-size:15.5px}
-.ln-nav-cta{display:none}
-.ln-aihero{padding-top:140px}
-}
-@media(prefers-reduced-motion:reduce){.ln-vidframe video{animation:none}}
-
+/* ===== Static blurry navy background (all pages) ===== */
+body{background:#0e1e45 !important}
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+background:
+radial-gradient(ellipse 60% 45% at 15% 10%,rgba(47,127,247,.16),transparent 70%),
+radial-gradient(ellipse 55% 40% at 85% 25%,rgba(80,60,220,.12),transparent 70%),
+radial-gradient(ellipse 70% 50% at 50% 100%,rgba(30,90,200,.14),transparent 70%);
+filter:blur(60px);}
+/* ===== MDM page specific ===== */
+.mdm-hero{padding:130px 24px 80px;text-align:center;position:relative}
+.mdm-hero .eyebrow{display:inline-block;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--blue);margin-bottom:20px;font-weight:600}
+.mdm-hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(42px,6vw,72px);font-weight:700;letter-spacing:-.02em;margin-bottom:20px;line-height:1.1}
+.mdm-hero h1 .grad{background:linear-gradient(90deg,#5b9dff,#9cc4ff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mdm-hero p.sub{color:var(--muted);font-size:19px;max-width:700px;margin:0 auto 40px;line-height:1.7}
+.mdm-ctas{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:60px}
+.mdm-devices{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:40px}
+.mdm-device{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:12px 20px;font-size:14px;display:flex;align-items:center;gap:10px}
+.mdm-device i{color:#5b9dff}
+.mdm-section{padding:60px 24px;max-width:1100px;margin:0 auto}
+.mdm-section h2{font-size:clamp(28px,4vw,40px);text-align:center;margin-bottom:16px;font-weight:700}
+.mdm-section p.lead{color:var(--muted);text-align:center;max-width:640px;margin:0 auto 50px;font-size:17px;line-height:1.7}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.feat-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:36px;transition:transform .3s,border-color .3s}
+.feat-card:hover{transform:translateY(-4px);border-color:rgba(91,157,255,.4)}
+.feat-icon{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,#5b9dff,#2f7ff7);display:flex;align-items:center;justify-content:center;font-size:24px;color:#fff;margin-bottom:20px}
+.feat-card h3{font-size:20px;margin-bottom:12px}
+.feat-card p{color:var(--muted);font-size:15.5px;line-height:1.7}
+.mdm-cta{background:linear-gradient(135deg,rgba(91,157,255,.12),rgba(80,60,220,.08));border:1px solid rgba(91,157,255,.2);border-radius:24px;padding:60px 40px;text-align:center;margin:40px auto;max-width:900px}
+.mdm-cta h2{margin-bottom:16px}
+.mdm-cta p{color:var(--muted);margin-bottom:32px;font-size:17px}
 </style>
 </head>
 <body id="top">
-<div id="loader"><img src="logo-white.png" alt="Devniques"><div class="ld-bar"><i></i></div><small>Smart Technology Solutions</small></div>
-<div id="sprog"></div>
-<noscript><style>#loader,#sprog{display:none!important}body{overflow:auto!important}</style></noscript>
-
-
+<div id="loader"><img src="logo-white.png" alt="Devniques"><div class="ld-bar"><i></i></div>
 <header class="ln-nav" id="nav">
   <div class="wrap ln-nav-inner">
     <a class="brand" href="index.html" aria-label="Devniques home"><img src="logo-white.png" alt="Devniques"></a>
@@ -351,63 +260,58 @@ body{background:#0e1e45!important;color:#f2f6fd}
   </div>
 </header>
 
-<section class="ln-aihero">
-<div class="wrap" style="text-align:center;padding:110px 24px 70px">
-<div class="eyebrow" data-hero>MOBILIENT</div>
-<h1 data-hero style="font-size:clamp(36px,5vw,58px);font-weight:700;letter-spacing:-.02em;margin-bottom:20px">Mobilient <span class="grad">MDM</span></h1>
-<p data-hero style="color:var(--muted);font-size:17.5px;max-width:680px;margin:0 auto 36px;line-height:1.65">Device Fleet Security</p>
-<div data-hero style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
-<a href="index.html#contact" class="btn btn-primary">Contact Us</a>
+<main>
+<!-- HERO -->
+<section class="mdm-hero">
+<div class="wrap">
+<div class="eyebrow" data-hero>Mobilient</div>
+<h1 data-hero>Mobilient <span class="grad">MDM</span></h1>
+<p class="sub" data-hero>Device Fleet Security &mdash; Centralized control console for provisioning, monitoring, and locking corporate Android, iOS, Windows, and rugged handheld warehouse devices.</p>
+<div class="mdm-ctas" data-hero>
+<a href="index.html#contact" class="btn btn-primary">Contact Us <i class="fa-solid fa-arrow-right"></i></a>
 <a href="#features" class="btn btn-ghost">Explore Features</a>
 </div>
+<div class="mdm-devices" data-hero>
+<div class="mdm-device"><i class="fa-brands fa-android"></i> Android</div>
+<div class="mdm-device"><i class="fa-brands fa-apple"></i> iOS</div>
+<div class="mdm-device"><i class="fa-brands fa-windows"></i> Windows</div>
+<div class="mdm-device"><i class="fa-solid fa-tablet-screen-button"></i> Rugged Handheld</div>
+</div>
 </div>
 </section>
 
-<section id="features" style="padding:40px 24px 80px">
-<div class="wrap">
-<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;max-width:1000px;margin:0 auto">
-<div class="rv" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:28px">
-<div style="font-size:28px;margin-bottom:14px">📱</div>
-<h3 style="font-size:18px;margin-bottom:10px">Zero-Touch Enrollment</h3>
-<p style="color:var(--muted);font-size:15px;line-height:1.6">Zero-Touch Corporate Device Enrollment &amp; Kiosk Mode</p>
+<!-- FEATURES -->
+<section class="mdm-section" id="features">
+<h2 class="rv">Enterprise Device <span class="grad">Control</span></h2>
+<p class="lead rv">Everything you need to secure and manage your corporate device fleet from one console.</p>
+<div class="feat-grid">
+<div class="feat-card rv">
+<div class="feat-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+<h3>Zero-Touch Enrollment</h3>
+<p>Zero-Touch Corporate Device Enrollment &amp; Kiosk Mode &mdash; deploy devices straight out of the box with no manual setup.</p>
 </div>
-<div class="rv" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:28px">
-<div style="font-size:28px;margin-bottom:14px">🔒</div>
-<h3 style="font-size:18px;margin-bottom:10px">Remote Security</h3>
-<p style="color:var(--muted);font-size:15px;line-height:1.6">Remote Wipe &amp; Stolen Asset Lockdown Command</p>
+<div class="feat-card rv">
+<div class="feat-icon"><i class="fa-solid fa-shield-halved"></i></div>
+<h3>Remote Security</h3>
+<p>Remote Wipe &amp; Stolen Asset Lockdown Command &mdash; instantly secure lost or stolen devices from anywhere.</p>
 </div>
-<div class="rv" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:16px;padding:28px">
-<div style="font-size:28px;margin-bottom:14px">📦</div>
-<h3 style="font-size:18px;margin-bottom:10px">App Distribution</h3>
-<p style="color:var(--muted);font-size:15px;line-height:1.6">Enterprise Private App Catalog Distribution</p>
+<div class="feat-card rv">
+<div class="feat-icon"><i class="fa-solid fa-box-open"></i></div>
+<h3>App Distribution</h3>
+<p>Enterprise Private App Catalog Distribution &mdash; push the right apps to the right devices, silently and securely.</p>
 </div>
 </div>
-</div>
-</section>
-<section id="capabilities">
-  <div class="wrap">
-    <div class="sec-head"><span class="eyebrow rv">Capabilities</span><h2 class="rv">What We Automate</h2><p class="rv">Practical AI, built for real business workflows.</p></div>
-    <div class="cap-grid">
-      <div class="cap-card rv"><div class="srv-icon"><i class="fa-solid fa-robot"></i></div><h3 class="srv-title">AI Chatbots & Assistants</h3></div>
-      <div class="cap-card rv"><div class="srv-icon"><i class="fa-solid fa-brain"></i></div><h3 class="srv-title">Machine Learning Models</h3></div>
-      <div class="cap-card rv"><div class="srv-icon"><i class="fa-solid fa-gears"></i></div><h3 class="srv-title">Process Automation</h3></div>
-      <div class="cap-card rv"><div class="srv-icon"><i class="fa-solid fa-chart-line"></i></div><h3 class="srv-title">Predictive Analytics</h3></div>
-    </div>
-  </div>
 </section>
 
-<section id="cta">
-  <div class="wrap">
-    <div class="cta-box rv">
-      <h2>Let&rsquo;s Collaborate Together</h2>
-      <p>We are always ready to help you at any time, let&rsquo;s talk together.</p>
-      <div class="cta-actions">
-        <a class="m-pri cta-white" href="https://devniques.com/contact-us/"><span>Get a Quote</span><i class="fa-solid fa-arrow-right"></i></a>
-        <a class="m-sec" href="mailto:info@devniques.com"><span>Email Our Engineers</span><i class="fa-regular fa-envelope"></i></a>
-      </div>
-    </div>
-  </div>
+<!-- CTA -->
+<section class="mdm-section">
+<div class="mdm-cta rv">
+<h2>Secure Your Device Fleet</h2>
+<p>Get in touch to see how Mobilient MDM fits your organization.</p>
+<a href="index.html#contact" class="btn btn-primary">Get a Quote <i class="fa-solid fa-arrow-right"></i></a>
+</div>
 </section>
+</main>
 
 <footer id="contact">
   <div class="wrap">
@@ -462,6 +366,19 @@ body{background:#0e1e45!important;color:#f2f6fd}
 </footer>
 
 <script>
+// ===== Unified navbar: smooth scroll on same page, navigate otherwise =====
+document.querySelectorAll('a[data-nav]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const href=a.getAttribute('href'),parts=href.split('#'),page=parts[0],hash=parts[1];
+    const cur=(location.pathname.split('/').pop()||'index.html');
+    if(hash&&(page===''||page===cur||(cur===''&&page==='index.html'))){
+      const el=document.getElementById(hash);
+      if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth'});}
+    }
+  });
+});
+</script>
+<script>
 // Sticky nav border on scroll
 const nav = document.getElementById('nav');
 addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), {passive:true});
@@ -469,9 +386,398 @@ addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), 
 const burger = document.getElementById('burger'), navLinks = document.getElementById('navLinks');
 burger.addEventListener('click', () => navLinks.classList.toggle('open'));
 navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+// Minimal scrollspy (active nav link)
+const spyLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+const spy = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) spyLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+}), {rootMargin:'-40% 0px -55% 0px'});
+document.querySelectorAll('section[id]').forEach(x => spy.observe(x));
 // Scroll reveals (fade-up only)
 const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+document.querySelectorAll('.services-grid,.footer-grid,.cap-grid').forEach(g=>{
+  [...g.children].forEach((c,i)=>{c.classList.add('rv');c.style.setProperty('--i',i%4);});
+});
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+// Product Details Data Store for Dynamic Modal Click
+const productData = {
+  BuzzFlow: {
+    badge: "All-In-One Enterprise Platform",
+    title: "BuzzFlow Business OS",
+    summary: "BuzzFlow is Devniques' flagship digital workplace architecture. It merges instant departmental messaging, Kanban and Gantt project management, client pipeline CRM, and automated bookkeeping into a singular dashboard.",
+    features: [
+      { icon: "fa-comments", text: "Encrypted Departmental Team Chat & Channels" },
+      { icon: "fa-list-check", text: "Milestone Tracking & Sprint Task Boards" },
+      { icon: "fa-address-book", text: "Full Lifecycle Customer Relationship Management (CRM)" },
+      { icon: "fa-file-invoice-dollar", text: "Automated Invoicing, Expenses & Financial Ledgers" },
+      { icon: "fa-bell", text: "Real-time Webhook & Mobile Push Notifications" },
+      { icon: "fa-lock", text: "Role-Based Permissions & Enterprise Audit Logs" }
+    ]
+  },
+  Hospital: {
+    badge: "Comprehensive Healthcare Ecosystem",
+    title: "Hospital Management System (HMS)",
+    summary: "An enterprise-grade hospital automation system trusted by healthcare providers. Built to coordinate over 8 distinct medical user groups and 60+ specialty modules with zero downtime.",
+    features: [
+      { icon: "fa-user-doctor", text: "Doctors OPD Queue & Digital Prescription Portal" },
+      { icon: "fa-bed-pulse", text: "IPD Bed Allocation, Vitals & Nurse Station Monitoring" },
+      { icon: "fa-pills", text: "Automated Pharmacy Inventory & Batch Expiry Warnings" },
+      { icon: "fa-flask-vial", text: "Pathology Lab Testing & Barcode Sample Reports" },
+      { icon: "fa-receipt", text: "Insurance TPA Claim Handling & Multi-counter Billing" },
+      { icon: "fa-shield-halved", text: "HIPAA Compliant Electronic Medical Records (EMR)" }
+    ]
+  },
+  ShipFlow: {
+    badge: "Maritime & Freight Management",
+    title: "Ship Flow Logistics OS",
+    summary: "A cloud shipping and freight forwarding software engineered for international container lines, clearing agents, and air/sea transport consolidators.",
+    features: [
+      { icon: "fa-earth-americas", text: "Real-time Live Vessel & Container GPS Telematics" },
+      { icon: "fa-file-lines", text: "Automated Bill of Lading (BL) & Manifest Generator" },
+      { icon: "fa-scale-balanced", text: "Customs Duty Calculator & Clearance Workflow" },
+      { icon: "fa-warehouse", text: "Bonded CFS Warehouse Cargo Inventory Management" },
+      { icon: "fa-dollar-sign", text: "Multi-currency Demurrage & Freight Rate Sheets" },
+      { icon: "fa-mobile-retro", text: "Consignee Self-Service Tracking Portal" }
+    ]
+  },
+  TrackOnMoves: {
+    badge: "Fleet Telematics Platform",
+    title: "TrackOnMoves GPS & Fleet Management",
+    summary: "Precision fleet telematics engine offering complete visibility over heavy vehicle fleets, commercial delivery vans, route optimizations, and driver safety standards.",
+    features: [
+      { icon: "fa-satellite", text: "High-Frequency Sub-Second Live GPS Vehicle Tracking" },
+      { icon: "fa-gas-pump", text: "Ultrasonic Fuel Sensor & Theft Siphon Alerts" },
+      { icon: "fa-route", text: "Smart Multi-Stop Route Optimization & Geofencing" },
+      { icon: "fa-id-card", text: "Driver Behavior Scoring (Harsh Braking / Speeding)" },
+      { icon: "fa-wrench", text: "Automated Preventive Maintenance & Tire Log" },
+      { icon: "fa-power-off", text: "Remote Engine Immobilization Via Mobile App" }
+    ]
+  },
+  PostMarrow: {
+    badge: "Cybersecurity & Email Protection",
+    title: "Post Marrow Business Security Suite",
+    summary: "Hardened email infrastructure engineered to block spear-phishing, business email compromise (BEC), and malware payloads before they ever reach company mailboxes.",
+    features: [
+      { icon: "fa-shield-virus", text: "AI-Powered Zero-Day Phishing & Malware Scanners" },
+      { icon: "fa-key", text: "Automated PGP / S-MIME Email Vault Encryption" },
+      { icon: "fa-envelope-open-text", text: "DMARC, DKIM & SPF Automated Alignment Engine" },
+      { icon: "fa-server", text: "High-Availability 99.999% Redundant MX Mail Gateways" },
+      { icon: "fa-database", text: "Compliant 7-Year Immutable Email Archiving" },
+      { icon: "fa-user-lock", text: "Adaptive 2FA & Suspicious Login Geolocation Lockout" }
+    ]
+  },
+  Mobilient: {
+    badge: "Device Fleet Security",
+    title: "Mobilient Mobile Device Management (MDM)",
+    summary: "Centralized control console for provisioning, monitoring, and locking corporate Android, iOS, Windows, and rugged handheld warehouse devices.",
+    features: [
+      { icon: "fa-tablet-screen-button", text: "Zero-Touch Corporate Device Enrollment & Kiosk Mode" },
+      { icon: "fa-ban", text: "Remote Wipe & Stolen Asset Lockdown Command" },
+      { icon: "fa-cloud-arrow-down", text: "Enterprise Private App Catalog Distribution" },
+      { icon: "fa-network-wired", text: "Automated Corporate VPN & Wi-Fi Certificate Push" },
+      { icon: "fa-camera-retro", text: "Hardware Policy Enforcement (Camera/USB Disabling)" },
+      { icon: "fa-chart-line", text: "OS Version Compliance & Patch Management" }
+    ]
+  },
+  Signvero: {
+    badge: "Digital Display Network",
+    title: "Signvero Cloud Signage",
+    summary: "Manage commercial display screens, interactive touch kiosks, digital menu boards, and factory alert displays from any web browser.",
+    features: [
+      { icon: "fa-display", text: "Central Cloud Media Scheduler for 4K Video/Graphics" },
+      { icon: "fa-triangle-exclamation", text: "Instant Emergency Alert Override Broadcasting" },
+      { icon: "fa-layer-group", text: "Multi-Zone Layouts (Weather, News, Live Tickers)" },
+      { icon: "fa-wifi", text: "Offline Caching & Automatic Sync Recovery" },
+      { icon: "fa-rotate", text: "Supports Android TV, Raspberry Pi, Windows & LG WebOS" },
+      { icon: "fa-chart-pie", text: "Screen Uptime & Proof-of-Play Audit Analytics" }
+    ]
+  },
+  ERPCRM: {
+    badge: "Core Enterprise Engine",
+    title: "Unified ERP & CRM Architecture",
+    summary: "Tailor-made Enterprise Resource Planning that connects supply chain, human capital, point-of-sale, and multi-tier finance into a cohesive real-time ledger.",
+    features: [
+      { icon: "fa-boxes-stacked", text: "Multi-Warehouse Automated Inventory Reordering" },
+      { icon: "fa-users-gear", text: "Human Resources, Biometric Attendance & Payroll" },
+      { icon: "fa-handshake", text: "Sales Pipeline Forecasting & Quotation Engine" },
+      { icon: "fa-calculator", text: "Multi-currency Tax, Audit & General Ledger Accounting" },
+      { icon: "fa-link", text: "RESTful API Integration with Banks & Custom Portals" },
+      { icon: "fa-shield", text: "Granular Departmental Access Control & History Auditing" }
+    ]
+  },
+  Itmenaan: {
+    badge: "Online Marketplace",
+    title: "Itmenaan Buy & Sell Marketplace",
+    summary: "Pakistan's trusted buy & sell marketplace — a modern online platform that connects buyers and sellers across Pakistan with simple listings and safe deals.",
+    features: [
+      { icon: "fa-tags", text: "Quick Ad Posting with Photos & Categories" },
+      { icon: "fa-magnifying-glass", text: "Smart Search & Filters by City and Price" },
+      { icon: "fa-comments", text: "Direct Buyer–Seller Messaging" },
+      { icon: "fa-shield-halved", text: "Verified Profiles & Safer Transactions" },
+      { icon: "fa-mobile-screen", text: "Fast, Mobile-friendly Browsing Experience" },
+      { icon: "fa-chart-line", text: "Seller Dashboard with Listing Insights" }
+    ]
+  },
+  Microsoft365: {
+    badge: "Productivity & Cloud",
+    title: "Microsoft 365 for Business",
+    summary: "Boost productivity with Microsoft 365 — powerful apps, AI-powered Copilot assistance, and trusted cloud storage, set up and supported by Devniques.",
+    features: [
+      { icon: "fa-file-word", text: "Word, Excel, PowerPoint & Outlook Apps" },
+      { icon: "fa-wand-magic-sparkles", text: "AI-powered Copilot Assistance" },
+      { icon: "fa-cloud", text: "Secure Cloud Storage with OneDrive" },
+      { icon: "fa-video", text: "Teams Meetings, Chat & Collaboration" },
+      { icon: "fa-envelope", text: "Professional Business Email" },
+      { icon: "fa-lock", text: "Enterprise-grade Security & Compliance" }
+    ]
+  }
+};
+
+// Modal Open Function
+function openProductModal(key) {
+  const data = productData[key] || productData.BuzzFlow;
+  document.getElementById('modalBadge').innerText = data.badge;
+  document.getElementById('modalTitle').innerText = data.title;
+  document.getElementById('modalSummary').innerText = data.summary;
+  const featContainer = document.getElementById('modalFeatures');
+  featContainer.innerHTML = '';
+  data.features.forEach(f => {
+    const div = document.createElement('div');
+    div.className = 'm-feat';
+    div.innerHTML = `<i class="fa-solid ${f.icon}"></i><span>${f.text}</span>`;
+    featContainer.appendChild(div);
+  });
+
+  const modal = document.getElementById('productModal');
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProductModal() {
+  const modal = document.getElementById('productModal');
+  if (!modal.classList.contains('active')) return;
+  modal.classList.add('is-closing');
+  setTimeout(() => {
+    modal.classList.remove('active');
+    modal.classList.remove('is-closing');
+    document.body.style.overflow = 'auto';
+  }, 190);
+}
+
+function closeModalOnOuterClick(e) {
+  if (e.target.id === 'productModal') {
+    closeProductModal();
+  }
+}
+
+function requestProductQuote() {
+  const title = document.getElementById('modalTitle').innerText;
+  closeProductModal();
+  const cta = document.getElementById('cta');
+  cta.scrollIntoView({ behavior: 'smooth' });
+}
+
+function openContactModal() {
+  openProductModal('BuzzFlow');
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeProductModal()});
+
+// ===== Service modal (What We Offer cards) =====
+const serviceData = {
+  software: {icon:"fa-code", title:"Custom Software Solutions", desc:"We develop tailored software solutions that address complex business challenges and streamline operations.", included:["Discovery & Solution Architecture", "Agile Development Sprints", "QA, Testing & Hardening", "Deployment & DevOps Pipelines"]},
+  webdev: {icon:"fa-globe", title:"Website Development", desc:"Custom web development solutions engineered for performance, scalability, and business growth.", included:["Custom Design & Development", "Performance Optimization", "Scalable Architecture", "SEO-Ready Build"]},
+  marketing: {icon:"fa-bullhorn", title:"Digital Marketing", desc:"Drive traffic, increase visibility, and grow your brand with result-driven digital marketing and SEO strategies tailored to your business.", included:["SEO & Content Strategy", "Social Media Marketing", "Paid Ad Campaigns (PPC)", "Analytics & Reporting"]},
+  ecommerce: {icon:"fa-cart-shopping", title:"E-Commerce Solutions", desc:"Create secure and user-friendly online stores that enhance customer experience and increase conversions.", included:["Online Store Setup", "Secure Payment Gateways", "Product & Inventory Management", "Conversion Optimization"]},
+  mobileapp: {icon:"fa-mobile-screen", title:"Mobile App Development", desc:"We create powerful native and cross-platform mobile applications that deliver seamless user experiences.", included:["Native iOS & Android Apps", "Cross-Platform Development", "App Store Deployment", "Updates & Maintenance"]},
+  uiux: {icon:"fa-pen-ruler", title:"UI/UX Design", desc:"Create user-friendly interfaces and engaging experiences that improve usability and customer satisfaction.", included:["User Research & Wireframes", "UI Design Systems", "Interactive Prototypes", "Usability Testing"]},
+  support: {icon:"fa-headset", title:"Maintenance & Support", desc:"From managed IT services to staff augmentation, we provide reliable support and skilled resources to scale your operations.", included:["24/7 Monitoring & Support", "Managed IT Services", "Staff Augmentation", "Updates & Backups"]},
+};
+function openServiceModal(key) {
+  const d = serviceData[key];
+  if (!d) return;
+  document.getElementById('svcIcon').innerHTML = '<i class="fa-solid ' + d.icon + '"></i>';
+  document.getElementById('svcTitle').innerText = d.title;
+  document.getElementById('svcDesc').innerText = d.desc;
+  const incBox = document.getElementById('svcIncluded');
+  incBox.innerHTML = '';
+  (d.included || []).forEach(t => {
+    const el = document.createElement('div');
+    el.className = 'svc-inc';
+    el.innerHTML = '<i class="fa-solid fa-circle-check"></i><span></span>';
+    el.querySelector('span').textContent = t;
+    incBox.appendChild(el);
+  });
+  document.getElementById('serviceModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeServiceModal() {
+  const modal = document.getElementById('serviceModal');
+  if (!modal.classList.contains('active')) return;
+  modal.classList.add('is-closing');
+  setTimeout(() => {
+    modal.classList.remove('active');
+    modal.classList.remove('is-closing');
+    document.body.style.overflow = 'auto';
+  }, 190);
+}
+function closeServiceModalOnOuterClick(e) {
+  if (e.target.id === 'serviceModal') closeServiceModal();
+}
+function requestServiceQuote() {
+  closeServiceModal();
+  document.getElementById('cta').scrollIntoView({behavior:'smooth'});
+}
+document.querySelectorAll('.service-card[data-svc]').forEach(c => {
+  c.addEventListener('click', () => openServiceModal(c.dataset.svc));
+  c.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openServiceModal(c.dataset.svc); } });
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeServiceModal(); });
+
+// ===== 3D product river: auto right-to-left + drag + arrows + live caption =====
+(function(){
+  const stage = document.getElementById('stage3d');
+  const river = document.getElementById('river');
+  if (!stage || !river) return;
+  const cards = Array.from(river.querySelectorAll('.p-card'));
+  const prev = document.getElementById('carPrev'), next = document.getElementById('carNext');
+  const N = cards.length;
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let CW = 400, GAP = 36;
+  const step = () => CW + GAP;
+  const totalW = () => N * step();
+  let s = 0;
+  const AUTO = reduceMotion ? 0 : (matchMedia('(hover:none)').matches ? 34 : 70);
+  let speed = AUTO, targetSpeed = AUTO;
+  let dragging = false, dragX = 0, dragS = 0, vel = 0, lastPX = 0, dragDist = 0;
+  let inView = true, arrowAnim = null;
+  const capName = document.getElementById('carCapName'), capCat = document.getElementById('carCapCat'),
+        capIdx = document.getElementById('carCapIdx'), capFill = document.getElementById('carCapFill'),
+        capTotal = document.getElementById('carCapTotal');
+  let capCur = -1;
+  function updateCap(){
+    let bi = 0, bv = 1e9;
+    for (let i = 0; i < N; i++){ const a = Math.abs(cards[i]._t || 0); if (a < bv){ bv = a; bi = i; } }
+    if (bi === capCur) return;
+    capCur = bi;
+    const tEl = cards[bi].querySelector('.prod-title span');
+    const gEl = cards[bi].querySelector('.prod-tag');
+    capName.classList.add('car-cap-fade'); capCat.classList.add('car-cap-fade');
+    setTimeout(() => {
+      capName.textContent = tEl ? tEl.textContent.trim() : '';
+      capCat.textContent = gEl ? gEl.textContent.trim().toUpperCase() : '';
+      capIdx.textContent = String(bi + 1).padStart(2, '0');
+      capTotal.textContent = '/ ' + String(N).padStart(2, '0');
+      capFill.style.width = ((bi + 1) / N * 100).toFixed(1) + '%';
+      capName.classList.remove('car-cap-fade'); capCat.classList.remove('car-cap-fade');
+    }, 140);
+  }
+  function measure(){
+    CW = stage.clientWidth < 640 ? 300 : 400;
+    cards.forEach(c => { c.style.width = CW + 'px'; c.style.marginLeft = (-CW/2) + 'px'; });
+    const CH = cards[0].offsetHeight || 480;
+    cards.forEach(c => { c.style.marginTop = (-CH/2) + 'px'; });
+  }
+  function frame(ts){
+    const dt = Math.min(.05, Math.max(0, (ts - frame._l) / 1000));
+    frame._l = ts;
+    if (!inView && !dragging && !arrowAnim){ requestAnimationFrame(frame); return; }
+    if (!dragging && !arrowAnim){
+      speed += (targetSpeed - speed) * Math.min(1, dt * 2.5);
+      s += speed * dt;
+    }
+    if (arrowAnim){
+      const a = arrowAnim;
+      a.t += dt / a.dur;
+      const k = a.t >= 1 ? 1 : 1 - Math.pow(1 - a.t, 3);
+      s = a.from + (a.to - a.from) * k;
+      if (a.t >= 1) arrowAnim = null;
+    }
+    layout();
+    requestAnimationFrame(frame);
+  }
+  function layout(){
+    const TW = totalW(), half = TW / 2;
+    for (let i = 0; i < N; i++){
+      const raw = i * step() - s;
+      const w = ((raw % TW) + TW) % TW;
+      const px = w - half;
+      const t = px / half;
+      const at = Math.abs(t);
+      const vis = Math.max(0, 1 - at * 1.25);
+      const c = cards[i];
+      c.style.transform =
+        'translateX(' + px.toFixed(1) + 'px) translateZ(' + (-at * 430).toFixed(1) + 'px) rotateY(' + (t * 40).toFixed(2) + 'deg)';
+      c.style.opacity = vis.toFixed(3);
+      c.style.zIndex = Math.round(200 - at * 190);
+      c.style.pointerEvents = vis > .35 ? 'auto' : 'none';
+      c._t = t;
+    }
+    updateCap();
+  }
+  function onDragMove(e){
+    if (!dragging) return;
+    const dx = e.clientX - dragX;
+    dragDist = Math.max(dragDist, Math.abs(dx));
+    s = dragS - dx;
+    vel = (lastPX - e.clientX); lastPX = e.clientX;
+    layout();
+  }
+  function onDragEnd(){
+    window.removeEventListener('pointermove', onDragMove);
+    window.removeEventListener('pointerup', onDragEnd);
+    window.removeEventListener('pointercancel', onDragEnd);
+    if (!dragging) return;
+    dragging = false; stage.classList.remove('dragging');
+    s += vel * 6;
+  }
+  stage.addEventListener('pointerdown', e => {
+    dragging = true; stage.classList.add('dragging');
+    dragX = e.clientX; dragS = s; vel = 0; lastPX = e.clientX; dragDist = 0;
+    arrowAnim = null;
+    window.addEventListener('pointermove', onDragMove);
+    window.addEventListener('pointerup', onDragEnd);
+    window.addEventListener('pointercancel', onDragEnd);
+  });
+  stage.addEventListener('dragstart', e => e.preventDefault());
+  cards.forEach(card => {
+    card.addEventListener('click', e => {
+      if (dragDist > 8) { e.preventDefault(); return; }
+      if(card.dataset.page){location.href=card.dataset.page;return;}openProductModal(card.dataset.key);
+    });
+  });
+  stage.addEventListener('mouseenter', () => { targetSpeed = 0; });
+  stage.addEventListener('mouseleave', () => { if (!reduceMotion) targetSpeed = AUTO; });
+  function nudge(dir){
+    if (arrowAnim) return;
+    arrowAnim = {from: s, to: s + dir * step() * 2, t: 0, dur: .55};
+  }
+  if (prev) prev.addEventListener('click', () => nudge(-1));
+  if (next) next.addEventListener('click', () => nudge(1));
+  const vids = cards.map(c => c.querySelector('video'));
+  vids.forEach(v => { if (!v) return;
+    v.addEventListener('playing', () => v.classList.add('playing'));
+    v.addEventListener('pause', () => v.classList.remove('playing'));
+  });
+  if (matchMedia('(hover:hover)').matches) {
+    cards.forEach((c, i) => {
+      if (!vids[i]) return;
+      c.addEventListener('pointerenter', () => vids[i].play().catch(()=>{}));
+      c.addEventListener('pointerleave', () => vids[i].pause());
+    });
+  } else {
+    setInterval(() => vids.forEach((v, i) => {
+      if (!v) return;
+      if (Math.abs(cards[i]._t || 0) < .35 && inView && !document.hidden) v.play().catch(()=>{}); else v.pause();
+    }), 500);
+  }
+  new IntersectionObserver(es => es.forEach(e => {
+    inView = e.isIntersecting;
+    if (!inView) vids.forEach(v => { if (v && !v.paused) v.pause(); });
+  }), {threshold:.05}).observe(stage);
+  addEventListener('resize', () => { measure(); layout(); });
+  measure(); layout();
+  requestAnimationFrame(ts => { frame._l = ts; requestAnimationFrame(frame); });
+})();
 
 // ===== MOTION: loader -> body.loaded =====
 (function(){
@@ -498,10 +804,6 @@ document.querySelectorAll('.hero h1, .ai-hero h1').forEach(h1=>{
       return '<span class="w"><span class="wi'+cls+'" style="--wi:'+(wi++)+'">'+t+'</span></span>';
     }).join('');
   }).join('');
-});
-// ===== MOTION: stagger children of grids =====
-document.querySelectorAll('.services-grid,.footer-grid,.cap-grid').forEach(g=>{
-  [...g.children].forEach((c,i)=>{c.classList.add('rv');c.style.setProperty('--i',i%4);});
 });
 // ===== MOTION: nav hide on scroll down =====
 (function(){
@@ -552,17 +854,480 @@ if(matchMedia('(hover:hover)').matches){
 })();
 </script>
 <script>
-// ===== Unified navbar: smooth scroll on same page, navigate otherwise =====
-document.querySelectorAll('a[data-nav]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const href=a.getAttribute('href'),parts=href.split('#'),page=parts[0],hash=parts[1];
-    const cur=(location.pathname.split('/').pop()||'index.html');
-    if(hash&&(page===''||page===cur||(cur===''&&page==='index.html'))){
-      const el=document.getElementById(hash);
-      if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth'});}
-    }
-  });
+// Sticky nav border on scroll
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), {passive:true});
+// Mobile menu
+const burger = document.getElementById('burger'), navLinks = document.getElementById('navLinks');
+burger.addEventListener('click', () => navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+// Minimal scrollspy (active nav link)
+const spyLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
+const spy = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) spyLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + e.target.id));
+}), {rootMargin:'-40% 0px -55% 0px'});
+document.querySelectorAll('section[id]').forEach(x => spy.observe(x));
+// Scroll reveals (fade-up only)
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12});
+document.querySelectorAll('.services-grid,.footer-grid,.cap-grid').forEach(g=>{
+  [...g.children].forEach((c,i)=>{c.classList.add('rv');c.style.setProperty('--i',i%4);});
 });
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
+
+// Product Details Data Store for Dynamic Modal Click
+const productData = {
+  BuzzFlow: {
+    badge: "All-In-One Enterprise Platform",
+    title: "BuzzFlow Business OS",
+    summary: "BuzzFlow is Devniques' flagship digital workplace architecture. It merges instant departmental messaging, Kanban and Gantt project management, client pipeline CRM, and automated bookkeeping into a singular dashboard.",
+    features: [
+      { icon: "fa-comments", text: "Encrypted Departmental Team Chat & Channels" },
+      { icon: "fa-list-check", text: "Milestone Tracking & Sprint Task Boards" },
+      { icon: "fa-address-book", text: "Full Lifecycle Customer Relationship Management (CRM)" },
+      { icon: "fa-file-invoice-dollar", text: "Automated Invoicing, Expenses & Financial Ledgers" },
+      { icon: "fa-bell", text: "Real-time Webhook & Mobile Push Notifications" },
+      { icon: "fa-lock", text: "Role-Based Permissions & Enterprise Audit Logs" }
+    ]
+  },
+  Hospital: {
+    badge: "Comprehensive Healthcare Ecosystem",
+    title: "Hospital Management System (HMS)",
+    summary: "An enterprise-grade hospital automation system trusted by healthcare providers. Built to coordinate over 8 distinct medical user groups and 60+ specialty modules with zero downtime.",
+    features: [
+      { icon: "fa-user-doctor", text: "Doctors OPD Queue & Digital Prescription Portal" },
+      { icon: "fa-bed-pulse", text: "IPD Bed Allocation, Vitals & Nurse Station Monitoring" },
+      { icon: "fa-pills", text: "Automated Pharmacy Inventory & Batch Expiry Warnings" },
+      { icon: "fa-flask-vial", text: "Pathology Lab Testing & Barcode Sample Reports" },
+      { icon: "fa-receipt", text: "Insurance TPA Claim Handling & Multi-counter Billing" },
+      { icon: "fa-shield-halved", text: "HIPAA Compliant Electronic Medical Records (EMR)" }
+    ]
+  },
+  ShipFlow: {
+    badge: "Maritime & Freight Management",
+    title: "Ship Flow Logistics OS",
+    summary: "A cloud shipping and freight forwarding software engineered for international container lines, clearing agents, and air/sea transport consolidators.",
+    features: [
+      { icon: "fa-earth-americas", text: "Real-time Live Vessel & Container GPS Telematics" },
+      { icon: "fa-file-lines", text: "Automated Bill of Lading (BL) & Manifest Generator" },
+      { icon: "fa-scale-balanced", text: "Customs Duty Calculator & Clearance Workflow" },
+      { icon: "fa-warehouse", text: "Bonded CFS Warehouse Cargo Inventory Management" },
+      { icon: "fa-dollar-sign", text: "Multi-currency Demurrage & Freight Rate Sheets" },
+      { icon: "fa-mobile-retro", text: "Consignee Self-Service Tracking Portal" }
+    ]
+  },
+  TrackOnMoves: {
+    badge: "Fleet Telematics Platform",
+    title: "TrackOnMoves GPS & Fleet Management",
+    summary: "Precision fleet telematics engine offering complete visibility over heavy vehicle fleets, commercial delivery vans, route optimizations, and driver safety standards.",
+    features: [
+      { icon: "fa-satellite", text: "High-Frequency Sub-Second Live GPS Vehicle Tracking" },
+      { icon: "fa-gas-pump", text: "Ultrasonic Fuel Sensor & Theft Siphon Alerts" },
+      { icon: "fa-route", text: "Smart Multi-Stop Route Optimization & Geofencing" },
+      { icon: "fa-id-card", text: "Driver Behavior Scoring (Harsh Braking / Speeding)" },
+      { icon: "fa-wrench", text: "Automated Preventive Maintenance & Tire Log" },
+      { icon: "fa-power-off", text: "Remote Engine Immobilization Via Mobile App" }
+    ]
+  },
+  PostMarrow: {
+    badge: "Cybersecurity & Email Protection",
+    title: "Post Marrow Business Security Suite",
+    summary: "Hardened email infrastructure engineered to block spear-phishing, business email compromise (BEC), and malware payloads before they ever reach company mailboxes.",
+    features: [
+      { icon: "fa-shield-virus", text: "AI-Powered Zero-Day Phishing & Malware Scanners" },
+      { icon: "fa-key", text: "Automated PGP / S-MIME Email Vault Encryption" },
+      { icon: "fa-envelope-open-text", text: "DMARC, DKIM & SPF Automated Alignment Engine" },
+      { icon: "fa-server", text: "High-Availability 99.999% Redundant MX Mail Gateways" },
+      { icon: "fa-database", text: "Compliant 7-Year Immutable Email Archiving" },
+      { icon: "fa-user-lock", text: "Adaptive 2FA & Suspicious Login Geolocation Lockout" }
+    ]
+  },
+  Mobilient: {
+    badge: "Device Fleet Security",
+    title: "Mobilient Mobile Device Management (MDM)",
+    summary: "Centralized control console for provisioning, monitoring, and locking corporate Android, iOS, Windows, and rugged handheld warehouse devices.",
+    features: [
+      { icon: "fa-tablet-screen-button", text: "Zero-Touch Corporate Device Enrollment & Kiosk Mode" },
+      { icon: "fa-ban", text: "Remote Wipe & Stolen Asset Lockdown Command" },
+      { icon: "fa-cloud-arrow-down", text: "Enterprise Private App Catalog Distribution" },
+      { icon: "fa-network-wired", text: "Automated Corporate VPN & Wi-Fi Certificate Push" },
+      { icon: "fa-camera-retro", text: "Hardware Policy Enforcement (Camera/USB Disabling)" },
+      { icon: "fa-chart-line", text: "OS Version Compliance & Patch Management" }
+    ]
+  },
+  Signvero: {
+    badge: "Digital Display Network",
+    title: "Signvero Cloud Signage",
+    summary: "Manage commercial display screens, interactive touch kiosks, digital menu boards, and factory alert displays from any web browser.",
+    features: [
+      { icon: "fa-display", text: "Central Cloud Media Scheduler for 4K Video/Graphics" },
+      { icon: "fa-triangle-exclamation", text: "Instant Emergency Alert Override Broadcasting" },
+      { icon: "fa-layer-group", text: "Multi-Zone Layouts (Weather, News, Live Tickers)" },
+      { icon: "fa-wifi", text: "Offline Caching & Automatic Sync Recovery" },
+      { icon: "fa-rotate", text: "Supports Android TV, Raspberry Pi, Windows & LG WebOS" },
+      { icon: "fa-chart-pie", text: "Screen Uptime & Proof-of-Play Audit Analytics" }
+    ]
+  },
+  ERPCRM: {
+    badge: "Core Enterprise Engine",
+    title: "Unified ERP & CRM Architecture",
+    summary: "Tailor-made Enterprise Resource Planning that connects supply chain, human capital, point-of-sale, and multi-tier finance into a cohesive real-time ledger.",
+    features: [
+      { icon: "fa-boxes-stacked", text: "Multi-Warehouse Automated Inventory Reordering" },
+      { icon: "fa-users-gear", text: "Human Resources, Biometric Attendance & Payroll" },
+      { icon: "fa-handshake", text: "Sales Pipeline Forecasting & Quotation Engine" },
+      { icon: "fa-calculator", text: "Multi-currency Tax, Audit & General Ledger Accounting" },
+      { icon: "fa-link", text: "RESTful API Integration with Banks & Custom Portals" },
+      { icon: "fa-shield", text: "Granular Departmental Access Control & History Auditing" }
+    ]
+  },
+  Itmenaan: {
+    badge: "Online Marketplace",
+    title: "Itmenaan Buy & Sell Marketplace",
+    summary: "Pakistan's trusted buy & sell marketplace — a modern online platform that connects buyers and sellers across Pakistan with simple listings and safe deals.",
+    features: [
+      { icon: "fa-tags", text: "Quick Ad Posting with Photos & Categories" },
+      { icon: "fa-magnifying-glass", text: "Smart Search & Filters by City and Price" },
+      { icon: "fa-comments", text: "Direct Buyer–Seller Messaging" },
+      { icon: "fa-shield-halved", text: "Verified Profiles & Safer Transactions" },
+      { icon: "fa-mobile-screen", text: "Fast, Mobile-friendly Browsing Experience" },
+      { icon: "fa-chart-line", text: "Seller Dashboard with Listing Insights" }
+    ]
+  },
+  Microsoft365: {
+    badge: "Productivity & Cloud",
+    title: "Microsoft 365 for Business",
+    summary: "Boost productivity with Microsoft 365 — powerful apps, AI-powered Copilot assistance, and trusted cloud storage, set up and supported by Devniques.",
+    features: [
+      { icon: "fa-file-word", text: "Word, Excel, PowerPoint & Outlook Apps" },
+      { icon: "fa-wand-magic-sparkles", text: "AI-powered Copilot Assistance" },
+      { icon: "fa-cloud", text: "Secure Cloud Storage with OneDrive" },
+      { icon: "fa-video", text: "Teams Meetings, Chat & Collaboration" },
+      { icon: "fa-envelope", text: "Professional Business Email" },
+      { icon: "fa-lock", text: "Enterprise-grade Security & Compliance" }
+    ]
+  }
+};
+
+// Modal Open Function
+function openProductModal(key) {
+  const data = productData[key] || productData.BuzzFlow;
+  document.getElementById('modalBadge').innerText = data.badge;
+  document.getElementById('modalTitle').innerText = data.title;
+  document.getElementById('modalSummary').innerText = data.summary;
+  const featContainer = document.getElementById('modalFeatures');
+  featContainer.innerHTML = '';
+  data.features.forEach(f => {
+    const div = document.createElement('div');
+    div.className = 'm-feat';
+    div.innerHTML = `<i class="fa-solid ${f.icon}"></i><span>${f.text}</span>`;
+    featContainer.appendChild(div);
+  });
+
+  const modal = document.getElementById('productModal');
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProductModal() {
+  const modal = document.getElementById('productModal');
+  if (!modal.classList.contains('active')) return;
+  modal.classList.add('is-closing');
+  setTimeout(() => {
+    modal.classList.remove('active');
+    modal.classList.remove('is-closing');
+    document.body.style.overflow = 'auto';
+  }, 190);
+}
+
+function closeModalOnOuterClick(e) {
+  if (e.target.id === 'productModal') {
+    closeProductModal();
+  }
+}
+
+function requestProductQuote() {
+  const title = document.getElementById('modalTitle').innerText;
+  closeProductModal();
+  const cta = document.getElementById('cta');
+  cta.scrollIntoView({ behavior: 'smooth' });
+}
+
+function openContactModal() {
+  openProductModal('BuzzFlow');
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeProductModal()});
+
+// ===== Service modal (What We Offer cards) =====
+const serviceData = {
+  software: {icon:"fa-code", title:"Custom Software Solutions", desc:"We develop tailored software solutions that address complex business challenges and streamline operations.", included:["Discovery & Solution Architecture", "Agile Development Sprints", "QA, Testing & Hardening", "Deployment & DevOps Pipelines"]},
+  webdev: {icon:"fa-globe", title:"Website Development", desc:"Custom web development solutions engineered for performance, scalability, and business growth.", included:["Custom Design & Development", "Performance Optimization", "Scalable Architecture", "SEO-Ready Build"]},
+  marketing: {icon:"fa-bullhorn", title:"Digital Marketing", desc:"Drive traffic, increase visibility, and grow your brand with result-driven digital marketing and SEO strategies tailored to your business.", included:["SEO & Content Strategy", "Social Media Marketing", "Paid Ad Campaigns (PPC)", "Analytics & Reporting"]},
+  ecommerce: {icon:"fa-cart-shopping", title:"E-Commerce Solutions", desc:"Create secure and user-friendly online stores that enhance customer experience and increase conversions.", included:["Online Store Setup", "Secure Payment Gateways", "Product & Inventory Management", "Conversion Optimization"]},
+  mobileapp: {icon:"fa-mobile-screen", title:"Mobile App Development", desc:"We create powerful native and cross-platform mobile applications that deliver seamless user experiences.", included:["Native iOS & Android Apps", "Cross-Platform Development", "App Store Deployment", "Updates & Maintenance"]},
+  uiux: {icon:"fa-pen-ruler", title:"UI/UX Design", desc:"Create user-friendly interfaces and engaging experiences that improve usability and customer satisfaction.", included:["User Research & Wireframes", "UI Design Systems", "Interactive Prototypes", "Usability Testing"]},
+  support: {icon:"fa-headset", title:"Maintenance & Support", desc:"From managed IT services to staff augmentation, we provide reliable support and skilled resources to scale your operations.", included:["24/7 Monitoring & Support", "Managed IT Services", "Staff Augmentation", "Updates & Backups"]},
+};
+function openServiceModal(key) {
+  const d = serviceData[key];
+  if (!d) return;
+  document.getElementById('svcIcon').innerHTML = '<i class="fa-solid ' + d.icon + '"></i>';
+  document.getElementById('svcTitle').innerText = d.title;
+  document.getElementById('svcDesc').innerText = d.desc;
+  const incBox = document.getElementById('svcIncluded');
+  incBox.innerHTML = '';
+  (d.included || []).forEach(t => {
+    const el = document.createElement('div');
+    el.className = 'svc-inc';
+    el.innerHTML = '<i class="fa-solid fa-circle-check"></i><span></span>';
+    el.querySelector('span').textContent = t;
+    incBox.appendChild(el);
+  });
+  document.getElementById('serviceModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeServiceModal() {
+  const modal = document.getElementById('serviceModal');
+  if (!modal.classList.contains('active')) return;
+  modal.classList.add('is-closing');
+  setTimeout(() => {
+    modal.classList.remove('active');
+    modal.classList.remove('is-closing');
+    document.body.style.overflow = 'auto';
+  }, 190);
+}
+function closeServiceModalOnOuterClick(e) {
+  if (e.target.id === 'serviceModal') closeServiceModal();
+}
+function requestServiceQuote() {
+  closeServiceModal();
+  document.getElementById('cta').scrollIntoView({behavior:'smooth'});
+}
+document.querySelectorAll('.service-card[data-svc]').forEach(c => {
+  c.addEventListener('click', () => openServiceModal(c.dataset.svc));
+  c.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openServiceModal(c.dataset.svc); } });
+});
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeServiceModal(); });
+
+// ===== 3D product river: auto right-to-left + drag + arrows + live caption =====
+(function(){
+  const stage = document.getElementById('stage3d');
+  const river = document.getElementById('river');
+  if (!stage || !river) return;
+  const cards = Array.from(river.querySelectorAll('.p-card'));
+  const prev = document.getElementById('carPrev'), next = document.getElementById('carNext');
+  const N = cards.length;
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let CW = 400, GAP = 36;
+  const step = () => CW + GAP;
+  const totalW = () => N * step();
+  let s = 0;
+  const AUTO = reduceMotion ? 0 : (matchMedia('(hover:none)').matches ? 34 : 70);
+  let speed = AUTO, targetSpeed = AUTO;
+  let dragging = false, dragX = 0, dragS = 0, vel = 0, lastPX = 0, dragDist = 0;
+  let inView = true, arrowAnim = null;
+  const capName = document.getElementById('carCapName'), capCat = document.getElementById('carCapCat'),
+        capIdx = document.getElementById('carCapIdx'), capFill = document.getElementById('carCapFill'),
+        capTotal = document.getElementById('carCapTotal');
+  let capCur = -1;
+  function updateCap(){
+    let bi = 0, bv = 1e9;
+    for (let i = 0; i < N; i++){ const a = Math.abs(cards[i]._t || 0); if (a < bv){ bv = a; bi = i; } }
+    if (bi === capCur) return;
+    capCur = bi;
+    const tEl = cards[bi].querySelector('.prod-title span');
+    const gEl = cards[bi].querySelector('.prod-tag');
+    capName.classList.add('car-cap-fade'); capCat.classList.add('car-cap-fade');
+    setTimeout(() => {
+      capName.textContent = tEl ? tEl.textContent.trim() : '';
+      capCat.textContent = gEl ? gEl.textContent.trim().toUpperCase() : '';
+      capIdx.textContent = String(bi + 1).padStart(2, '0');
+      capTotal.textContent = '/ ' + String(N).padStart(2, '0');
+      capFill.style.width = ((bi + 1) / N * 100).toFixed(1) + '%';
+      capName.classList.remove('car-cap-fade'); capCat.classList.remove('car-cap-fade');
+    }, 140);
+  }
+  function measure(){
+    CW = stage.clientWidth < 640 ? 300 : 400;
+    cards.forEach(c => { c.style.width = CW + 'px'; c.style.marginLeft = (-CW/2) + 'px'; });
+    const CH = cards[0].offsetHeight || 480;
+    cards.forEach(c => { c.style.marginTop = (-CH/2) + 'px'; });
+  }
+  function frame(ts){
+    const dt = Math.min(.05, Math.max(0, (ts - frame._l) / 1000));
+    frame._l = ts;
+    if (!inView && !dragging && !arrowAnim){ requestAnimationFrame(frame); return; }
+    if (!dragging && !arrowAnim){
+      speed += (targetSpeed - speed) * Math.min(1, dt * 2.5);
+      s += speed * dt;
+    }
+    if (arrowAnim){
+      const a = arrowAnim;
+      a.t += dt / a.dur;
+      const k = a.t >= 1 ? 1 : 1 - Math.pow(1 - a.t, 3);
+      s = a.from + (a.to - a.from) * k;
+      if (a.t >= 1) arrowAnim = null;
+    }
+    layout();
+    requestAnimationFrame(frame);
+  }
+  function layout(){
+    const TW = totalW(), half = TW / 2;
+    for (let i = 0; i < N; i++){
+      const raw = i * step() - s;
+      const w = ((raw % TW) + TW) % TW;
+      const px = w - half;
+      const t = px / half;
+      const at = Math.abs(t);
+      const vis = Math.max(0, 1 - at * 1.25);
+      const c = cards[i];
+      c.style.transform =
+        'translateX(' + px.toFixed(1) + 'px) translateZ(' + (-at * 430).toFixed(1) + 'px) rotateY(' + (t * 40).toFixed(2) + 'deg)';
+      c.style.opacity = vis.toFixed(3);
+      c.style.zIndex = Math.round(200 - at * 190);
+      c.style.pointerEvents = vis > .35 ? 'auto' : 'none';
+      c._t = t;
+    }
+    updateCap();
+  }
+  function onDragMove(e){
+    if (!dragging) return;
+    const dx = e.clientX - dragX;
+    dragDist = Math.max(dragDist, Math.abs(dx));
+    s = dragS - dx;
+    vel = (lastPX - e.clientX); lastPX = e.clientX;
+    layout();
+  }
+  function onDragEnd(){
+    window.removeEventListener('pointermove', onDragMove);
+    window.removeEventListener('pointerup', onDragEnd);
+    window.removeEventListener('pointercancel', onDragEnd);
+    if (!dragging) return;
+    dragging = false; stage.classList.remove('dragging');
+    s += vel * 6;
+  }
+  stage.addEventListener('pointerdown', e => {
+    dragging = true; stage.classList.add('dragging');
+    dragX = e.clientX; dragS = s; vel = 0; lastPX = e.clientX; dragDist = 0;
+    arrowAnim = null;
+    window.addEventListener('pointermove', onDragMove);
+    window.addEventListener('pointerup', onDragEnd);
+    window.addEventListener('pointercancel', onDragEnd);
+  });
+  stage.addEventListener('dragstart', e => e.preventDefault());
+  cards.forEach(card => {
+    card.addEventListener('click', e => {
+      if (dragDist > 8) { e.preventDefault(); return; }
+      if(card.dataset.page){location.href=card.dataset.page;return;}openProductModal(card.dataset.key);
+    });
+  });
+  stage.addEventListener('mouseenter', () => { targetSpeed = 0; });
+  stage.addEventListener('mouseleave', () => { if (!reduceMotion) targetSpeed = AUTO; });
+  function nudge(dir){
+    if (arrowAnim) return;
+    arrowAnim = {from: s, to: s + dir * step() * 2, t: 0, dur: .55};
+  }
+  if (prev) prev.addEventListener('click', () => nudge(-1));
+  if (next) next.addEventListener('click', () => nudge(1));
+  const vids = cards.map(c => c.querySelector('video'));
+  vids.forEach(v => { if (!v) return;
+    v.addEventListener('playing', () => v.classList.add('playing'));
+    v.addEventListener('pause', () => v.classList.remove('playing'));
+  });
+  if (matchMedia('(hover:hover)').matches) {
+    cards.forEach((c, i) => {
+      if (!vids[i]) return;
+      c.addEventListener('pointerenter', () => vids[i].play().catch(()=>{}));
+      c.addEventListener('pointerleave', () => vids[i].pause());
+    });
+  } else {
+    setInterval(() => vids.forEach((v, i) => {
+      if (!v) return;
+      if (Math.abs(cards[i]._t || 0) < .35 && inView && !document.hidden) v.play().catch(()=>{}); else v.pause();
+    }), 500);
+  }
+  new IntersectionObserver(es => es.forEach(e => {
+    inView = e.isIntersecting;
+    if (!inView) vids.forEach(v => { if (v && !v.paused) v.pause(); });
+  }), {threshold:.05}).observe(stage);
+  addEventListener('resize', () => { measure(); layout(); });
+  measure(); layout();
+  requestAnimationFrame(ts => { frame._l = ts; requestAnimationFrame(frame); });
+})();
+
+// ===== MOTION: loader -> body.loaded =====
+(function(){
+  const ld=document.getElementById('loader');
+  if(!ld){document.body.classList.add('loaded');return;}
+  const t0=performance.now();let done=false;
+  function finish(){
+    if(done)return;done=true;
+    ld.classList.add('out');
+    document.body.classList.add('loaded');
+    setTimeout(()=>ld.classList.add('gone'),950);
+  }
+  function go(){setTimeout(finish,Math.max(0,1400-(performance.now()-t0)));}
+  if(document.readyState==='complete')go();
+  else{addEventListener('load',go);setTimeout(go,3500);}
+})();
+// ===== MOTION: hero headline word-mask split =====
+document.querySelectorAll('.hero h1, .ai-hero h1').forEach(h1=>{
+  let wi=0;
+  h1.innerHTML=Array.from(h1.childNodes).map(n=>{
+    const cls=n.nodeType===1&&n.className?' '+n.className:'';
+    return n.textContent.split(/(\s+)/).map(t=>{
+      if(!t||/^\s*$/.test(t))return t;
+      return '<span class="w"><span class="wi'+cls+'" style="--wi:'+(wi++)+'">'+t+'</span></span>';
+    }).join('');
+  }).join('');
+});
+// ===== MOTION: nav hide on scroll down =====
+(function(){
+  const nav=document.getElementById('nav');
+  const links=document.getElementById('navLinks');
+  let lastY=scrollY,ticking=false;
+  function onS(){
+    const y=scrollY;
+    nav.classList.toggle('nav-hidden',y>lastY&&y>140&&!(links&&links.classList.contains('open')));
+    lastY=y;ticking=false;
+  }
+  addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(onS);}},{passive:true});
+})();
+// ===== MOTION: scroll progress bar =====
+(function(){
+  const sp=document.getElementById('sprog');if(!sp)return;
+  addEventListener('scroll',()=>{
+    const h=document.documentElement;
+    const p=h.scrollTop/Math.max(1,h.scrollHeight-h.clientHeight);
+    sp.style.width=(p*100)+'%';
+  },{passive:true});
+})();
+// ===== MOTION: magnetic CTA button =====
+if(matchMedia('(hover:hover)').matches){
+  document.querySelectorAll('.cta-box .m-pri').forEach(btn=>{
+    btn.addEventListener('mousemove',e=>{
+      const r=btn.getBoundingClientRect();
+      const x=e.clientX-r.left-r.width/2,y=e.clientY-r.top-r.height/2;
+      btn.style.transform='translate('+(x*.18).toFixed(1)+'px,'+(y*.28).toFixed(1)+'px)';
+    });
+    btn.addEventListener('mouseleave',()=>{btn.style.transform='';});
+  });
+}
+// ===== MOTION: AI panel subtle parallax =====
+(function(){
+  const panel=document.querySelector('.ai-panel'),bg=panel&&panel.querySelector('.ai-panel-bg');
+  if(!panel||!bg)return;let tick=false;
+  function up(){
+    tick=false;
+    const r=panel.getBoundingClientRect(),vh=innerHeight;
+    if(r.top<vh&&r.bottom>0){
+      const p=(vh-r.top)/(vh+r.height);
+      bg.style.transform='translateY('+((p-.5)*28).toFixed(1)+'px)';
+    }
+  }
+  addEventListener('scroll',()=>{if(!tick){tick=true;requestAnimationFrame(up);}},{passive:true});
+  up();
+})();
 </script>
+
 </body>
 </html>
