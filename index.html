@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root{
-  --bg:#0a1633; --bg-deep:#071026; --ink:#ffffff; --muted:#b9c8e4;
+  --bg:#0e1e45; --bg-deep:#0a1734; --ink:#ffffff; --muted:#b9c8e4;
   --line:rgba(140,180,255,.16); --line-soft:rgba(140,180,255,.10);
   --blue:#2f7ff7; --blue-dark:#0d55c4; --cyan:#00f0ff;
   --card:rgba(255,255,255,.028);
@@ -423,7 +423,7 @@ body{background:#04070e!important;color:#f2f6fd}
 
 <header class="ln-nav" id="nav">
   <div class="wrap ln-nav-inner">
-    <a class="brand" href="#top" aria-label="Devniques home"><img src="logo-white.png" alt="Devniques"></a>
+    <a class="brand" href="index.html" aria-label="Devniques home"><img src="logo-white.png" alt="Devniques"></a>
     <button class="burger" id="burger" aria-label="Menu">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
@@ -479,10 +479,10 @@ body{background:#04070e!important;color:#f2f6fd}
               <div class="ln-card" style="--ac:#5b9dff;--d:1"><i class="fa-solid fa-tablet-screen-button"></i><p>Remote Wipe &amp; Stolen Asset Lockdown Command</p><span class="ok">Active</span></div>
               <div class="ln-card" style="--ac:#5b9dff;--d:2"><i class="fa-solid fa-tablet-screen-button"></i><p>Enterprise Private App Catalog Distribution</p><span class="ok">Active</span></div>
             </div>
-            <svg class="ln-chart" viewBox="0 0 600 120" preserveAspectRatio="none" aria-hidden="true">
-              <defs><linearGradient id="lnag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f7ff7" stop-opacity=".45"/><stop offset="1" stop-color="#2f7ff7" stop-opacity="0"/></linearGradient></defs>
-              <path d="M0,95 C40,88 70,70 110,72 C150,74 170,50 210,54 C250,58 270,34 310,38 C350,42 370,60 410,52 C450,44 480,26 520,30 C560,34 580,20 600,22 L600,120 L0,120 Z" fill="url(#lnag)"/>
-              <path d="M0,95 C40,88 70,70 110,72 C150,74 170,50 210,54 C250,58 270,34 310,38 C350,42 370,60 410,52 C450,44 480,26 520,30 C560,34 580,20 600,22" fill="none" stroke="#5b9dff" stroke-width="2.5"/>
+            <svg class="ln-chart" id="panelChart" viewBox="0 0 600 120" preserveAspectRatio="none" aria-hidden="true" style="--ac:#5b9dff">
+              <defs><linearGradient id="lnag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--ac)" stop-opacity=".45"/><stop offset="1" style="stop-color:var(--ac)" stop-opacity="0"/></linearGradient></defs>
+              <path id="chartFill" d="" fill="url(#lnag)"/>
+              <path id="chartLine" d="" fill="none" style="stroke:var(--ac)" stroke-width="2.5"/>
             </svg>
           </div>
         </div>
@@ -1371,6 +1371,7 @@ if(matchMedia('(hover:hover)').matches){
 <script>
 // ===== Interactive product explorer panel (distinct cards + auto-cycle) =====
 (function(){
+const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C233,68 267,52 300,52 C333,52 367,38 400,38 C433,38 467,24 500,24 C533,24 567,15 600,15", "fill": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C233,68 267,52 300,52 C333,52 367,38 400,38 C433,38 467,24 500,24 C533,24 567,15 600,15 L600,120 L0,120 Z"}, "ai": {"line": "M0,92 C33,92 67,88 100,88 C133,88 167,70 200,70 C233,70 267,74 300,74 C333,74 367,52 400,52 C433,52 467,36 500,36 C533,36 567,25 600,25", "fill": "M0,92 C33,92 67,88 100,88 C133,88 167,70 200,70 C233,70 267,74 300,74 C333,74 367,52 400,52 C433,52 467,36 500,36 C533,36 567,25 600,25 L600,120 L0,120 Z"}, "ship": {"line": "M0,98 C33,98 67,85 100,85 C133,85 167,90 200,90 C233,90 267,70 300,70 C333,70 367,62 400,62 C433,62 467,45 500,45 C533,45 567,30 600,30", "fill": "M0,98 C33,98 67,85 100,85 C133,85 167,90 200,90 C233,90 267,70 300,70 C333,70 367,62 400,62 C433,62 467,45 500,45 C533,45 567,30 600,30 L600,120 L0,120 Z"}, "track": {"line": "M0,90 C33,90 67,80 100,80 C133,80 167,72 200,72 C233,72 267,60 300,60 C333,60 367,50 400,50 C433,50 467,38 500,38 C533,38 567,28 600,28", "fill": "M0,90 C33,90 67,80 100,80 C133,80 167,72 200,72 C233,72 267,60 300,60 C333,60 367,50 400,50 C433,50 467,38 500,38 C533,38 567,28 600,28 L600,120 L0,120 Z"}, "buzz": {"line": "M0,96 C33,96 67,92 100,92 C133,92 167,88 200,88 C233,88 267,80 300,80 C333,80 367,66 400,66 C433,66 467,48 500,48 C533,48 567,35 600,35", "fill": "M0,96 C33,96 67,92 100,92 C133,92 167,88 200,88 C233,88 267,80 300,80 C333,80 367,66 400,66 C433,66 467,48 500,48 C533,48 567,35 600,35 L600,120 L0,120 Z"}, "post": {"line": "M0,94 C33,94 67,70 100,70 C133,70 167,66 200,66 C233,66 267,58 300,58 C333,58 367,48 400,48 C433,48 467,40 500,40 C533,40 567,32 600,32", "fill": "M0,94 C33,94 67,70 100,70 C133,70 167,66 200,66 C233,66 267,58 300,58 C333,58 367,48 400,48 C433,48 467,40 500,40 C533,40 567,32 600,32 L600,120 L0,120 Z"}, "sign": {"line": "M0,97 C33,97 67,88 100,88 C133,88 167,92 200,92 C233,92 267,78 300,78 C333,78 367,70 400,70 C433,70 467,55 500,55 C533,55 567,38 600,38", "fill": "M0,97 C33,97 67,88 100,88 C133,88 167,92 200,92 C233,92 267,78 300,78 C333,78 367,70 400,70 C433,70 467,55 500,55 C533,55 567,38 600,38 L600,120 L0,120 Z"}, "itm": {"line": "M0,93 C33,93 67,78 100,78 C133,78 167,80 200,80 C233,80 267,62 300,62 C333,62 367,58 400,58 C433,58 467,42 500,42 C533,42 567,30 600,30", "fill": "M0,93 C33,93 67,78 100,78 C133,78 167,80 200,80 C233,80 267,62 300,62 C333,62 367,58 400,58 C433,58 467,42 500,42 C533,42 567,30 600,30 L600,120 L0,120 Z"}, "hosp": {"line": "M0,95 C33,95 67,86 100,86 C133,86 167,78 200,78 C233,78 267,68 300,68 C333,68 367,58 400,58 C433,58 467,45 500,45 C533,45 567,33 600,33", "fill": "M0,95 C33,95 67,86 100,86 C133,86 167,78 200,78 C233,78 267,68 300,68 C333,68 367,58 400,58 C433,58 467,45 500,45 C533,45 567,33 600,33 L600,120 L0,120 Z"}, "ms": {"line": "M0,91 C33,91 67,76 100,76 C133,76 167,64 200,64 C233,64 267,54 300,54 C333,54 367,44 400,44 C433,44 467,35 500,35 C533,35 567,27 600,27", "fill": "M0,91 C33,91 67,76 100,76 C133,76 167,64 200,64 C233,64 267,54 300,54 C333,54 367,44 400,44 C433,44 467,35 500,35 C533,35 567,27 600,27 L600,120 L0,120 Z"}, "erp": {"line": "M0,96 C33,96 67,84 100,84 C133,84 167,88 200,88 C233,88 267,72 300,72 C333,72 367,60 400,60 C433,60 467,50 500,50 C533,50 567,36 600,36", "fill": "M0,96 C33,96 67,84 100,84 C133,84 167,88 200,88 C233,88 267,72 300,72 C333,72 367,60 400,60 C433,60 467,50 500,50 C533,50 567,36 600,36 L600,120 L0,120 Z"}};
   const P={
     mdm:{fa:"fa-tablet-screen-button",c:"#5b9dff",name:"Mobilient MDM",sub:"Device Fleet Security",feats:["Zero-Touch Corporate Device Enrollment & Kiosk Mode","Remote Wipe & Stolen Asset Lockdown Command","Enterprise Private App Catalog Distribution"]},
     ai:{fa:"fa-brain",c:"#a78bfa",name:"AI Automation",sub:"AI Automation",feats:["AI Chatbots & Assistants","Process Automation","Predictive Analytics"]},
@@ -1398,6 +1399,8 @@ if(matchMedia('(hover:hover)').matches){
     title.textContent=p.name;sub.textContent=p.sub;
     fic.className='fa-solid '+p.fa;fnm.textContent=p.name;
     const hot=fic.closest('.ln-node.hot');if(hot)hot.style.setProperty('--ac',p.c);
+    const svg=document.getElementById('panelChart'),cf=document.getElementById('chartFill'),cl=document.getElementById('chartLine');
+    if(svg&&CHARTS[k]){svg.style.setProperty('--ac',p.c);cf.setAttribute('d',CHARTS[k].fill);cl.setAttribute('d',CHARTS[k].line);}
     links.forEach(x=>{x.classList.remove('on');x.style.setProperty('--ac',P[x.dataset.p].c);});
     const act=links.find(x=>x.dataset.p===k);if(act)act.classList.add('on');
     cards.innerHTML=p.feats.map((f,i)=>'<div class="ln-card" style="--ac:'+p.c+';--d:'+i+'"><i class="fa-solid '+p.fa+'"></i><p>'+f+'</p><span class="ok">Active</span></div>').join('');
@@ -1432,24 +1435,33 @@ if(matchMedia('(hover:hover)').matches){
 (function(){
   const box=document.getElementById('aiChatLoop');if(!box)return;
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const script=[
-    {u:"Automate the approval workflow",a:"Workflow created \u00b7 3 steps"},
-    {u:"Sync reports every morning",a:"Scheduled \u00b7 runs 06:00"},
-    {u:"Summarize today's operations",a:"Done \u00b7 summary ready"}
+  const convos=[
+    [
+      {u:"Automate the approval workflow",a:"Workflow created \u00b7 3 steps"},
+      {u:"Sync reports every morning",a:"Scheduled \u00b7 runs 06:00"}
+    ],
+    [
+      {u:"Summarize today's operations",a:"Done \u00b7 summary ready"},
+      {u:"Flag urgent items for me",a:"2 flagged \u00b7 review ready"}
+    ]
   ];
   const wait=ms=>new Promise(r=>setTimeout(r,ms));
   function addMsg(cls,txt){const d=document.createElement('div');d.className=cls;d.textContent=txt;box.appendChild(d);return d;}
+  async function playConvo(c){
+    for(const s of c){
+      addMsg('ln-msg in',s.u);await wait(1000);
+      const th=addMsg('ln-msg out think','thinking');await wait(1700);
+      th.classList.remove('think');th.textContent=s.a;await wait(1600);
+    }
+  }
   async function run(){
+    let n=0;
     while(true){
-      for(const s of script){
-        addMsg('ln-msg in',s.u);await wait(1000);
-        const th=addMsg('ln-msg out think','thinking');await wait(1700);
-        th.classList.remove('think');th.textContent=s.a;await wait(1600);
-      }
+      await playConvo(convos[n%convos.length]);n++;
       await wait(2400);box.innerHTML='';
     }
   }
-  if(reduce){script.forEach(s=>{addMsg('ln-msg in',s.u);addMsg('ln-msg out',s.a);});}
+  if(reduce){convos.forEach(c=>c.forEach(s=>{addMsg('ln-msg in',s.u);addMsg('ln-msg out',s.a);}));}
   else{run();}
 })();
 </script>
