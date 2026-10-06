@@ -236,7 +236,7 @@ body::before{display:none !important}
 body:not(.loaded){overflow:hidden!important}
 #sprog{position:fixed;top:0;left:0;height:2px;width:0;background:var(--blue);z-index:9999}
 /* --- hero entrance (gated on body.loaded) --- */
-[data-hero]{opacity:0;transform:translateY(26px)}
+[data-hero]{opacity:1;transform:none}
 body.loaded [data-hero]{opacity:1;transform:none;transition:opacity .75s var(--ease-out-expo),transform .75s var(--ease-out-expo);transition-delay:calc(var(--hd,0)*110ms)}
 .hero h1 .w,.ai-hero h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.1em;margin-bottom:-.1em}
 .hero h1 .wi,.ai-hero h1 .wi{display:inline-block;transform:translateY(115%);transition:transform .85s var(--ease-out-expo);transition-delay:calc(150ms + var(--wi,0)*50ms)}
@@ -426,8 +426,8 @@ body{background:#04070e!important;color:#f2f6fd}
 
 </style>
 </head>
-<body id="top">
-<div id="loader"><img src="logo-white.png" alt="Devniques"><div class="ld-bar"><i></i></div><small>Smart Technology Solutions</small></div>
+<body id="top" class="loaded">
+<small>Smart Technology Solutions</small></div>
 <div id="sprog"></div>
 <noscript><style>#loader,#sprog{display:none!important}body{overflow:auto!important}</style></noscript>
 
@@ -1425,16 +1425,5 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
 <script>
 </script>
 <script src="components/components.js"></script>
-<script>
-// Safety net: force-finish loader after 3s no matter what
-setTimeout(function(){
-  var ld = document.getElementById('loader');
-  if(ld && !document.body.classList.contains('loaded')){
-    ld.classList.add('out');
-    document.body.classList.add('loaded');
-    setTimeout(function(){ ld.classList.add('gone'); }, 950);
-  }
-}, 3000);
-</script>
 </body>
 </html>

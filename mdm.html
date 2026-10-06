@@ -256,8 +256,7 @@ body::before{display:none !important}
     a.addEventListener('click',e=>{e.preventDefault();location.href='index.html';}
 </style>
 </head>
-<body id="top">
-<div id="loader"><img src="logo-white.png" alt="Devniques"><div class="ld-bar"><i></i></div>
+<body id="top" class="loaded">
 <div id="nav-slot"></div>
 
 <main>
@@ -1271,16 +1270,5 @@ if(matchMedia('(hover:hover)').matches){
 </script>
 
 <script src="components/components.js"></script>
-<script>
-// Safety net: force-finish loader after 3s no matter what
-setTimeout(function(){
-  var ld = document.getElementById('loader');
-  if(ld && !document.body.classList.contains('loaded')){
-    ld.classList.add('out');
-    document.body.classList.add('loaded');
-    setTimeout(function(){ ld.classList.add('gone'); }, 950);
-  }
-}, 3000);
-</script>
 </body>
 </html>
