@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root{
-  --bg:#0e1e45; --bg-deep:#0a1734; --ink:#ffffff; --muted:#b9c8e4;
+  --bg:#16295c; --bg-deep:#101f4a; --ink:#ffffff; --muted:#b9c8e4;
   --line:rgba(140,180,255,.16); --line-soft:rgba(140,180,255,.10);
   --blue:#2f7ff7; --blue-dark:#0d55c4; --cyan:#00f0ff;
   --card:rgba(255,255,255,.028);
@@ -318,6 +318,8 @@ body{background:#04070e!important;color:#f2f6fd}
 .ln-side a.on::after{content:'';position:absolute;left:0;bottom:0;height:2px;width:100%;background:var(--ac,#2f7ff7);transform-origin:left;animation:sideProg 4.5s linear forwards}
 .ln-dash.paused .ln-side a.on::after{animation-play-state:paused}
 @keyframes sideProg{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+#chartFill{transition:opacity .5s ease .35s}
+@media(prefers-reduced-motion:reduce){#chartDot{display:none}}
 @media(prefers-reduced-motion:reduce){.ln-card{animation:none}.ln-side a.on::after{animation:none}}
 .ln-cards.fade{opacity:0}
 .ln-side-brand{padding:2px 10px 16px}.ln-side-brand img{height:24px}
@@ -452,7 +454,7 @@ body{background:#04070e!important;color:#f2f6fd}
         <div class="ln-wbar"><span class="ln-dot"></span><span class="ln-dot"></span><span class="ln-dot"></span><span class="ln-url"><i class="fa-solid fa-lock"></i>devniques.com</span></div>
         <div class="ln-dash">
           <aside class="ln-side">
-            <div class="ln-side-brand"><img src="logo-white.png" alt="Devniques"></div>
+            <div class="ln-side-brand"><a href="index.html" aria-label="Devniques home"><img src="logo-white.png" alt="Devniques"></a></div>
             <a class="on" data-p="mdm"><i class="fa-solid fa-tablet-screen-button"></i>Mobilient MDM</a>
             <a data-p="ai"><i class="fa-solid fa-brain"></i>AI Automation</a>
             <a data-p="ship"><i class="fa-solid fa-box"></i>Ship Flow</a>
@@ -483,6 +485,7 @@ body{background:#04070e!important;color:#f2f6fd}
               <defs><linearGradient id="lnag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--ac)" stop-opacity=".45"/><stop offset="1" style="stop-color:var(--ac)" stop-opacity="0"/></linearGradient></defs>
               <path id="chartFill" d="" fill="url(#lnag)"/>
               <path id="chartLine" d="" fill="none" style="stroke:var(--ac)" stroke-width="2.5"/>
+              <circle id="chartDot" r="5" style="fill:var(--ac)"><animate attributeName="r" values="5;7;5" dur="1.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;.55;1" dur="1.6s" repeatCount="indefinite"/></circle>
             </svg>
           </div>
         </div>
@@ -503,7 +506,7 @@ body{background:#04070e!important;color:#f2f6fd}
 
 <section class="ln-state">
   <div class="wrap">
-    <h2 class="rv">Purpose-built for <span class="grad">digital growth</span>.</h2>
+    <h2 class="rv"><span class="grad">Digital growth</span>.</h2>
     <p class="rv">We develop tailored software solutions that address complex business challenges and streamline operations.</p>
   </div>
 </section>
@@ -803,7 +806,7 @@ body{background:#04070e!important;color:#f2f6fd}
   <div class="wrap">
     <div class="footer-grid">
       <div class="f-brand">
-        <img src="logo-white.png" alt="Devniques">
+        <a href="index.html" aria-label="Devniques home"><img src="logo-white.png" alt="Devniques"></a>
         <p>Smart Technology Solutions &mdash; innovative digital, cloud, and software solutions for a rapidly evolving digital world.</p>
         <div class="f-social">
           <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -1400,7 +1403,20 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
     fic.className='fa-solid '+p.fa;fnm.textContent=p.name;
     const hot=fic.closest('.ln-node.hot');if(hot)hot.style.setProperty('--ac',p.c);
     const svg=document.getElementById('panelChart'),cf=document.getElementById('chartFill'),cl=document.getElementById('chartLine');
-    if(svg&&CHARTS[k]){svg.style.setProperty('--ac',p.c);cf.setAttribute('d',CHARTS[k].fill);cl.setAttribute('d',CHARTS[k].line);}
+    if(svg&&CHARTS[k]){
+      svg.style.setProperty('--ac',p.c);
+      cf.setAttribute('d',CHARTS[k].fill);cl.setAttribute('d',CHARTS[k].line);
+      try{
+        const dot=document.getElementById('chartDot'),len=cl.getTotalLength(),pt=cl.getPointAtLength(len);
+        if(dot){dot.setAttribute('cx',pt.x);dot.setAttribute('cy',pt.y);}
+        if(!reduce){
+          cl.style.transition='none';cl.style.strokeDasharray=len;cl.style.strokeDashoffset=len;
+          cf.style.opacity='0';void cl.getBoundingClientRect();
+          cl.style.transition='stroke-dashoffset .9s cubic-bezier(.2,.7,.3,1)';cl.style.strokeDashoffset='0';
+          cf.style.opacity='1';
+        } else { cl.style.strokeDasharray='none'; }
+      }catch(e){}
+    }
     links.forEach(x=>{x.classList.remove('on');x.style.setProperty('--ac',P[x.dataset.p].c);});
     const act=links.find(x=>x.dataset.p===k);if(act)act.classList.add('on');
     cards.innerHTML=p.feats.map((f,i)=>'<div class="ln-card" style="--ac:'+p.c+';--d:'+i+'"><i class="fa-solid '+p.fa+'"></i><p>'+f+'</p><span class="ok">Active</span></div>').join('');
@@ -1428,6 +1444,9 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
   }
   document.addEventListener('visibilitychange',()=>{document.hidden?stop():start();});
   render(keys[0]);start();
+  document.querySelectorAll('a.brand').forEach(a=>{
+    a.addEventListener('click',e=>{e.preventDefault();location.href='index.html';});
+  });
 })();
 </script>
 <script>
