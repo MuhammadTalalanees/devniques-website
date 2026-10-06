@@ -53,7 +53,7 @@ section{padding:96px 0}
 .sec-head h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(30px,3.8vw,42px);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin:16px 0}
 .sec-head p{color:var(--muted);font-size:17px;line-height:1.65}
 /* ===== REVEAL (scroll only) ===== */
-.rv{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.rv{opacity:1;transform:none}
 .rv.in{opacity:1;transform:none}
 /* ===== PRODUCT RIVER (sliding carousel) ===== */
 .drag-hint{display:flex;align-items:center;justify-content:center;gap:10px;color:#8fa6cf;font-size:13px;font-weight:600;letter-spacing:1.5px;margin:-20px 0 22px;text-transform:uppercase}
@@ -734,17 +734,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeService
   if(document.readyState==='complete')go();
   else{addEventListener('load',go);setTimeout(go,3500);}
 })();
-// ===== MOTION: hero headline word-mask split =====
-document.querySelectorAll('.hero h1, .ai-hero h1').forEach(h1=>{
-  let wi=0;
-  h1.innerHTML=Array.from(h1.childNodes).map(n=>{
-    const cls=n.nodeType===1&&n.className?' '+n.className:'';
-    return n.textContent.split(/(\s+)/).map(t=>{
-      if(!t||/^\s*$/.test(t))return t;
-      return '<span class="w"><span class="wi'+cls+'" style="--wi:'+(wi++)+'">'+t+'</span></span>';
-    }).join('');
-  }).join('');
-});
+// Word animation removed (was causing text doubling)
 // ===== MOTION: nav hide on scroll down =====
 (function(){
   const nav=document.getElementById('nav');
