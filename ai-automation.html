@@ -204,14 +204,13 @@ footer{position:relative;border-top:2px solid rgba(91,157,255,.45);background:#0
   *,*::before,*::after{transition-duration:.01ms!important}
 }
 
-/* ===== Static blurry navy background (all pages) ===== */
-body{background:#0e1e45 !important}
-body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
-background:
-radial-gradient(ellipse 60% 45% at 15% 10%,rgba(47,127,247,.16),transparent 70%),
-radial-gradient(ellipse 55% 40% at 85% 25%,rgba(80,60,220,.12),transparent 70%),
-radial-gradient(ellipse 70% 50% at 50% 100%,rgba(30,90,200,.14),transparent 70%);
-filter:blur(60px);}
+
+
+
+/* ===== Lighter navy theme (static, no canvas, no animation) ===== */
+:root{--bg:#1d3b71 !important}
+body{background:#1d3b71 !important}
+body::before{display:none !important}
 
 </style>
 <style>
@@ -236,14 +235,14 @@ filter:blur(60px);}
   --ease-spring:cubic-bezier(.34,1.56,.64,1);
 }
 /* --- premium loader (restored) --- */
-#loader{position:fixed;inset:0;z-index:10000;background:#0e1e45;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:clip-path .9s cubic-bezier(.76,0,.24,1)}
-#loader.out{clip-path:inset(0 0 100% 0);pointer-events:none}
-#loader.gone{display:none}
+
+
+
 #loader img{height:54px;animation:ldPulse 1.6s ease-in-out infinite}
-@keyframes ldPulse{50%{transform:scale(1.07)}}
+}
 .ld-bar{width:220px;height:3px;border-radius:3px;background:rgba(255,255,255,.12);overflow:hidden}
 .ld-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--blue),#9cc4ff);animation:ldFill 1.35s cubic-bezier(.6,0,.2,1) forwards}
-@keyframes ldFill{to{width:100%}}
+}
 #loader small{color:#8fa6cf;font-size:12px;letter-spacing:4px;text-transform:uppercase}
 body:not(.loaded){overflow:hidden!important}
 #sprog{position:fixed;top:0;left:0;height:2px;width:0;background:var(--blue);z-index:9999}
@@ -288,11 +287,11 @@ body.loaded .hero h1 .wi,body.loaded .ai-hero h1 .wi{transform:none}
 .ai-left,.ai-right{position:relative;z-index:1}
 /* --- magnetic CTA --- */
 .cta-box .m-pri{transition:transform .18s ease-out,background .2s,box-shadow .25s}
-@media(prefers-reduced-motion:reduce){#loader{display:none!important}}
+@media(prefers-reduced-motion:reduce){}
 </style>
 <style>
 /* ================= LINEAR REBUILD (AI page) ================= */
-body{background:#0e1e45!important;color:#f2f6fd}
+body{background:#1d3b71!important;color:#f2f6fd}
 .ln-nav{position:fixed;top:0;left:0;right:0;z-index:200;border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
 .ln-nav.scrolled{background:rgba(4,7,14,.8);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom-color:rgba(148,184,255,.1)}
 .ln-nav-inner{display:flex;align-items:center;height:68px;position:relative}
@@ -329,27 +328,13 @@ body{background:#0e1e45!important;color:#f2f6fd}
 
 </style>
 </head>
-<body id="top">
-<div id="loader"><img src="logo-white.png" alt="Devniques"><div class="ld-bar"><i></i></div><small>Smart Technology Solutions</small></div>
+<body id="top" class="loaded">
+<small>Smart Technology Solutions</small></div>
 <div id="sprog"></div>
 <noscript><style>#loader,#sprog{display:none!important}body{overflow:auto!important}</style></noscript>
 
 
-<header class="ln-nav" id="nav">
-  <div class="wrap ln-nav-inner">
-    <a class="brand" href="index.html" aria-label="Devniques home"><img src="logo-white.png" alt="Devniques"></a>
-    <button class="burger" id="burger" aria-label="Menu">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
-    <ul class="ln-links" id="navLinks">
-      <li><a href="index.html" data-nav>Home</a></li>
-      <li><a href="index.html#products" data-nav>Products</a></li>
-      <li><a href="ai-automation.html" data-nav>AI Automation</a></li>
-      <li><a href="index.html#offer" data-nav>Services</a></li>
-      <li><a href="index.html#contact" data-nav>Contact</a></li>
-    </ul>
-  </div>
-</header>
+<div id="nav-slot"></div>
 
 <section class="ln-aihero">
   <div class="ai-bg" aria-hidden="true">
@@ -387,57 +372,7 @@ body{background:#0e1e45!important;color:#f2f6fd}
   </div>
 </section>
 
-<footer id="contact">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="f-brand">
-        <a href="index.html" aria-label="Devniques home"><img src="logo-white.png" alt="Devniques"></a>
-        <p>Smart Technology Solutions &mdash; innovative digital, cloud, and software solutions for a rapidly evolving digital world.</p>
-        <div class="f-social">
-          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-          <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Products</h4>
-        <ul>
-          <li><a href="javascript:void(0)" onclick="openProductModal('BuzzFlow')">BuzzFlow Suite</a></li>
-          <li><a href="javascript:void(0)" onclick="openProductModal('Hospital')">Hospital Management</a></li>
-          <li><a href="javascript:void(0)" onclick="openProductModal('ShipFlow')">Ship Flow Logistics</a></li>
-          <li><a href="javascript:void(0)" onclick="openProductModal('TrackOnMoves')">TrackOnMoves Fleet</a></li>
-          <li><a href="javascript:void(0)" onclick="openProductModal('PostMarrow')">Post Marrow Email</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="https://devniques.com/software-solutions/">Custom Software</a></li>
-          <li><a href="https://devniques.com/web-development/">Website Development</a></li>
-          <li><a href="https://devniques.com/digital-marketing-and-seo-services/">Digital Marketing</a></li>
-          <li><a href="https://devniques.com/microsoft-365/">Microsoft 365</a></li>
-          <li><a href="https://devniques.com/erp-crm/">ERP &amp; CRM Systems</a></li>
-        </ul>
-      </div>
-      <div class="footer-col f-contact">
-        <h4>HQ &amp; Contact</h4>
-        <p><i class="fa-solid fa-location-dot"></i> Office No. 904, 9th Floor, Dulara Business Center, Khalid Bin Waleed Road, Karachi</p>
-        <p><i class="fa-solid fa-phone"></i> 021-36275379</p>
-        <p><i class="fa-solid fa-envelope"></i> info@devniques.com</p>
-        <p><i class="fa-solid fa-clock"></i> Mon &ndash; Sat : 9:00 AM &ndash; 6:00 PM</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div>&copy; 2026 Devniques Technology Solutions. All Rights Reserved.</div>
-      <div class="fb-links">
-        <a href="index.html">Home</a>
-        <a href="index.html#products">Products</a>
-        <a href="https://devniques.com/blog/">Blog</a>
-        <a href="https://devniques.com/contact-us/">Contact Us</a>
-      </div>
-    </div>
-  </div>
-</footer>
+<div id="footer-slot"></div>
 
 <script>
 // Sticky nav border on scroll
@@ -530,17 +465,7 @@ if(matchMedia('(hover:hover)').matches){
 })();
 </script>
 <script>
-// ===== Unified navbar: smooth scroll on same page, navigate otherwise =====
-document.querySelectorAll('a[data-nav]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const href=a.getAttribute('href'),parts=href.split('#'),page=parts[0],hash=parts[1];
-    const cur=(location.pathname.split('/').pop()||'index.html');
-    if(hash&&(page===''||page===cur||(cur===''&&page==='index.html'))){
-      const el=document.getElementById(hash);
-      if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth'});}
-    }
-  });
-});
 </script>
+<script src="components/components.js"></script>
 </body>
 </html>

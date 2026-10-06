@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 :root{
-  --bg:#0e1e45; --bg-deep:#101f4a; --ink:#ffffff; --muted:#b9c8e4;
+  --bg:#1d3b71; --bg-deep:#101f4a; --ink:#ffffff; --muted:#b9c8e4;
   --line:rgba(140,180,255,.16); --line-soft:rgba(140,180,255,.10);
   --blue:#2f7ff7; --blue-dark:#0d55c4; --cyan:#00f0ff;
   --card:rgba(255,255,255,.028);
@@ -204,14 +204,13 @@ footer{border-top:1px solid var(--line-soft);background:#050d24;padding:72px 0 3
   *,*::before,*::after{transition-duration:.01ms!important}
 }
 
-/* ===== Static blurry navy background (all pages) ===== */
-body{background:#0e1e45 !important}
-body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
-background:
-radial-gradient(ellipse 60% 45% at 15% 10%,rgba(47,127,247,.16),transparent 70%),
-radial-gradient(ellipse 55% 40% at 85% 25%,rgba(80,60,220,.12),transparent 70%),
-radial-gradient(ellipse 70% 50% at 50% 100%,rgba(30,90,200,.14),transparent 70%);
-filter:blur(60px);}
+
+
+
+/* ===== Lighter navy theme (static, no canvas, no animation) ===== */
+:root{--bg:#1d3b71 !important}
+body{background:#1d3b71 !important}
+body::before{display:none !important}
 
 </style>
 <style>
@@ -433,21 +432,7 @@ body{background:#04070e!important;color:#f2f6fd}
 <noscript><style>#loader,#sprog{display:none!important}body{overflow:auto!important}</style></noscript>
 
 
-<header class="ln-nav" id="nav">
-  <div class="wrap ln-nav-inner">
-    <a class="brand" href="index.html" aria-label="Devniques home"><img src="logo-white.png" alt="Devniques"></a>
-    <button class="burger" id="burger" aria-label="Menu">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
-    </button>
-    <ul class="ln-links" id="navLinks">
-      <li><a href="index.html" data-nav>Home</a></li>
-      <li><a href="index.html#products" data-nav>Products</a></li>
-      <li><a href="ai-automation.html" data-nav>AI Automation</a></li>
-      <li><a href="index.html#offer" data-nav>Services</a></li>
-      <li><a href="index.html#contact" data-nav>Contact</a></li>
-    </ul>
-  </div>
-</header>
+<div id="nav-slot"></div>
 
 <section class="ln-hero" id="top">
   <div class="wrap ln-hero-inner">
@@ -806,57 +791,7 @@ body{background:#04070e!important;color:#f2f6fd}
   </div>
 </section>
 
-<footer id="contact">
-  <div class="wrap">
-    <div class="footer-grid">
-      <div class="f-brand">
-        <a href="index.html" aria-label="Devniques home"><img src="logo-white.png" alt="Devniques"></a>
-        <p>Smart Technology Solutions &mdash; innovative digital, cloud, and software solutions for a rapidly evolving digital world.</p>
-        <div class="f-social">
-          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
-          <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
-          <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Products</h4>
-        <ul>
-          <li><a href="javascript:void(0)" onclick="openProductModal('BuzzFlow')">BuzzFlow Suite</a></li>
-          <li><a href="javascript:void(0)" onclick="openProductModal('Hospital')">Hospital Management</a></li>
-          <li><a href="javascript:void(0)" onclick="openProductModal('ShipFlow')">Ship Flow Logistics</a></li>
-          <li><a href="javascript:void(0)" onclick="openProductModal('TrackOnMoves')">TrackOnMoves Fleet</a></li>
-          <li><a href="javascript:void(0)" onclick="openProductModal('PostMarrow')">Post Marrow Email</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Services</h4>
-        <ul>
-          <li><a href="https://devniques.com/software-solutions/">Custom Software</a></li>
-          <li><a href="https://devniques.com/web-development/">Website Development</a></li>
-          <li><a href="https://devniques.com/digital-marketing-and-seo-services/">Digital Marketing</a></li>
-          <li><a href="https://devniques.com/microsoft-365/">Microsoft 365</a></li>
-          <li><a href="https://devniques.com/erp-crm/">ERP &amp; CRM Systems</a></li>
-        </ul>
-      </div>
-      <div class="footer-col f-contact">
-        <h4>HQ &amp; Contact</h4>
-        <p><i class="fa-solid fa-location-dot"></i> Office No. 904, 9th Floor, Dulara Business Center, Khalid Bin Waleed Road, Karachi</p>
-        <p><i class="fa-solid fa-phone"></i> 021-36275379</p>
-        <p><i class="fa-solid fa-envelope"></i> info@devniques.com</p>
-        <p><i class="fa-solid fa-clock"></i> Mon &ndash; Sat : 9:00 AM &ndash; 6:00 PM</p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div>&copy; 2026 Devniques Technology Solutions. All Rights Reserved.</div>
-      <div class="fb-links">
-        <a href="index.html">Home</a>
-        <a href="index.html#products">Products</a>
-        <a href="https://devniques.com/blog/">Blog</a>
-        <a href="https://devniques.com/contact-us/">Contact Us</a>
-      </div>
-    </div>
-  </div>
-</footer>
+<div id="footer-slot"></div>
 
 <!-- Interactive Product Detail Modal (Opens when ANY product is clicked!) -->
 <div class="modal-overlay" id="productModal" onclick="closeModalOnOuterClick(event)">
@@ -1486,17 +1421,7 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
 })();
 </script>
 <script>
-// ===== Unified navbar: smooth scroll on same page, navigate otherwise =====
-document.querySelectorAll('a[data-nav]').forEach(a=>{
-  a.addEventListener('click',e=>{
-    const href=a.getAttribute('href'),parts=href.split('#'),page=parts[0],hash=parts[1];
-    const cur=(location.pathname.split('/').pop()||'index.html');
-    if(hash&&(page===''||page===cur||(cur===''&&page==='index.html'))){
-      const el=document.getElementById(hash);
-      if(el){e.preventDefault();el.scrollIntoView({behavior:'smooth'});}
-    }
-  });
-});
 </script>
+<script src="components/components.js"></script>
 </body>
 </html>
