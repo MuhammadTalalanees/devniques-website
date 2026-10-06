@@ -836,8 +836,10 @@ body{background:#04070e!important;color:#f2f6fd}
 
 <script>
 // Sticky nav border on scroll
-const nav = document.getElementById('nav');
-addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), {passive:true});
+addEventListener('scroll', () => {
+  const nav = document.getElementById('nav') || document.querySelector('#nav-slot header');
+  if(nav) nav.classList.toggle('scrolled', scrollY > 8);
+}, {passive:true});
 // Mobile menu
 const burger = document.getElementById('burger'), navLinks = document.getElementById('navLinks');
 burger.addEventListener('click', () => navLinks.classList.toggle('open'));
@@ -1423,5 +1425,16 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
 <script>
 </script>
 <script src="components/components.js"></script>
+<script>
+// Safety net: force-finish loader after 3s no matter what
+setTimeout(function(){
+  var ld = document.getElementById('loader');
+  if(ld && !document.body.classList.contains('loaded')){
+    ld.classList.add('out');
+    document.body.classList.add('loaded');
+    setTimeout(function(){ ld.classList.add('gone'); }, 950);
+  }
+}, 3000);
+</script>
 </body>
 </html>
