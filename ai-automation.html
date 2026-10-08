@@ -36,7 +36,10 @@ a{text-decoration:none;color:inherit}
 /* ===== HERO ===== */
 .lx-hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden;padding:140px 24px 110px}
 .lx-hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
-.lx-hero-bg video{position:absolute;inset:-45px;width:calc(100% + 90px);height:calc(100% + 90px);object-fit:cover;opacity:.68;filter:blur(3px)}
+.lx-hero-bg video{position:absolute;inset:-45px;width:calc(100% + 90px);height:calc(100% + 90px);object-fit:cover;opacity:.85}
+.lx-hero-bg .ai-side-blur{position:absolute;top:0;bottom:0;width:24%;pointer-events:none;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.lx-hero-bg .ai-side-blur.left{left:0;-webkit-mask-image:linear-gradient(to right,#000 30%,transparent);mask-image:linear-gradient(to right,#000 30%,transparent)}
+.lx-hero-bg .ai-side-blur.right{right:0;-webkit-mask-image:linear-gradient(to left,#000 30%,transparent);mask-image:linear-gradient(to left,#000 30%,transparent)}
 .lx-hero-bg .ai-bg-shade{position:absolute;inset:0;background:radial-gradient(ellipse 75% 65% at 50% 42%,rgba(0,0,0,.04),rgba(0,0,0,.52) 78%),linear-gradient(180deg,rgba(0,0,0,.42),rgba(0,0,0,.12) 42%,rgba(0,0,0,.62))}
 .lx-hero-inner{position:relative;z-index:1;max-width:860px}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:2.5px;color:var(--lx-cyan);text-transform:uppercase;margin-bottom:26px;padding:9px 20px;border-radius:999px;background:rgba(0,240,255,.05);border:1px solid rgba(0,240,255,.28)}
@@ -213,6 +216,8 @@ a{text-decoration:none;color:inherit}
 <section class="lx-hero">
   <div class="lx-hero-bg" aria-hidden="true">
     <video autoplay muted loop playsinline preload="metadata" src="videos/ai-hero.mp4"></video>
+    <div class="ai-side-blur left"></div>
+    <div class="ai-side-blur right"></div>
     <div class="ai-bg-shade"></div>
   </div>
   <div class="lx-hero-inner">

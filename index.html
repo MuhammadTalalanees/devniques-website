@@ -438,7 +438,7 @@ body{background:#04070e!important;color:#f2f6fd}
         <div class="ln-dash">
           <aside class="ln-side">
             <div class="ln-side-brand"><a href="index.html" aria-label="Devniques home"><img src="logo-white.png" alt="Devniques"></a></div>
-            <a class="on" data-p="mdm"><i class="fa-solid fa-tablet-screen-button"></i>Mobilient MDM</a>
+            <a class="on" data-p="mdm"><i class="fa-solid fa-tablet-screen-button"></i>Devniques MDM</a>
             <a data-p="ai"><i class="fa-solid fa-brain"></i>AI Automation</a>
             <a data-p="ship"><i class="fa-solid fa-box"></i>Ship Flow</a>
             <a data-p="track"><i class="fa-solid fa-truck-fast"></i>TrackOnMoves</a>
@@ -451,7 +451,7 @@ body{background:#04070e!important;color:#f2f6fd}
             <a data-p="erp"><i class="fa-solid fa-diagram-project"></i>ERP &amp; CRM</a>
           </aside>
           <div class="ln-main">
-            <div class="ln-mhead"><div><h4 id="panelTitle">Mobilient MDM</h4><p id="panelSub">Device Fleet Security</p></div><span class="ln-live"><i></i>Live</span></div>
+            <div class="ln-mhead"><div><h4 id="panelTitle">Devniques MDM</h4><p id="panelSub">Device Fleet Security</p></div><span class="ln-live"><i></i>Live</span></div>
             <div class="ln-flow">
               <div class="ln-node"><i class="fa-solid fa-bolt"></i><span>Trigger</span></div>
               <div class="ln-link"></div>
@@ -484,13 +484,6 @@ body{background:#04070e!important;color:#f2f6fd}
       <span>Ship Flow</span><span>TrackOnMoves</span><span>Itmenaan</span><span>Hospital Management</span><span>Microsoft 365</span><span>ERP &amp; CRM</span><span>Mobilient MDM</span><span>Signvero</span><span>Post Marrow</span><span>BuzzFlow</span>
       <span>Ship Flow</span><span>TrackOnMoves</span><span>Itmenaan</span><span>Hospital Management</span><span>Microsoft 365</span><span>ERP &amp; CRM</span><span>Mobilient MDM</span><span>Signvero</span><span>Post Marrow</span><span>BuzzFlow</span>
     </div></div>
-  </div>
-</section>
-
-<section class="ln-state">
-  <div class="wrap">
-    <h2 class="rv"><span class="grad">Digital growth</span>.</h2>
-    <p class="rv">We develop tailored software solutions that address complex business challenges and streamline operations.</p>
   </div>
 </section>
 <section id="products">
@@ -573,7 +566,7 @@ body{background:#04070e!important;color:#f2f6fd}
           <span class="prod-tag">Device Control</span>
         </div>
         <div class="prod-body">
-          <div class="prod-title"><span>Mobilient MDM</span><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+          <div class="prod-title"><span>Devniques MDM</span><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
           <p class="prod-desc">Enterprise Mobility Management to remotely monitor, lock, update, and secure your company's smartphones, tablets, POS terminals, and laptops.</p>
           <div class="prod-specs">
             <div class="spec-chip"><i class="fa-solid fa-check"></i>Remote Lock/Wipe</div>
@@ -712,7 +705,7 @@ body{background:#04070e!important;color:#f2f6fd}
   <div class="wrap ln-feat-grid">
     <div class="ln-feat-copy">
       <span class="eyebrow rv">AI Automation</span>
-      <h2 class="rv">AI &amp; Machine Learning</h2>
+      <h2 class="rv">AI &amp; Automation</h2>
       <p class="rv">Leverage the latest technologies to stay ahead of the curve, including innovative solutions that future-proof your business.</p>
       <ul class="ln-checks rv">
         <li><i class="fa-solid fa-check"></i>AI Chatbots &amp; Assistants</li>
@@ -735,7 +728,7 @@ body{background:#04070e!important;color:#f2f6fd}
   <div class="wrap ln-feat-grid">
     <div class="ln-feat-copy">
       <span class="eyebrow rv">Device Fleet Security</span>
-      <h2 class="rv">Mobilient Mobile Device Management</h2>
+      <h2 class="rv">Devniques Mobile Device Management</h2>
       <p class="rv">Centralized control console for provisioning, monitoring, and locking corporate Android, iOS, Windows, and rugged handheld warehouse devices.</p>
       <ul class="ln-checks rv">
         <li><i class="fa-solid fa-check"></i>Zero-Touch Corporate Device Enrollment &amp; Kiosk Mode</li>
@@ -747,7 +740,7 @@ body{background:#04070e!important;color:#f2f6fd}
     </div>
     <div class="ln-feat-visual rv">
       <div class="ln-fleet">
-        <div class="ln-fleet-head"><i class="fa-solid fa-shield-halved"></i><div><h4>Device fleet</h4><p>Managed by Mobilient MDM</p></div></div>
+        <div class="ln-fleet-head"><i class="fa-solid fa-shield-halved"></i><div><h4>Device fleet</h4><p>Managed by Devniques MDM</p></div></div>
         <div class="ln-dev"><i class="fa-solid fa-tablet-screen-button"></i><span>Android &middot; Warehouse 04</span><em class="ok">Compliant</em></div>
         <div class="ln-dev"><i class="fa-solid fa-mobile-screen"></i><span>iOS &middot; Field team</span><em class="ok">Compliant</em></div>
         <div class="ln-dev"><i class="fa-solid fa-laptop"></i><span>Windows &middot; Office</span><em class="ok">Enrolled</em></div>
@@ -1371,10 +1364,6 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
     a.style.setProperty('--ac',P[a.dataset.p].c);
     a.addEventListener('click',()=>{show(a.dataset.p);start();});
   });
-  if(dash){
-    dash.addEventListener('mouseenter',()=>{stop();dash.classList.add('paused');});
-    dash.addEventListener('mouseleave',()=>{dash.classList.remove('paused');start();});
-  }
   document.addEventListener('visibilitychange',()=>{document.hidden?stop():start();});
   render(keys[0]);start();
   document.querySelectorAll('a.brand').forEach(a=>{
