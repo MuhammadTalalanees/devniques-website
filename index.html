@@ -423,59 +423,137 @@ body{background:#04070e!important;color:#f2f6fd}
 
 <div id="navbar"></div>
 
-<section class="ln-hero" id="top">
-  <div class="wrap ln-hero-inner">
-    <h1 data-hero style="--hd:1">Smart <span class="grad">Technology</span> Solutions</h1>
-    <p class="ln-sub" data-hero style="--hd:2">We deliver innovative digital, cloud, and software solutions designed to streamline operations, enhance customer experiences, and accelerate business growth in a rapidly evolving digital world.</p>
-    <div class="ln-cta" data-hero style="--hd:3">
-      <a class="btn" href="#cta">Let&rsquo;s Start!</a>
-      <a class="btn btn-ghost" href="#products">Discover More</a>
+<!-- ===== HERO SLIDER ===== -->
+<style>
+.hero-slider{position:relative;min-height:100vh;min-height:100svh;overflow:hidden;background:#04070e;color:#fff}
+.hs-slides{position:absolute;inset:0;margin:0;padding:0;list-style:none}
+.hs-slide{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity 1.1s ease,visibility 0s linear 1.1s}
+.hs-slide.is-active{opacity:1;visibility:visible;transition:opacity 1.1s ease;z-index:1}
+.hs-slide>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.hs-shade{position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,rgba(3,6,12,.74) 0%,rgba(3,6,12,.34) 42%,rgba(3,6,12,0) 70%),linear-gradient(to top,rgba(3,6,12,.55),rgba(3,6,12,0) 36%)}
+.hs-content{position:relative;z-index:2;min-height:100vh;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding-top:88px;padding-bottom:100px}
+.hs-eyebrow{display:block;font-size:12.5px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#9db4dd;margin-bottom:18px}
+.hs-slide h1{color:#fff;font-size:clamp(40px,5.6vw,72px);font-weight:800;letter-spacing:-.03em;line-height:1.05;margin:0 0 20px;max-width:660px}
+.hs-sub{color:#c4cfe8;font-size:clamp(15.5px,1.7vw,18px);line-height:1.65;max-width:600px;margin:0 0 34px}
+.hs-cta{display:flex;gap:14px;flex-wrap:wrap}
+.hs-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(4,8,16,.35);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .25s,border-color .25s;padding:0}
+.hs-arrow:hover{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.55)}
+.hs-prev{left:26px}
+.hs-next{right:26px}
+.hs-dots{position:absolute;z-index:3;left:50%;transform:translateX(-50%);bottom:32px;display:flex;gap:10px;margin:0;padding:0;list-style:none}
+.hs-dot{width:44px;height:4px;border-radius:2px;background:rgba(255,255,255,.25);border:0;padding:0;cursor:pointer;position:relative;overflow:hidden}
+.hs-dot i{position:absolute;inset:0;background:#fff;border-radius:2px;transform:scaleX(0);transform-origin:left center;display:block}
+.hs-dot.is-active i{animation:hsfill 6s linear forwards}
+@keyframes hsfill{to{transform:scaleX(1)}}
+.hs-count{position:absolute;z-index:3;right:36px;bottom:26px;color:#fff;font-size:14px;letter-spacing:.2em;font-weight:600}
+.hs-count small{color:rgba(255,255,255,.5);font-weight:600}
+@media(max-width:760px){.hs-content{padding-bottom:110px}.hs-arrow{width:42px;height:42px}.hs-prev{left:12px}.hs-next{right:12px}.hs-count{display:none}.hs-dot{width:30px}.hs-dots{bottom:26px}}
+</style>
+<section class="hero-slider" id="top" aria-roledescription="carousel" aria-label="Devniques highlights">
+  <div class="hs-slides">
+    <div class="hs-slide is-active" role="group" aria-roledescription="slide" aria-label="1 of 5">
+      <img src="assets/slide0-smart-technology.webp" alt="Smart city skyline at night" fetchpriority="high">
+      <div class="hs-shade" aria-hidden="true"></div>
+      <div class="hs-content wrap">
+        <span class="hs-eyebrow">Devniques</span>
+        <h1>Smart Technology Solutions</h1>
+        <p class="hs-sub">We deliver innovative digital, cloud, and software solutions designed to streamline operations, enhance customer experiences, and accelerate business growth in a rapidly evolving digital world.</p>
+        <div class="hs-cta">
+          <a class="btn" href="#cta">Let&rsquo;s Start!</a>
+          <a class="btn btn-ghost" href="#products">Discover More</a>
+        </div>
+      </div>
     </div>
-    <div class="ln-shot" data-hero style="--hd:4">
-      <div class="ln-shot-glow" aria-hidden="true"></div>
-      <div class="ln-window">
-        <div class="ln-wbar"><span class="ln-dot"></span><span class="ln-dot"></span><span class="ln-dot"></span><span class="ln-url"><i class="fa-solid fa-lock"></i>devniques.com</span></div>
-        <div class="ln-dash">
-          <aside class="ln-side">
-            <div class="ln-side-brand"><a href="index.html" aria-label="Devniques home"><img src="logo-white.png" alt="Devniques"></a></div>
-            <a class="on" data-p="mdm"><i class="fa-solid fa-tablet-screen-button"></i>Devniques MDM</a>
-            <a data-p="ai"><i class="fa-solid fa-brain"></i>AI Automation</a>
-            <a data-p="ship"><i class="fa-solid fa-box"></i>Ship Flow</a>
-            <a data-p="track"><i class="fa-solid fa-truck-fast"></i>TrackOnMoves</a>
-            <a data-p="buzz"><i class="fa-solid fa-bullhorn"></i>BuzzFlow</a>
-            <a data-p="post"><i class="fa-solid fa-shield-halved"></i>Post Marrow</a>
-            <a data-p="sign"><i class="fa-solid fa-tv"></i>Signvero</a>
-            <a data-p="itm"><i class="fa-solid fa-cart-shopping"></i>Itmenaan</a>
-            <a data-p="hosp"><i class="fa-solid fa-hospital"></i>Hospital Management</a>
-            <a data-p="ms"><i class="fa-solid fa-briefcase"></i>Microsoft 365</a>
-            <a data-p="erp"><i class="fa-solid fa-diagram-project"></i>ERP &amp; CRM</a>
-          </aside>
-          <div class="ln-main">
-            <div class="ln-mhead"><div><h4 id="panelTitle">Devniques MDM</h4><p id="panelSub">Device Fleet Security</p></div><span class="ln-live"><i></i>Live</span></div>
-            <div class="ln-flow">
-              <div class="ln-node"><i class="fa-solid fa-bolt"></i><span>Trigger</span></div>
-              <div class="ln-link"></div>
-              <div class="ln-node hot" style="--ac:#5b9dff"><i class="fa-solid fa-tablet-screen-button" id="flowIcon"></i><span id="flowName">Mobilient MDM</span></div>
-              <div class="ln-link"></div>
-              <div class="ln-node"><i class="fa-solid fa-circle-check"></i><span>Deployed</span></div>
-            </div>
-            <div class="ln-cards" id="panelCards">
-              <div class="ln-card" style="--ac:#5b9dff;--d:0"><i class="fa-solid fa-tablet-screen-button"></i><p>Zero-Touch Corporate Device Enrollment &amp; Kiosk Mode</p><span class="ok">Active</span></div>
-              <div class="ln-card" style="--ac:#5b9dff;--d:1"><i class="fa-solid fa-tablet-screen-button"></i><p>Remote Wipe &amp; Stolen Asset Lockdown Command</p><span class="ok">Active</span></div>
-              <div class="ln-card" style="--ac:#5b9dff;--d:2"><i class="fa-solid fa-tablet-screen-button"></i><p>Enterprise Private App Catalog Distribution</p><span class="ok">Active</span></div>
-            </div>
-            <svg class="ln-chart" id="panelChart" viewBox="0 0 600 120" preserveAspectRatio="none" aria-hidden="true" style="--ac:#5b9dff">
-              <defs><linearGradient id="lnag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--ac)" stop-opacity=".45"/><stop offset="1" style="stop-color:var(--ac)" stop-opacity="0"/></linearGradient></defs>
-              <path id="chartFill" d="" fill="url(#lnag)"/>
-              <path id="chartLine" d="" fill="none" style="stroke:var(--ac)" stroke-width="2.5"/>
-              <circle id="chartDot" r="5" style="fill:var(--ac)"><animate attributeName="r" values="5;7;5" dur="1.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;.55;1" dur="1.6s" repeatCount="indefinite"/></circle>
-            </svg>
-          </div>
+    <div class="hs-slide" role="group" aria-roledescription="slide" aria-label="2 of 5">
+      <img src="assets/slide1-ai-automation.webp" alt="Modern data center corridor">
+      <div class="hs-shade" aria-hidden="true"></div>
+      <div class="hs-content wrap">
+        <span class="hs-eyebrow">Artificial Intelligence</span>
+        <h1>AI &amp; Automation</h1>
+        <p class="hs-sub">Leverage the latest technologies to stay ahead of the curve, including innovative solutions that future-proof your business.</p>
+        <div class="hs-cta">
+          <a class="btn" href="ai-automation.html">Explore AI Automation</a>
+          <a class="btn btn-ghost" href="#products">Discover More</a>
+        </div>
+      </div>
+    </div>
+    <div class="hs-slide" role="group" aria-roledescription="slide" aria-label="3 of 5">
+      <img src="assets/slide2-mdm.webp" alt="Hand holding a smartphone in an office">
+      <div class="hs-shade" aria-hidden="true"></div>
+      <div class="hs-content wrap">
+        <span class="hs-eyebrow">Enterprise Mobility Management</span>
+        <h1>Devniques MDM</h1>
+        <p class="hs-sub">Enterprise Mobility Management to remotely monitor, lock, update, and secure your company&rsquo;s smartphones, tablets, POS terminals, and laptops.</p>
+        <div class="hs-cta">
+          <a class="btn" href="#cta">Let&rsquo;s Start!</a>
+          <a class="btn btn-ghost" href="#products">Discover More</a>
+        </div>
+      </div>
+    </div>
+    <div class="hs-slide" role="group" aria-roledescription="slide" aria-label="4 of 5">
+      <img src="assets/slide3-erp-crm.webp" alt="Business team reviewing analytics dashboard">
+      <div class="hs-shade" aria-hidden="true"></div>
+      <div class="hs-content wrap">
+        <span class="hs-eyebrow">Enterprise Software</span>
+        <h1>ERP &amp; CRM</h1>
+        <p class="hs-sub">Custom enterprise resource planning solution connecting multi-warehouse inventory, procurement, human capital, automated taxation, and client relations.</p>
+        <div class="hs-cta">
+          <a class="btn" href="#cta">Let&rsquo;s Start!</a>
+          <a class="btn btn-ghost" href="#products">Discover More</a>
+        </div>
+      </div>
+    </div>
+    <div class="hs-slide" role="group" aria-roledescription="slide" aria-label="5 of 5">
+      <img src="assets/slide4-custom-software.webp" alt="Software developers working at night">
+      <div class="hs-shade" aria-hidden="true"></div>
+      <div class="hs-content wrap">
+        <span class="hs-eyebrow">Custom Development</span>
+        <h1>Have an idea? We build it.</h1>
+        <p class="hs-sub">From idea to launch &mdash; custom software, apps, and platforms designed and built around your business.</p>
+        <div class="hs-cta">
+          <a class="btn" href="#cta">Let&rsquo;s Start!</a>
         </div>
       </div>
     </div>
   </div>
+  <button class="hs-arrow hs-prev" aria-label="Previous slide"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+  <button class="hs-arrow hs-next" aria-label="Next slide"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+  <div class="hs-dots" role="tablist" aria-label="Choose slide">
+    <button class="hs-dot is-active" role="tab" aria-label="Go to slide 1"><i></i></button>
+    <button class="hs-dot" role="tab" aria-label="Go to slide 2"><i></i></button>
+    <button class="hs-dot" role="tab" aria-label="Go to slide 3"><i></i></button>
+    <button class="hs-dot" role="tab" aria-label="Go to slide 4"><i></i></button>
+    <button class="hs-dot" role="tab" aria-label="Go to slide 5"><i></i></button>
+  </div>
+  <div class="hs-count"><span id="hsCurrent">01</span><small> / 05</small></div>
 </section>
+<script>
+(function(){
+  var slider=document.querySelector('.hero-slider');if(!slider)return;
+  var slides=slider.querySelectorAll('.hs-slide');
+  var dots=slider.querySelectorAll('.hs-dot');
+  var cur=document.getElementById('hsCurrent');
+  var idx=0,timer=null,DELAY=6000;
+  function go(n){
+    slides[idx].classList.remove('is-active');
+    dots[idx].classList.remove('is-active');
+    idx=(n+slides.length)%slides.length;
+    slides[idx].classList.add('is-active');
+    var d=dots[idx];d.classList.remove('is-active');void d.offsetWidth;d.classList.add('is-active');
+    if(cur)cur.textContent=String(idx+1).padStart(2,'0');
+  }
+  function next(){go(idx+1)}function prev(){go(idx-1)}
+  function stop(){if(timer){clearInterval(timer);timer=null}}
+  function play(){stop();timer=setInterval(next,DELAY)}
+  slider.querySelector('.hs-next').addEventListener('click',function(){next();play()});
+  slider.querySelector('.hs-prev').addEventListener('click',function(){prev();play()});
+  for(var i=0;i<dots.length;i++)(function(i){dots[i].addEventListener('click',function(){go(i);play()})})(i);
+  slider.addEventListener('mouseenter',stop);
+  slider.addEventListener('mouseleave',play);
+  document.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){next();play()}else if(e.key==='ArrowLeft'){prev();play()}});
+  play();
+})();
+</script>
 
 <section class="ln-strip">
   <div class="wrap">
