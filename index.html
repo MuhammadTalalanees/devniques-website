@@ -613,7 +613,7 @@ body{background:#04070e!important;color:#f2f6fd}
 .ln-dot{width:11px;height:11px;border-radius:50%;background:#26324d}
 .ln-dot:nth-child(1){background:#ff5f57}.ln-dot:nth-child(2){background:#febc2e}.ln-dot:nth-child(3){background:#28c840}
 .ln-url{margin-left:10px;flex:1;max-width:340px;background:rgba(255,255,255,.045);border:1px solid rgba(148,184,255,.12);border-radius:8px;font-size:12.5px;color:#8b98b8;padding:5px 14px;display:flex;align-items:center;gap:8px}
-.ln-dash{display:grid;grid-template-columns:208px 1fr;min-height:380px}
+.ln-dash{display:grid;grid-template-columns:208px 1fr;min-height:380px}.ln-pills{display:none}
 .ln-side{border-right:1px solid rgba(148,184,255,.1);padding:20px 14px;display:flex;flex-direction:column;gap:4px;overflow-y:auto;max-height:560px}
 .ln-side a{cursor:pointer}
 .ln-cards{transition:opacity .25s ease}
@@ -713,7 +713,7 @@ body{background:#04070e!important;color:#f2f6fd}
 .ln-dev em.ok{color:#7ee2a8;background:rgba(46,204,113,.1)}
 .ln-dev em.warn{color:#ffd479;background:rgba(255,180,0,.1)}
 /* ---------- responsive ---------- */
-@media(max-width:1020px){.ln-dash{grid-template-columns:1fr}.ln-side{display:none}.ln-feat-grid{gap:48px}}@media(max-width:900px){
+@media(max-width:1020px){.ln-dash{grid-template-columns:1fr}.ln-side{display:none}.ln-feat-grid{gap:48px}}@media(max-width:1020px){.ln-pills{display:flex;gap:8px;overflow-x:auto;padding:4px 2px 12px;-webkit-overflow-scrolling:touch;scrollbar-width:none}.ln-pills::-webkit-scrollbar{display:none}.ln-pills button{flex:0 0 auto;font-size:12.5px;font-weight:600;color:#9fb0d4;background:rgba(47,127,247,.08);border:1px solid rgba(148,184,255,.18);border-radius:999px;padding:8px 15px;cursor:pointer;white-space:nowrap}.ln-pills button.on{background:rgba(47,127,247,.24);color:#fff;border-color:rgba(47,127,247,.55)}}@media(max-width:900px){
 
 .ln-feat-grid{grid-template-columns:1fr}
 
@@ -780,7 +780,7 @@ body{background:#04070e!important;color:#f2f6fd}
 .hs-prev{left:26px}.hs-next{right:26px}
 .hs-count{position:absolute;bottom:30px;right:34px;z-index:5;color:#8b98b8;font-size:14px;letter-spacing:2px}
 .hs-count b{color:#f2f6fd;font-size:20px}
-@media(max-width:640px){.hs-arrow{display:none}.hs-content{padding:0 6%}.hs-dots{left:6%}}
+@media(max-width:900px){.hs-arrow{display:none}}@media(max-width:640px){.hs-content{padding:0 6%}.hs-dots{left:6%}.prod-tag,.live-demo-pill,.ln-dev em{font-size:12px}}
 </style>
 <div class="hero-slider" id="heroSlider">
   <div class="hs-slide active">
@@ -890,6 +890,7 @@ body{background:#04070e!important;color:#f2f6fd}
             <a data-p="erp"><i class="fa-solid fa-diagram-project"></i>ERP &amp; CRM</a>
           </aside>
           <div class="ln-main">
+            <div class="ln-pills" id="dashPills" aria-label="Products"></div>
             <div class="ln-mhead"><div><h4 id="panelTitle">Devniques MDM</h4><p id="panelSub">Device Fleet Security</p></div><span class="ln-live"><i></i>Live</span></div>
             <div class="ln-flow">
               <div class="ln-node"><i class="fa-solid fa-bolt"></i><span>Trigger</span></div>
@@ -1759,6 +1760,8 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
         cards=document.getElementById('panelCards'),
         links=Array.from(document.querySelectorAll('.ln-side a[data-p]'));
   if(!title||!cards||!links.length)return;
+  const pillsBox=document.getElementById('dashPills');
+  const pills=pillsBox?links.map(a=>{const b=document.createElement('button');b.type='button';b.dataset.p=a.dataset.p;b.textContent=a.textContent.trim();b.addEventListener('click',()=>{show(b.dataset.p);start();});pillsBox.appendChild(b);return b;}):[];
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
   let idx=0,timer=null;
   function render(k){
@@ -1783,6 +1786,7 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
     }
     links.forEach(x=>{x.classList.remove('on');x.style.setProperty('--ac',P[x.dataset.p].c);});
     const act=links.find(x=>x.dataset.p===k);if(act)act.classList.add('on');
+    pills.forEach(x=>x.classList.toggle('on',x.dataset.p===k));
     cards.innerHTML=p.feats.map((f,i)=>'<div class="ln-card" style="--ac:'+p.c+';--d:'+i+'"><i class="fa-solid '+p.fa+'"></i><p>'+f+'</p><span class="ok">Active</span></div>').join('');
   }
   function show(k){
