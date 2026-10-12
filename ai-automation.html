@@ -22,6 +22,7 @@
   --lx-card:rgba(255,255,255,.028); --lx-radius:14px;
   --muted:#b9c8e4; --cyan:#00f0ff; --line:rgba(140,180,255,.16); --line-soft:rgba(140,180,255,.10);
 }
+header.ln-nav.scrolled{background:rgba(4,10,26,.98)}
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--lx-ink);background:var(--lx-bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
@@ -515,6 +516,8 @@ a{text-decoration:none;color:inherit}
     }
   });
   loadInto('footer', 'assets/Footer.html');
+  // Navbar dark bg on scroll (lazy lookup: navbar HTML is injected async via fetch)
+  addEventListener('scroll', function(){ var n = document.getElementById('nav'); if(n) n.classList.toggle('scrolled', window.scrollY > 8); }, {passive:true});
 })();
 </script>
 <script>
