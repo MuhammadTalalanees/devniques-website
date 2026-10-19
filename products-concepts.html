@@ -66,6 +66,10 @@ body{background:var(--bg);color:#fff;font-family:'Inter',system-ui,sans-serif;ov
 .stage-info p{color:var(--muted);font-size:15.5px;max-width:560px;line-height:1.6}
 .stage-cta{margin-top:20px;display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:#fff;font-weight:700;font-size:14.5px;padding:13px 28px;border-radius:999px;text-decoration:none;transition:.25s;box-shadow:0 10px 28px rgba(47,127,247,.35)}
 .stage-cta:hover{transform:translateY(-2px);background:#0d55c4}
+.stage-progress{position:absolute;top:0;left:0;height:3px;background:var(--cyan);width:0;z-index:5;box-shadow:0 0 12px rgba(0,240,255,.8)}
+.stage-auto{position:absolute;top:18px;left:18px;z-index:5;font-size:11px;font-weight:800;letter-spacing:1.5px;background:rgba(0,0,0,.55);border:1px solid rgba(0,240,255,.4);color:var(--cyan);padding:7px 14px;border-radius:999px;backdrop-filter:blur(6px)}
+.stage-auto i{margin-right:6px;animation:spin 3s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
 /* ============ CONCEPT 3 : TILT ============ */
 .tilt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;perspective:1200px}
 .t-card{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#0a1226;transform-style:preserve-3d;transition:transform .18s ease-out,box-shadow .3s;cursor:pointer}
@@ -168,7 +172,7 @@ body{background:var(--bg);color:#fff;font-family:'Inter',system-ui,sans-serif;ov
   <div class="wrap">
     <span class="c-pill">CONCEPT 2</span>
     <h2>Interactive Stage Showcase</h2>
-    <p class="c-sub">Stripe-style. Pick a product from the list — the big stage crossfades to its video with full details. Hover or tap to switch; video always plays for the active product.</p>
+    <p class="c-sub">Stripe-style. <b>Click</b> a product to jump to it — otherwise the stage <b>auto-plays 1-by-1</b> every 6 seconds. The big stage crossfades to each product's video with full details.</p>
     <div class="stage-wrap">
       <div class="stage-list" id="stageList">
         <button class="s-item active" data-i="0"><span class="s-ico"><i class="fa-solid fa-truck-fast"></i></span><span><span class="s-name">TrackOnMoves</span><br><span class="s-cat">Telematics &amp; Fleet</span></span></button>
@@ -177,8 +181,11 @@ body{background:var(--bg);color:#fff;font-family:'Inter',system-ui,sans-serif;ov
         <button class="s-item" data-i="3"><span class="s-ico"><i class="fa-solid fa-briefcase"></i></span><span><span class="s-name">Microsoft 365</span><br><span class="s-cat">Productivity Cloud</span></span></button>
         <button class="s-item" data-i="4"><span class="s-ico"><i class="fa-solid fa-ship"></i></span><span><span class="s-name">Ship Flow</span><br><span class="s-cat">Freight &amp; Logistics</span></span></button>
         <button class="s-item" data-i="5"><span class="s-ico"><i class="fa-solid fa-comments"></i></span><span><span class="s-name">BuzzFlow</span><br><span class="s-cat">Unified Workspace</span></span></button>
+        <button class="s-item" data-i="6"><span class="s-ico"><i class="fa-solid fa-mobile-screen-button"></i></span><span><span class="s-name">Devniques MDM</span><br><span class="s-cat">Device Control</span></span></button>
       </div>
       <div class="stage" id="stage">
+        <div class="stage-progress" id="stageProgress"></div>
+        <div class="stage-auto"><i class="fa-solid fa-rotate"></i>AUTO</div>
         <video id="stageVideo" muted loop playsinline preload="auto"></video>
         <div class="shade"></div>
         <div class="stage-info">
@@ -255,11 +262,15 @@ var stageData = [
   {tag:'Healthcare OS', title:'Hospital Management', desc:'Centralized health operations engine supporting 8+ distinct user roles (Doctors, Nurses, Pharmacy, Lab, Billing) across 60+ modular hospital workflows.', chips:['8+ User Portals','60+ Modules','OPD/IPD'], src:'videos/hospital.mp4'},
   {tag:'Productivity Cloud', title:'Microsoft 365', desc:'Powerful apps, AI-powered Copilot assistance, and trusted cloud storage to boost productivity.', chips:['Office Apps','Copilot AI','Cloud Storage'], src:'videos/m365.mp4'},
   {tag:'Freight & Logistics', title:'Ship Flow', desc:'End-to-end freight forwarding & cargo logistics suite with GPS container tracking.', chips:['GPS Tracking','Cargo Suite','Route Opt.'], src:'videos/shipflow.mp4'},
-  {tag:'Unified Workspace', title:'BuzzFlow', desc:'Unified workspace platform integrating real-time team chat, tasks and collaboration.', chips:['Team Chat','Tasks','Collab'], src:'videos/buzzflo.mp4'}
+  {tag:'Unified Workspace', title:'BuzzFlow', desc:'Unified workspace platform integrating real-time team chat, tasks and collaboration.', chips:['Team Chat','Tasks','Collab'], src:'videos/buzzflo.mp4'},
+  {tag:'Device Control', title:'Devniques MDM', desc:"Enterprise Mobility Management to remotely monitor, lock, update, and secure your company's smartphones, tablets, POS terminals, and laptops.", chips:['Remote Lock/Wipe','Kiosk Policy','App Distribution'], src:'videos/mdm-realistic.mp4'}
 ];
 var stageVideo = document.getElementById('stageVideo');
+var stageProgress = document.getElementById('stageProgress');
 var sItems = document.querySelectorAll('.s-item');
+var cur = 0, autoTimer = null, AUTO_MS = 6000;
 function setStage(i){
+  cur = i;
   sItems.forEach(function(b,j){ b.classList.toggle('active', j===i); });
   var d = stageData[i];
   document.getElementById('stageTag').textContent = d.tag;
@@ -271,11 +282,19 @@ function setStage(i){
   stageVideo.load();
   stageVideo.play().catch(function(){});
   stageVideo.onplaying = function(){ stageVideo.classList.add('on'); };
+  restartAuto();
+}
+function restartAuto(){
+  if(autoTimer) clearInterval(autoTimer);
+  stageProgress.style.transition = 'none';
+  stageProgress.style.width = '0';
+  void stageProgress.offsetWidth;
+  stageProgress.style.transition = 'width ' + AUTO_MS + 'ms linear';
+  stageProgress.style.width = '100%';
+  autoTimer = setInterval(function(){ setStage((cur + 1) % stageData.length); }, AUTO_MS);
 }
 sItems.forEach(function(b){
-  var i = +b.dataset.i;
-  b.addEventListener('pointerenter', function(){ setStage(i); });
-  b.addEventListener('click', function(){ setStage(i); });
+  b.addEventListener('click', function(){ setStage(+b.dataset.i); });
 });
 setStage(0);
 /* ---------- concept 3 : tilt + spotlight ---------- */
