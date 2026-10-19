@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Product Section Concepts — Devniques (Demo)</title>
+<title>Our Products — New Section Demo — Devniques</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -31,24 +31,7 @@ body{background:var(--bg);color:#fff;font-family:'Inter',system-ui,sans-serif;ov
 .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
 .chip{font-size:12px;font-weight:600;color:var(--muted);border:1px solid var(--line);padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.03)}
 .chip i{color:var(--cyan);margin-right:6px;font-size:10px}
-/* ============ CONCEPT 1 : BENTO ============ */
-.bento{display:grid;grid-template-columns:repeat(6,1fr);grid-auto-rows:250px;gap:18px}
-.b-tile{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);cursor:pointer;background:#0a1226;transition:transform .35s,box-shadow .35s}
-.b-tile:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,240,255,.12)}
-.b-tile img.poster,.b-tile video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.b-tile video{opacity:0;transition:opacity .45s}
-.b-tile:hover video{opacity:1}
-.b-tile .shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(2,6,18,.94) 0%,rgba(2,6,18,.25) 55%,transparent 80%)}
-.b-tile .b-body{position:absolute;left:0;right:0;bottom:0;padding:24px}
-.b-tile h3{font-size:22px;font-weight:800;margin-bottom:8px}
-.b-tile p{color:var(--muted);font-size:13.5px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.b-tile.big h3{font-size:30px}
-.b-tile.big p{font-size:15px;-webkit-line-clamp:3}
-.b-play{position:absolute;top:18px;right:18px;width:42px;height:42px;border-radius:50%;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;color:#fff;font-size:14px;backdrop-filter:blur(6px);transition:.3s}
-.b-tile:hover .b-play{background:var(--cyan);color:#04070e;border-color:var(--cyan)}
-.span3{grid-column:span 3}.span2{grid-column:span 2}.span6{grid-column:span 6}
-.tall{grid-row:span 2}
-/* ============ CONCEPT 2 : STAGE ============ */
+/* ============ PRODUCT STAGE ============ */
 .stage-wrap{display:grid;grid-template-columns:330px 1fr;gap:22px;align-items:stretch}
 .stage-list{display:flex;flex-direction:column;gap:10px}
 .s-item{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.02);cursor:pointer;transition:.25s;text-align:left;width:100%;color:#fff;font-family:inherit}
@@ -70,32 +53,15 @@ body{background:var(--bg);color:#fff;font-family:'Inter',system-ui,sans-serif;ov
 .stage-auto{position:absolute;top:18px;left:18px;z-index:5;font-size:11px;font-weight:800;letter-spacing:1.5px;background:rgba(0,0,0,.55);border:1px solid rgba(0,240,255,.4);color:var(--cyan);padding:7px 14px;border-radius:999px;backdrop-filter:blur(6px)}
 .stage-auto i{margin-right:6px;animation:spin 3s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-/* ============ CONCEPT 3 : TILT ============ */
-.tilt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;perspective:1200px}
-.t-card{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#0a1226;transform-style:preserve-3d;transition:transform .18s ease-out,box-shadow .3s;cursor:pointer}
-.t-card:hover{box-shadow:0 30px 70px rgba(0,240,255,.14)}
-.t-card .t-media{position:relative;height:220px;overflow:hidden}
-.t-card .t-media img,.t-card .t-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.t-card .t-media video{opacity:0;transition:opacity .45s}
-.t-card:hover .t-media video{opacity:1}
-.t-card .spot{position:absolute;inset:0;pointer-events:none;background:radial-gradient(500px circle at var(--mx,50%) var(--my,50%),rgba(0,240,255,.14),transparent 60%);opacity:0;transition:opacity .3s;z-index:2}
-.t-card:hover .spot{opacity:1}
-.t-card .t-body{padding:22px;position:relative;z-index:1}
-.t-card h3{font-size:19px;font-weight:800;margin-bottom:8px}
-.t-card p{color:var(--muted);font-size:13.5px;line-height:1.6}
 /* footer */
 .demo-foot{padding:60px 0;text-align:center;color:var(--muted);font-size:14px}
 .demo-foot a{color:var(--cyan);text-decoration:none;font-weight:700}
 @media(max-width:960px){
-  .bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:230px}
   .span3,.span2{grid-column:span 2}.tall{grid-row:span 1}
   .stage-wrap{grid-template-columns:1fr}
   .stage{min-height:380px}
-  .tilt-grid{grid-template-columns:1fr 1fr}
-  .demo-bar nav{display:none}
 }
 @media(max-width:600px){
-  .bento,.tilt-grid{grid-template-columns:1fr}
   .span3,.span2{grid-column:span 1}
 }
 </style>
@@ -104,74 +70,16 @@ body{background:var(--bg);color:#fff;font-family:'Inter',system-ui,sans-serif;ov
 
 <header class="demo-bar">
   <div class="wrap">
-    <div class="logo">Devniques <span>Concepts</span></div>
+    <div class="logo">Devniques <span>Products</span></div>
     <span class="demo-note"><i class="fa-solid fa-flask"></i> Demo only — live site untouched</span>
-    <nav>
-      <a href="#c1">Concept 1 · Bento</a>
-      <a href="#c2">Concept 2 · Stage</a>
-      <a href="#c3">Concept 3 · Tilt</a>
-    </nav>
   </div>
 </header>
 
-<!-- ================= CONCEPT 1 ================= -->
-<section class="concept" id="c1">
+<!-- ================= PRODUCT STAGE ================= -->
+<section class="concept" id="products">
   <div class="wrap">
-    <span class="c-pill">CONCEPT 1</span>
-    <h2>Bento Grid + Hover Video</h2>
-    <p class="c-sub">No carousel, no hidden slides — every product visible at once in an asymmetric grid. Hover any tile and its video preview plays. Big tile = flagship product.</p>
-    <div class="bento">
-      <div class="b-tile span3 tall" data-vid>
-        <img class="poster" src="videos/trackonmoves-poster.jpg" alt="TrackOnMoves">
-        <video muted loop playsinline preload="auto" src="videos/trackonmoves.mp4"></video>
-        <div class="shade"></div>
-        <div class="b-play"><i class="fa-solid fa-play"></i></div>
-        <div class="b-body"><span class="tag">Telematics &amp; Fleet</span><h3>TrackOnMoves</h3><p>Smart vehicle tracking and driver analytics platform. Real-time geofencing, fuel monitoring, engine diagnostics, and automated route optimization.</p><div class="chips"><span class="chip"><i class="fa-solid fa-check"></i>Live Geofence</span><span class="chip"><i class="fa-solid fa-check"></i>Fuel Diagnostics</span><span class="chip"><i class="fa-solid fa-check"></i>Driver Score</span></div></div>
-      </div>
-      <div class="b-tile span3" data-vid>
-        <img class="poster" src="videos/itmenaan-poster.jpg" alt="Itmenaan">
-        <video muted loop playsinline preload="auto" src="videos/itmenaan.mp4"></video>
-        <div class="shade"></div>
-        <div class="b-play"><i class="fa-solid fa-play"></i></div>
-        <div class="b-body"><span class="tag">Marketplace</span><h3>Itmenaan</h3><p>Pakistan's trusted buy &amp; sell marketplace.</p></div>
-      </div>
-      <div class="b-tile span3" data-vid>
-        <img class="poster" src="videos/hospital-poster.jpg" alt="Hospital Management">
-        <video muted loop playsinline preload="auto" src="videos/hospital.mp4"></video>
-        <div class="shade"></div>
-        <div class="b-play"><i class="fa-solid fa-play"></i></div>
-        <div class="b-body"><span class="tag">Healthcare OS</span><h3>Hospital Management</h3><p>Centralized platform for entire hospital operations.</p></div>
-      </div>
-      <div class="b-tile span2" data-vid>
-        <img class="poster" src="videos/m365-poster.jpg" alt="Microsoft 365">
-        <video muted loop playsinline preload="auto" src="videos/m365.mp4"></video>
-        <div class="shade"></div>
-        <div class="b-play"><i class="fa-solid fa-play"></i></div>
-        <div class="b-body"><span class="tag">Productivity Cloud</span><h3>Microsoft 365</h3><p>Apps + Copilot AI + cloud storage.</p></div>
-      </div>
-      <div class="b-tile span2" data-vid>
-        <img class="poster" src="videos/shipflow-poster.jpg" alt="Ship Flow">
-        <video muted loop playsinline preload="auto" src="videos/shipflow.mp4"></video>
-        <div class="shade"></div>
-        <div class="b-play"><i class="fa-solid fa-play"></i></div>
-        <div class="b-body"><span class="tag">Freight &amp; Logistics</span><h3>Ship Flow</h3><p>End-to-end cargo &amp; freight forwarding suite.</p></div>
-      </div>
-      <div class="b-tile span2" data-vid>
-        <img class="poster" src="videos/buzzflow-poster.jpg" alt="BuzzFlow">
-        <video muted loop playsinline preload="auto" src="videos/buzzflo.mp4"></video>
-        <div class="shade"></div>
-        <div class="b-play"><i class="fa-solid fa-play"></i></div>
-        <div class="b-body"><span class="tag">Unified Workspace</span><h3>BuzzFlow</h3><p>Team chat, tasks &amp; collaboration in one place.</p></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ================= CONCEPT 2 ================= -->
-<section class="concept" id="c2">
-  <div class="wrap">
-    <span class="c-pill">CONCEPT 2</span>
-    <h2>Interactive Stage Showcase</h2>
+    <span class="c-pill">PRODUCTS</span>
+    <h2>Our Products</h2>
     <p class="c-sub">Stripe-style. <b>Click</b> a product to jump to it — otherwise the stage <b>auto-plays 1-by-1</b> every 6 seconds. The big stage crossfades to each product's video with full details.</p>
     <div class="stage-wrap">
       <div class="stage-list" id="stageList">
@@ -200,70 +108,22 @@ body{background:var(--bg);color:#fff;font-family:'Inter',system-ui,sans-serif;ov
   </div>
 </section>
 
-<!-- ================= CONCEPT 3 ================= -->
-<section class="concept" id="c3">
-  <div class="wrap">
-    <span class="c-pill">CONCEPT 3</span>
-    <h2>Spotlight Tilt Cards</h2>
-    <p class="c-sub">Move your mouse over a card — it tilts in 3D and a cyan spotlight follows your cursor. Hover plays the video. Premium, tactile, memorable.</p>
-    <div class="tilt-grid" id="tiltGrid">
-      <div class="t-card" data-vid>
-        <div class="t-media"><img src="videos/trackonmoves-poster.jpg" alt=""><video muted loop playsinline preload="auto" src="videos/trackonmoves.mp4"></video></div>
-        <div class="spot"></div>
-        <div class="t-body"><span class="tag">Telematics &amp; Fleet</span><h3>TrackOnMoves</h3><p>Smart vehicle tracking and driver analytics platform with real-time geofencing.</p><div class="chips"><span class="chip"><i class="fa-solid fa-check"></i>Live Geofence</span><span class="chip"><i class="fa-solid fa-check"></i>Fuel Diagnostics</span></div></div>
-      </div>
-      <div class="t-card" data-vid>
-        <div class="t-media"><img src="videos/itmenaan-poster.jpg" alt=""><video muted loop playsinline preload="auto" src="videos/itmenaan.mp4"></video></div>
-        <div class="spot"></div>
-        <div class="t-body"><span class="tag">Marketplace</span><h3>Itmenaan</h3><p>Pakistan's trusted buy &amp; sell marketplace connecting buyers and sellers.</p><div class="chips"><span class="chip"><i class="fa-solid fa-check"></i>Buy &amp; Sell</span><span class="chip"><i class="fa-solid fa-check"></i>Secure Deals</span></div></div>
-      </div>
-      <div class="t-card" data-vid>
-        <div class="t-media"><img src="videos/hospital-poster.jpg" alt=""><video muted loop playsinline preload="auto" src="videos/hospital.mp4"></video></div>
-        <div class="spot"></div>
-        <div class="t-body"><span class="tag">Healthcare OS</span><h3>Hospital Management</h3><p>Centralized health operations engine with 60+ modular workflows.</p><div class="chips"><span class="chip"><i class="fa-solid fa-check"></i>8+ Portals</span><span class="chip"><i class="fa-solid fa-check"></i>OPD/IPD</span></div></div>
-      </div>
-      <div class="t-card" data-vid>
-        <div class="t-media"><img src="videos/m365-poster.jpg" alt=""><video muted loop playsinline preload="auto" src="videos/m365.mp4"></video></div>
-        <div class="spot"></div>
-        <div class="t-body"><span class="tag">Productivity Cloud</span><h3>Microsoft 365</h3><p>Powerful apps, AI-powered Copilot assistance, and trusted cloud storage.</p><div class="chips"><span class="chip"><i class="fa-solid fa-check"></i>Office Apps</span><span class="chip"><i class="fa-solid fa-check"></i>Copilot AI</span></div></div>
-      </div>
-      <div class="t-card" data-vid>
-        <div class="t-media"><img src="videos/shipflow-poster.jpg" alt=""><video muted loop playsinline preload="auto" src="videos/shipflow.mp4"></video></div>
-        <div class="spot"></div>
-        <div class="t-body"><span class="tag">Freight &amp; Logistics</span><h3>Ship Flow</h3><p>End-to-end freight forwarding &amp; cargo logistics with GPS container tracking.</p><div class="chips"><span class="chip"><i class="fa-solid fa-check"></i>GPS Tracking</span><span class="chip"><i class="fa-solid fa-check"></i>Cargo Suite</span></div></div>
-      </div>
-      <div class="t-card" data-vid>
-        <div class="t-media"><img src="videos/buzzflow-poster.jpg" alt=""><video muted loop playsinline preload="auto" src="videos/buzzflo.mp4"></video></div>
-        <div class="spot"></div>
-        <div class="t-body"><span class="tag">Unified Workspace</span><h3>BuzzFlow</h3><p>Real-time team chat, tasks and collaboration — one workspace.</p><div class="chips"><span class="chip"><i class="fa-solid fa-check"></i>Team Chat</span><span class="chip"><i class="fa-solid fa-check"></i>Tasks</span></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <footer class="demo-foot">
   <div class="wrap">
-    Demo page — not linked from the site. Pick a concept and <a href="https://devniques.com/contact-us/">tell me</a> — I'll build it into the homepage properly.
+    Demo page — not linked from the site. Like it? <a href="https://devniques.com/contact-us/">Tell me</a> — I'll build it into the homepage properly.
   </div>
 </footer>
 
 <script>
-/* ---------- shared hover-video ---------- */
-document.querySelectorAll('[data-vid]').forEach(function(tile){
-  var v = tile.querySelector('video');
-  if(!v) return;
-  tile.addEventListener('pointerenter', function(){ v.play().catch(function(){}); });
-  tile.addEventListener('pointerleave', function(){ v.pause(); });
-});
-/* ---------- concept 2 : stage ---------- */
+/* ---------- product stage ---------- */
 var stageData = [
-  {tag:'Telematics & Fleet', title:'TrackOnMoves', desc:'Smart vehicle tracking and driver analytics platform. Real-time geofencing, fuel monitoring, engine diagnostics, and automated route optimization.', chips:['Live Geofence','Fuel Diagnostics','Driver Score'], src:'videos/trackonmoves.mp4'},
-  {tag:'Marketplace', title:'Itmenaan', desc:"Pakistan's trusted buy & sell marketplace connecting buyers and sellers across Pakistan.", chips:['Buy & Sell','Listings','Secure Deals'], src:'videos/itmenaan.mp4'},
-  {tag:'Healthcare OS', title:'Hospital Management', desc:'Centralized health operations engine supporting 8+ distinct user roles (Doctors, Nurses, Pharmacy, Lab, Billing) across 60+ modular hospital workflows.', chips:['8+ User Portals','60+ Modules','OPD/IPD'], src:'videos/hospital.mp4'},
+  {tag:'Telematics & Fleet', title:'TrackOnMoves', desc:'Smart vehicle tracking and driver analytics platform. Real-time geofencing, fuel monitoring, engine diagnostics, and automated route optimization.', chips:['Live Geofence','Fuel Diagnostics','Driver Score'], src:'videos/trackonmoves-v2.mp4'},
+  {tag:'Marketplace', title:'Itmenaan', desc:"Pakistan's trusted buy & sell marketplace connecting buyers and sellers across Pakistan.", chips:['Buy & Sell','Listings','Secure Deals'], src:'videos/itmenaan-v2.mp4'},
+  {tag:'Healthcare OS', title:'Hospital Management', desc:'Centralized health operations engine supporting 8+ distinct user roles (Doctors, Nurses, Pharmacy, Lab, Billing) across 60+ modular hospital workflows.', chips:['8+ User Portals','60+ Modules','OPD/IPD'], src:'videos/hospital-v2.mp4'},
   {tag:'Productivity Cloud', title:'Microsoft 365', desc:'Powerful apps, AI-powered Copilot assistance, and trusted cloud storage to boost productivity.', chips:['Office Apps','Copilot AI','Cloud Storage'], src:'videos/m365.mp4'},
   {tag:'Freight & Logistics', title:'Ship Flow', desc:'End-to-end freight forwarding & cargo logistics suite with GPS container tracking.', chips:['GPS Tracking','Cargo Suite','Route Opt.'], src:'videos/shipflow.mp4'},
   {tag:'Unified Workspace', title:'BuzzFlow', desc:'Unified workspace platform integrating real-time team chat, tasks and collaboration.', chips:['Team Chat','Tasks','Collab'], src:'videos/buzzflo.mp4'},
-  {tag:'Device Control', title:'Devniques MDM', desc:"Enterprise Mobility Management to remotely monitor, lock, update, and secure your company's smartphones, tablets, POS terminals, and laptops.", chips:['Remote Lock/Wipe','Kiosk Policy','App Distribution'], src:'videos/mdm-realistic.mp4'}
+  {tag:'Device Control', title:'Devniques MDM', desc:"Enterprise Mobility Management to remotely monitor, lock, update, and secure your company's smartphones, tablets, POS terminals, and laptops.", chips:['Remote Lock/Wipe','Kiosk Policy','App Distribution'], src:'videos/mdm-v2.mp4'}
 ];
 var stageVideo = document.getElementById('stageVideo');
 var stageProgress = document.getElementById('stageProgress');
@@ -297,17 +157,6 @@ sItems.forEach(function(b){
   b.addEventListener('click', function(){ setStage(+b.dataset.i); });
 });
 setStage(0);
-/* ---------- concept 3 : tilt + spotlight ---------- */
-document.querySelectorAll('.t-card').forEach(function(card){
-  card.addEventListener('pointermove', function(e){
-    var r = card.getBoundingClientRect();
-    var x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
-    card.style.transform = 'rotateY(' + ((x - .5) * 10) + 'deg) rotateX(' + ((.5 - y) * 10) + 'deg) translateY(-4px)';
-    card.style.setProperty('--mx', (x * 100) + '%');
-    card.style.setProperty('--my', (y * 100) + '%');
-  });
-  card.addEventListener('pointerleave', function(){ card.style.transform = ''; });
-});
 </script>
 </body>
 </html>
