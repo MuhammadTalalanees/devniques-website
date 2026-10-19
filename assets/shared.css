@@ -12,7 +12,15 @@
   --dv-blue:#2f7ff7; --dv-cyan:#00f0ff;
   --dv-text:#ffffff; --dv-text2:#f2f6fd;
   --dv-muted:#b9c8e4; --dv-muted2:#8b98b8;
+  /* aliases used by shared navbar/footer styles */
+  --cyan:var(--dv-cyan); --blue:var(--dv-blue);
+  --muted:var(--dv-muted); --muted2:var(--dv-muted2);
+  --line:rgba(140,180,255,.14); --line-soft:rgba(140,180,255,.09);
 }
+/* shared button (navbar CTA etc.) */
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--dv-blue);color:#fff;font-weight:600;font-size:15px;padding:12px 26px;border-radius:999px;border:none;cursor:pointer;transition:transform .2s,background .2s,box-shadow .2s;box-shadow:0 8px 20px rgba(20,110,245,.25)}
+.btn:hover{background:#0d55c4;transform:translateY(-2px)}
+.btn-sm{padding:10px 22px;font-size:14px}
 /* Blurry background effect */
 body::before{
   content:""; position:fixed; inset:0; z-index:-1;
