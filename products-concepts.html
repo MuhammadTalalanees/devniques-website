@@ -211,18 +211,33 @@ body{background:var(--bg);color:#fff;font-family:'Inter',system-ui,sans-serif;ov
   });
   var dotBtns = dots.querySelectorAll('button');
   /* cover effect: card behind scales down + dims as next covers it */
+  var ticking = false;
   function onScroll(){
-    var vh = window.innerHeight;
-    var active = 0;
-    cards.forEach(function(card, i){
-      var r = card.getBoundingClientRect();
-      /* how much of this card is covered from the top by following cards */
-      var covered = Math.min(Math.max(-r.top / vh, 0), 1);
-      card.style.transform = 'scale(' + (1 - covered * 0.06) + ')';
-      card.style.filter = 'brightness(' + (1 - covered * 0.35) + ')';
-      if (r.top <= vh * 0.5 && r.bottom >= vh * 0.5) active = i;
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){
+      ticking = false;
+      var vh = window.innerHeight;
+      var active = 0;
+      cards.forEach(function(card, i){
+        var r = card.getBoundingClientRect();
+        /* how much the NEXT card has slid over this one */
+        var next = cards[i+1];
+        var covered = 0;
+        if(next){
+          var nr = next.getBoundingClientRect();
+          covered = Math.min(Math.max(1 - nr.top / vh, 0), 1);
+        }
+        card.style.transform = 'scale(' + (1 - covered * 0.07) + ')';
+        card.style.filter = 'brightness(' + (1 - covered * 0.4) + ')';
+        /* bg parallax: settles smoothly as the card arrives */
+        var entering = Math.min(Math.max(r.top / vh, 0), 1);
+        var bg = card.querySelector('.bg-swap, video.bg');
+        if(bg){ bg.style.transform = 'translateY(' + (entering * 6) + '%) scale(' + (1 + entering * 0.12) + ')'; }
+        if (r.top <= vh * 0.5 && r.bottom >= vh * 0.5) active = i;
+      });
+      dotBtns.forEach(function(d, i){ d.classList.toggle('on', i === active); });
     });
-    dotBtns.forEach(function(d, i){ d.classList.toggle('on', i === active); });
   }
   /* play only the most visible card's video */
   var io = new IntersectionObserver(function(entries){
