@@ -515,7 +515,18 @@ a{text-decoration:none;color:inherit}
       });
     }
   });
-  loadInto('footer', 'assets/Footer.html');
+  loadInto('footer', 'assets/Footer.html', function(ft){
+    if(location.pathname.indexOf('ai-automation') !== -1 || location.pathname.indexOf('windows-mdm') !== -1){
+      ft.querySelectorAll('a[href^="#"]').forEach(function(a){
+        var h = a.getAttribute('href');
+        if(h.length > 1) a.setAttribute('href', 'index.html' + h);
+      });
+      ft.querySelectorAll('a[onclick^="openProductModal"]').forEach(function(a){
+        a.removeAttribute('onclick');
+        a.setAttribute('href', 'index.html#products');
+      });
+    }
+  });
   // Navbar dark bg on scroll (lazy lookup: navbar HTML is injected async via fetch)
   addEventListener('scroll', function(){ var n = document.getElementById('nav'); if(n) n.classList.toggle('scrolled', window.scrollY > 8); }, {passive:true});
 })();
