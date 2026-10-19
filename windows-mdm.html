@@ -26,36 +26,32 @@ header.ln-nav.scrolled{background:rgba(4,10,26,.98)}
 html{scroll-behavior:smooth}
 body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:var(--lx-ink);background:var(--lx-bg);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
-  background:radial-gradient(ellipse 60% 40% at 50% -5%,rgba(47,127,247,.10),transparent 70%),
-             radial-gradient(ellipse 50% 35% at 85% 40%,rgba(22,41,92,.25),transparent 70%);}
+  background:radial-gradient(ellipse 60% 40% at 50% -5%,rgba(47,127,247,.06),transparent 70%),
+             radial-gradient(ellipse 50% 35% at 85% 40%,rgba(22,41,92,.14),transparent 70%);}
 img{max-width:100%;display:block}
 a{text-decoration:none;color:inherit}
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
 .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 .rv.in{opacity:1;transform:none}
 /* ===== HERO (split) ===== */
-.lx-hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:150px 24px 100px}
+.lx-hero{position:relative;height:100svh;min-height:620px;overflow:hidden;background:#04070e;isolation:isolate}
 .lx-hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
-.lx-hero-bg .shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,7,14,.2),rgba(4,7,14,.92) 92%)}
-.orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;animation:drift 14s ease-in-out infinite alternate}
-.orb-1{width:520px;height:520px;left:-140px;top:-120px;background:radial-gradient(circle,rgba(47,127,247,.35),transparent 70%)}
-.orb-2{width:460px;height:460px;right:-120px;top:20%;background:radial-gradient(circle,rgba(45,212,191,.22),transparent 70%);animation-delay:-5s}
-.orb-3{width:420px;height:420px;left:38%;bottom:-160px;background:radial-gradient(circle,rgba(176,127,255,.2),transparent 70%);animation-delay:-9s}
-@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(40px,30px) scale(1.08)}}
-.grid-overlay{position:absolute;inset:0;background-image:linear-gradient(rgba(140,180,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(140,180,255,.05) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 75% 65% at 50% 40%,black 30%,transparent 75%);-webkit-mask-image:radial-gradient(ellipse 75% 65% at 50% 40%,black 30%,transparent 75%)}
-.hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1.15fr;gap:60px;align-items:center;max-width:1280px;margin:0 auto;width:100%}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:2.5px;color:var(--lx-cyan);text-transform:uppercase;margin-bottom:26px;padding:9px 20px;border-radius:999px;background:rgba(0,240,255,.05);border:1px solid rgba(0,240,255,.28)}
-.eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lx-cyan)}
-.hero-copy h1{font-size:clamp(40px,5.4vw,64px);font-weight:800;letter-spacing:-.035em;line-height:1.06;margin-bottom:24px}
-.hero-copy h1 .accent{background:linear-gradient(100deg,var(--lx-blue),var(--lx-cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero-copy p.sub{font-size:clamp(16px,1.8vw,18px);color:var(--lx-muted);margin-bottom:36px;line-height:1.65;max-width:520px}
-.lx-cta{display:flex;gap:14px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:9px;background:var(--lx-blue);color:#fff;font-weight:600;font-size:15px;padding:14px 30px;border-radius:999px;border:none;cursor:pointer;transition:transform .2s,background .2s}
-.btn:hover{background:var(--lx-blue-d);transform:translateY(-2px)}
-.btn-outline{background:rgba(255,255,255,.03);color:#fff;border:1px solid var(--lx-line)}
-.btn-outline:hover{border-color:var(--lx-blue);background:rgba(47,127,247,.12);transform:translateY(-2px)}
+.lx-hero-bg .hs-bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:hsKenburns 8s ease-out forwards}
+@keyframes hsKenburns{from{transform:scale(1.12)}to{transform:scale(1)}}
+.lx-hero-bg .hs-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,7,14,.94) 0%,rgba(4,7,14,.72) 32%,rgba(4,7,14,.28) 58%,rgba(4,7,14,0) 82%)}
+.lx-hero-bg .hs-shade2{position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,7,14,.6) 0%,rgba(4,7,14,0) 32%)}
+.hs-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;padding:0 8%;max-width:1200px;margin:0 auto}
+.hs-eyebrow{color:#00f0ff;text-transform:uppercase;letter-spacing:4px;font-size:13px;font-weight:600;margin-bottom:18px}
+.lx-hero h1{font-size:clamp(36px,5.2vw,64px);font-weight:800;line-height:1.12;max-width:640px;margin:0 0 20px;color:#fff;letter-spacing:-.02em}
+.lx-hero .hs-content p{color:#b9c8e4;font-size:clamp(15px,1.8vw,18px);line-height:1.65;max-width:500px;margin:0 0 34px}
+.hs-btns{display:flex;gap:14px;flex-wrap:wrap}
+.hs-cta{display:inline-block;background:#2f7ff7;color:#fff;font-weight:700;font-size:15px;padding:15px 38px;border-radius:10px;border:0;cursor:pointer;transition:transform .25s,background .25s}
+.hs-cta:hover{transform:translateY(-3px);background:#4a90ff}
+.hs-cta-ghost{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.25)}
+.hs-cta-ghost:hover{background:rgba(255,255,255,.12)}
+.console-show{max-width:1020px;margin:-90px auto 0;position:relative;z-index:3}
 /* ===== dashboard mockup ===== */
-.dash{background:rgba(8,14,30,.92);border:1px solid rgba(140,180,255,.18);border-radius:18px;overflow:hidden;box-shadow:0 40px 90px rgba(0,0,0,.5),0 0 0 1px rgba(47,127,247,.08),0 0 80px rgba(47,127,247,.12)}
+.dash{background:rgba(8,14,30,.92);border:1px solid rgba(140,180,255,.18);border-radius:18px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.45)}
 .dash-bar{display:flex;align-items:center;gap:8px;padding:14px 18px;border-bottom:1px solid rgba(140,180,255,.1);background:rgba(255,255,255,.02)}
 .dot{width:11px;height:11px;border-radius:50%}
 .dash-url{margin-left:12px;flex:1;background:rgba(255,255,255,.04);border-radius:8px;padding:6px 14px;font-size:12.5px;color:var(--lx-muted2);font-family:ui-monospace,monospace}
@@ -96,7 +92,7 @@ a{text-decoration:none;color:inherit}
 .life-step p{font-size:13.5px;color:var(--lx-muted);line-height:1.6}
 /* device cards with SVG */
 .dev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.dev-card{background:rgba(255,255,255,.03);border:1px solid rgba(140,180,255,.09);border-radius:18px;padding:30px 24px;text-align:center;transition:transform .25s,border-color .25s;overflow:hidden;position:relative}
+.dev-card{background:rgba(255,255,255,.045);border:1px solid rgba(140,180,255,.09);border-radius:18px;padding:30px 24px;text-align:center;transition:transform .25s,border-color .25s;overflow:hidden;position:relative}
 .dev-card:hover{transform:translateY(-4px);border-color:rgba(47,127,247,.4)}
 .dev-card::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 80% 55% at 50% 0%,rgba(47,127,247,.1),transparent 70%);pointer-events:none}
 .dev-svg{height:110px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;position:relative}
@@ -105,7 +101,7 @@ a{text-decoration:none;color:inherit}
 .bento{display:grid;gap:20px}
 .bento-2{grid-template-columns:1fr 1fr}
 .bento-3{grid-template-columns:1fr 1fr 1fr}
-.bento-card{background:rgba(255,255,255,.035);border:1px solid rgba(140,180,255,.09);border-radius:var(--lx-radius);padding:32px;transition:transform .25s,border-color .25s;position:relative;overflow:hidden}
+.bento-card{background:rgba(255,255,255,.05);border:1px solid rgba(140,180,255,.09);border-radius:var(--lx-radius);padding:32px;transition:transform .25s,border-color .25s;position:relative;overflow:hidden}
 .bento-card:hover{transform:translateY(-3px);border-color:rgba(47,127,247,.35)}
 .bento-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--lx-blue),var(--lx-cyan));opacity:0;transition:opacity .25s}
 .bento-card:hover::before{opacity:1}
@@ -126,11 +122,11 @@ a{text-decoration:none;color:inherit}
 .f-icon.c-pink{background:rgba(244,114,182,.10);border-color:rgba(244,114,182,.4)}.f-icon.c-pink i{color:#f472b6}
 .f-icon.c-yellow{background:rgba(250,204,21,.10);border-color:rgba(250,204,21,.4)}.f-icon.c-yellow i{color:#facc15}
 .f-icon.c-cyan{background:rgba(34,211,238,.10);border-color:rgba(34,211,238,.4)}.f-icon.c-cyan i{color:#22d3ee}
-.life-n.lc-blue{border-color:rgba(91,157,255,.55);box-shadow:0 0 30px rgba(91,157,255,.25)}.life-n.lc-blue i{color:#5b9dff}
-.life-n.lc-green{border-color:rgba(52,211,153,.55);box-shadow:0 0 30px rgba(52,211,153,.22)}.life-n.lc-green i{color:#34d399}
-.life-n.lc-orange{border-color:rgba(255,176,32,.55);box-shadow:0 0 30px rgba(255,176,32,.22)}.life-n.lc-orange i{color:#ffb020}
-.life-n.lc-purple{border-color:rgba(176,127,255,.55);box-shadow:0 0 30px rgba(176,127,255,.22)}.life-n.lc-purple i{color:#b07fff}
-.life-n.lc-teal{border-color:rgba(45,212,191,.55);box-shadow:0 0 30px rgba(45,212,191,.22)}.life-n.lc-teal i{color:#2dd4bf}
+.life-n.lc-blue{border-color:rgba(91,157,255,.45)}.life-n.lc-blue i{color:#5b9dff}
+.life-n.lc-green{border-color:rgba(52,211,153,.45)}.life-n.lc-green i{color:#34d399}
+.life-n.lc-orange{border-color:rgba(255,176,32,.45)}.life-n.lc-orange i{color:#ffb020}
+.life-n.lc-purple{border-color:rgba(176,127,255,.45)}.life-n.lc-purple i{color:#b07fff}
+.life-n.lc-teal{border-color:rgba(45,212,191,.45)}.life-n.lc-teal i{color:#2dd4bf}
 .f-icon{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,rgba(47,127,247,.2),rgba(0,240,255,.08));border:1px solid rgba(47,127,247,.35);display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--lx-cyan)}
 /* alternating rows */
 .alt-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-bottom:72px}
@@ -142,7 +138,7 @@ a{text-decoration:none;color:inherit}
 .wp-list{list-style:none;display:flex;flex-direction:column;gap:11px}
 .wp-list li{color:var(--lx-muted);font-size:14.5px;line-height:1.6;padding-left:24px;position:relative}
 .wp-list li::before{content:"\2713";position:absolute;left:0;color:var(--lx-cyan);font-weight:700}
-.alt-vis{background:rgba(8,14,30,.7);border:1px solid rgba(140,180,255,.14);border-radius:18px;padding:26px;min-height:260px;display:flex;align-items:center;justify-content:center;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.alt-vis{background:rgba(8,14,30,.7);border:1px solid rgba(140,180,255,.14);border-radius:18px;padding:26px;min-height:260px;display:flex;align-items:center;justify-content:center;box-shadow:0 16px 40px rgba(0,0,0,.3)}
 .mock-patch{width:100%}
 .mp-row{margin-bottom:16px}
 .mp-row:last-child{margin-bottom:0}
@@ -150,12 +146,12 @@ a{text-decoration:none;color:inherit}
 .mp-top b{font-weight:600}
 .mock-apps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;width:100%}
 .app{aspect-ratio:1;background:rgba(255,255,255,.035);border:1px solid rgba(140,180,255,.12);border-radius:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;font-size:11px;color:var(--lx-muted);text-align:center;padding:6px}
-.app i{font-size:22px;color:var(--lx-blue)}
+.app i{font-size:22px}
 .mock-store{width:100%}
 .ms-shelf{display:flex;gap:12px;margin-bottom:12px}
 .ms-shelf:last-child{margin-bottom:0}
 .ms-app{flex:1;background:rgba(255,255,255,.03);border:1px solid rgba(140,180,255,.1);border-radius:12px;padding:16px 10px;text-align:center;font-size:12px;color:var(--lx-muted)}
-.ms-app i{font-size:24px;color:var(--lx-cyan);margin-bottom:8px;display:block}
+.ms-app i{font-size:24px;margin-bottom:8px;display:block}
 .mock-map{width:100%}
 .map-grid{position:relative;height:220px;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(47,127,247,.08),transparent 70%);border:1px solid rgba(140,180,255,.1);border-radius:14px;overflow:hidden}
 .map-grid::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(140,180,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(140,180,255,.06) 1px,transparent 1px);background-size:34px 34px}
@@ -167,14 +163,14 @@ a{text-decoration:none;color:inherit}
 .me-arrow{color:var(--lx-cyan);font-size:20px;font-weight:700}
 /* link cards */
 .link-row{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.link-card{padding:36px 28px;background:rgba(255,255,255,.025);border:1px solid rgba(140,180,255,.08);border-radius:var(--lx-radius);transition:background .25s}
+.link-card{padding:36px 28px;background:rgba(255,255,255,.04);border:1px solid rgba(140,180,255,.08);border-radius:var(--lx-radius);transition:background .25s}
 .link-card:hover{background:rgba(47,127,247,.06)}
 .link-card h3{font-size:20px;font-weight:700;margin-bottom:26px;letter-spacing:-.01em}
 .link-card a.more{color:var(--lx-muted);font-size:14px;font-weight:600;display:inline-flex;align-items:center;gap:8px}
 .link-card a.more:hover{color:var(--lx-cyan)}
 /* FAQ */
 .faq-list{display:flex;flex-direction:column;gap:14px;max-width:860px;margin:0 auto}
-.faq-item{background:rgba(255,255,255,.03);border:1px solid rgba(140,180,255,.09);border-radius:var(--lx-radius);overflow:hidden}
+.faq-item{background:rgba(255,255,255,.045);border:1px solid rgba(140,180,255,.09);border-radius:var(--lx-radius);overflow:hidden}
 .faq-q{width:100%;background:none;border:none;color:var(--lx-ink);font-family:'Inter',sans-serif;font-size:16.5px;font-weight:600;text-align:left;padding:22px 26px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
 .faq-q i{color:var(--lx-cyan);transition:transform .3s;flex-shrink:0}
 .faq-item.open .faq-q i{transform:rotate(180deg)}
@@ -232,24 +228,22 @@ a{text-decoration:none;color:inherit}
 <!-- HERO -->
 <section class="lx-hero">
   <div class="lx-hero-bg" aria-hidden="true">
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-    <div class="grid-overlay"></div>
-    <div class="shade"></div>
+    <img class="hs-bgimg" src="assets/slide2-mdm.webp" alt="">
+    <div class="hs-shade"></div>
+    <div class="hs-shade2"></div>
   </div>
-  <div class="hero-grid">
-    <div class="hero-copy">
-      <div class="eyebrow rv">Devniques MDM</div>
-      <h1 class="rv">Manage the Entire Device Lifecycle from a Single Console.</h1>
-      <p class="sub rv">Handle every stage of device usage with Devniques MDM, from onboarding to decommissioning.</p>
-      <div class="lx-cta rv">
-        <a class="btn" href="index.html#contact">Schedule a Demo <i class="fa-solid fa-arrow-right"></i></a>
-        <a class="btn btn-outline" href="mailto:info@devniques.com">Email Our Engineers</a>
-      </div>
+  <div class="hs-content">
+    <div class="hs-eyebrow rv">Devniques MDM</div>
+    <h1 class="rv">Manage the Entire Device Lifecycle from a Single Console.</h1>
+    <p class="rv">Handle every stage of device usage with Devniques MDM, from onboarding to decommissioning.</p>
+    <div class="hs-btns rv">
+      <a class="hs-cta" href="index.html#contact">Schedule a Demo</a>
+      <a class="hs-cta hs-cta-ghost" href="mailto:info@devniques.com">Email Our Engineers</a>
     </div>
-    <div class="rv">
-      <div class="dash">
+  </div>
+</section>
+<div class="wrap"><div class="console-show rv">
+<div class="dash">
         <div class="dash-bar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span><span class="dash-url">console.devniques.com/mdm</span></div>
         <div class="dash-body">
           <div class="dash-side">
@@ -272,9 +266,7 @@ a{text-decoration:none;color:inherit}
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+</div></div>
 
 <!-- LIFECYCLE -->
 <section class="lx-sec">
@@ -354,22 +346,22 @@ a{text-decoration:none;color:inherit}
     <div class="alt-row rv">
       <div class="alt-copy"><div class="eyebrow-sm">Apps</div><h3>Automated Third-Party App Patching</h3><p>Ensure third-party applications remain updated across all managed devices. Eliminate manual updates and reduce risks from outdated software.</p><ul class="wp-list"><li>Automatically patch commonly used third-party apps</li><li>Reduce vulnerabilities from outdated applications</li><li>Maintain consistency across all installed software</li></ul></div>
       <div class="alt-vis"><div class="mock-apps">
-        <div class="app"><i class="fa-brands fa-chrome"></i>Browser</div>
-        <div class="app"><i class="fa-solid fa-file-pdf"></i>Reader</div>
-        <div class="app"><i class="fa-solid fa-video"></i>Meetings</div>
-        <div class="app"><i class="fa-solid fa-envelope"></i>Mail</div>
-        <div class="app"><i class="fa-solid fa-cloud"></i>Sync</div>
-        <div class="app"><i class="fa-solid fa-print"></i>Print</div>
-        <div class="app"><i class="fa-solid fa-lock"></i>VPN</div>
-        <div class="app"><i class="fa-solid fa-rotate"></i><span style="color:#8fe6b0">Auto-patched</span></div>
+        <div class="app"><i class="fa-brands fa-chrome" style="color:#4285F4"></i>Chrome</div>
+        <div class="app"><i class="fa-brands fa-firefox" style="color:#FF7139"></i>Firefox</div>
+        <div class="app"><i class="fa-brands fa-microsoft" style="color:#6264A6"></i>Teams</div>
+        <div class="app"><i class="fa-solid fa-envelope" style="color:#0078D4"></i>Outlook</div>
+        <div class="app"><i class="fa-brands fa-google-drive" style="color:#34A853"></i>Drive</div>
+        <div class="app"><i class="fa-solid fa-file-pdf" style="color:#EC1C24"></i>Reader</div>
+        <div class="app"><i class="fa-solid fa-shield-halved" style="color:#7c3aed"></i>VPN</div>
+        <div class="app"><i class="fa-solid fa-rotate" style="color:#34d399"></i><span style="color:#8fe6b0">Auto-patched</span></div>
       </div></div>
     </div>
 
     <div class="alt-row flip rv">
       <div class="alt-copy"><div class="eyebrow-sm">Distribution</div><h3>App Catalog</h3><p>Provide users with access to approved applications through a centralized app catalog. Simplify app distribution while maintaining control over installations.</p><ul class="wp-list"><li>Publish and manage approved apps centrally</li><li>Control app access based on roles or groups</li><li>Simplify application deployment and updates</li></ul></div>
       <div class="alt-vis"><div class="mock-store">
-        <div class="ms-shelf"><div class="ms-app"><i class="fa-solid fa-briefcase"></i>Office</div><div class="ms-app"><i class="fa-solid fa-comments"></i>Chat</div><div class="ms-app"><i class="fa-solid fa-table"></i>Sheets</div></div>
-        <div class="ms-shelf"><div class="ms-app"><i class="fa-solid fa-shield-halved"></i>Security</div><div class="ms-app"><i class="fa-solid fa-cloud"></i>Drive</div><div class="ms-app"><i class="fa-solid fa-plus"></i>Request</div></div>
+        <div class="ms-shelf"><div class="ms-app"><i class="fa-solid fa-briefcase" style="color:#D83B01"></i>Office</div><div class="ms-app"><i class="fa-solid fa-comments" style="color:#6264A6"></i>Chat</div><div class="ms-app"><i class="fa-solid fa-table" style="color:#34A853"></i>Sheets</div></div>
+        <div class="ms-shelf"><div class="ms-app"><i class="fa-solid fa-shield-halved" style="color:#FF7A7A"></i>Security</div><div class="ms-app"><i class="fa-brands fa-google-drive" style="color:#FBBC04"></i>Drive</div><div class="ms-app"><i class="fa-solid fa-plus"></i>Request</div></div>
       </div></div>
     </div>
 
