@@ -504,7 +504,15 @@ a{text-decoration:none;color:inherit}
         var h = a.getAttribute('href');
         if(h.length > 1) a.setAttribute('href', 'index.html' + h);
       });
+      nav.querySelectorAll('.ln-links a').forEach(function(a){
+        if(a.textContent.trim() === 'AI Automation') a.setAttribute('href', 'ai-automation.html');
+      });
     }
+    var page = location.pathname.split('/').pop() || 'index.html';
+    nav.querySelectorAll('.ln-links a').forEach(function(a){
+      var h = a.getAttribute('href') || '';
+      if(h === page) a.classList.add('on');
+    });
     var burger = nav.querySelector('#burger');
     var links = nav.querySelector('#navLinks');
     if(burger && links){
