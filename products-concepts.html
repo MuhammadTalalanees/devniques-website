@@ -29,6 +29,10 @@ body{background:var(--bg);color:#fff;font-family:'Inter',system-ui,sans-serif;ov
 .stack{position:relative}
 .stack-card{position:sticky;top:0;height:100svh;overflow:hidden;background:#04070e;transform-origin:center top}
 .stack-card video.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stack-card .bg-swap{position:absolute;inset:0}
+.stack-card .bg-swap .bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s ease}
+.stack-card .bg-swap .hover-img{opacity:0}
+.stack-card:hover .bg-swap .hover-img{opacity:1}
 .stack-card .shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(2,6,16,.93) 0%,rgba(2,6,16,.45) 45%,rgba(2,6,16,.15) 70%,rgba(2,6,16,.35) 100%)}
 .stack-card .shade2{position:absolute;inset:0;background:linear-gradient(100deg,rgba(2,6,16,.75) 0%,transparent 55%)}
 .stack-inner{position:relative;z-index:2;height:100%;max-width:1280px;margin:0 auto;padding:0 28px;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:11svh}
@@ -83,10 +87,23 @@ body{background:var(--bg);color:#fff;font-family:'Inter',system-ui,sans-serif;ov
 
 <div class="stack" id="stack">
 
+  <article class="stack-card" data-title="Devniques MDM">
+    <div class="bg-swap"><img class="bg-img" src="assets/mdm-hero-devices.webp" alt="Devniques MDM"><img class="bg-img hover-img" src="videos/mdm-v4-poster.jpg" alt=""></div>
+    <div class="shade"></div><div class="shade2"></div>
+    <div class="p-count"><b>01</b> / 07</div>
+    <div class="stack-inner">
+      <span class="p-tag">Device Control</span>
+      <h2>Devniques MDM</h2>
+      <p class="p-desc">Enterprise Mobility Management to remotely monitor, lock, update, and secure your company's smartphones, tablets, POS terminals, and laptops.</p>
+      <div class="p-chips"><span class="p-chip"><i class="fa-solid fa-check"></i>Remote Lock/Wipe</span><span class="p-chip"><i class="fa-solid fa-check"></i>Kiosk Policy</span><span class="p-chip"><i class="fa-solid fa-check"></i>App Distribution</span></div>
+      <div class="p-ctas"><a class="p-cta" href="https://devniques.com/contact-us/">Get a Quote <i class="fa-solid fa-arrow-right"></i></a><a class="p-cta ghost" href="windows-mdm.html">Explore MDM</a></div>
+    </div>
+  </article>
+
   <article class="stack-card" data-title="TrackOnMoves">
     <video class="bg" muted loop playsinline preload="auto" poster="videos/trackonmoves-v2-poster.jpg" src="videos/trackonmoves-v2.mp4"></video>
     <div class="shade"></div><div class="shade2"></div>
-    <div class="p-count"><b>01</b> / 07</div>
+    <div class="p-count"><b>02</b> / 07</div>
     <div class="stack-inner">
       <span class="p-tag">Telematics &amp; Fleet</span>
       <h2>TrackOnMoves</h2>
@@ -99,7 +116,7 @@ body{background:var(--bg);color:#fff;font-family:'Inter',system-ui,sans-serif;ov
   <article class="stack-card" data-title="Itmenaan">
     <video class="bg" muted loop playsinline preload="auto" poster="videos/itmenaan-v2-poster.jpg" src="videos/itmenaan-v2.mp4"></video>
     <div class="shade"></div><div class="shade2"></div>
-    <div class="p-count"><b>02</b> / 07</div>
+    <div class="p-count"><b>03</b> / 07</div>
     <div class="stack-inner">
       <span class="p-tag">Marketplace</span>
       <h2>Itmenaan</h2>
@@ -112,7 +129,7 @@ body{background:var(--bg);color:#fff;font-family:'Inter',system-ui,sans-serif;ov
   <article class="stack-card" data-title="Hospital Management">
     <video class="bg" muted loop playsinline preload="auto" poster="videos/hospital-v2-poster.jpg" src="videos/hospital-v2.mp4"></video>
     <div class="shade"></div><div class="shade2"></div>
-    <div class="p-count"><b>03</b> / 07</div>
+    <div class="p-count"><b>04</b> / 07</div>
     <div class="stack-inner">
       <span class="p-tag">Healthcare OS</span>
       <h2>Hospital Management</h2>
@@ -125,7 +142,7 @@ body{background:var(--bg);color:#fff;font-family:'Inter',system-ui,sans-serif;ov
   <article class="stack-card" data-title="Microsoft 365">
     <video class="bg" muted loop playsinline preload="auto" poster="videos/m365-v2-poster.jpg" src="videos/m365-v2.mp4"></video>
     <div class="shade"></div><div class="shade2"></div>
-    <div class="p-count"><b>04</b> / 07</div>
+    <div class="p-count"><b>05</b> / 07</div>
     <div class="stack-inner">
       <span class="p-tag">Productivity Cloud</span>
       <h2>Microsoft 365</h2>
@@ -138,7 +155,7 @@ body{background:var(--bg);color:#fff;font-family:'Inter',system-ui,sans-serif;ov
   <article class="stack-card" data-title="Ship Flow">
     <video class="bg" muted loop playsinline preload="auto" poster="videos/shipflow-v2-poster.jpg" src="videos/shipflow-v2.mp4"></video>
     <div class="shade"></div><div class="shade2"></div>
-    <div class="p-count"><b>05</b> / 07</div>
+    <div class="p-count"><b>06</b> / 07</div>
     <div class="stack-inner">
       <span class="p-tag">Freight &amp; Logistics</span>
       <h2>Ship Flow</h2>
@@ -151,26 +168,13 @@ body{background:var(--bg);color:#fff;font-family:'Inter',system-ui,sans-serif;ov
   <article class="stack-card" data-title="BuzzFlow">
     <video class="bg" muted loop playsinline preload="auto" poster="videos/buzzflow-v2-poster.jpg" src="videos/buzzflow-v2.mp4"></video>
     <div class="shade"></div><div class="shade2"></div>
-    <div class="p-count"><b>06</b> / 07</div>
+    <div class="p-count"><b>07</b> / 07</div>
     <div class="stack-inner">
       <span class="p-tag">Unified Workspace</span>
       <h2>BuzzFlow</h2>
       <p class="p-desc">Unified workspace platform integrating real-time team chat, tasks and collaboration.</p>
       <div class="p-chips"><span class="p-chip"><i class="fa-solid fa-check"></i>Team Chat</span><span class="p-chip"><i class="fa-solid fa-check"></i>Tasks</span><span class="p-chip"><i class="fa-solid fa-check"></i>Collab</span></div>
       <div class="p-ctas"><a class="p-cta" href="https://devniques.com/contact-us/">Get a Quote <i class="fa-solid fa-arrow-right"></i></a><a class="p-cta ghost" href="mailto:info@devniques.com">Live Demo</a></div>
-    </div>
-  </article>
-
-  <article class="stack-card" data-title="Devniques MDM">
-    <video class="bg" muted loop playsinline preload="auto" poster="videos/mdm-v2-poster.jpg" src="videos/mdm-v2.mp4"></video>
-    <div class="shade"></div><div class="shade2"></div>
-    <div class="p-count"><b>07</b> / 07</div>
-    <div class="stack-inner">
-      <span class="p-tag">Device Control</span>
-      <h2>Devniques MDM</h2>
-      <p class="p-desc">Enterprise Mobility Management to remotely monitor, lock, update, and secure your company's smartphones, tablets, POS terminals, and laptops.</p>
-      <div class="p-chips"><span class="p-chip"><i class="fa-solid fa-check"></i>Remote Lock/Wipe</span><span class="p-chip"><i class="fa-solid fa-check"></i>Kiosk Policy</span><span class="p-chip"><i class="fa-solid fa-check"></i>App Distribution</span></div>
-      <div class="p-ctas"><a class="p-cta" href="https://devniques.com/contact-us/">Get a Quote <i class="fa-solid fa-arrow-right"></i></a><a class="p-cta ghost" href="windows-mdm.html">Explore MDM</a></div>
     </div>
   </article>
 
