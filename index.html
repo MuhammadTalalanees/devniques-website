@@ -530,6 +530,51 @@ section{padding:96px 0}
 
   *,*::before,*::after{transition-duration:.01ms!important}
 }
+
+/* ===== Products stack section (transplanted from products-concepts) ===== */
+#products{--cyan:#00f0ff;--blue:#2f7ff7;--muted:#b9c8e4;--line:rgba(140,180,255,.12);background:#04070e;position:relative}
+#products .stack-intro{display:flex;align-items:center;justify-content:center;text-align:center;padding:110px 28px 46px}
+#products .stack-intro h2{font-size:clamp(38px,6vw,72px);font-weight:900;letter-spacing:-1.5px;margin-bottom:18px;color:#fff}
+#products .stack-intro h2 span{color:var(--cyan)}
+#products .stack-intro p{color:var(--muted);font-size:17px;max-width:560px;margin:0 auto 30px;line-height:1.65}
+#products .scroll-hint{display:inline-flex;align-items:center;gap:10px;color:var(--muted);font-size:13px;font-weight:700;letter-spacing:2px}
+#products .scroll-hint i{color:var(--cyan);animation:pstack-bounce 1.8s infinite}
+@keyframes pstack-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
+#products .stack{position:relative}
+#products .stack-card{position:sticky;top:0;height:100svh;overflow:hidden;background:#04070e;transform-origin:center top}
+#products .stack-card video.bg,#products .stack-card img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#products .stack-card .bg-swap{position:absolute;inset:0}
+#products .stack-card .bg-swap .bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s ease}
+#products .stack-card .bg-swap .hover-img{opacity:0}
+#products .stack-card:hover .bg-swap .hover-img{opacity:1}
+#products .stack-card .shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(2,6,16,.93) 0%,rgba(2,6,16,.45) 45%,rgba(2,6,16,.15) 70%,rgba(2,6,16,.35) 100%)}
+#products .stack-card .shade2{position:absolute;inset:0;background:linear-gradient(100deg,rgba(2,6,16,.75) 0%,transparent 55%)}
+#products .stack-inner{position:relative;z-index:2;height:100%;max-width:1280px;margin:0 auto;padding:0 28px;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:11svh}
+#products .p-tag{display:inline-block;align-self:flex-start;font-size:11.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;background:rgba(0,240,255,.1);color:var(--cyan);padding:8px 16px;border-radius:8px;margin-bottom:18px;border:1px solid rgba(0,240,255,.3)}
+#products .stack-card h2{font-size:clamp(40px,6.5vw,84px);font-weight:900;letter-spacing:-2px;line-height:1.02;margin-bottom:16px;text-shadow:0 4px 40px rgba(0,0,0,.5);color:#fff}
+#products .stack-card .p-desc{color:#dbe6f7;font-size:clamp(15px,1.6vw,18.5px);max-width:620px;line-height:1.65;margin-bottom:22px}
+#products .p-chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+#products .p-chip{font-size:13px;font-weight:600;color:#e8f1ff;border:1px solid rgba(255,255,255,.22);padding:9px 18px;border-radius:999px;background:rgba(255,255,255,.06);backdrop-filter:blur(6px)}
+#products .p-chip i{color:var(--cyan);margin-right:8px;font-size:11px}
+#products .p-ctas{display:flex;gap:14px;flex-wrap:wrap}
+#products .p-cta{display:inline-flex;align-items:center;gap:10px;background:var(--blue);color:#fff;font-weight:700;font-size:15px;padding:15px 34px;border-radius:999px;text-decoration:none;transition:.25s;box-shadow:0 12px 32px rgba(47,127,247,.4)}
+#products .p-cta:hover{transform:translateY(-2px);background:#0d55c4}
+#products .p-cta.ghost{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.3);box-shadow:none}
+#products .p-cta.ghost:hover{background:rgba(255,255,255,.16)}
+#products .p-count{position:absolute;top:96px;right:40px;z-index:3;font-size:14px;font-weight:800;letter-spacing:3px;color:rgba(255,255,255,.75);background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.18);padding:10px 18px;border-radius:999px;backdrop-filter:blur(8px)}
+#products .p-count b{color:var(--cyan)}
+#products .stack-dots{position:fixed;right:26px;top:50%;transform:translateY(-50%);z-index:150;display:flex;flex-direction:column;gap:12px;opacity:0;pointer-events:none;transition:opacity .3s}
+#products .stack-dots.show{opacity:1;pointer-events:auto}
+#products .stack-dots button{width:10px;height:10px;border-radius:50%;border:1px solid rgba(255,255,255,.4);background:transparent;cursor:pointer;transition:.25s;padding:0;position:relative}
+#products .stack-dots button.on{background:var(--cyan);border-color:var(--cyan);box-shadow:0 0 12px rgba(0,240,255,.7);transform:scale(1.25)}
+#products .stack-dots button .tip{position:absolute;right:26px;top:50%;transform:translateY(-50%) translateX(10px);white-space:nowrap;background:rgba(2,8,20,.88);border:1px solid var(--line);color:#fff;font-size:13px;font-weight:600;padding:9px 16px;border-radius:10px;opacity:0;pointer-events:none;transition:.22s;backdrop-filter:blur(8px)}
+#products .stack-dots button:hover .tip{opacity:1;transform:translateY(-50%) translateX(0)}
+@media(max-width:640px){
+  #products .p-count{top:78px;right:18px}
+  #products .stack-dots{display:none}
+  #products .stack-inner{padding-bottom:9svh}
+}
+
 </style>
 <style>
 /* ===== MOTION SYSTEM (Linear-style) ===== */
@@ -932,219 +977,112 @@ body{background:#04070e!important;color:#f2f6fd}
   </div>
 </section>
 <section id="products">
-  <div class="wrap sec-head">
-    <span class="eyebrow rv">Product Showcase</span>
-    <h2 class="rv">Our Products</h2>
-    <p class="rv">Powerful products and platforms built to solve real business challenges &mdash; ready to deploy, easy to scale, and designed around your workflows.</p>
-  </div>
-  <div class="drag-hint rv">
-    <svg width="26" height="14" viewBox="0 0 26 14" fill="none" stroke="#8fa6cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 7h24M18 1l6 6-6 6"/></svg>
-    Drag to explore
-    <svg width="26" height="14" viewBox="0 0 26 14" fill="none" stroke="#8fa6cf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform:scaleX(-1)"><path d="M1 7h24M18 1l6 6-6 6"/></svg>
-  </div>
-  <div class="wrap car-nav rv">
-    <button class="car-btn" id="carPrev" aria-label="Previous products"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
-    <button class="car-btn" id="carNext" aria-label="Next products"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-  </div>
-  <div class="stage-3d rv" id="stage3d">
-    <div class="river" id="river">
-      <article class="p-card" data-key="BuzzFlow">
-        <div class="prod-visual"><video muted loop playsinline preload="metadata" poster="videos/buzzflow-poster.jpg" src="videos/buzzflo.mp4"></video>
-          <img class="pv-poster" src="videos/buzzflow-poster.jpg" alt="" loading="lazy" draggable="false">
-          <span class="prod-tag">Enterprise SaaS</span>
-        </div>
-        <div class="prod-body">
-          <div class="prod-title"><span>BuzzFlow</span><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-          <p class="prod-desc">Unified workspace platform integrating real-time team chat, tasks, multi-stage projects, pipeline CRM, and automated finance tracking.</p>
-          <div class="prod-specs">
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>CRM &amp; Tasks</div>
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>Real-time Chat</div>
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>Finance</div>
-          </div>
-          <div class="card-bottom">
-            <span class="view-details-btn">View Detailed Specs <i class="fa-solid fa-arrow-right"></i></span>
-            <span class="live-demo-pill">Click to Open</span>
-          </div>
-        </div>
-      </article>
-      <article class="p-card" data-key="PostMarrow">
-        <div class="prod-visual"><video muted loop playsinline preload="metadata" poster="videos/postmarrow-poster.jpg" src="videos/postmarrow.mp4"></video>
-          <img class="pv-poster" src="videos/postmarrow-poster.jpg" alt="" loading="lazy" draggable="false">
-          <span class="prod-tag">Cybersecurity</span>
-        </div>
-        <div class="prod-body">
-          <div class="prod-title"><span>Post Marrow</span><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-          <p class="prod-desc">Military-grade business email defense infrastructure featuring zero-day phishing protection, AI spam filtering, and automated encryption vaults.</p>
-          <div class="prod-specs">
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>Zero-Day Shield</div>
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>End-to-End Vault</div>
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>99.99% Filter</div>
-          </div>
-          <div class="card-bottom">
-            <span class="view-details-btn">View Detailed Specs <i class="fa-solid fa-arrow-right"></i></span>
-            <span class="live-demo-pill">Click to Open</span>
-          </div>
-        </div>
-      </article>
-      <article class="p-card" data-key="Signvero">
-        <div class="prod-visual"><video muted loop playsinline preload="metadata" poster="videos/signvero-poster.jpg" src="videos/signvero.mp4"></video>
-          <img class="pv-poster" src="videos/signvero-poster.jpg" alt="" loading="lazy" draggable="false">
-          <span class="prod-tag">Digital Media</span>
-        </div>
-        <div class="prod-body">
-          <div class="prod-title"><span>Signvero</span><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-          <p class="prod-desc">Cloud-based digital signage network and emergency broadcasting system. Schedule targeted video content across thousands of global screens.</p>
-          <div class="prod-specs">
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>Multi-screen Sync</div>
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>Instant Broadcast</div>
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>Cloud Playlists</div>
-          </div>
-          <div class="card-bottom">
-            <span class="view-details-btn">View Detailed Specs <i class="fa-solid fa-arrow-right"></i></span>
-            <span class="live-demo-pill">Click to Open</span>
-          </div>
-        </div>
-      </article>
-      <article class="p-card" data-key="Mobilient">
-        <div class="prod-visual"><video muted loop playsinline preload="metadata" poster="videos/mobilient-poster.jpg" src="videos/mobilient.mp4"></video>
-          <img class="pv-poster" src="videos/mobilient-poster.jpg" alt="" loading="lazy" draggable="false">
-          <span class="prod-tag">Device Control</span>
-        </div>
-        <div class="prod-body">
-          <div class="prod-title"><span>Devniques MDM</span><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-          <p class="prod-desc">Enterprise Mobility Management to remotely monitor, lock, update, and secure your company's smartphones, tablets, POS terminals, and laptops.</p>
-          <div class="prod-specs">
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>Remote Lock/Wipe</div>
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>Kiosk Policy</div>
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>App Distribution</div>
-          </div>
-          <div class="card-bottom">
-            <span class="view-details-btn">View Detailed Specs <i class="fa-solid fa-arrow-right"></i></span>
-            <span class="live-demo-pill">Click to Open</span>
-          </div>
-        </div>
-      </article>
-      <article class="p-card" data-key="ShipFlow">
-        <div class="prod-visual"><video muted loop playsinline preload="metadata" poster="videos/shipflow-poster.jpg" src="videos/shipflow.mp4"></video>
-          <img class="pv-poster" src="videos/shipflow-poster.jpg" alt="" loading="lazy" draggable="false">
-          <span class="prod-tag">Supply Chain</span>
-        </div>
-        <div class="prod-body">
-          <div class="prod-title"><span>Ship Flow</span><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-          <p class="prod-desc">End-to-end Freight Forwarding &amp; Cargo Logistics suite with GPS container tracking, manifest automation, customs compliance, and client billing.</p>
-          <div class="prod-specs">
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>GPS Tracking</div>
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>Automated Manifest</div>
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>Customs Portal</div>
-          </div>
-          <div class="card-bottom">
-            <span class="view-details-btn">View Detailed Specs <i class="fa-solid fa-arrow-right"></i></span>
-            <span class="live-demo-pill">Click to Open</span>
-          </div>
-        </div>
-      </article>
-      <article class="p-card" data-key="TrackOnMoves">
-        <div class="prod-visual"><video muted loop playsinline preload="metadata" poster="videos/trackonmoves-poster.jpg" src="videos/trackonmoves.mp4"></video>
-          <img class="pv-poster" src="videos/trackonmoves-poster.jpg" alt="" loading="lazy" draggable="false">
-          <span class="prod-tag">Telematics &amp; Fleet</span>
-        </div>
-        <div class="prod-body">
-          <div class="prod-title"><span>TrackOnMoves</span><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-          <p class="prod-desc">Smart vehicle tracking and driver analytics platform. Real-time geofencing, fuel monitoring, engine diagnostics, and automated route optimization.</p>
-          <div class="prod-specs">
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>Live Geofence</div>
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>Fuel Diagnostics</div>
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>Driver Score</div>
-          </div>
-          <div class="card-bottom">
-            <span class="view-details-btn">View Detailed Specs <i class="fa-solid fa-arrow-right"></i></span>
-            <span class="live-demo-pill">Click to Open</span>
-          </div>
-        </div>
-      </article>
-      <article class="p-card" data-key="Itmenaan">
-        <div class="prod-visual"><video muted loop playsinline preload="metadata" poster="videos/itmenaan-poster.jpg" src="videos/itmenaan.mp4"></video>
-          <img class="pv-poster" src="videos/itmenaan-poster.jpg" alt="" loading="lazy" draggable="false">
-          <span class="prod-tag">Marketplace</span>
-        </div>
-        <div class="prod-body">
-          <div class="prod-title"><span>Itmenaan</span><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-          <p class="prod-desc">Pakistan&rsquo;s trusted buy &amp; sell marketplace connecting buyers and sellers across Pakistan.</p>
-          <div class="prod-specs">
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>Buy &amp; Sell</div>
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>Listings</div>
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>Secure Deals</div>
-          </div>
-          <div class="card-bottom">
-            <span class="view-details-btn">View Detailed Specs <i class="fa-solid fa-arrow-right"></i></span>
-            <span class="live-demo-pill">Click to Open</span>
-          </div>
-        </div>
-      </article>
-      <article class="p-card" data-key="Hospital">
-        <div class="prod-visual"><video muted loop playsinline preload="metadata" poster="videos/hospital-poster.jpg" src="videos/hospital.mp4"></video>
-          <img class="pv-poster" src="videos/hospital-poster.jpg" alt="" loading="lazy" draggable="false">
-          <span class="prod-tag">Healthcare OS</span>
-        </div>
-        <div class="prod-body">
-          <div class="prod-title"><span>Hospital Management</span><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-          <p class="prod-desc">Centralized health operations engine supporting 8+ distinct user roles (Doctors, Nurses, Pharmacy, Lab, Billing) across 60+ modular hospital workflows.</p>
-          <div class="prod-specs">
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>8+ User Portals</div>
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>60+ Modules</div>
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>OPD/IPD</div>
-          </div>
-          <div class="card-bottom">
-            <span class="view-details-btn">View Detailed Specs <i class="fa-solid fa-arrow-right"></i></span>
-            <span class="live-demo-pill">Click to Open</span>
-          </div>
-        </div>
-      </article>
-      <article class="p-card" data-key="Microsoft365">
-        <div class="prod-visual"><video muted loop playsinline preload="metadata" poster="videos/m365-poster.jpg" src="videos/m365.mp4"></video>
-          <img class="pv-poster" src="videos/m365-poster.jpg" alt="" loading="lazy" draggable="false">
-          <span class="prod-tag">Productivity Cloud</span>
-        </div>
-        <div class="prod-body">
-          <div class="prod-title"><span>Microsoft 365</span><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-          <p class="prod-desc">Powerful apps, AI-powered Copilot assistance, and trusted cloud storage to boost productivity.</p>
-          <div class="prod-specs">
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>Office Apps</div>
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>Copilot AI</div>
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>Cloud Storage</div>
-          </div>
-          <div class="card-bottom">
-            <span class="view-details-btn">View Detailed Specs <i class="fa-solid fa-arrow-right"></i></span>
-            <span class="live-demo-pill">Click to Open</span>
-          </div>
-        </div>
-      </article>
-      <article class="p-card" data-key="ERPCRM">
-        <div class="prod-visual"><video muted loop playsinline preload="metadata" poster="videos/erpcrm-poster.jpg" src="videos/erpcrm.mp4"></video>
-          <img class="pv-poster" src="videos/erpcrm-poster.jpg" alt="" loading="lazy" draggable="false">
-          <span class="prod-tag">Core Enterprise</span>
-        </div>
-        <div class="prod-body">
-          <div class="prod-title"><span>ERP &amp; CRM Architecture</span><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
-          <p class="prod-desc">Custom enterprise resource planning solution connecting multi-warehouse inventory, procurement, human capital, automated taxation, and client relations.</p>
-          <div class="prod-specs">
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>Inventory Sync</div>
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>Automated Payroll</div>
-            <div class="spec-chip"><i class="fa-solid fa-check"></i>Sales Forecasts</div>
-          </div>
-          <div class="card-bottom">
-            <span class="view-details-btn">View Detailed Specs <i class="fa-solid fa-arrow-right"></i></span>
-            <span class="live-demo-pill">Click to Open</span>
-          </div>
-        </div>
-      </article>
+  <div class="stack-intro">
+    <div>
+      <h2>Our <span>Products</span></h2>
+      <p>Powerful products and platforms built to solve real business challenges — ready to deploy, easy to scale, and designed around your workflows.</p>
+      <span class="scroll-hint"><i class="fa-solid fa-arrow-down"></i> SCROLL <i class="fa-solid fa-arrow-down"></i></span>
     </div>
   </div>
-  <div class="car-cap rv">
-    <div class="car-cap-top"><span class="car-cap-name" id="carCapName"></span><span class="car-cap-cat" id="carCapCat"></span></div>
-    <div class="car-cap-count"><span class="car-cap-idx" id="carCapIdx">01</span><span class="car-cap-bar"><i id="carCapFill"></i></span><span class="car-cap-total" id="carCapTotal">/ 10</span></div>
+
+  <div class="stack" id="stack">
+
+  <article class="stack-card" data-title="Devniques MDM">
+    <img class="bg" src="assets/mdm-hero-devices.webp" alt="Devniques MDM">
+    <div class="shade"></div><div class="shade2"></div>
+    <div class="p-count"><b>01</b> / 07</div>
+    <div class="stack-inner">
+      <span class="p-tag">Device Control</span>
+      <h2>Devniques MDM</h2>
+      <p class="p-desc">Enterprise Mobility Management to remotely monitor, lock, update, and secure your company's smartphones, tablets, POS terminals, and laptops.</p>
+      <div class="p-chips"><span class="p-chip"><i class="fa-solid fa-check"></i>Remote Lock/Wipe</span><span class="p-chip"><i class="fa-solid fa-check"></i>Kiosk Policy</span><span class="p-chip"><i class="fa-solid fa-check"></i>App Distribution</span></div>
+      <div class="p-ctas"><a class="p-cta" href="https://devniques.com/contact-us/">Get a Quote <i class="fa-solid fa-arrow-right"></i></a><a class="p-cta ghost" href="windows-mdm.html">Explore MDM</a></div>
+    </div>
+  </article>
+
+  <article class="stack-card" data-title="TrackOnMoves">
+    <img class="bg" src="videos/trackonmoves-poster-new.jpg" alt="TrackOnMoves">
+    <div class="shade"></div><div class="shade2"></div>
+    <div class="p-count"><b>02</b> / 07</div>
+    <div class="stack-inner">
+      <span class="p-tag">Telematics &amp; Fleet</span>
+      <h2>TrackOnMoves</h2>
+      <p class="p-desc">Smart vehicle tracking and driver analytics platform. Real-time geofencing, fuel monitoring, engine diagnostics, and automated route optimization.</p>
+      <div class="p-chips"><span class="p-chip"><i class="fa-solid fa-check"></i>Live Geofence</span><span class="p-chip"><i class="fa-solid fa-check"></i>Fuel Diagnostics</span><span class="p-chip"><i class="fa-solid fa-check"></i>Driver Score</span></div>
+      <div class="p-ctas"><a class="p-cta" href="https://devniques.com/contact-us/">Get a Quote <i class="fa-solid fa-arrow-right"></i></a><a class="p-cta ghost" href="mailto:info@devniques.com">Live Demo</a></div>
+    </div>
+  </article>
+
+  <article class="stack-card" data-title="Itmenaan">
+    <img class="bg" src="videos/itmenaan-v3-poster.jpg" alt="Itmenaan">
+    <div class="shade"></div><div class="shade2"></div>
+    <div class="p-count"><b>03</b> / 07</div>
+    <div class="stack-inner">
+      <span class="p-tag">Marketplace</span>
+      <h2>Itmenaan</h2>
+      <p class="p-desc">Pakistan's trusted buy &amp; sell marketplace connecting buyers and sellers across Pakistan.</p>
+      <div class="p-chips"><span class="p-chip"><i class="fa-solid fa-check"></i>Buy &amp; Sell</span><span class="p-chip"><i class="fa-solid fa-check"></i>Listings</span><span class="p-chip"><i class="fa-solid fa-check"></i>Secure Deals</span></div>
+      <div class="p-ctas"><a class="p-cta" href="https://devniques.com/contact-us/">Get a Quote <i class="fa-solid fa-arrow-right"></i></a><a class="p-cta ghost" href="mailto:info@devniques.com">Live Demo</a></div>
+    </div>
+  </article>
+
+  <article class="stack-card" data-title="Hospital Management">
+    <img class="bg" src="videos/hospital-poster-v2.jpg" alt="Hospital Management">
+    <div class="shade"></div><div class="shade2"></div>
+    <div class="p-count"><b>04</b> / 07</div>
+    <div class="stack-inner">
+      <span class="p-tag">Healthcare OS</span>
+      <h2>Hospital Management</h2>
+      <p class="p-desc">Centralized health operations engine supporting 8+ distinct user roles (Doctors, Nurses, Pharmacy, Lab, Billing) across 60+ modular hospital workflows.</p>
+      <div class="p-chips"><span class="p-chip"><i class="fa-solid fa-check"></i>8+ User Portals</span><span class="p-chip"><i class="fa-solid fa-check"></i>60+ Modules</span><span class="p-chip"><i class="fa-solid fa-check"></i>OPD/IPD</span></div>
+      <div class="p-ctas"><a class="p-cta" href="https://devniques.com/contact-us/">Get a Quote <i class="fa-solid fa-arrow-right"></i></a><a class="p-cta ghost" href="mailto:info@devniques.com">Live Demo</a></div>
+    </div>
+  </article>
+
+  <article class="stack-card" data-title="Microsoft 365">
+    <img class="bg" src="videos/m365-poster-v2.jpg" alt="Microsoft 365">
+    <div class="shade"></div><div class="shade2"></div>
+    <div class="p-count"><b>05</b> / 07</div>
+    <div class="stack-inner">
+      <span class="p-tag">Productivity Cloud</span>
+      <h2>Microsoft 365</h2>
+      <p class="p-desc">Powerful apps, AI-powered Copilot assistance, and trusted cloud storage to boost productivity.</p>
+      <div class="p-chips"><span class="p-chip"><i class="fa-solid fa-check"></i>Office Apps</span><span class="p-chip"><i class="fa-solid fa-check"></i>Copilot AI</span><span class="p-chip"><i class="fa-solid fa-check"></i>Cloud Storage</span></div>
+      <div class="p-ctas"><a class="p-cta" href="https://devniques.com/contact-us/">Get a Quote <i class="fa-solid fa-arrow-right"></i></a><a class="p-cta ghost" href="mailto:info@devniques.com">Live Demo</a></div>
+    </div>
+  </article>
+
+  <article class="stack-card" data-title="Ship Flow">
+    <img class="bg" src="videos/shipflow-v3-poster.jpg" alt="Ship Flow">
+    <div class="shade"></div><div class="shade2"></div>
+    <div class="p-count"><b>06</b> / 07</div>
+    <div class="stack-inner">
+      <span class="p-tag">Freight &amp; Logistics</span>
+      <h2>Ship Flow</h2>
+      <p class="p-desc">End-to-end freight forwarding &amp; cargo logistics suite with GPS container tracking.</p>
+      <div class="p-chips"><span class="p-chip"><i class="fa-solid fa-check"></i>GPS Tracking</span><span class="p-chip"><i class="fa-solid fa-check"></i>Cargo Suite</span><span class="p-chip"><i class="fa-solid fa-check"></i>Route Opt.</span></div>
+      <div class="p-ctas"><a class="p-cta" href="https://devniques.com/contact-us/">Get a Quote <i class="fa-solid fa-arrow-right"></i></a><a class="p-cta ghost" href="mailto:info@devniques.com">Live Demo</a></div>
+    </div>
+  </article>
+
+  <article class="stack-card" data-title="BuzzFlow">
+    <img class="bg" src="videos/buzzflow-poster-v2.jpg" alt="BuzzFlow">
+    <div class="shade"></div><div class="shade2"></div>
+    <div class="p-count"><b>07</b> / 07</div>
+    <div class="stack-inner">
+      <span class="p-tag">Unified Workspace</span>
+      <h2>BuzzFlow</h2>
+      <p class="p-desc">Unified workspace platform integrating real-time team chat, tasks and collaboration.</p>
+      <div class="p-chips"><span class="p-chip"><i class="fa-solid fa-check"></i>Team Chat</span><span class="p-chip"><i class="fa-solid fa-check"></i>Tasks</span><span class="p-chip"><i class="fa-solid fa-check"></i>Collab</span></div>
+      <div class="p-ctas"><a class="p-cta" href="https://devniques.com/contact-us/">Get a Quote <i class="fa-solid fa-arrow-right"></i></a><a class="p-cta ghost" href="mailto:info@devniques.com">Live Demo</a></div>
+    </div>
+  </article>
+
   </div>
+
+  <nav class="stack-dots" id="dots" aria-label="Products"></nav>
 </section>
+
 
 <section class="ln-feat" id="ai-feature">
   <div class="wrap ln-feat-grid">
@@ -1226,27 +1164,6 @@ body{background:#04070e!important;color:#f2f6fd}
 <div id="footer"></div>
 
 <!-- Interactive Product Detail Modal (Opens when ANY product is clicked!) -->
-<div class="modal-overlay" id="productModal" onclick="closeModalOnOuterClick(event)">
-  <div class="modal-card">
-    <button class="modal-close-btn" onclick="closeProductModal()"><i class="fa-solid fa-xmark"></i></button>
-    <span class="modal-header-badge" id="modalBadge">SaaS Solution</span>
-    <h3 class="modal-title" id="modalTitle">Product Name</h3>
-    <p class="modal-summary" id="modalSummary">Full architectural and functional details of the product.</p>
-    <h4 style="color:#fff;font-size:16px;margin-bottom:14px;letter-spacing:1px;text-transform:uppercase;">Included Capabilities &amp; Modules</h4>
-    <div class="modal-features-grid" id="modalFeatures">
-      <!-- Populated via JS -->
-    </div>
-    <div class="modal-footer">
-      <button class="m-sec" onclick="closeProductModal()">Close Preview</button>
-      <button class="m-pri" onclick="requestProductQuote()">
-        <span>Deploy This Product</span>
-        <i class="fa-solid fa-arrow-right"></i>
-      </button>
-    </div>
-  </div>
-</div>
-
-<!-- Interactive Service Detail Modal (opens when a What We Offer service is clicked) -->
 <div class="modal-overlay" id="serviceModal" onclick="closeServiceModalOnOuterClick(event)">
   <div class="modal-card">
     <button class="modal-close-btn" onclick="closeServiceModal()"><i class="fa-solid fa-xmark"></i></button>
@@ -1286,188 +1203,6 @@ document.querySelectorAll('.services-grid,.footer-grid,.cap-grid').forEach(g=>{
 });
 document.querySelectorAll('.rv').forEach(el => io.observe(el));
 
-// Product Details Data Store for Dynamic Modal Click
-const productData = {
-  BuzzFlow: {
-    badge: "All-In-One Enterprise Platform",
-    title: "BuzzFlow Business OS",
-    summary: "BuzzFlow is Devniques' flagship digital workplace architecture. It merges instant departmental messaging, Kanban and Gantt project management, client pipeline CRM, and automated bookkeeping into a singular dashboard.",
-    features: [
-      { icon: "fa-comments", text: "Encrypted Departmental Team Chat & Channels" },
-      { icon: "fa-list-check", text: "Milestone Tracking & Sprint Task Boards" },
-      { icon: "fa-address-book", text: "Full Lifecycle Customer Relationship Management (CRM)" },
-      { icon: "fa-file-invoice-dollar", text: "Automated Invoicing, Expenses & Financial Ledgers" },
-      { icon: "fa-bell", text: "Real-time Webhook & Mobile Push Notifications" },
-      { icon: "fa-lock", text: "Role-Based Permissions & Enterprise Audit Logs" }
-    ]
-  },
-  Hospital: {
-    badge: "Comprehensive Healthcare Ecosystem",
-    title: "Hospital Management System (HMS)",
-    summary: "An enterprise-grade hospital automation system trusted by healthcare providers. Built to coordinate over 8 distinct medical user groups and 60+ specialty modules with zero downtime.",
-    features: [
-      { icon: "fa-user-doctor", text: "Doctors OPD Queue & Digital Prescription Portal" },
-      { icon: "fa-bed-pulse", text: "IPD Bed Allocation, Vitals & Nurse Station Monitoring" },
-      { icon: "fa-pills", text: "Automated Pharmacy Inventory & Batch Expiry Warnings" },
-      { icon: "fa-flask-vial", text: "Pathology Lab Testing & Barcode Sample Reports" },
-      { icon: "fa-receipt", text: "Insurance TPA Claim Handling & Multi-counter Billing" },
-      { icon: "fa-shield-halved", text: "HIPAA Compliant Electronic Medical Records (EMR)" }
-    ]
-  },
-  ShipFlow: {
-    badge: "Maritime & Freight Management",
-    title: "Ship Flow Logistics OS",
-    summary: "A cloud shipping and freight forwarding software engineered for international container lines, clearing agents, and air/sea transport consolidators.",
-    features: [
-      { icon: "fa-earth-americas", text: "Real-time Live Vessel & Container GPS Telematics" },
-      { icon: "fa-file-lines", text: "Automated Bill of Lading (BL) & Manifest Generator" },
-      { icon: "fa-scale-balanced", text: "Customs Duty Calculator & Clearance Workflow" },
-      { icon: "fa-warehouse", text: "Bonded CFS Warehouse Cargo Inventory Management" },
-      { icon: "fa-dollar-sign", text: "Multi-currency Demurrage & Freight Rate Sheets" },
-      { icon: "fa-mobile-retro", text: "Consignee Self-Service Tracking Portal" }
-    ]
-  },
-  TrackOnMoves: {
-    badge: "Fleet Telematics Platform",
-    title: "TrackOnMoves GPS & Fleet Management",
-    summary: "Precision fleet telematics engine offering complete visibility over heavy vehicle fleets, commercial delivery vans, route optimizations, and driver safety standards.",
-    features: [
-      { icon: "fa-satellite", text: "High-Frequency Sub-Second Live GPS Vehicle Tracking" },
-      { icon: "fa-gas-pump", text: "Ultrasonic Fuel Sensor & Theft Siphon Alerts" },
-      { icon: "fa-route", text: "Smart Multi-Stop Route Optimization & Geofencing" },
-      { icon: "fa-id-card", text: "Driver Behavior Scoring (Harsh Braking / Speeding)" },
-      { icon: "fa-wrench", text: "Automated Preventive Maintenance & Tire Log" },
-      { icon: "fa-power-off", text: "Remote Engine Immobilization Via Mobile App" }
-    ]
-  },
-  PostMarrow: {
-    badge: "Cybersecurity & Email Protection",
-    title: "Post Marrow Business Security Suite",
-    summary: "Hardened email infrastructure engineered to block spear-phishing, business email compromise (BEC), and malware payloads before they ever reach company mailboxes.",
-    features: [
-      { icon: "fa-shield-virus", text: "AI-Powered Zero-Day Phishing & Malware Scanners" },
-      { icon: "fa-key", text: "Automated PGP / S-MIME Email Vault Encryption" },
-      { icon: "fa-envelope-open-text", text: "DMARC, DKIM & SPF Automated Alignment Engine" },
-      { icon: "fa-server", text: "High-Availability 99.999% Redundant MX Mail Gateways" },
-      { icon: "fa-database", text: "Compliant 7-Year Immutable Email Archiving" },
-      { icon: "fa-user-lock", text: "Adaptive 2FA & Suspicious Login Geolocation Lockout" }
-    ]
-  },
-  Mobilient: {
-    badge: "Device Fleet Security",
-    title: "Mobilient Mobile Device Management (MDM)",
-    summary: "Centralized control console for provisioning, monitoring, and locking corporate Android, iOS, Windows, and rugged handheld warehouse devices.",
-    features: [
-      { icon: "fa-tablet-screen-button", text: "Zero-Touch Corporate Device Enrollment & Kiosk Mode" },
-      { icon: "fa-ban", text: "Remote Wipe & Stolen Asset Lockdown Command" },
-      { icon: "fa-cloud-arrow-down", text: "Enterprise Private App Catalog Distribution" },
-      { icon: "fa-network-wired", text: "Automated Corporate VPN & Wi-Fi Certificate Push" },
-      { icon: "fa-camera-retro", text: "Hardware Policy Enforcement (Camera/USB Disabling)" },
-      { icon: "fa-chart-line", text: "OS Version Compliance & Patch Management" }
-    ]
-  },
-  Signvero: {
-    badge: "Digital Display Network",
-    title: "Signvero Cloud Signage",
-    summary: "Manage commercial display screens, interactive touch kiosks, digital menu boards, and factory alert displays from any web browser.",
-    features: [
-      { icon: "fa-display", text: "Central Cloud Media Scheduler for 4K Video/Graphics" },
-      { icon: "fa-triangle-exclamation", text: "Instant Emergency Alert Override Broadcasting" },
-      { icon: "fa-layer-group", text: "Multi-Zone Layouts (Weather, News, Live Tickers)" },
-      { icon: "fa-wifi", text: "Offline Caching & Automatic Sync Recovery" },
-      { icon: "fa-rotate", text: "Supports Android TV, Raspberry Pi, Windows & LG WebOS" },
-      { icon: "fa-chart-pie", text: "Screen Uptime & Proof-of-Play Audit Analytics" }
-    ]
-  },
-  ERPCRM: {
-    badge: "Core Enterprise Engine",
-    title: "Unified ERP & CRM Architecture",
-    summary: "Tailor-made Enterprise Resource Planning that connects supply chain, human capital, point-of-sale, and multi-tier finance into a cohesive real-time ledger.",
-    features: [
-      { icon: "fa-boxes-stacked", text: "Multi-Warehouse Automated Inventory Reordering" },
-      { icon: "fa-users-gear", text: "Human Resources, Biometric Attendance & Payroll" },
-      { icon: "fa-handshake", text: "Sales Pipeline Forecasting & Quotation Engine" },
-      { icon: "fa-calculator", text: "Multi-currency Tax, Audit & General Ledger Accounting" },
-      { icon: "fa-link", text: "RESTful API Integration with Banks & Custom Portals" },
-      { icon: "fa-shield", text: "Granular Departmental Access Control & History Auditing" }
-    ]
-  },
-  Itmenaan: {
-    badge: "Online Marketplace",
-    title: "Itmenaan Buy & Sell Marketplace",
-    summary: "Pakistan's trusted buy & sell marketplace — a modern online platform that connects buyers and sellers across Pakistan with simple listings and safe deals.",
-    features: [
-      { icon: "fa-tags", text: "Quick Ad Posting with Photos & Categories" },
-      { icon: "fa-magnifying-glass", text: "Smart Search & Filters by City and Price" },
-      { icon: "fa-comments", text: "Direct Buyer–Seller Messaging" },
-      { icon: "fa-shield-halved", text: "Verified Profiles & Safer Transactions" },
-      { icon: "fa-mobile-screen", text: "Fast, Mobile-friendly Browsing Experience" },
-      { icon: "fa-chart-line", text: "Seller Dashboard with Listing Insights" }
-    ]
-  },
-  Microsoft365: {
-    badge: "Productivity & Cloud",
-    title: "Microsoft 365 for Business",
-    summary: "Boost productivity with Microsoft 365 — powerful apps, AI-powered Copilot assistance, and trusted cloud storage, set up and supported by Devniques.",
-    features: [
-      { icon: "fa-file-word", text: "Word, Excel, PowerPoint & Outlook Apps" },
-      { icon: "fa-wand-magic-sparkles", text: "AI-powered Copilot Assistance" },
-      { icon: "fa-cloud", text: "Secure Cloud Storage with OneDrive" },
-      { icon: "fa-video", text: "Teams Meetings, Chat & Collaboration" },
-      { icon: "fa-envelope", text: "Professional Business Email" },
-      { icon: "fa-lock", text: "Enterprise-grade Security & Compliance" }
-    ]
-  }
-};
-
-// Modal Open Function
-function openProductModal(key) {
-  const data = productData[key] || productData.BuzzFlow;
-  document.getElementById('modalBadge').innerText = data.badge;
-  document.getElementById('modalTitle').innerText = data.title;
-  document.getElementById('modalSummary').innerText = data.summary;
-  const featContainer = document.getElementById('modalFeatures');
-  featContainer.innerHTML = '';
-  data.features.forEach(f => {
-    const div = document.createElement('div');
-    div.className = 'm-feat';
-    div.innerHTML = `<i class="fa-solid ${f.icon}"></i><span>${f.text}</span>`;
-    featContainer.appendChild(div);
-  });
-
-  const modal = document.getElementById('productModal');
-  modal.classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeProductModal() {
-  const modal = document.getElementById('productModal');
-  if (!modal.classList.contains('active')) return;
-  modal.classList.add('is-closing');
-  setTimeout(() => {
-    modal.classList.remove('active');
-    modal.classList.remove('is-closing');
-    document.body.style.overflow = 'auto';
-  }, 190);
-}
-
-function closeModalOnOuterClick(e) {
-  if (e.target.id === 'productModal') {
-    closeProductModal();
-  }
-}
-
-function requestProductQuote() {
-  const title = document.getElementById('modalTitle').innerText;
-  closeProductModal();
-  const cta = document.getElementById('cta');
-  cta.scrollIntoView({ behavior: 'smooth' });
-}
-
-function openContactModal() {
-  openProductModal('BuzzFlow');
-}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeProductModal()});
 
 // ===== Service modal (What We Offer cards) =====
 const serviceData = {
@@ -1520,152 +1255,6 @@ document.querySelectorAll('.service-card[data-svc]').forEach(c => {
   c.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openServiceModal(c.dataset.svc); } });
 });
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeServiceModal(); });
-
-// ===== 3D product river: auto right-to-left + drag + arrows + live caption =====
-(function(){
-  const stage = document.getElementById('stage3d');
-  const river = document.getElementById('river');
-  if (!stage || !river) return;
-  const cards = Array.from(river.querySelectorAll('.p-card'));
-  const prev = document.getElementById('carPrev'), next = document.getElementById('carNext');
-  const N = cards.length;
-  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let CW = 400, GAP = 36;
-  const step = () => CW + GAP;
-  const totalW = () => N * step();
-  let s = 0;
-  const AUTO = reduceMotion ? 0 : (matchMedia('(hover:none)').matches ? 34 : 70);
-  let speed = AUTO, targetSpeed = AUTO;
-  let dragging = false, dragX = 0, dragS = 0, vel = 0, lastPX = 0, dragDist = 0;
-  let inView = true, arrowAnim = null;
-  const capName = document.getElementById('carCapName'), capCat = document.getElementById('carCapCat'),
-        capIdx = document.getElementById('carCapIdx'), capFill = document.getElementById('carCapFill'),
-        capTotal = document.getElementById('carCapTotal');
-  let capCur = -1;
-  function updateCap(){
-    let bi = 0, bv = 1e9;
-    for (let i = 0; i < N; i++){ const a = Math.abs(cards[i]._t || 0); if (a < bv){ bv = a; bi = i; } }
-    if (bi === capCur) return;
-    capCur = bi;
-    const tEl = cards[bi].querySelector('.prod-title span');
-    const gEl = cards[bi].querySelector('.prod-tag');
-    capName.classList.add('car-cap-fade'); capCat.classList.add('car-cap-fade');
-    setTimeout(() => {
-      capName.textContent = tEl ? tEl.textContent.trim() : '';
-      capCat.textContent = gEl ? gEl.textContent.trim().toUpperCase() : '';
-      capIdx.textContent = String(bi + 1).padStart(2, '0');
-      capTotal.textContent = '/ ' + String(N).padStart(2, '0');
-      capFill.style.width = ((bi + 1) / N * 100).toFixed(1) + '%';
-      capName.classList.remove('car-cap-fade'); capCat.classList.remove('car-cap-fade');
-    }, 140);
-  }
-  function measure(){
-    CW = stage.clientWidth < 640 ? 300 : 400;
-    cards.forEach(c => { c.style.width = CW + 'px'; c.style.marginLeft = (-CW/2) + 'px'; });
-    const CH = cards[0].offsetHeight || 480;
-    cards.forEach(c => { c.style.marginTop = (-CH/2) + 'px'; });
-  }
-  function frame(ts){
-    const dt = Math.min(.05, Math.max(0, (ts - frame._l) / 1000));
-    frame._l = ts;
-    if (!inView && !dragging && !arrowAnim){ requestAnimationFrame(frame); return; }
-    if (!dragging && !arrowAnim){
-      speed += (targetSpeed - speed) * Math.min(1, dt * 2.5);
-      s += speed * dt;
-    }
-    if (arrowAnim){
-      const a = arrowAnim;
-      a.t += dt / a.dur;
-      const k = a.t >= 1 ? 1 : 1 - Math.pow(1 - a.t, 3);
-      s = a.from + (a.to - a.from) * k;
-      if (a.t >= 1) arrowAnim = null;
-    }
-    layout();
-    requestAnimationFrame(frame);
-  }
-  function layout(){
-    const TW = totalW(), half = TW / 2;
-    for (let i = 0; i < N; i++){
-      const raw = i * step() - s;
-      const w = ((raw % TW) + TW) % TW;
-      const px = w - half;
-      const t = px / half;
-      const at = Math.abs(t);
-      const vis = Math.max(0, 1 - at * 1.25);
-      const c = cards[i];
-      c.style.transform =
-        'translateX(' + px.toFixed(1) + 'px) translateZ(' + (-at * 430).toFixed(1) + 'px) rotateY(' + (t * 40).toFixed(2) + 'deg)';
-      c.style.opacity = vis.toFixed(3);
-      c.style.zIndex = Math.round(200 - at * 190);
-      c.style.pointerEvents = vis > .35 ? 'auto' : 'none';
-      c._t = t;
-    }
-    updateCap();
-  }
-  function onDragMove(e){
-    if (!dragging) return;
-    const dx = e.clientX - dragX;
-    dragDist = Math.max(dragDist, Math.abs(dx));
-    s = dragS - dx;
-    vel = (lastPX - e.clientX); lastPX = e.clientX;
-    layout();
-  }
-  function onDragEnd(){
-    window.removeEventListener('pointermove', onDragMove);
-    window.removeEventListener('pointerup', onDragEnd);
-    window.removeEventListener('pointercancel', onDragEnd);
-    if (!dragging) return;
-    dragging = false; stage.classList.remove('dragging');
-    s += vel * 6;
-  }
-  stage.addEventListener('pointerdown', e => {
-    dragging = true; stage.classList.add('dragging');
-    dragX = e.clientX; dragS = s; vel = 0; lastPX = e.clientX; dragDist = 0;
-    arrowAnim = null;
-    window.addEventListener('pointermove', onDragMove);
-    window.addEventListener('pointerup', onDragEnd);
-    window.addEventListener('pointercancel', onDragEnd);
-  });
-  stage.addEventListener('dragstart', e => e.preventDefault());
-  cards.forEach(card => {
-    card.addEventListener('click', e => {
-      if (dragDist > 8) { e.preventDefault(); return; }
-      openProductModal(card.dataset.key);
-    });
-  });
-  stage.addEventListener('mouseenter', () => { targetSpeed = 0; });
-  stage.addEventListener('mouseleave', () => { if (!reduceMotion) targetSpeed = AUTO; });
-  function nudge(dir){
-    if (arrowAnim) return;
-    arrowAnim = {from: s, to: s + dir * step() * 2, t: 0, dur: .55};
-  }
-  if (prev) prev.addEventListener('click', () => nudge(-1));
-  if (next) next.addEventListener('click', () => nudge(1));
-  const vids = cards.map(c => c.querySelector('video'));
-  vids.forEach(v => { if (!v) return;
-    v.addEventListener('playing', () => v.classList.add('playing'));
-    v.addEventListener('pause', () => v.classList.remove('playing'));
-  });
-  if (matchMedia('(hover:hover)').matches) {
-    cards.forEach((c, i) => {
-      if (!vids[i]) return;
-      c.addEventListener('pointerenter', () => vids[i].play().catch(()=>{}));
-      c.addEventListener('pointerleave', () => vids[i].pause());
-    });
-  } else {
-    setInterval(() => vids.forEach((v, i) => {
-      if (!v) return;
-      if (Math.abs(cards[i]._t || 0) < .35 && inView && !document.hidden) v.play().catch(()=>{}); else v.pause();
-    }), 500);
-  }
-  new IntersectionObserver(es => es.forEach(e => {
-    inView = e.isIntersecting;
-    if (!inView) vids.forEach(v => { if (v && !v.paused) v.pause(); });
-  }), {threshold:.05}).observe(stage);
-  addEventListener('resize', () => { measure(); layout(); });
-  measure(); layout();
-  requestAnimationFrame(ts => { frame._l = ts; requestAnimationFrame(frame); });
-})();
 
 // ===== MOTION: loader -> body.loaded =====
 (function(){
@@ -1886,6 +1475,70 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
   });
   // Shared footer
   loadInto('footer', 'assets/Footer.html');
+})();
+</script>
+
+
+<script>
+/* Products stack: dots + cover/parallax effect (from products-concepts) */
+(function(){
+  var cards = Array.prototype.slice.call(document.querySelectorAll('.stack-card'));
+  var dots = document.getElementById('dots');
+  if(!cards.length || !dots) return;
+  cards.forEach(function(c, i){
+    var b = document.createElement('button');
+    b.setAttribute('aria-label', c.dataset.title);
+    var tip = document.createElement('span');
+    tip.className = 'tip';
+    tip.textContent = c.dataset.title;
+    b.appendChild(tip);
+    b.addEventListener('click', function(){ c.scrollIntoView({behavior:'smooth'}); });
+    dots.appendChild(b);
+  });
+  var dotBtns = dots.querySelectorAll('button');
+  /* dots visible only while the products section is on screen */
+  var sec = document.getElementById('products');
+  var dio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ dots.classList.toggle('show', e.isIntersecting); });
+  }, {threshold: 0.02});
+  if (sec) dio.observe(sec);
+  var ticking = false;
+  function onScroll(){
+    if(ticking) return;
+    ticking = true;
+    requestAnimationFrame(function(){
+      ticking = false;
+      var vh = window.innerHeight;
+      var active = 0;
+      cards.forEach(function(card, i){
+        var r = card.getBoundingClientRect();
+        var next = cards[i+1];
+        var covered = 0;
+        if(next){
+          var nr = next.getBoundingClientRect();
+          covered = Math.min(Math.max(1 - nr.top / vh, 0), 1);
+        }
+        card.style.transform = 'scale(' + (1 - covered * 0.07) + ')';
+        card.style.filter = 'brightness(' + (1 - covered * 0.4) + ')';
+        var entering = Math.min(Math.max(r.top / vh, 0), 1);
+        var bg = card.querySelector('.bg-swap, video.bg, img.bg');
+        if(bg){ bg.style.transform = 'translateY(' + (entering * 6) + '%) scale(' + (1 + entering * 0.12) + ')'; }
+        if (r.top <= vh * 0.5 && r.bottom >= vh * 0.5) active = i;
+      });
+      dotBtns.forEach(function(d, i){ d.classList.toggle('on', i === active); });
+    });
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      var v = e.target.querySelector('video.bg');
+      if(!v) return;
+      if(e.intersectionRatio > 0.6){ v.play().catch(function(){}); }
+      else { v.pause(); }
+    });
+  }, {threshold:[0, 0.6, 1]});
+  cards.forEach(function(c){ io.observe(c); });
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
 })();
 </script>
 
