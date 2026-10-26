@@ -132,7 +132,7 @@ header.ln-nav.scrolled{background:rgba(4,10,26,.98)}
       if(after) after(el);
     }).catch(function(){});
   }
-  loadInto('navbar', 'assets/Navbar.html', function(nav){
+  loadInto('navbar', 'assets/Navbar.html?v=2', function(nav){
     nav.querySelectorAll('a[href^="#"]').forEach(function(a){
       var h = a.getAttribute('href');
       if(h.length > 1) a.setAttribute('href', 'index.html' + h);
@@ -150,7 +150,7 @@ header.ln-nav.scrolled{background:rgba(4,10,26,.98)}
       });
     }
   });
-  loadInto('footer', 'assets/Footer.html', function(ft){
+  loadInto('footer', 'assets/Footer.html?v=2', function(ft){
     ft.querySelectorAll('a[href^="#"]').forEach(function(a){
       var h = a.getAttribute('href');
       if(h.length > 1) a.setAttribute('href', 'index.html' + h);
