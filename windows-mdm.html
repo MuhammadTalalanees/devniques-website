@@ -91,11 +91,11 @@ a{text-decoration:none;color:inherit}
 .life-step h3{font-size:16.5px;font-weight:700;margin-bottom:10px}
 .life-step p{font-size:13.5px;color:var(--lx-muted);line-height:1.6}
 /* device cards with SVG */
-.dev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.dev-card{background:rgba(255,255,255,.045);border:1px solid rgba(140,180,255,.09);border-radius:18px;padding:30px 24px;text-align:center;transition:transform .25s,border-color .25s;overflow:hidden;position:relative}
+.dev-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
+.dev-card{background:rgba(255,255,255,.045);border:1px solid rgba(140,180,255,.09);border-radius:18px;padding:24px 16px;text-align:center;transition:transform .25s,border-color .25s;overflow:hidden;position:relative}
 .dev-card:hover{transform:translateY(-4px);border-color:rgba(47,127,247,.4)}
 .dev-card::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse 80% 55% at 50% 0%,rgba(47,127,247,.1),transparent 70%);pointer-events:none}
-.dev-svg{height:110px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;position:relative}
+.dev-svg{height:124px;display:flex;align-items:center;justify-content:center;margin-bottom:20px;position:relative}
 .dev-card h3{font-size:17px;font-weight:700;position:relative}
 /* feature cards */
 .bento{display:grid;gap:20px}
@@ -111,22 +111,7 @@ a{text-decoration:none;color:inherit}
 .bento-card ul li{color:var(--lx-muted);font-size:14px;line-height:1.6;padding-left:22px;position:relative}
 .bento-card ul li::before{content:"\2713";position:absolute;left:0;color:var(--lx-cyan);font-weight:700}
 
-/* professional multi-color icon system */
-.f-icon{background:rgba(255,255,255,.04);border:1px solid rgba(140,180,255,.14)}
-.f-icon.c-blue{background:rgba(91,157,255,.10);border-color:rgba(91,157,255,.4)}.f-icon.c-blue i{color:#5b9dff}
-.f-icon.c-green{background:rgba(52,211,153,.10);border-color:rgba(52,211,153,.4)}.f-icon.c-green i{color:#34d399}
-.f-icon.c-purple{background:rgba(176,127,255,.10);border-color:rgba(176,127,255,.4)}.f-icon.c-purple i{color:#b07fff}
-.f-icon.c-orange{background:rgba(255,176,32,.10);border-color:rgba(255,176,32,.4)}.f-icon.c-orange i{color:#ffb020}
-.f-icon.c-red{background:rgba(255,122,122,.10);border-color:rgba(255,122,122,.4)}.f-icon.c-red i{color:#ff7a7a}
-.f-icon.c-teal{background:rgba(45,212,191,.10);border-color:rgba(45,212,191,.4)}.f-icon.c-teal i{color:#2dd4bf}
-.f-icon.c-pink{background:rgba(244,114,182,.10);border-color:rgba(244,114,182,.4)}.f-icon.c-pink i{color:#f472b6}
-.f-icon.c-yellow{background:rgba(250,204,21,.10);border-color:rgba(250,204,21,.4)}.f-icon.c-yellow i{color:#facc15}
-.f-icon.c-cyan{background:rgba(34,211,238,.10);border-color:rgba(34,211,238,.4)}.f-icon.c-cyan i{color:#22d3ee}
-.life-n.lc-blue{border-color:rgba(91,157,255,.45)}.life-n.lc-blue i{color:#5b9dff}
-.life-n.lc-green{border-color:rgba(52,211,153,.45)}.life-n.lc-green i{color:#34d399}
-.life-n.lc-orange{border-color:rgba(255,176,32,.45)}.life-n.lc-orange i{color:#ffb020}
-.life-n.lc-purple{border-color:rgba(176,127,255,.45)}.life-n.lc-purple i{color:#b07fff}
-.life-n.lc-teal{border-color:rgba(45,212,191,.45)}.life-n.lc-teal i{color:#2dd4bf}
+/* uniform brand icon system (single blue, no rainbow) */
 .f-icon{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,rgba(47,127,247,.2),rgba(0,240,255,.08));border:1px solid rgba(47,127,247,.35);display:flex;align-items:center;justify-content:center;font-size:24px;color:var(--lx-cyan)}
 /* alternating rows */
 .alt-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;margin-bottom:72px}
@@ -199,6 +184,7 @@ a{text-decoration:none;color:inherit}
 @keyframes ld{0%{transform:translateX(-100%)}100%{transform:translateX(450%)}}
 #loader small{color:var(--lx-muted2);letter-spacing:3px;font-size:11px;text-transform:uppercase}
 #sprog{position:fixed;top:0;left:0;height:2px;width:0;background:var(--lx-blue);z-index:10001}
+@media(max-width:1180px){.dev-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:900px){
   .split-head{grid-template-columns:1fr;gap:20px}
   .bento-2,.bento-3{grid-template-columns:1fr}
@@ -216,7 +202,7 @@ a{text-decoration:none;color:inherit}
 @media(max-width:560px){.dev-grid{grid-template-columns:1fr}.link-row{grid-template-columns:1fr}.life{grid-template-columns:1fr}}
 
 /* ===== Talal 2026-10-26: real tiles + light reference cards ===== */
-.dev-svg img{width:104px;height:104px;object-fit:cover;border-radius:20px;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.dev-svg img{width:120px;height:120px;object-fit:cover;border-radius:20px;box-shadow:0 12px 30px rgba(0,0,0,.35)}
 .mk-card{background:#f4f7fb;color:#0f1b2d;border-radius:18px;padding:20px;width:100%;box-shadow:0 16px 40px rgba(0,0,0,.25);text-align:left}
 .mk-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
 .mk-head b{font-size:16px;color:#0f1b2d}
@@ -316,31 +302,7 @@ a{text-decoration:none;color:inherit}
     </div>
   </div>
 </section>
-<div class="wrap"><div class="console-show rv">
-<div class="dash">
-        <div class="dash-bar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span></div>
-        <div class="dash-body">
-          <div class="dash-side">
-            <div class="ds-item on"><i class="fa-solid fa-gauge-high"></i>Dashboard</div>
-            <div class="ds-item"><i class="fa-solid fa-laptop"></i>Devices</div>
-            <div class="ds-item"><i class="fa-solid fa-shield-halved"></i>Policies</div>
-            <div class="ds-item"><i class="fa-solid fa-box"></i>Apps</div>
-            <div class="ds-item"><i class="fa-solid fa-key"></i>Security</div>
-          </div>
-          <div class="dash-main">
-            <div class="dm-head"><h4>Device Fleet Overview</h4><span class="pill ok"><span class="pulse-dot"></span>All systems normal</span></div>
-            <div class="dev-row"><div class="dev-ic"><i class="fa-solid fa-laptop"></i></div><div class="nm"><b>Laptop &middot; Office</b><span>Enrolled &middot; Policy v12</span></div><span class="pill ok">Compliant</span></div>
-            <div class="dev-row"><div class="dev-ic"><i class="fa-solid fa-mobile-screen"></i></div><div class="nm"><b>Android &middot; Warehouse 04</b><span>Kiosk mode &middot; Single app</span></div><span class="pill ok">Compliant</span></div>
-            <div class="dev-row"><div class="dev-ic"><i class="fa-solid fa-desktop"></i></div><div class="nm"><b>Desktop &middot; Dock B</b><span>Patch pending</span></div><span class="pill warn">Update</span></div>
-            <div class="dm-stats">
-              <div class="dm-stat"><b>Compliance</b><div class="bar"><i style="--w:96%"></i></div></div>
-              <div class="dm-stat"><b>Patch level</b><div class="bar"><i style="--w:88%"></i></div></div>
-              <div class="dm-stat"><b>Encryption</b><div class="bar"><i style="--w:100%"></i></div></div>
-            </div>
-          </div>
-        </div>
-      </div>
-</div></div>
+
 
 <!-- LIFECYCLE -->
 <section class="lx-sec">
