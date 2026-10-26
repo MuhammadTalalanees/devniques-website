@@ -198,7 +198,11 @@ a{text-decoration:none;color:inherit}
   .dash-side{display:none}
   .lx-sec{padding:72px 0}
   .demo-banner{padding:48px 28px}
-  .lx-hero-bg .hs-bgimg{object-fit:contain;animation:none}
+  .lx-hero{display:flex;flex-direction:column;height:auto;min-height:0}
+  .lx-hero-bg{position:relative;aspect-ratio:16/9}
+  .lx-hero-bg .hs-bgimg{position:static;width:100%;height:100%;object-fit:cover;animation:none}
+  .lx-hero-bg .hs-shade,.lx-hero-bg .hs-shade2{display:none}
+  .lx-hero .hs-content{height:auto;padding:30px 24px 56px}
 }
 @media(max-width:560px){.dev-grid{grid-template-columns:1fr}.link-row{grid-template-columns:1fr}.life{grid-template-columns:1fr}.mk-card{padding:16px}.alt-vis{padding:16px}.mk-head{flex-wrap:wrap;gap:8px}.mk-row{flex-wrap:wrap}.mk-row>div{flex:1 1 calc(100% - 44px);min-width:0}.mk-row b,.mk-team b{overflow-wrap:anywhere}.mk-team{flex-wrap:wrap}.mk-cal{padding:10px}.mk-cal-row span{padding:4px 0}}
 
