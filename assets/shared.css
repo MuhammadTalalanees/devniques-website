@@ -163,3 +163,5 @@ body::before{
 .ln-nav-inner .ln-nav-cta{margin-left:0;}
 /* Footer container — shared */
 footer{border-top:1px solid var(--line-soft);background:#050d24;padding:72px 0 32px}
+
+.f-social a svg{width:17px;height:17px;fill:currentColor;display:block}
