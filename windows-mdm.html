@@ -40,7 +40,7 @@ a{text-decoration:none;color:inherit}
 @keyframes hsKenburns{from{transform:scale(1.12)}to{transform:scale(1)}}
 .lx-hero-bg .hs-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,7,14,.94) 0%,rgba(4,7,14,.72) 32%,rgba(4,7,14,.28) 58%,rgba(4,7,14,0) 82%)}
 .lx-hero-bg .hs-shade2{position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,7,14,.6) 0%,rgba(4,7,14,0) 32%)}
-.hs-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;padding:0 8%;max-width:1200px;margin:0 auto}
+.hs-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:left;padding:0 24px;max-width:1180px;margin:0 auto}
 .hs-eyebrow{color:#00f0ff;text-transform:uppercase;letter-spacing:4px;font-size:13px;font-weight:600;margin-bottom:18px}
 .lx-hero h1{font-size:clamp(36px,5.2vw,64px);font-weight:800;line-height:1.12;max-width:640px;margin:0 0 20px;color:#fff;letter-spacing:-.02em}
 .lx-hero .hs-content p{color:#b9c8e4;font-size:clamp(15px,1.8vw,18px);line-height:1.65;max-width:500px;margin:0 0 34px}
@@ -214,6 +214,81 @@ a{text-decoration:none;color:inherit}
   .demo-banner{padding:48px 28px}
 }
 @media(max-width:560px){.dev-grid{grid-template-columns:1fr}.link-row{grid-template-columns:1fr}.life{grid-template-columns:1fr}}
+
+/* ===== Talal 2026-10-26: real tiles + light reference cards ===== */
+.dev-svg img{width:104px;height:104px;object-fit:cover;border-radius:20px;box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.mk-card{background:#f4f7fb;color:#0f1b2d;border-radius:18px;padding:20px;width:100%;box-shadow:0 16px 40px rgba(0,0,0,.25);text-align:left}
+.mk-head{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px;flex-wrap:wrap}
+.mk-head b{font-size:16px;color:#0f1b2d}
+.mk-pill{font-size:11px;font-weight:700;padding:5px 12px;border-radius:99px;white-space:nowrap}
+.mk-pill.ok{background:#dcfce7;color:#15803d}
+.mk-pill.info{background:#dbeafe;color:#1d4ed8}
+.mk-pill.warn{background:#fef3c7;color:#b45309}
+.mk-apps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.mk-apps4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.mk-app{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:16px 10px;text-align:center;position:relative}
+.mk-app img{width:40px;height:40px;margin:0 auto 8px}
+.mk-app b{display:block;font-size:13px;color:#0f1b2d}
+.mk-app span{font-size:11.5px;color:#64748b}
+.mk-app span.ok{color:#15803d;font-weight:700}
+.mk-app span.act{color:#1d4ed8;font-weight:700}
+.mk-app span.warn{color:#b45309;font-weight:700}
+.mk-app .mk-check{position:absolute;top:8px;right:8px;width:18px;height:18px;border-radius:50%;background:#22c55e;color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center}
+.mk-app .bar{height:6px;border-radius:99px;background:#e2e8f0;margin-top:8px;overflow:hidden}
+.mk-app .bar i{display:block;height:100%;background:#2f7ff7;border-radius:99px}
+.mk-feat{background:linear-gradient(120deg,#4f46e5,#2f7ff7);color:#fff;border-radius:14px;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+.mk-feat small{display:block;font-size:10px;letter-spacing:1.5px;opacity:.85}
+.mk-feat b{display:block;font-size:15px}
+.mk-feat span{font-size:12px;opacity:.9}
+.mk-install{background:#fff;color:#2f7ff7;font-weight:700;font-size:12.5px;padding:8px 14px;border-radius:99px;white-space:nowrap}
+.mk-label{font-size:11px;letter-spacing:1.2px;font-weight:700;color:#64748b;display:flex;justify-content:space-between;margin-bottom:10px}
+.mk-roles{margin-top:14px;font-size:12px;color:#64748b}
+.mk-roles i{font-style:normal;background:#eef2ff;color:#4338ca;padding:3px 10px;border-radius:99px;margin-right:6px;font-size:11.5px}
+.mk-team{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px 14px;margin-bottom:12px}
+.mk-team .mk-tic{width:38px;height:38px;border-radius:10px;background:#dbeafe;color:#1d4ed8;display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.mk-team b{display:block;font-size:13.5px;color:#0f1b2d}
+.mk-team span{font-size:12px;color:#64748b}
+.mk-team .mk-pill{margin-left:auto}
+.mk-row{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px 14px;margin-bottom:10px}
+.mk-row:last-child{margin-bottom:0}
+.mk-row .mk-ic{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.mk-row .mk-ic.g{background:#dcfce7;color:#15803d}
+.mk-row .mk-ic.b{background:#dbeafe;color:#1d4ed8}
+.mk-row .mk-ic.y{background:#fef3c7;color:#b45309}
+.mk-row b{display:block;font-size:13.5px;color:#0f1b2d}
+.mk-row span{font-size:12px;color:#64748b}
+.mk-row .mk-pill{margin-left:auto}
+.tog{width:40px;height:22px;border-radius:99px;background:#cbd5e1;position:relative;flex-shrink:0}
+.tog::after{content:"";position:absolute;top:3px;left:3px;width:16px;height:16px;border-radius:50%;background:#fff}
+.tog.on{background:#22c55e}
+.tog.on::after{left:21px}
+.mk-patch-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.mk-cal{background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:14px}
+.mk-cal-head{background:#6366f1;color:#fff;text-align:center;font-weight:700;font-size:12px;letter-spacing:1px;padding:8px;border-radius:8px 8px 0 0;margin:-14px -14px 10px}
+.mk-cal-days,.mk-cal-row{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;font-size:11px}
+.mk-cal-days{color:#94a3b8;font-weight:700;margin-bottom:6px}
+.mk-cal-row span{padding:5px 0;color:#334155}
+.mk-cal-row span.mut{color:#cbd5e1}
+.mk-cal-row span.c8{background:#2f7ff7;color:#fff;border-radius:50%}
+.mk-cal-row span.c15{background:#ec4899;color:#fff;border-radius:50%}
+.mk-cal-row span.c22{border:2px dashed #6366f1;border-radius:50%;color:#4338ca}
+.mk-cal-foot{font-size:11px;color:#64748b;margin-top:10px}
+.mk-next{margin-top:8px;font-size:12.5px;color:#334155}
+.mk-stack{display:flex;flex-direction:column;gap:10px}
+.mk-ver{background:#fff;border:1px solid #e2e8f0;border-radius:12px;padding:12px 14px}
+.mk-ver b{font-size:13.5px;color:#0f1b2d;display:block}
+.mk-ver span{font-size:12px;color:#64748b}
+.mk-ver .mk-pill{float:right}
+.mk-deployed{background:#0f1b2d;color:#fff;border-radius:12px;padding:14px;text-align:center;font-size:13px}
+.mk-deployed b{color:#fff}
+.mk-map{position:relative;height:240px;background:#eef4fb;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;background-image:linear-gradient(rgba(47,127,247,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(47,127,247,.07) 1px,transparent 1px);background-size:34px 34px}
+.mk-zone{position:absolute;left:16%;top:14%;width:46%;height:62%;border:2px dashed #22c55e;border-radius:50%;background:rgba(34,197,94,.06);display:flex;align-items:flex-start;justify-content:center}
+.mk-zone span{margin-top:14px;background:#fff;border:1px solid #bbf7d0;color:#15803d;font-size:11px;font-weight:700;padding:4px 10px;border-radius:99px;white-space:nowrap}
+.mk-bld{position:absolute;left:32%;top:44%;text-align:center;color:#1d4ed8;font-size:22px}
+.mk-bld small{display:block;font-size:10px;color:#334155;font-weight:700}
+.mk-pin{position:absolute;width:16px;height:16px;border-radius:50%;background:#22c55e;border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.mk-alert{position:absolute;right:10px;top:16px;background:#fff;border:1px solid #fecaca;color:#dc2626;font-size:11px;font-weight:700;padding:8px 12px;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.12)}
+@media(max-width:560px){.mk-apps,.mk-apps4{grid-template-columns:1fr 1fr}.mk-patch-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body id="top">
@@ -236,14 +311,14 @@ a{text-decoration:none;color:inherit}
     <h1 class="rv">Manage the Entire Device Lifecycle from a Single Console.</h1>
     <p class="rv">Handle every stage of device usage with Devniques MDM, from onboarding to decommissioning.</p>
     <div class="hs-btns rv">
-      <a class="hs-cta" href="index.html#contact">Schedule a Demo</a>
+      <a class="hs-cta" href="contact.html">Schedule a Demo</a>
       <a class="hs-cta hs-cta-ghost" href="mailto:info@devniques.com">Email Our Engineers</a>
     </div>
   </div>
 </section>
 <div class="wrap"><div class="console-show rv">
 <div class="dash">
-        <div class="dash-bar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span><span class="dash-url">console.devniques.com/mdm</span></div>
+        <div class="dash-bar"><span class="dot" style="background:#ff5f57"></span><span class="dot" style="background:#febc2e"></span><span class="dot" style="background:#28c840"></span></div>
         <div class="dash-body">
           <div class="dash-side">
             <div class="ds-item on"><i class="fa-solid fa-gauge-high"></i>Dashboard</div>
@@ -292,12 +367,12 @@ a{text-decoration:none;color:inherit}
       <div class="sh-right"><p>Manage phones, tablets, kiosks, laptops, and desktops — all from a single platform.</p></div>
     </div>
     <div class="dev-grid rv">
-      <div class="dev-card"><div class="dev-svg"><svg width="52" height="92" viewBox="0 0 52 92"><rect x="4" y="2" width="44" height="88" rx="10" fill="rgba(47,127,247,.12)" stroke="#2f7ff7" stroke-width="2"/><rect x="10" y="12" width="32" height="62" rx="4" fill="rgba(0,240,255,.08)"/><circle cx="26" cy="82" r="3" fill="#00f0ff"/></svg></div><h3>Phones &amp; Tablets</h3></div>
-      <div class="dev-card"><div class="dev-svg"><svg width="80" height="92" viewBox="0 0 80 92"><rect x="8" y="14" width="64" height="44" rx="6" fill="rgba(47,127,247,.12)" stroke="#2f7ff7" stroke-width="2"/><rect x="14" y="20" width="52" height="32" rx="3" fill="rgba(0,240,255,.08)"/><rect x="34" y="58" width="12" height="26" fill="rgba(47,127,247,.25)" stroke="#2f7ff7" stroke-width="2"/><rect x="24" y="84" width="32" height="5" rx="2" fill="#2f7ff7"/></svg></div><h3>Interactive Kiosks</h3></div>
-      <div class="dev-card"><div class="dev-svg"><svg width="80" height="92" viewBox="0 0 80 92"><rect x="14" y="8" width="52" height="36" rx="5" fill="rgba(47,127,247,.12)" stroke="#2f7ff7" stroke-width="2"/><rect x="20" y="14" width="40" height="24" rx="3" fill="rgba(0,240,255,.08)"/><rect x="30" y="44" width="20" height="30" fill="rgba(47,127,247,.2)" stroke="#2f7ff7" stroke-width="2"/><rect x="22" y="74" width="36" height="6" rx="3" fill="#2f7ff7"/><circle cx="62" cy="60" r="7" fill="none" stroke="#00f0ff" stroke-width="2"/></svg></div><h3>PoS</h3></div>
-      <div class="dev-card"><div class="dev-svg"><svg width="96" height="92" viewBox="0 0 96 92"><rect x="6" y="10" width="84" height="50" rx="6" fill="rgba(47,127,247,.12)" stroke="#2f7ff7" stroke-width="2"/><rect x="13" y="17" width="70" height="36" rx="3" fill="rgba(0,240,255,.08)"/><path d="M13 40 H83" stroke="#00f0ff" stroke-width="1.5" opacity=".6"/><rect x="40" y="60" width="16" height="18" fill="rgba(47,127,247,.2)" stroke="#2f7ff7" stroke-width="2"/><rect x="28" y="78" width="40" height="6" rx="3" fill="#2f7ff7"/></svg></div><h3>Digital Signage</h3></div>
-      <div class="dev-card"><div class="dev-svg"><svg width="104" height="92" viewBox="0 0 104 92"><path d="M14 66 L90 66 L96 78 L8 78 Z" fill="rgba(47,127,247,.12)" stroke="#2f7ff7" stroke-width="2"/><rect x="22" y="14" width="60" height="42" rx="5" fill="rgba(47,127,247,.12)" stroke="#2f7ff7" stroke-width="2"/><rect x="28" y="20" width="48" height="30" rx="3" fill="rgba(0,240,255,.08)"/><rect x="46" y="56" width="12" height="10" fill="#2f7ff7"/></svg></div><h3>Laptops</h3></div>
-      <div class="dev-card"><div class="dev-svg"><svg width="96" height="92" viewBox="0 0 96 92"><rect x="10" y="8" width="76" height="50" rx="5" fill="rgba(47,127,247,.12)" stroke="#2f7ff7" stroke-width="2"/><rect x="16" y="14" width="64" height="38" rx="3" fill="rgba(0,240,255,.08)"/><rect x="44" y="58" width="8" height="16" fill="#2f7ff7"/><rect x="28" y="74" width="40" height="6" rx="3" fill="#2f7ff7"/></svg></div><h3>Desktops</h3></div>
+      <div class="dev-card"><div class="dev-svg"><img src="assets/dev-phones.png" alt=""></div><h3>Phones &amp; Tablets</h3></div>
+      <div class="dev-card"><div class="dev-svg"><img src="assets/dev-kiosks.png" alt=""></div><h3>Interactive Kiosks</h3></div>
+      <div class="dev-card"><div class="dev-svg"><img src="assets/dev-pos.png" alt=""></div><h3>PoS</h3></div>
+      <div class="dev-card"><div class="dev-svg"><img src="assets/dev-signage.png" alt=""></div><h3>Digital Signage</h3></div>
+      <div class="dev-card"><div class="dev-svg"><img src="assets/dev-laptops.png" alt=""></div><h3>Laptops</h3></div>
+      <div class="dev-card"><div class="dev-svg"><img src="assets/dev-desktops.png" alt=""></div><h3>Desktops</h3></div>
     </div>
   </div>
 </section>
@@ -330,43 +405,74 @@ a{text-decoration:none;color:inherit}
 
     <div class="alt-row rv">
       <div class="alt-copy"><div class="eyebrow-sm">Onboarding</div><h3>Bulk Enrollment</h3><p>Enroll multiple devices at once using a streamlined onboarding process. Reduce manual setup effort while maintaining consistency across all devices.</p><ul class="wp-list"><li>Add multiple devices in bulk for faster onboarding across teams</li><li>Minimize repetitive setup steps and reduce IT workload</li><li>Maintain consistent configurations and policies across devices</li></ul></div>
-      <div class="alt-vis"><div class="mock-enroll"><div class="me-node">CSV Upload<small>device list</small></div><div class="me-arrow">&rarr;</div><div class="me-node">Auto Assign<small>policies</small></div><div class="me-arrow">&rarr;</div><div class="me-node">Enrolled<small>ready to use</small></div></div></div>
+      <div class="alt-vis"><div class="mk-card">
+  <div class="mk-head"><b>Enrollment Queue</b><span class="mk-pill ok">&#9679; 24 devices &middot; batch #047</span></div>
+  <div class="mk-team"><span class="mk-tic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1d4ed8" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><div><b>Engineering Team Rollout</b><span>24 devices &middot; Windows 11 &middot; Auto-config policy</span></div><span class="mk-pill ok">&#9679; Active</span></div>
+  <div class="mk-row"><span class="mk-ic g">&#10003;</span><div><b>DEV-WIN-0001 &mdash; DEV-WIN-0012</b><span>12 devices &middot; all policies applied</span></div><span class="mk-pill ok">Complete</span><span class="tog on"></span></div>
+  <div class="mk-row"><span class="mk-ic b">&#8635;</span><div><b>DEV-WIN-0013 &mdash; DEV-WIN-0018</b><span>6 devices &middot; configuring &middot; 73%</span></div><span class="mk-pill info">Installing</span><span class="tog on"></span></div>
+  <div class="mk-row"><span class="mk-ic y">&#9684;</span><div><b>DEV-WIN-0019 &mdash; DEV-WIN-0024</b><span>6 devices &middot; waiting / scheduled</span></div><span class="mk-pill warn">Queued</span><span class="tog"></span></div>
+</div></div>
     </div>
 
     <div class="alt-row flip rv">
       <div class="alt-copy"><div class="eyebrow-sm">Updates</div><h3>Patch Management</h3><p>Keep devices updated with the latest OS patches and security updates across your fleet. Reduce vulnerabilities and maintain system stability without manual intervention.</p><ul class="wp-list"><li>Schedule and automate patch updates across devices</li><li>Reduce risks from outdated operating systems</li><li>Maintain performance and system reliability</li></ul></div>
-      <div class="alt-vis"><div class="mock-patch">
-        <div class="mp-row"><div class="mp-top"><b>OS Security Update</b><span class="pill ok">Done</span></div><div class="bar"><i style="--w:100%"></i></div></div>
-        <div class="mp-row"><div class="mp-top"><b>Feature Update 24H2</b><span class="pill info">Rolling out</span></div><div class="bar"><i style="--w:64%"></i></div></div>
-        <div class="mp-row"><div class="mp-top"><b>Driver Pack</b><span class="pill warn">Scheduled</span></div><div class="bar"><i style="--w:22%"></i></div></div>
-      </div></div>
+      <div class="alt-vis"><div class="mk-card">
+  <div class="mk-head"><b>Patch Schedule</b><span class="mk-pill info">&#9679; Automated &middot; weekly</span></div>
+  <div class="mk-patch-grid">
+    <div class="mk-cal"><div class="mk-cal-head">MAY 2026</div><div class="mk-cal-days"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div><div class="mk-cal-row"><span class="mut">27</span><span class="mut">28</span><span class="mut">29</span><span class="mut">30</span><span>1</span><span>2</span><span>3</span></div><div class="mk-cal-row"><span>4</span><span>5</span><span>6</span><span>7</span><span class="c8">8</span><span>9</span><span>10</span></div><div class="mk-cal-row"><span>11</span><span>12</span><span>13</span><span>14</span><span class="c15">15</span><span>16</span><span>17</span></div><div class="mk-cal-row"><span>18</span><span>19</span><span>20</span><span>21</span><span class="c22">22</span><span>23</span><span>24</span></div><div class="mk-cal-row"><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span><span>31</span></div><div class="mk-cal-foot">&#9679; Patch Tuesday &nbsp;&nbsp; &#9675; Scheduled</div><div class="mk-next">Next deployment in <b>7 days</b></div></div>
+    <div class="mk-stack">
+      <div class="mk-ver"><span class="mk-pill ok">LATEST</span><b>KB5036893</b><span>Security &middot; May 14</span></div>
+      <div class="mk-ver"><span class="mk-pill info">22H2</span><b>KB5034441</b><span>Cumulative &middot; Apr</span></div>
+      <div class="mk-ver"><span class="mk-pill info">22H2</span><b>KB5031358</b><span>Cumulative &middot; Mar</span></div>
+      <div class="mk-deployed">Deployed to <b>2,847 / 2,847</b></div>
+    </div>
+  </div>
+</div></div>
     </div>
 
     <div class="alt-row rv">
       <div class="alt-copy"><div class="eyebrow-sm">Apps</div><h3>Automated Third-Party App Patching</h3><p>Ensure third-party applications remain updated across all managed devices. Eliminate manual updates and reduce risks from outdated software.</p><ul class="wp-list"><li>Automatically patch commonly used third-party apps</li><li>Reduce vulnerabilities from outdated applications</li><li>Maintain consistency across all installed software</li></ul></div>
-      <div class="alt-vis"><div class="mock-apps">
-        <div class="app"><i class="fa-brands fa-chrome" style="color:#4285F4"></i>Chrome</div>
-        <div class="app"><i class="fa-brands fa-firefox" style="color:#FF7139"></i>Firefox</div>
-        <div class="app"><i class="fa-brands fa-microsoft" style="color:#6264A6"></i>Teams</div>
-        <div class="app"><i class="fa-solid fa-envelope" style="color:#0078D4"></i>Outlook</div>
-        <div class="app"><i class="fa-brands fa-google-drive" style="color:#34A853"></i>Drive</div>
-        <div class="app"><i class="fa-solid fa-file-pdf" style="color:#EC1C24"></i>Reader</div>
-        <div class="app"><i class="fa-solid fa-shield-halved" style="color:#7c3aed"></i>VPN</div>
-        <div class="app"><i class="fa-solid fa-rotate" style="color:#34d399"></i><span style="color:#8fe6b0">Auto-patched</span></div>
-      </div></div>
+      <div class="alt-vis"><div class="mk-card">
+  <div class="mk-head"><b>Tracked Apps &middot; Version Updates</b><span class="mk-pill ok">&#9679; 5 of 6 patched &middot; 1 running</span></div>
+  <div class="mk-apps">
+    <div class="mk-app"><span class="mk-check">&#10003;</span><img src="assets/app-chrome.svg" alt="Chrome"><b>Chrome</b><span>v124 &rarr; v125</span></div>
+    <div class="mk-app"><span class="mk-check">&#10003;</span><img src="assets/app-zoom.svg" alt="Zoom"><b>Zoom</b><span>5.17.2 &rarr; 5.17.5</span></div>
+    <div class="mk-app"><span class="mk-check">&#10003;</span><img src="assets/app-slack.svg" alt="Slack"><b>Slack</b><span>4.37.0 &rarr; 4.38.1</span></div>
+    <div class="mk-app"><span class="mk-check">&#10003;</span><img src="assets/app-acrobat.svg" alt="Acrobat"><b>Acrobat</b><span>24.001 &rarr; 24.002</span></div>
+    <div class="mk-app"><img src="assets/app-vlc.svg" alt="VLC"><b>VLC</b><span>Updating&hellip;</span><div class="bar"><i style="width:55%"></i></div></div>
+    <div class="mk-app"><span class="mk-check">&#10003;</span><img src="assets/app-firefox.svg" alt="Firefox"><b>Firefox</b><span>125.0 &rarr; 126.0</span></div>
+  </div>
+</div></div>
     </div>
 
     <div class="alt-row flip rv">
       <div class="alt-copy"><div class="eyebrow-sm">Distribution</div><h3>App Catalog</h3><p>Provide users with access to approved applications through a centralized app catalog. Simplify app distribution while maintaining control over installations.</p><ul class="wp-list"><li>Publish and manage approved apps centrally</li><li>Control app access based on roles or groups</li><li>Simplify application deployment and updates</li></ul></div>
-      <div class="alt-vis"><div class="mock-store">
-        <div class="ms-shelf"><div class="ms-app"><i class="fa-solid fa-briefcase" style="color:#D83B01"></i>Office</div><div class="ms-app"><i class="fa-solid fa-comments" style="color:#6264A6"></i>Chat</div><div class="ms-app"><i class="fa-solid fa-table" style="color:#34A853"></i>Sheets</div></div>
-        <div class="ms-shelf"><div class="ms-app"><i class="fa-solid fa-shield-halved" style="color:#FF7A7A"></i>Security</div><div class="ms-app"><i class="fa-brands fa-google-drive" style="color:#FBBC04"></i>Drive</div><div class="ms-app"><i class="fa-solid fa-plus"></i>Request</div></div>
-      </div></div>
+      <div class="alt-vis"><div class="mk-card">
+  <div class="mk-head"><b>Approved Catalog</b><span class="mk-pill ok">&#9679; 47 apps published</span></div>
+  <div class="mk-feat"><div><small>FEATURED</small><b>New: Visual Studio 2026</b><span>Now approved for all engineering roles</span></div><span class="mk-install">&darr; Install</span></div>
+  <div class="mk-label"><span>APPROVED APPS</span><span>See all &rarr;</span></div>
+  <div class="mk-apps4">
+    <div class="mk-app"><img src="assets/app-vscode.svg" alt="VS Code"><b>VS Code</b><span class="ok">&#10003; Installed</span></div>
+    <div class="mk-app"><img src="assets/app-docker.svg" alt="Docker"><b>Docker</b><span class="act">+ Install</span></div>
+    <div class="mk-app"><img src="assets/app-notion.svg" alt="Notion"><b>Notion</b><span class="ok">&#10003; Installed</span></div>
+    <div class="mk-app"><img src="assets/app-figma.svg" alt="Figma"><b>Figma</b><span class="warn">&#9679; Request</span></div>
+  </div>
+  <div class="mk-roles">&#128274; Role-based access: <i>Engineering</i><i>Design</i><i>Finance</i><i>Sales</i> +3</div>
+</div></div>
     </div>
 
     <div class="alt-row rv">
       <div class="alt-copy"><div class="eyebrow-sm">Visibility</div><h3>Location Tracking &amp; Geofencing</h3><p>Track device location and define usage boundaries based on organizational requirements. Maintain visibility and restrict usage outside approved locations.</p><ul class="wp-list"><li>Monitor device location in real time</li><li>Set location-based usage restrictions</li><li>Prevent unauthorized device movement</li></ul></div>
-      <div class="alt-vis"><div class="mock-map"><div class="map-grid"><div class="zone" style="left:18%;top:22%;width:44%;height:52%"></div><div class="pin" style="left:32%;top:38%"></div><div class="pin" style="left:52%;top:55%"></div><div class="pin" style="left:70%;top:30%;opacity:.45"></div></div></div></div>
+      <div class="alt-vis"><div class="mk-card">
+  <div class="mk-head"><b>Active Geofences</b><span class="mk-pill warn">&#9679; 1 outside fence</span></div>
+  <div class="mk-map">
+    <div class="mk-zone"><span>HQ &middot; Safe Zone</span></div>
+    <div class="mk-bld"><svg width="22" height="22" viewBox="0 0 24 24"><rect x="3" y="3" width="11" height="18" rx="1" fill="#1d4ed8"/><rect x="17" y="9" width="4" height="12" rx="1" fill="#1d4ed8"/><rect x="5.5" y="6" width="2" height="2" fill="#fff"/><rect x="9.5" y="6" width="2" height="2" fill="#fff"/><rect x="5.5" y="10" width="2" height="2" fill="#fff"/><rect x="9.5" y="10" width="2" height="2" fill="#fff"/></svg><small>SK-MBP-0247</small></div>
+    <span class="mk-pin" style="left:28%;top:64%"></span>
+    <span class="mk-pin" style="left:56%;top:38%"></span>
+    <span class="mk-alert">&#9888; OUTSIDE FENCE<br>MR-CELL-0184</span>
+  </div>
+</div></div>
     </div>
   </div>
 </section>
@@ -444,7 +550,7 @@ a{text-decoration:none;color:inherit}
     <div class="link-card"><h3>AI Automation</h3><a class="more" href="ai-automation.html">Explore <i class="fa-solid fa-arrow-right"></i></a></div>
     <div class="link-card"><h3>Devniques MDM</h3><a class="more" href="#top">You are here <i class="fa-solid fa-arrow-up"></i></a></div>
     <div class="link-card"><h3>Custom Software</h3><a class="more" href="index.html#products">Explore <i class="fa-solid fa-arrow-right"></i></a></div>
-    <div class="link-card"><h3>Get a Quote</h3><a class="more" href="index.html#contact">Contact us <i class="fa-solid fa-arrow-right"></i></a></div>
+    <div class="link-card"><h3>Get a Quote</h3><a class="more" href="contact.html">Contact us <i class="fa-solid fa-arrow-right"></i></a></div>
   </div></div>
 </section>
 
@@ -455,7 +561,7 @@ a{text-decoration:none;color:inherit}
     <div class="rating"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span>4.6 &middot; 27 ratings</span></div>
     <p>See Devniques MDM in action on your own devices. Tell us about your fleet and we will walk you through enrollment, policies, and security controls.</p>
     <div class="hs-btns" style="justify-content:center">
-      <a class="hs-cta" href="index.html#contact">Schedule a Demo</a>
+      <a class="hs-cta" href="contact.html">Schedule a Demo</a>
       <a class="hs-cta hs-cta-ghost" href="mailto:info@devniques.com">Email Our Engineers</a>
     </div>
   </div></div>
