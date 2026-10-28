@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Devniques MDM &ndash; Devniques</title>
 <meta name="description" content="Manage and secure devices with Devniques MDM. Simplify operations and enforce policies using a scalable device management solution for your business.">
-<link rel="canonical" href="https://devniques.com/windows-mdm.html">
+<link rel="canonical" href="https://devniques.com/windows-mdm/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Devniques MDM – Devniques">
 <meta property="og:description" content="Manage and secure devices with Devniques MDM. Simplify operations and enforce policies using a scalable device management solution for your business.">
-<meta property="og:url" content="https://devniques.com/windows-mdm.html">
+<meta property="og:url" content="https://devniques.com/windows-mdm/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -308,7 +308,7 @@ a{text-decoration:none;color:inherit}
     <h1 class="rv">Manage the Entire Device Lifecycle from a Single Console.</h1>
     <p class="rv">Handle every stage of device usage with Devniques MDM, from onboarding to decommissioning.</p>
     <div class="hs-btns rv">
-      <a class="hs-cta" href="contact.html">Schedule a Demo</a>
+      <a class="hs-cta" href="/contact/">Schedule a Demo</a>
       <a class="hs-cta hs-cta-ghost" href="mailto:info@devniques.com">Email Our Engineers</a>
     </div>
   </div>
@@ -520,10 +520,10 @@ a{text-decoration:none;color:inherit}
 <!-- LINK CARDS -->
 <section class="lx-sec" style="padding:40px 0 100px">
   <div class="wrap"><div class="link-row rv">
-    <div class="link-card"><h3>AI Automation</h3><a class="more" href="ai-automation.html">Explore <i class="fa-solid fa-arrow-right"></i></a></div>
+    <div class="link-card"><h3>AI Automation</h3><a class="more" href="/ai-automation/">Explore <i class="fa-solid fa-arrow-right"></i></a></div>
     <div class="link-card"><h3>Devniques MDM</h3><a class="more" href="#top">You are here <i class="fa-solid fa-arrow-up"></i></a></div>
-    <div class="link-card"><h3>Custom Software</h3><a class="more" href="index.html#products">Explore <i class="fa-solid fa-arrow-right"></i></a></div>
-    <div class="link-card"><h3>Get a Quote</h3><a class="more" href="contact.html">Contact us <i class="fa-solid fa-arrow-right"></i></a></div>
+    <div class="link-card"><h3>Custom Software</h3><a class="more" href="/#products">Explore <i class="fa-solid fa-arrow-right"></i></a></div>
+    <div class="link-card"><h3>Get a Quote</h3><a class="more" href="/contact/">Contact us <i class="fa-solid fa-arrow-right"></i></a></div>
   </div></div>
 </section>
 
@@ -534,7 +534,7 @@ a{text-decoration:none;color:inherit}
     <div class="rating"><span class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span><span>4.6 &middot; 27 ratings</span></div>
     <p>See Devniques MDM in action on your own devices. Tell us about your fleet and we will walk you through enrollment, policies, and security controls.</p>
     <div class="hs-btns" style="justify-content:center">
-      <a class="hs-cta" href="contact.html">Schedule a Demo</a>
+      <a class="hs-cta" href="/contact/">Schedule a Demo</a>
       <a class="hs-cta hs-cta-ghost" href="mailto:info@devniques.com">Email Our Engineers</a>
     </div>
   </div></div>
@@ -553,20 +553,20 @@ a{text-decoration:none;color:inherit}
       if(after) after(el);
     }).catch(function(){});
   }
-  loadInto('navbar', 'assets/Navbar.html?v=2', function(nav){
+  loadInto('navbar', '/assets/Navbar.html?v=3', function(nav){
     if(location.pathname.indexOf('ai-automation') !== -1 || location.pathname.indexOf('windows-mdm') !== -1){
       nav.querySelectorAll('a[href^="#"]').forEach(function(a){
         var h = a.getAttribute('href');
-        if(h.length > 1) a.setAttribute('href', 'index.html' + h);
+        if(h.length > 1) a.setAttribute('href', '/' + h);
       });
       nav.querySelectorAll('.ln-links a').forEach(function(a){
-        if(a.textContent.trim() === 'AI Automation') a.setAttribute('href', 'ai-automation.html');
+        if(a.textContent.trim() === 'AI Automation') a.setAttribute('href', '/ai-automation/');
       });
     }
-    var page = location.pathname.split('/').pop() || 'index.html';
+    var page = location.pathname; if(page.slice(-1) !== '/') page += '/';
     nav.querySelectorAll('.ln-links a').forEach(function(a){
       var h = a.getAttribute('href') || '';
-      if(h === page || (page === 'windows-mdm.html' && h === 'windows-mdm.html')) a.classList.add('on');
+      if(h === page || (page === '/windows-mdm/' && h === '/windows-mdm/')) a.classList.add('on');
     });
     var burger = nav.querySelector('#burger');
     var links = nav.querySelector('#navLinks');
@@ -578,15 +578,15 @@ a{text-decoration:none;color:inherit}
       });
     }
   });
-  loadInto('footer', 'assets/Footer.html?v=4', function(ft){
+  loadInto('footer', '/assets/Footer.html?v=5', function(ft){
     if(location.pathname.indexOf('ai-automation') !== -1 || location.pathname.indexOf('windows-mdm') !== -1){
       ft.querySelectorAll('a[href^="#"]').forEach(function(a){
         var h = a.getAttribute('href');
-        if(h.length > 1) a.setAttribute('href', 'index.html' + h);
+        if(h.length > 1) a.setAttribute('href', '/' + h);
       });
       ft.querySelectorAll('a[onclick^="openProductModal"]').forEach(function(a){
         a.removeAttribute('onclick');
-        a.setAttribute('href', 'index.html#products');
+        a.setAttribute('href', '/#products');
       });
     }
   });
@@ -628,6 +628,28 @@ a{text-decoration:none;color:inherit}
       if(!open){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
     });
   });
+})();
+</script>
+<script>
+/* Clean URLs: same-page anchors scroll without leaving a # in the address bar;
+   a cross-page /#section link scrolls on load, then the # is removed. */
+(function(){
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if(!a) return;
+    var h = a.getAttribute('href');
+    if(!h || h.length < 2) return;
+    var t = document.getElementById(h.slice(1));
+    if(!t) return;
+    e.preventDefault();
+    t.scrollIntoView({behavior:'smooth'});
+    history.replaceState(null, '', location.pathname + location.search);
+  });
+  if(location.hash){
+    var t = document.getElementById(location.hash.slice(1));
+    if(t){ setTimeout(function(){ t.scrollIntoView(); history.replaceState(null, '', location.pathname + location.search); }, 50); }
+    else { history.replaceState(null, '', location.pathname + location.search); }
+  }
 })();
 </script>
 </body>

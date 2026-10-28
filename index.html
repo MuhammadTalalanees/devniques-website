@@ -549,12 +549,14 @@ section{padding:96px 0}
 #products .stack{position:relative}
 #products .stack-card{position:sticky;top:0;height:100svh;overflow:hidden;background:#04070e;transform-origin:center top}
 #products .stack-card video.bg,#products .stack-card img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-#products .stack-card img.slide-rotator{object-fit:contain;object-position:center;transition:opacity .3s ease;background:#0b0f16}
 #products .stack-card:has(img.slide-rotator) .shade{opacity:.35}
 #products .stack-card:has(img.slide-rotator) .shade2{opacity:.45}
-#products .stack-card #signveroSlide{object-fit:cover}
-#products .stack-card #buzzSlide{object-fit:cover}
 #products .stack-card .slide-label{position:absolute;top:28px;left:40px;z-index:4;background:rgba(2,6,16,.62);border:1px solid rgba(255,255,255,.28);color:#fff;padding:9px 16px;border-radius:999px;font-size:13px;font-weight:700;letter-spacing:1.2px;backdrop-filter:blur(6px)}
+#products .stack-card.slide-card .slide-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px;align-items:center;height:100%;max-width:1280px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+#products .stack-card.slide-card .stack-inner{height:auto;max-width:none;margin:0;padding:0;justify-content:center}
+#products .stack-card.slide-card .slide-frame{position:relative;width:100%;max-width:640px;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.16);box-shadow:0 24px 60px rgba(0,0,0,.55);background:#0b0f16}
+#products .stack-card.slide-card .slide-frame img{position:static;width:100%;height:100%;object-fit:contain;display:block;transition:opacity .3s ease}
+#products .stack-card.slide-card .slide-label{top:12px;left:12px;bottom:auto;right:auto}
 @media(max-width:768px){#products .stack-card .slide-label{top:18px;left:18px;font-size:12px}}
 #products .stack-card .bg-swap{position:absolute;inset:0}
 #products .stack-card .bg-swap .bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s ease}
@@ -856,7 +858,7 @@ body{background:#04070e!important;color:#f2f6fd}
       <div class="hs-eyebrow">Smart Technology Solutions</div>
       <h1>Smarter technology. <span class="accent">Stronger business.</span></h1>
       <p>Connected digital solutions that simplify operations, improve visibility and help your business move with confidence.</p>
-      <div class="hs-btns"><a class="hs-cta" href="ai-automation.html">Explore AI Solutions</a></div>
+      <div class="hs-btns"><a class="hs-cta" href="/ai-automation/">Explore AI Solutions</a></div>
     </div>
   </div>
   <div class="hs-slide">
@@ -866,7 +868,7 @@ body{background:#04070e!important;color:#f2f6fd}
       <div class="hs-eyebrow">AI &amp; Automation</div>
       <h1>Intelligence that <span class="accent">moves business forward.</span></h1>
       <p>Intelligent systems that work while you sleep — chatbots, machine learning and process automation built for your business.</p>
-      <div class="hs-btns"><a class="hs-cta" href="ai-automation.html">Explore AI Solutions</a></div>
+      <div class="hs-btns"><a class="hs-cta" href="/ai-automation/">Explore AI Solutions</a></div>
     </div>
   </div>
   <div class="hs-slide">
@@ -969,33 +971,35 @@ body{background:#04070e!important;color:#f2f6fd}
       <h2>Devniques MDM</h2>
       <p class="p-desc">One Platform. Total Device Control. Enterprise-Grade Security.<br>Take Control of Every Device. Secure Every Connection. Empower Your Business.</p>
       <div class="p-chips"><span class="p-chip"><i class="fa-solid fa-check"></i>Remote Lock/Wipe</span><span class="p-chip"><i class="fa-solid fa-check"></i>Kiosk Policy</span><span class="p-chip"><i class="fa-solid fa-check"></i>App Distribution</span></div>
-      <div class="p-ctas"><a class="p-cta" href="mdm-demo.html">Book Demo <i class="fa-solid fa-arrow-right"></i></a><a class="p-cta ghost" href="windows-mdm.html">Explore MDM</a></div>
+      <div class="p-ctas"><a class="p-cta" href="/mdm-demo/">Book Demo <i class="fa-solid fa-arrow-right"></i></a><a class="p-cta ghost" href="/windows-mdm/">Explore MDM</a></div>
     </div>
   </article>
 
-  <article class="stack-card" data-title="BuzzFlow">
-    <img class="bg slide-rotator" id="buzzSlide" src="assets/buzzflow-slides/slide-1.png" alt="BuzzFlow">
-    <div class="shade"></div><div class="shade2"></div>
+  <article class="stack-card slide-card" data-title="BuzzFlow">
     <div class="p-count"><b>02</b> / 09</div>
+    <div class="slide-layout">
     <div class="stack-inner">
       <span class="p-tag">Unified Workspace</span>
       <h2>BuzzFlow</h2>
       <p class="p-desc">Connecting your team, your projects, and your customers in one simple place. One powerful super-app built for modern businesses.</p>
       <div class="p-chips"><span class="p-chip"><i class="fa-solid fa-check"></i>Team Chat</span><span class="p-chip"><i class="fa-solid fa-check"></i>Tasks</span><span class="p-chip"><i class="fa-solid fa-check"></i>Collab</span></div><p class="p-desc" style="margin-top:14px">Chat, Tasks, Projects, Finance &amp; Leads &mdash; all in one unified workspace.</p>
-      <div class="p-ctas"><a class="p-cta" href="contact.html">Get a Quote <i class="fa-solid fa-arrow-right"></i></a></div>
+      <div class="p-ctas"><a class="p-cta" href="/contact/">Get a Quote <i class="fa-solid fa-arrow-right"></i></a></div>
+    </div>
+    <div class="slide-frame"><img id="buzzSlide" src="assets/buzzflow-slides/slide-1.png" alt="BuzzFlow"></div>
     </div>
   </article>
 
-  <article class="stack-card" data-title="Signvero">
-    <img class="bg slide-rotator" id="signveroSlide" src="assets/signvero-slides/slide-retail-16x9.jpg" alt="Signvero"><div class="slide-label" id="signveroLabel">Retail Stores</div>
-    <div class="shade"></div><div class="shade2"></div>
+  <article class="stack-card slide-card" data-title="Signvero">
     <div class="p-count"><b>03</b> / 09</div>
+    <div class="slide-layout">
     <div class="stack-inner">
       <span class="p-tag">Digital Display Network</span>
       <h2>Signvero</h2>
       <p class="p-desc">Turn Any Android LED into Digital Signage, instant emergency alert override broadcasting.</p>
       <div class="p-chips"><span class="p-chip"><i class="fa-solid fa-check"></i>4K Scheduler</span><span class="p-chip"><i class="fa-solid fa-check"></i>Emergency Alerts</span><span class="p-chip"><i class="fa-solid fa-check"></i>Multi-Zone</span></div>
-      <div class="p-ctas"><a class="p-cta" href="contact.html">Get a Quote <i class="fa-solid fa-arrow-right"></i></a></div>
+      <div class="p-ctas"><a class="p-cta" href="/contact/">Get a Quote <i class="fa-solid fa-arrow-right"></i></a></div>
+    </div>
+    <div class="slide-frame"><img id="signveroSlide" src="assets/signvero-slides/slide-retail-16x9.jpg" alt="Signvero"><div class="slide-label" id="signveroLabel">Retail Stores</div></div>
     </div>
   </article>
 
@@ -1008,7 +1012,7 @@ body{background:#04070e!important;color:#f2f6fd}
       <h2>Post Marrow</h2>
       <p class="p-desc">Cybersecurity and email protection &mdash; AI-powered zero-day phishing and malware scanners, automated PGP / S-MIME email vault encryption, and DMARC, DKIM and SPF alignment.</p>
       <div class="p-chips"><span class="p-chip"><i class="fa-solid fa-check"></i>Phishing Scanner</span><span class="p-chip"><i class="fa-solid fa-check"></i>Email Vault</span><span class="p-chip"><i class="fa-solid fa-check"></i>DMARC / DKIM / SPF</span></div>
-      <div class="p-ctas"><a class="p-cta" href="contact.html">Get a Quote <i class="fa-solid fa-arrow-right"></i></a></div>
+      <div class="p-ctas"><a class="p-cta" href="/contact/">Get a Quote <i class="fa-solid fa-arrow-right"></i></a></div>
     </div>
   </article>
 
@@ -1021,7 +1025,7 @@ body{background:#04070e!important;color:#f2f6fd}
       <h2>TrackOnMoves</h2>
       <p class="p-desc">Smart vehicle tracking and driver analytics platform. Real-time geofencing, fuel monitoring, engine diagnostics, and automated route optimization.</p>
       <div class="p-chips"><span class="p-chip"><i class="fa-solid fa-check"></i>Live Geofence</span><span class="p-chip"><i class="fa-solid fa-check"></i>Fuel Diagnostics</span><span class="p-chip"><i class="fa-solid fa-check"></i>Driver Score</span></div>
-      <div class="p-ctas"><a class="p-cta" href="contact.html">Get a Quote <i class="fa-solid fa-arrow-right"></i></a></div>
+      <div class="p-ctas"><a class="p-cta" href="/contact/">Get a Quote <i class="fa-solid fa-arrow-right"></i></a></div>
     </div>
   </article>
 
@@ -1034,7 +1038,7 @@ body{background:#04070e!important;color:#f2f6fd}
       <h2><img src="assets/itmenaan-logo-white.png" alt="Itmenaan" style="height:52px;width:auto;max-width:230px;object-fit:contain;display:block"></h2>
       <p class="p-desc">Pakistan's trusted buy &amp; sell marketplace connecting buyers and sellers across Pakistan.</p>
       <div class="p-chips"><span class="p-chip"><i class="fa-solid fa-check"></i>Buy &amp; Sell</span><span class="p-chip"><i class="fa-solid fa-check"></i>Listings</span><span class="p-chip"><i class="fa-solid fa-check"></i>Secure Deals</span></div>
-      <div class="p-ctas"><a class="p-cta" href="contact.html">Get a Quote <i class="fa-solid fa-arrow-right"></i></a><a class="p-cta ghost" href="https://itmenaan.pk" target="_blank" rel="noopener">Explore Itmenaan</a></div>
+      <div class="p-ctas"><a class="p-cta" href="/contact/">Get a Quote <i class="fa-solid fa-arrow-right"></i></a><a class="p-cta ghost" href="https://itmenaan.pk" target="_blank" rel="noopener">Explore Itmenaan</a></div>
     </div>
   </article>
 
@@ -1047,7 +1051,7 @@ body{background:#04070e!important;color:#f2f6fd}
       <h2>Hospital Management</h2>
       <p class="p-desc">Centralized health operations engine supporting 8+ distinct user roles (Doctors, Nurses, Pharmacy, Lab, Billing) across 60+ modular hospital workflows.</p>
       <div class="p-chips"><span class="p-chip"><i class="fa-solid fa-check"></i>8+ User Portals</span><span class="p-chip"><i class="fa-solid fa-check"></i>60+ Modules</span><span class="p-chip"><i class="fa-solid fa-check"></i>OPD/IPD</span></div>
-      <div class="p-ctas"><a class="p-cta" href="contact.html">Get a Quote <i class="fa-solid fa-arrow-right"></i></a></div>
+      <div class="p-ctas"><a class="p-cta" href="/contact/">Get a Quote <i class="fa-solid fa-arrow-right"></i></a></div>
     </div>
   </article>
 
@@ -1060,7 +1064,7 @@ body{background:#04070e!important;color:#f2f6fd}
       <h2>Microsoft 365</h2>
       <p class="p-desc">Powerful apps, AI-powered Copilot assistance, and trusted cloud storage to boost productivity.</p>
       <div class="p-chips"><span class="p-chip"><i class="fa-solid fa-check"></i>Office Apps</span><span class="p-chip"><i class="fa-solid fa-check"></i>Copilot AI</span><span class="p-chip"><i class="fa-solid fa-check"></i>Cloud Storage</span></div>
-      <div class="p-ctas"><a class="p-cta" href="contact.html">Get a Quote <i class="fa-solid fa-arrow-right"></i></a></div>
+      <div class="p-ctas"><a class="p-cta" href="/contact/">Get a Quote <i class="fa-solid fa-arrow-right"></i></a></div>
     </div>
   </article>
 
@@ -1073,7 +1077,7 @@ body{background:#04070e!important;color:#f2f6fd}
       <h2>Ship Flow</h2>
       <p class="p-desc">End-to-end freight forwarding &amp; cargo logistics suite with GPS container tracking.</p>
       <div class="p-chips"><span class="p-chip"><i class="fa-solid fa-check"></i>GPS Tracking</span><span class="p-chip"><i class="fa-solid fa-check"></i>Cargo Suite</span><span class="p-chip"><i class="fa-solid fa-check"></i>Route Opt.</span></div>
-      <div class="p-ctas"><a class="p-cta" href="contact.html">Get a Quote <i class="fa-solid fa-arrow-right"></i></a></div>
+      <div class="p-ctas"><a class="p-cta" href="/contact/">Get a Quote <i class="fa-solid fa-arrow-right"></i></a></div>
     </div>
   </article>
 
@@ -1096,7 +1100,7 @@ body{background:#04070e!important;color:#f2f6fd}
         <li><i class="fa-solid fa-check"></i>Process Automation</li>
         <li><i class="fa-solid fa-check"></i>Predictive Analytics</li>
       </ul>
-      <a class="btn btn-ghost rv" href="ai-automation.html">Explore AI Automation <i class="fa-solid fa-arrow-right"></i></a>
+      <a class="btn btn-ghost rv" href="/ai-automation/">Explore AI Automation <i class="fa-solid fa-arrow-right"></i></a>
     </div>
     <div class="ln-feat-visual rv">
       <div class="ln-agent">
@@ -1119,7 +1123,7 @@ body{background:#04070e!important;color:#f2f6fd}
         <li><i class="fa-solid fa-check"></i>Enterprise Private App Catalog Distribution</li>
         <li><i class="fa-solid fa-check"></i>OS Version Compliance &amp; Patch Management</li>
       </ul>
-      <a class="btn btn-ghost rv" href="windows-mdm.html">See how it works <i class="fa-solid fa-arrow-right"></i></a>
+      <a class="btn btn-ghost rv" href="/windows-mdm/">See how it works <i class="fa-solid fa-arrow-right"></i></a>
     </div>
     <div class="ln-feat-visual rv">
       <div class="ln-fleet">
@@ -1143,7 +1147,7 @@ body{background:#04070e!important;color:#f2f6fd}
       <div class="service-card rv" data-svc="mobileapp" role="button" tabindex="0"><div class="srv-icon"><i class="fa-solid fa-mobile-screen"></i></div><h3 class="srv-title">Mobile App Development</h3><p class="srv-desc">We create powerful native and cross-platform mobile applications that deliver seamless user experiences.</p><span class="srv-go">Learn more <i class="fa-solid fa-arrow-right"></i></span></div>
       <div class="service-card rv" data-svc="uiux" role="button" tabindex="0"><div class="srv-icon"><i class="fa-solid fa-pen-ruler"></i></div><h3 class="srv-title">UI/UX Design</h3><p class="srv-desc">Create user-friendly interfaces and engaging experiences that improve usability and customer satisfaction.</p><span class="srv-go">Learn more <i class="fa-solid fa-arrow-right"></i></span></div>
       <div class="service-card rv" data-svc="support" role="button" tabindex="0"><div class="srv-icon"><i class="fa-solid fa-headset"></i></div><h3 class="srv-title">Maintenance &amp; Support</h3><p class="srv-desc">From managed IT services to staff augmentation, we provide reliable support and skilled resources to scale your operations.</p><span class="srv-go">Learn more <i class="fa-solid fa-arrow-right"></i></span></div>
-      <a class="service-card rv" href="ai-automation.html"><div class="srv-icon"><i class="fa-solid fa-brain"></i></div><h3 class="srv-title">AI &amp; Machine Learning</h3><p class="srv-desc">Leverage the latest technologies to stay ahead of the curve, including innovative solutions that future-proof your business.</p><span class="srv-go">Learn more <i class="fa-solid fa-arrow-right"></i></span></a>
+      <a class="service-card rv" href="/ai-automation/"><div class="srv-icon"><i class="fa-solid fa-brain"></i></div><h3 class="srv-title">AI &amp; Machine Learning</h3><p class="srv-desc">Leverage the latest technologies to stay ahead of the curve, including innovative solutions that future-proof your business.</p><span class="srv-go">Learn more <i class="fa-solid fa-arrow-right"></i></span></a>
     </div>
   </div>
 </section>
@@ -1154,7 +1158,7 @@ body{background:#04070e!important;color:#f2f6fd}
         <div class="ln-wbar"><span class="ln-dot"></span><span class="ln-dot"></span><span class="ln-dot"></span><span class="ln-url"><i class="fa-solid fa-lock"></i>devniques.com</span></div>
         <div class="ln-dash">
           <aside class="ln-side">
-            <div class="ln-side-brand"><a href="index.html" aria-label="Devniques home"><img src="logo-white.png" alt="Devniques"></a></div>
+            <div class="ln-side-brand"><a href="/" aria-label="Devniques home"><img src="logo-white.png" alt="Devniques"></a></div>
             <a class="on" data-p="mdm"><i class="fa-solid fa-tablet-screen-button"></i>Devniques MDM</a>
             <a data-p="ai"><i class="fa-solid fa-brain"></i>AI Automation</a>
             <a data-p="ship"><i class="fa-solid fa-box"></i>Ship Flow</a>
@@ -1199,7 +1203,7 @@ body{background:#04070e!important;color:#f2f6fd}
       <h2>Have an Idea? Let&rsquo;s Build It.</h2>
       <p>From custom software to AI automation and device management &mdash; tell us what you&rsquo;re building, and we&rsquo;ll map the fastest path to launch.</p>
       <div class="hs-btns" style="justify-content:center">
-        <a class="hs-cta" href="contact.html">Get a Quote</a>
+        <a class="hs-cta" href="/contact/">Get a Quote</a>
         <a class="hs-cta hs-cta-ghost" href="mailto:info@devniques.com">Email Our Engineers</a>
       </div>
     </div>
@@ -1448,7 +1452,7 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
   document.addEventListener('visibilitychange',()=>{document.hidden?stop():start();});
   render(keys[0]);start();
   document.querySelectorAll('a.brand').forEach(a=>{
-    a.addEventListener('click',e=>{e.preventDefault();location.href='index.html';});
+    a.addEventListener('click',e=>{e.preventDefault();location.href='/';});
   });
 })();
 </script>
@@ -1500,12 +1504,12 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
     }).catch(function(){ /* keep page working even if partial fails */ });
   }
   // Shared navbar
-  loadInto('navbar', 'assets/Navbar.html?v=2', function(nav){
+  loadInto('navbar', '/assets/Navbar.html?v=3', function(nav){
     // On AI page, point fragment links back to homepage
     if(location.pathname.indexOf('ai-automation') !== -1){
       nav.querySelectorAll('a[href^="#"]').forEach(function(a){
         var h = a.getAttribute('href');
-        if(h.length > 1) a.setAttribute('href', 'index.html' + h);
+        if(h.length > 1) a.setAttribute('href', '/' + h);
       });
     }
     // Burger menu (null-safe)
@@ -1519,7 +1523,7 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
     }
   });
   // Shared footer
-  loadInto('footer', 'assets/Footer.html?v=4');
+  loadInto('footer', '/assets/Footer.html?v=5');
 })();
 </script>
 
@@ -1566,7 +1570,7 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
         card.style.transform = 'scale(' + (1 - covered * 0.07) + ')';
         card.style.filter = 'brightness(' + (1 - covered * 0.4) + ')';
         var entering = Math.min(Math.max(r.top / vh, 0), 1);
-        var bg = card.querySelector('.bg-swap, video.bg, img.bg');
+        var bg = card.classList.contains('slide-card') ? null : card.querySelector('.bg-swap, video.bg, img.bg');
         if(bg){ bg.style.transform = 'translateY(' + (entering * 6) + '%) scale(' + (1 + entering * 0.12) + ')'; }
         if (r.top <= vh * 0.5 && r.bottom >= vh * 0.5) active = i;
       });
@@ -1605,6 +1609,29 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
   }
   rotator('buzzSlide', ['assets/buzzflow-slides/slide-1.png','assets/buzzflow-slides/slide-2.png','assets/buzzflow-slides/slide-3.png','assets/buzzflow-slides/slide-4.png','assets/buzzflow-slides/slide-5.png']);
   rotator('signveroSlide', ['assets/signvero-slides/slide-retail-16x9.jpg','assets/signvero-slides/slide-offices-16x9.jpg','assets/signvero-slides/slide-hospitals-16x9.jpg','assets/signvero-slides/slide-schools-16x9.jpg'], ['Retail Stores','Offices','Hospitals & Clinics','Schools & Universities']);
+})();
+</script>
+<style>@media(max-width:768px){#products .stack-card.slide-card{height:auto}#products .stack-card.slide-card .slide-layout{grid-template-columns:1fr;gap:24px;padding:26px 28px 40px;height:auto}#products .stack-card.slide-card .stack-inner{padding:0}#products .stack-card.slide-card .slide-frame{max-width:none}#products .stack-card.slide-card .slide-frame img{position:static;width:100%;height:100%;aspect-ratio:auto;object-fit:contain}}</style>
+<script>
+/* Clean URLs: same-page anchors scroll without leaving a # in the address bar;
+   a cross-page /#section link scrolls on load, then the # is removed. */
+(function(){
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if(!a) return;
+    var h = a.getAttribute('href');
+    if(!h || h.length < 2) return;
+    var t = document.getElementById(h.slice(1));
+    if(!t) return;
+    e.preventDefault();
+    t.scrollIntoView({behavior:'smooth'});
+    history.replaceState(null, '', location.pathname + location.search);
+  });
+  if(location.hash){
+    var t = document.getElementById(location.hash.slice(1));
+    if(t){ setTimeout(function(){ t.scrollIntoView(); history.replaceState(null, '', location.pathname + location.search); }, 50); }
+    else { history.replaceState(null, '', location.pathname + location.search); }
+  }
 })();
 </script>
 </body>

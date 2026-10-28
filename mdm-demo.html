@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Book Your MDM Demo – Devniques</title>
 <meta name="description" content="Book a live demo of Devniques MDM. See enrollment, policies, and security controls in action on your own devices.">
-<link rel="canonical" href="https://devniques.com/mdm-demo.html">
+<link rel="canonical" href="https://devniques.com/mdm-demo/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Book Your MDM Demo – Devniques">
 <meta property="og:description" content="Book a live demo of Devniques MDM. See enrollment, policies, and security controls in action on your own devices.">
-<meta property="og:url" content="https://devniques.com/mdm-demo.html">
+<meta property="og:url" content="https://devniques.com/mdm-demo/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -66,7 +66,7 @@ header.ln-nav.scrolled{background:rgba(4,10,26,.98)}
 <div class="demo-info">
 <div class="demo-card"><h3>Want a live demo?</h3>
 <p style="color:var(--lx-muted);font-size:14.5px;line-height:1.65">See Devniques MDM in action on your own devices — enrollment, policies, and security controls, walked through by our engineers.</p>
-<p style="margin-top:14px"><a href="windows-mdm.html" style="color:var(--lx-cyan);font-weight:600;font-size:14.5px">Explore Devniques MDM <i class="fa-solid fa-arrow-right"></i></a></p>
+<p style="margin-top:14px"><a href="/windows-mdm/" style="color:var(--lx-cyan);font-weight:600;font-size:14.5px">Explore Devniques MDM <i class="fa-solid fa-arrow-right"></i></a></p>
 </div>
 <div class="demo-card"><h3>What you'll see</h3>
 <div class="demo-item"><i class="fa-solid fa-user-plus"></i><span><b>Enrollment</b>Enroll devices quickly using secure onboarding methods with minimal effort and consistent setup.</span></div>
@@ -82,7 +82,7 @@ header.ln-nav.scrolled{background:rgba(4,10,26,.98)}
 <div class="demo-item" style="margin-bottom:24px"><i class="fa-solid fa-envelope"></i><span><b>info@devniques.com</b>We reply within one business day</span></div>
 <a class="demo-cta" href="mailto:info@devniques.com">Email info@devniques.com <i class="fa-solid fa-paper-plane"></i></a>
 <a class="demo-cta" href="tel:+922136275379" style="background:rgba(47,127,247,.15);border:1px solid var(--lx-line);box-shadow:none">Call 021-36275379 <i class="fa-solid fa-phone"></i></a>
-<p class="demo-note">Prefer a form? <a href="contact.html" style="color:var(--lx-cyan);font-weight:600">Send us a message on the contact page</a>.</p>
+<p class="demo-note">Prefer a form? <a href="/contact/" style="color:var(--lx-cyan);font-weight:600">Send us a message on the contact page</a>.</p>
 </div>
 </div></div></section>
 </main>
@@ -97,13 +97,13 @@ el.innerHTML = html;
 if(after) after(el);
 }).catch(function(){});
 }
-loadInto('navbar', 'assets/Navbar.html?v=2', function(nav){
+loadInto('navbar', '/assets/Navbar.html?v=3', function(nav){
 nav.querySelectorAll('a[href^="#"]').forEach(function(a){
 var h = a.getAttribute('href');
-if(h.length > 1) a.setAttribute('href', 'index.html' + h);
+if(h.length > 1) a.setAttribute('href', '/' + h);
 });
 nav.querySelectorAll('.ln-links a').forEach(function(a){
-if((a.getAttribute('href') || '') === 'windows-mdm.html') a.classList.add('on');
+if((a.getAttribute('href') || '') === '/windows-mdm/') a.classList.add('on');
 });
 var burger = nav.querySelector('#burger');
 var links = nav.querySelector('#navLinks');
@@ -115,14 +115,14 @@ if(n) n.classList.toggle('open');
 });
 }
 });
-loadInto('footer', 'assets/Footer.html?v=4', function(ft){
+loadInto('footer', '/assets/Footer.html?v=5', function(ft){
 ft.querySelectorAll('a[href^="#"]').forEach(function(a){
 var h = a.getAttribute('href');
-if(h.length > 1) a.setAttribute('href', 'index.html' + h);
+if(h.length > 1) a.setAttribute('href', '/' + h);
 });
 ft.querySelectorAll('a[onclick^="openProductModal"]').forEach(function(a){
 a.removeAttribute('onclick');
-a.setAttribute('href', 'index.html#products');
+a.setAttribute('href', '/#products');
 });
 });
 addEventListener('scroll', function(){ var n = document.getElementById('nav'); if(n) n.classList.toggle('scrolled', scrollY > 10); });
@@ -130,6 +130,28 @@ var loader = document.getElementById('loader');
 function hideLoader(){ if(loader && !loader.classList.contains('done')){ loader.classList.add('done'); } }
 window.addEventListener('load', function(){ setTimeout(hideLoader, 500); });
 setTimeout(hideLoader, 3000);
+})();
+</script>
+<script>
+/* Clean URLs: same-page anchors scroll without leaving a # in the address bar;
+   a cross-page /#section link scrolls on load, then the # is removed. */
+(function(){
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if(!a) return;
+    var h = a.getAttribute('href');
+    if(!h || h.length < 2) return;
+    var t = document.getElementById(h.slice(1));
+    if(!t) return;
+    e.preventDefault();
+    t.scrollIntoView({behavior:'smooth'});
+    history.replaceState(null, '', location.pathname + location.search);
+  });
+  if(location.hash){
+    var t = document.getElementById(location.hash.slice(1));
+    if(t){ setTimeout(function(){ t.scrollIntoView(); history.replaceState(null, '', location.pathname + location.search); }, 50); }
+    else { history.replaceState(null, '', location.pathname + location.search); }
+  }
 })();
 </script>
 </body>

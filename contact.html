@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact Us – Devniques</title>
 <meta name="description" content="Tell Devniques about your project. Fill in the form and our team will get back to you.">
-<link rel="canonical" href="https://devniques.com/contact.html">
+<link rel="canonical" href="https://devniques.com/contact/">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Contact Us – Devniques">
 <meta property="og:description" content="Tell Devniques about your project. Fill in the form and our team will get back to you.">
-<meta property="og:url" content="https://devniques.com/contact.html">
+<meta property="og:url" content="https://devniques.com/contact/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -86,7 +86,7 @@ header.ln-nav.scrolled{background:rgba(4,10,26,.98)}
     </div>
     <div class="ct-card"><h3>Want a live demo?</h3>
       <p style="color:var(--lx-muted);font-size:14.5px;line-height:1.65">See Devniques MDM in action on your own devices — enrollment, policies, and security controls, walked through by our engineers.</p>
-      <p style="margin-top:14px"><a href="windows-mdm.html" style="color:var(--lx-cyan);font-weight:600;font-size:14.5px">Explore Devniques MDM <i class="fa-solid fa-arrow-right"></i></a></p>
+      <p style="margin-top:14px"><a href="/windows-mdm/" style="color:var(--lx-cyan);font-weight:600;font-size:14.5px">Explore Devniques MDM <i class="fa-solid fa-arrow-right"></i></a></p>
     </div>
   </div>
   <div class="ct-form">
@@ -97,7 +97,7 @@ header.ln-nav.scrolled{background:rgba(4,10,26,.98)}
       <input type="hidden" name="_subject" value="New Contact Form — Devniques Website">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_captcha" value="false">
-      <input type="hidden" name="_next" value="https://muhammadtalalanees.github.io/devniques-website/contact.html?sent=1">
+      <input type="hidden" name="_next" value="https://devniques.com/contact/?sent=1">
       <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off">
       <div class="f-row">
         <div class="f-group"><label>Full Name <i>*</i></label><input type="text" name="Name" required placeholder="Your full name"></div>
@@ -138,13 +138,13 @@ header.ln-nav.scrolled{background:rgba(4,10,26,.98)}
       if(after) after(el);
     }).catch(function(){});
   }
-  loadInto('navbar', 'assets/Navbar.html?v=2', function(nav){
+  loadInto('navbar', '/assets/Navbar.html?v=3', function(nav){
     nav.querySelectorAll('a[href^="#"]').forEach(function(a){
       var h = a.getAttribute('href');
-      if(h.length > 1) a.setAttribute('href', 'index.html' + h);
+      if(h.length > 1) a.setAttribute('href', '/' + h);
     });
     nav.querySelectorAll('.ln-links a').forEach(function(a){
-      if((a.getAttribute('href') || '') === 'contact.html') a.classList.add('on');
+      if((a.getAttribute('href') || '') === '/contact/') a.classList.add('on');
     });
     var burger = nav.querySelector('#burger');
     var links = nav.querySelector('#navLinks');
@@ -156,14 +156,14 @@ header.ln-nav.scrolled{background:rgba(4,10,26,.98)}
       });
     }
   });
-  loadInto('footer', 'assets/Footer.html?v=4', function(ft){
+  loadInto('footer', '/assets/Footer.html?v=5', function(ft){
     ft.querySelectorAll('a[href^="#"]').forEach(function(a){
       var h = a.getAttribute('href');
-      if(h.length > 1) a.setAttribute('href', 'index.html' + h);
+      if(h.length > 1) a.setAttribute('href', '/' + h);
     });
     ft.querySelectorAll('a[onclick^="openProductModal"]').forEach(function(a){
       a.removeAttribute('onclick');
-      a.setAttribute('href', 'index.html#products');
+      a.setAttribute('href', '/#products');
     });
   });
   addEventListener('scroll', function(){ var n = document.getElementById('nav'); if(n) n.classList.toggle('scrolled', window.scrollY > 8); }, {passive:true});
@@ -184,6 +184,28 @@ header.ln-nav.scrolled{background:rgba(4,10,26,.98)}
       var code = cc ? cc.value : '+92';
       if(v && v.charAt(0) !== '+'){ phone.value = code + ' ' + v.replace(/^0+/, ''); }
     });
+  }
+})();
+</script>
+<script>
+/* Clean URLs: same-page anchors scroll without leaving a # in the address bar;
+   a cross-page /#section link scrolls on load, then the # is removed. */
+(function(){
+  document.addEventListener('click', function(e){
+    var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if(!a) return;
+    var h = a.getAttribute('href');
+    if(!h || h.length < 2) return;
+    var t = document.getElementById(h.slice(1));
+    if(!t) return;
+    e.preventDefault();
+    t.scrollIntoView({behavior:'smooth'});
+    history.replaceState(null, '', location.pathname + location.search);
+  });
+  if(location.hash){
+    var t = document.getElementById(location.hash.slice(1));
+    if(t){ setTimeout(function(){ t.scrollIntoView(); history.replaceState(null, '', location.pathname + location.search); }, 50); }
+    else { history.replaceState(null, '', location.pathname + location.search); }
   }
 })();
 </script>
