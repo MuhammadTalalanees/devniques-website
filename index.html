@@ -549,6 +549,7 @@ section{padding:96px 0}
 #products .stack{position:relative}
 #products .stack-card{position:sticky;top:0;height:100svh;overflow:hidden;background:#04070e;transform-origin:center top}
 #products .stack-card video.bg,#products .stack-card img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#products .stack-card img.slide-rotator{object-fit:cover;object-position:center;transition:opacity .3s ease}
 #products .stack-card .bg-swap{position:absolute;inset:0}
 #products .stack-card .bg-swap .bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s ease}
 #products .stack-card .bg-swap .hover-img{opacity:0}
@@ -967,7 +968,7 @@ body{background:#04070e!important;color:#f2f6fd}
   </article>
 
   <article class="stack-card" data-title="BuzzFlow">
-    <img class="bg" id="buzzSlide" src="assets/buzzflow-slides/slide-1.png" alt="BuzzFlow">
+    <img class="bg slide-rotator" id="buzzSlide" src="assets/buzzflow-slides/slide-1.png" alt="BuzzFlow">
     <div class="shade"></div><div class="shade2"></div>
     <div class="p-count"><b>02</b> / 09</div>
     <div class="stack-inner">
@@ -980,13 +981,13 @@ body{background:#04070e!important;color:#f2f6fd}
   </article>
 
   <article class="stack-card" data-title="Signvero">
-    <img class="bg" src="videos/signvero-poster.jpg" alt="Signvero">
+    <img class="bg slide-rotator" id="signveroSlide" src="assets/signvero-slides/slide-retail.jpg" alt="Signvero">
     <div class="shade"></div><div class="shade2"></div>
     <div class="p-count"><b>03</b> / 09</div>
     <div class="stack-inner">
       <span class="p-tag">Digital Display Network</span>
       <h2>Signvero</h2>
-      <p class="p-desc">Digital display network for 4K video and graphics &mdash; central cloud media scheduler, instant emergency alert override broadcasting, and multi-zone layouts.</p>
+      <p class="p-desc">Turn Any Android LED into Digital Signage, instant emergency alert override broadcasting.</p>
       <div class="p-chips"><span class="p-chip"><i class="fa-solid fa-check"></i>4K Scheduler</span><span class="p-chip"><i class="fa-solid fa-check"></i>Emergency Alerts</span><span class="p-chip"><i class="fa-solid fa-check"></i>Multi-Zone</span></div>
       <div class="p-ctas"><a class="p-cta" href="contact.html">Get a Quote <i class="fa-solid fa-arrow-right"></i></a></div>
     </div>
@@ -1582,16 +1583,21 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
 
 <style>@media(max-width:768px){.hero-slider{height:auto;min-height:0}.hs-slide.active{position:relative}.hs-slide.active .hs-bgimg{animation:none}.hs-bgimg{position:relative;width:100%;height:auto;aspect-ratio:16/9;background-size:cover;background-position:center}.hero-slider .hs-shade,.hero-slider .hs-shade2{display:none}.hero-slider .hs-content{height:auto;padding:26px 6% 84px}#products .stack-card{position:relative;height:auto}#products .stack-card img.bg,#products .stack-card video.bg{position:relative;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}#products .stack-card .bg-swap{position:relative;aspect-ratio:16/9}#products .stack-card .shade,#products .stack-card .shade2{display:none}#products .stack-inner{height:auto;padding:26px 28px 40px;justify-content:flex-start}}@media(max-width:1020px){.ln-main{min-width:0}.ln-shot-glow{inset:-70px 0}}</style>
 <script>
-/* BuzzFlow slides: cycle the 5 slides every 2 seconds */
+/* Product slides: BuzzFlow (5) + Signvero (4), every 2 seconds, fixed frame, original quality */
 (function(){
-  var img=document.getElementById('buzzSlide');
-  if(!img) return;
-  var slides=['assets/buzzflow-slides/slide-1.png','assets/buzzflow-slides/slide-2.png','assets/buzzflow-slides/slide-3.png','assets/buzzflow-slides/slide-4.png','assets/buzzflow-slides/slide-5.png'];
-  var i=0;
-  setInterval(function(){
-    i=(i+1)%slides.length;
-    img.src=slides[i];
-  }, 2000);
+  function rotator(id, slides){
+    var img=document.getElementById(id);
+    if(!img) return;
+    slides.forEach(function(u){ var p=new Image(); p.src=u; });
+    var i=0;
+    setInterval(function(){
+      i=(i+1)%slides.length;
+      img.style.opacity='0';
+      setTimeout(function(){ img.src=slides[i]; img.style.opacity='1'; }, 150);
+    }, 2000);
+  }
+  rotator('buzzSlide', ['assets/buzzflow-slides/slide-1.png','assets/buzzflow-slides/slide-2.png','assets/buzzflow-slides/slide-3.png','assets/buzzflow-slides/slide-4.png','assets/buzzflow-slides/slide-5.png']);
+  rotator('signveroSlide', ['assets/signvero-slides/slide-retail.jpg','assets/signvero-slides/slide-offices.jpg','assets/signvero-slides/slide-hospitals.jpg','assets/signvero-slides/slide-schools.jpg']);
 })();
 </script>
 </body>
