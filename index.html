@@ -552,6 +552,9 @@ section{padding:96px 0}
 #products .stack-card img.slide-rotator{object-fit:contain;object-position:center;transition:opacity .3s ease;background:#0b0f16}
 #products .stack-card:has(img.slide-rotator) .shade{opacity:.35}
 #products .stack-card:has(img.slide-rotator) .shade2{opacity:.45}
+#products .stack-card #signveroSlide{object-fit:cover}
+#products .stack-card .slide-label{position:absolute;bottom:28px;right:40px;z-index:4;background:rgba(2,6,16,.62);border:1px solid rgba(255,255,255,.28);color:#fff;padding:9px 16px;border-radius:999px;font-size:13px;font-weight:700;letter-spacing:1.2px;backdrop-filter:blur(6px)}
+@media(max-width:768px){#products .stack-card .slide-label{bottom:18px;right:18px;font-size:12px}}
 #products .stack-card .bg-swap{position:absolute;inset:0}
 #products .stack-card .bg-swap .bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s ease}
 #products .stack-card .bg-swap .hover-img{opacity:0}
@@ -983,7 +986,7 @@ body{background:#04070e!important;color:#f2f6fd}
   </article>
 
   <article class="stack-card" data-title="Signvero">
-    <img class="bg slide-rotator" id="signveroSlide" src="assets/signvero-slides/slide-retail.jpg" alt="Signvero">
+    <img class="bg slide-rotator" id="signveroSlide" src="assets/signvero-slides/slide-retail-16x9.jpg" alt="Signvero"><div class="slide-label" id="signveroLabel">Retail Stores</div>
     <div class="shade"></div><div class="shade2"></div>
     <div class="p-count"><b>03</b> / 09</div>
     <div class="stack-inner">
@@ -1587,19 +1590,20 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
 <script>
 /* Product slides: BuzzFlow (5) + Signvero (4), every 2 seconds, fixed frame, original quality */
 (function(){
-  function rotator(id, slides){
+  function rotator(id, slides, labels){
     var img=document.getElementById(id);
     if(!img) return;
+    var label = id==='signveroSlide' ? document.getElementById('signveroLabel') : null;
     slides.forEach(function(u){ var p=new Image(); p.src=u; });
     var i=0;
     setInterval(function(){
       i=(i+1)%slides.length;
       img.style.opacity='0';
-      setTimeout(function(){ img.src=slides[i]; img.style.opacity='1'; }, 150);
+      setTimeout(function(){ img.src=slides[i]; img.style.opacity='1'; if(label && labels) label.textContent=labels[i]; }, 150);
     }, 2000);
   }
   rotator('buzzSlide', ['assets/buzzflow-slides/slide-1.png','assets/buzzflow-slides/slide-2.png','assets/buzzflow-slides/slide-3.png','assets/buzzflow-slides/slide-4.png','assets/buzzflow-slides/slide-5.png']);
-  rotator('signveroSlide', ['assets/signvero-slides/slide-retail.jpg','assets/signvero-slides/slide-offices.jpg','assets/signvero-slides/slide-hospitals.jpg','assets/signvero-slides/slide-schools.jpg']);
+  rotator('signveroSlide', ['assets/signvero-slides/slide-retail-16x9.jpg','assets/signvero-slides/slide-offices-16x9.jpg','assets/signvero-slides/slide-hospitals-16x9.jpg','assets/signvero-slides/slide-schools-16x9.jpg'], ['Retail Stores','Offices','Hospitals & Clinics','Schools & Universities']);
 })();
 </script>
 </body>
