@@ -552,11 +552,13 @@ section{padding:96px 0}
 #products .stack-card:has(img.slide-rotator) .shade{opacity:.35}
 #products .stack-card:has(img.slide-rotator) .shade2{opacity:.45}
 #products .stack-card .slide-label{position:absolute;top:28px;left:40px;z-index:4;background:rgba(2,6,16,.62);border:1px solid rgba(255,255,255,.28);color:#fff;padding:9px 16px;border-radius:999px;font-size:13px;font-weight:700;letter-spacing:1.2px;backdrop-filter:blur(6px)}
-#products .stack-card.slide-card .slide-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:56px;align-items:center;height:100%;max-width:1280px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
+#products .stack-card.slide-card .slide-layout{display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.35fr);gap:40px;align-items:center;height:100%;max-width:1280px;margin:0 auto;padding:0 28px;position:relative;z-index:2}
 #products .stack-card.slide-card .stack-inner{height:auto;max-width:none;margin:0;padding:0;justify-content:center}
-#products .stack-card.slide-card .slide-frame{position:relative;width:100%;max-width:640px;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.16);box-shadow:0 24px 60px rgba(0,0,0,.55);background:#0b0f16}
+#products .stack-card.slide-card .slide-frame{position:relative;width:100%;max-width:880px;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.16);box-shadow:0 24px 60px rgba(0,0,0,.55);background:#0b0f16}
 #products .stack-card.slide-card .slide-frame img{position:static;width:100%;height:100%;object-fit:contain;display:block;transition:opacity .3s ease}
 #products .stack-card.slide-card .slide-label{top:12px;left:12px;bottom:auto;right:auto}
+#products .stack-card.slide-card h2{font-size:clamp(36px,4.5vw,60px)}
+#products .stack-card.slide-card .p-desc{font-size:clamp(14px,1.4vw,17px)}
 @media(max-width:768px){#products .stack-card .slide-label{top:18px;left:18px;font-size:12px}}
 #products .stack-card .bg-swap{position:absolute;inset:0}
 #products .stack-card .bg-swap .bg-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:opacity .45s ease}
@@ -1605,7 +1607,7 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
       i=(i+1)%slides.length;
       img.style.opacity='0';
       setTimeout(function(){ img.src=slides[i]; img.style.opacity='1'; if(label && labels) label.textContent=labels[i]; }, 150);
-    }, 2000);
+    }, 4500);
   }
   rotator('buzzSlide', ['assets/buzzflow-slides/slide-1.png','assets/buzzflow-slides/slide-2.png','assets/buzzflow-slides/slide-3.png','assets/buzzflow-slides/slide-4.png','assets/buzzflow-slides/slide-5.png']);
   rotator('signveroSlide', ['assets/signvero-slides/slide-retail-16x9.jpg','assets/signvero-slides/slide-offices-16x9.jpg','assets/signvero-slides/slide-hospitals-16x9.jpg','assets/signvero-slides/slide-schools-16x9.jpg'], ['Retail Stores','Offices','Hospitals & Clinics','Schools & Universities']);
