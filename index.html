@@ -538,7 +538,7 @@ section{padding:96px 0}
 }
 
 /* ===== Products stack section (transplanted from products-concepts) ===== */
-#products{--cyan:#00f0ff;--blue:#2f7ff7;--muted:#b9c8e4;--line:rgba(140,180,255,.12);background:#04070e;position:relative}
+#products{--cyan:#00f0ff;--blue:#2f7ff7;--muted:#b9c8e4;--line:rgba(140,180,255,.12);background:transparent;position:relative}
 #products .stack-intro{display:flex;align-items:center;justify-content:center;text-align:center;padding:110px 28px 46px}
 #products .stack-intro h2{font-size:clamp(38px,6vw,72px);font-weight:900;letter-spacing:-1.5px;margin-bottom:18px;color:#fff}
 #products .stack-intro h2 span{color:var(--cyan)}
@@ -547,7 +547,7 @@ section{padding:96px 0}
 #products .scroll-hint i{color:var(--cyan);animation:pstack-bounce 1.8s infinite}
 @keyframes pstack-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(8px)}}
 #products .stack{position:relative}
-#products .stack-card{position:sticky;top:0;height:100svh;overflow:hidden;background:#04070e;transform-origin:center top}
+#products .stack-card{position:sticky;top:0;height:100svh;overflow:hidden;background:rgba(4,7,14,.38);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);transform-origin:center top}
 #products .stack-card video.bg,#products .stack-card img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 
 #products .stack-card:has(img.slide-rotator) .shade{opacity:.35}
