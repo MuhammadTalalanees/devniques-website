@@ -1017,9 +1017,7 @@ body{background:#04070e!important;color:#f2f6fd}
     <img class="bg" src="videos/postmarrow-poster-fullbg.jpg" alt="Post Marrow">
     <div class="shade"></div><div class="shade2"></div>
     <div class="p-count"><b>04</b> / 09</div>
-    <div class="stack-inner">
-      <div class="p-ctas"><a class="p-cta" href="/contact/">Get a Quote <i class="fa-solid fa-arrow-right"></i></a></div>
-    </div>
+    <a class="pm-hotspot" href="/contact/" aria-label="Get a Quote" title="Get a Quote"></a>
   </article>
 
   <article class="stack-card" data-title="Microsoft 365">
@@ -1639,6 +1637,50 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
     if(t){ setTimeout(function(){ t.scrollIntoView(); history.replaceState(null, '', location.pathname + location.search); }, 50); }
     else { history.replaceState(null, '', location.pathname + location.search); }
   }
+})();
+</script>
+<style>#products .stack-card[data-title="Post Marrow"] .pm-hotspot{position:absolute;z-index:4;display:none;cursor:pointer;background:transparent;-webkit-tap-highlight-color:transparent}</style>
+<script>
+/* Post Marrow: transparent hotspot over the Get a Quote button painted inside the poster image.
+   The poster is shown with object-fit:cover, so the button's screen position shifts with crop/scale;
+   recompute it from the rendered image rect on load, resize and scroll. Hide it when the button
+   is mostly cropped out of view. */
+(function(){
+  var card = document.querySelector('#products .stack-card[data-title="Post Marrow"]');
+  if(!card) return;
+  var img = card.querySelector('img.bg');
+  var hs = card.querySelector('.pm-hotspot');
+  if(!img || !hs) return;
+  /* Button rect in the poster image, as fractions of the image (measured from the file). */
+  var bx0 = 154/3840, bx1 = 1094/3840, by0 = 1516/2160, by1 = 1642/2160;
+  function place(){
+    if(!img.naturalWidth) return;
+    var cr = card.getBoundingClientRect();
+    var ir = img.getBoundingClientRect();
+    var scale = cr.width / (card.offsetWidth || cr.width);
+    if(!scale) return;
+    var s = Math.max(ir.width / img.naturalWidth, ir.height / img.naturalHeight);
+    var dw = img.naturalWidth * s, dh = img.naturalHeight * s;
+    var ox = ir.left + (ir.width - dw) / 2, oy = ir.top + (ir.height - dh) / 2;
+    var left = ox + bx0 * dw, top = oy + by0 * dh;
+    var w = (bx1 - bx0) * dw, h = (by1 - by0) * dh;
+    /* Visible fraction of the button inside the card. */
+    var vx0 = Math.max(left, cr.left), vx1 = Math.min(left + w, cr.right);
+    var vy0 = Math.max(top, cr.top), vy1 = Math.min(top + h, cr.bottom);
+    var visW = Math.max(0, vx1 - vx0) / w, visH = Math.max(0, vy1 - vy0) / h;
+    if(visW < 0.5 || visH < 0.5){ hs.style.display = 'none'; return; }
+    hs.style.display = 'block';
+    hs.style.left = ((left - cr.left) / scale) + 'px';
+    hs.style.top = ((top - cr.top) / scale) + 'px';
+    hs.style.width = (w / scale) + 'px';
+    hs.style.height = (h / scale) + 'px';
+  }
+  var ticking = false;
+  function req(){ if(ticking) return; ticking = true; requestAnimationFrame(function(){ ticking = false; place(); }); }
+  if(img.complete){ place(); } else { img.addEventListener('load', place); }
+  window.addEventListener('resize', req);
+  window.addEventListener('scroll', req, {passive:true});
+  setTimeout(place, 500);
 })();
 </script>
 </body>
