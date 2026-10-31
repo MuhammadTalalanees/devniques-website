@@ -98,7 +98,7 @@ el.innerHTML = html;
 if(after) after(el);
 }).catch(function(){});
 }
-loadInto('navbar', '/assets/Navbar.html?v=3', function(nav){
+loadInto('navbar', '/assets/Navbar.html?v=4', function(nav){
 nav.querySelectorAll('a[href^="#"]').forEach(function(a){
 var h = a.getAttribute('href');
 if(h.length > 1) a.setAttribute('href', '/' + h);

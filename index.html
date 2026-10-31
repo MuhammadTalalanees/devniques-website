@@ -1509,7 +1509,7 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
     }).catch(function(){ /* keep page working even if partial fails */ });
   }
   // Shared navbar
-  loadInto('navbar', '/assets/Navbar.html?v=3', function(nav){
+  loadInto('navbar', '/assets/Navbar.html?v=4', function(nav){
     // On AI page, point fragment links back to homepage
     if(location.pathname.indexOf('ai-automation') !== -1){
       nav.querySelectorAll('a[href^="#"]').forEach(function(a){

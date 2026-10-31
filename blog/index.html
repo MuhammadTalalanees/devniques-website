@@ -65,6 +65,9 @@ body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:#1e293b;backgr
 .cta p{color:#cbd5e1}
 .cta a{color:#93c5fd}
 .faq p{color:#334155}
+/* Blog page is light, but the shared navbar is dark (white logo + light links):
+   keep the navbar bar dark at all times so it stays readable on this page. */
+#nav.ln-nav{background:rgba(4,7,14,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom-color:rgba(148,184,255,.1)}
 @media(max-width:640px){.blog-wrap{padding-top:110px}.blog-wrap h1{font-size:32px}}
 </style>
 </head>
@@ -147,7 +150,10 @@ body{font-family:'Inter',system-ui,-apple-system,sans-serif;color:#1e293b;backgr
       if(after) after(el);
     }).catch(function(){});
   }
-  loadInto('navbar', '/assets/Navbar.html?v=3', function(nav){
+  loadInto('navbar', '/assets/Navbar.html?v=4', function(nav){
+    nav.querySelectorAll('.ln-links a').forEach(function(a){
+      if(a.getAttribute('href') === '/blog/') a.classList.add('on');
+    });
     nav.querySelectorAll('a[href^="#"]').forEach(function(a){
       var h = a.getAttribute('href');
       if(h.length > 1) a.setAttribute('href', '/' + h);
