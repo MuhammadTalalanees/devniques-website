@@ -3,5 +3,7 @@ Allow: /
 
 User-agent: Googlebot
 Disallow: /llms.txt
+Disallow: /assets/Navbar.html
+Disallow: /assets/Footer.html
 
 Sitemap: https://devniques.com/sitemap.xml
