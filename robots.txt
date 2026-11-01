@@ -1,3 +1,7 @@
 User-agent: *
 Allow: /
+
+User-agent: Googlebot
+Disallow: /llms.txt
+
 Sitemap: https://devniques.com/sitemap.xml
