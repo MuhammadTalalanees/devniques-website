@@ -1565,16 +1565,26 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
       ticking = false;
       var vh = window.innerHeight;
       var active = 0;
+      /* Skip all product work while the section is off-screen: previously every
+         page scroll repainted all 9 full-viewport cards. */
+      if(sec){
+        var sr = sec.getBoundingClientRect();
+        if(sr.bottom < 0 || sr.top > vh) return;
+      }
       cards.forEach(function(card, i){
         var r = card.getBoundingClientRect();
+        /* Off-screen cards need no per-frame work; they update the frame they enter. */
+        if(r.bottom < 0 || r.top > vh) return;
         var next = cards[i+1];
         var covered = 0;
         if(next){
           var nr = next.getBoundingClientRect();
           covered = Math.min(Math.max(1 - nr.top / vh, 0), 1);
         }
+        /* Transform-only animation: the old per-frame brightness filter forced a
+           full repaint of every card on every scroll frame (the lag). The scale
+           depth effect and bg parallax below are compositor-only, so they stay. */
         card.style.transform = 'scale(' + (1 - covered * 0.07) + ')';
-        card.style.filter = 'brightness(' + (1 - covered * 0.4) + ')';
         var entering = Math.min(Math.max(r.top / vh, 0), 1);
         var bg = card.classList.contains('slide-card') ? null : card.querySelector('.bg-swap, video.bg, img.bg');
         if(bg){ bg.style.transform = 'translateY(' + (entering * 6) + '%) scale(' + (1 + entering * 0.12) + ')'; }
@@ -1593,6 +1603,7 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
   }, {threshold:[0, 0.6, 1]});
   cards.forEach(function(c){ io.observe(c); });
   window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
   onScroll();
 })();
 </script>
