@@ -1571,10 +1571,23 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
         var sr = sec.getBoundingClientRect();
         if(sr.bottom < 0 || sr.top > vh) return;
       }
+      var isMobile = window.innerWidth <= 768;
       cards.forEach(function(card, i){
         var r = card.getBoundingClientRect();
         /* Off-screen cards need no per-frame work; they update the frame they enter. */
         if(r.bottom < 0 || r.top > vh) return;
+        if (r.top <= vh * 0.5 && r.bottom >= vh * 0.5) active = i;
+        /* Mobile: no per-frame transform writes. On phones the cards are relative
+           (no sticky stack), so the scale/parallax writes only forced a layout
+           flush per card on every scroll frame — the mobile jank. Dots keep
+           tracking via the active index above. Stale desktop transforms are
+           cleared so a resize to mobile never leaves a card shrunk. */
+        if(isMobile){
+          if(card.style.transform) card.style.transform = '';
+          var bgm = card.classList.contains('slide-card') ? null : card.querySelector('.bg-swap, video.bg, img.bg');
+          if(bgm && bgm.style.transform) bgm.style.transform = '';
+          return;
+        }
         var next = cards[i+1];
         var covered = 0;
         if(next){
@@ -1588,7 +1601,6 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
         var entering = Math.min(Math.max(r.top / vh, 0), 1);
         var bg = card.classList.contains('slide-card') ? null : card.querySelector('.bg-swap, video.bg, img.bg');
         if(bg){ bg.style.transform = 'translateY(' + (entering * 6) + '%) scale(' + (1 + entering * 0.12) + ')'; }
-        if (r.top <= vh * 0.5 && r.bottom >= vh * 0.5) active = i;
       });
       dotBtns.forEach(function(d, i){ d.classList.toggle('on', i === active); });
     });
@@ -1608,7 +1620,7 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
 })();
 </script>
 
-<style>@media(max-width:768px){.hero-slider{height:auto;min-height:0}.hs-slide.active{position:relative}.hs-slide.active .hs-bgimg{animation:none}.hs-bgimg{position:relative;width:100%;height:auto;aspect-ratio:16/9;background-size:cover;background-position:center}.hero-slider .hs-shade,.hero-slider .hs-shade2{display:none}.hero-slider .hs-content{height:auto;padding:26px 6% 84px}#products .stack-card{position:relative;height:auto}#products .stack-card img.bg,#products .stack-card video.bg{position:relative;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}#products .stack-card .bg-swap{position:relative;aspect-ratio:16/9}#products .stack-card .shade,#products .stack-card .shade2{display:none}#products .stack-inner{height:auto;padding:26px 28px 40px;justify-content:flex-start}}@media(max-width:1020px){.ln-main{min-width:0}.ln-shot-glow{inset:-70px 0}}</style>
+<style>@media(max-width:768px){.hero-slider{height:auto;min-height:0}.hs-slide.active{position:relative}.hs-slide.active .hs-bgimg{animation:none}.hs-bgimg{position:relative;width:100%;height:auto;aspect-ratio:16/9;background-size:cover;background-position:center}.hero-slider .hs-shade,.hero-slider .hs-shade2{display:none}.hero-slider .hs-content{height:auto;padding:26px 6% 84px}#products .stack-card{position:relative;height:auto}#products .stack-card img.bg,#products .stack-card video.bg{position:relative;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}#products .stack-card .bg-swap{position:relative;aspect-ratio:16/9}#products .stack-card .shade,#products .stack-card .shade2{display:none}#products .stack-inner{height:auto;padding:26px 28px 40px;justify-content:flex-start}#products .stack-card[data-title="Post Marrow"]{padding-bottom:28px}#products .p-chip,#products .p-count{backdrop-filter:none;-webkit-backdrop-filter:none}}@media(max-width:1020px){.ln-main{min-width:0}.ln-shot-glow{inset:-70px 0}}</style>
 <script>
 /* Product slides: Buzzflo (5) + Signvero (4), every 2 seconds, fixed frame, original quality */
 (function(){
