@@ -111,16 +111,26 @@ header.ln-nav.scrolled{background:rgba(4,10,26,.98)}
         <div class="f-group"><label>Company</label><input type="text" name="Company" placeholder="Your company name"></div>
       </div>
       <div class="f-group"><label>Service of Interest</label>
-        <select name="Service">
+        <select name="Service" id="serviceSelect">
           <option value="">Select a service…</option>
           <option>Devniques MDM</option>
           <option>AI Automation</option>
+          <option>Microsoft 365</option>
           <option>Custom Software</option>
           <option>Website Development</option>
           <option>Mobile App Development</option>
           <option>Digital Marketing &amp; SEO</option>
           <option>ERP &amp; CRM</option>
           <option>Other</option>
+        </select>
+      </div>
+      <div class="f-group" id="planGroup" style="display:none"><label>Microsoft 365 Plan</label>
+        <select name="Plan" id="planSelect">
+          <option value="">Select a plan…</option>
+          <option>Business Basic</option>
+          <option>Business Standard</option>
+          <option>Business Premium</option>
+          <option>Not sure yet</option>
         </select>
       </div>
       <div class="f-group"><label>Message <i>*</i></label><textarea name="Message" required placeholder="Tell us about your project, fleet size, or requirements…"></textarea></div>
@@ -177,6 +187,25 @@ header.ln-nav.scrolled{background:rgba(4,10,26,.98)}
   if(new URLSearchParams(location.search).get('sent') === '1'){
     var ok = document.getElementById('sentOk');
     if(ok) ok.classList.add('show');
+  }
+  var svc = document.getElementById('serviceSelect');
+  var planG = document.getElementById('planGroup');
+  var planS = document.getElementById('planSelect');
+  function syncPlan(){
+    var isM = !!(svc && svc.value === 'Microsoft 365');
+    if(planG) planG.style.display = isM ? '' : 'none';
+    if(planS){ planS.disabled = !isM; if(!isM) planS.value = ''; }
+  }
+  if(svc){
+    svc.addEventListener('change', syncPlan);
+    var qs = new URLSearchParams(location.search);
+    var sv = qs.get('service');
+    if(sv){ for(var i = 0; i < svc.options.length; i++){ if(svc.options[i].text === sv){ svc.selectedIndex = i; break; } } }
+    syncPlan();
+    if(planS){
+      var pv = qs.get('plan');
+      if(pv){ for(var j = 0; j < planS.options.length; j++){ if(planS.options[j].text === pv){ planS.selectedIndex = j; break; } } }
+    }
   }
   var form = document.getElementById('ctForm');
   var phone = document.getElementById('phoneInput');
