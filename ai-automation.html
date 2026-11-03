@@ -22,7 +22,7 @@
 <style>
 /* ===== LINEAR-STYLE AI PAGE — Devniques theme ===== */
 :root{
-  --lx-bg:#ffffff; --lx-bg2:#0a1633;
+  --lx-bg:#eef2f7; --lx-bg2:#0a1633;
   --lx-ink:#0a1428; --lx-ink2:#f2f6fd; --lx-muted:#475569; --lx-muted2:#64748b;
   --lx-blue:#2f7ff7; --lx-blue-d:#0d55c4; --lx-cyan:#00f0ff;
   --lx-line:rgba(140,180,255,.14); --lx-line-soft:rgba(140,180,255,.09);
@@ -53,7 +53,7 @@ a{text-decoration:none;color:inherit}
 .lx-hero-inner{position:relative;z-index:1;max-width:860px}
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:700;letter-spacing:2.5px;color:var(--lx-cyan);text-transform:uppercase;margin-bottom:26px;padding:9px 20px;border-radius:999px;background:rgba(0,240,255,.05);border:1px solid rgba(0,240,255,.28)}
 .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--lx-cyan)}
-.lx-hero h1{font-size:clamp(44px,6.4vw,76px);font-weight:800;letter-spacing:-.035em;line-height:1.04;margin-bottom:26px}
+.lx-hero h1{font-size:clamp(44px,6.4vw,76px);font-weight:800;letter-spacing:-.035em;line-height:1.04;margin-bottom:26px;color:#fff}
 .lx-hero h1 .accent{background:linear-gradient(100deg,var(--lx-blue),var(--lx-cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
 .lx-hero p.sub{font-size:clamp(16px,2vw,19px);color:#b9c8e4;max-width:700px;margin:0 auto 40px;line-height:1.65}
 .lx-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
@@ -80,7 +80,7 @@ a{text-decoration:none;color:inherit}
 .wp-list li strong{display:block;font-size:16px;margin-bottom:6px}
 .wp-list li span{color:var(--lx-muted);font-size:14.5px;line-height:1.6}
 /* ===== CSS mock visuals ===== */
-.mock{background:rgba(4,10,26,.6);border:none;border-radius:10px;padding:18px;min-height:150px;overflow:hidden}
+.mock{background:#040a1a;border:none;border-radius:10px;padding:18px;min-height:150px;overflow:hidden}
 .mock-chat{display:flex;flex-direction:column;gap:10px}
 .mc-row{display:flex}.mc-row.right{justify-content:flex-end}
 .mc-bubble{max-width:82%;padding:9px 14px;border-radius:14px;font-size:13px;line-height:1.5}
@@ -211,14 +211,13 @@ a{text-decoration:none;color:inherit}
   .lx-sec{padding:72px 0}
 }
 @media(max-width:560px){.link-row{grid-template-columns:1fr}.link-card{border-left:none;border-top:1px solid var(--lx-line-soft)}.link-card:first-child{border-top:none}.bento-card{min-width:0}.mock{min-width:0}.mock-kanban{grid-template-columns:1fr}.mock-term .mt-line{overflow-wrap:anywhere}}
-</style>
+.mock{color:#eaf1ff}.mock .vb-label{color:#8b98b8}.mock .mc-thinking{color:#8b98b8}.lx-links-sec{background:#04070e;color:#f2f6fd}.lx-links-sec .link-card a.more{color:#b9c8e4}.lx-final{background:#04070e}.lx-final h2{color:#fff}.lx-final p{color:#b9c8e4}</style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "AI Automation & Chatbots – Devniques", "url": "https://devniques.com/ai-automation/", "description": "AI chatbots and assistants, custom machine learning, connected workflows, and predictive insights built around your business by Devniques."}</script>
 </head>
 <body id="top">
 <div id="loader"><img src="logo-white.png" alt="Devniques"><div class="ld-bar"><i></i></div><small>Smart Technology Solutions</small></div>
 <div id="sprog"></div>
 <noscript><style>#loader,#sprog{display:none!important}
-.lx-final .btn-outline{color:#0a1428!important;border-color:rgba(10,20,40,.3)!important}
 </style></noscript>
 
 <div id="navbar"></div>
@@ -474,7 +473,7 @@ a{text-decoration:none;color:inherit}
     </div></div>
   </div>
 </section><!-- LINK CARDS -->
-<section class="lx-sec" style="padding:40px 0 100px">
+<section class="lx-sec lx-links-sec" style="padding:40px 0 100px">
   <div class="wrap"><div class="link-row rv">
     <div class="link-card"><h3>Custom Software</h3><a class="more" href="/#products">Explore <i class="fa-solid fa-arrow-right"></i></a></div>
     <div class="link-card"><h3>Devniques MDM</h3><a class="more" href="/windows-mdm/">Explore <i class="fa-solid fa-arrow-right"></i></a></div>
