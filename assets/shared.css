@@ -164,3 +164,9 @@ body::before{
 footer{border-top:1px solid var(--line-soft);background:#050d24;padding:72px 0 32px}
 
 .f-social a svg{width:17px;height:17px;fill:currentColor;display:block}
+
+/* Footer stays dark: keep its text light even though page text is dark now. */
+footer{color:#b9c8e4}
+.f-brand p{color:#b9c8e4}
+.footer-col ul a{color:#b9c8e4}
+.f-contact p{color:#b9c8e4}
