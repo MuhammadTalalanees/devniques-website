@@ -540,7 +540,7 @@ section{padding:96px 0}
 
 /* ===== Products stack section (transplanted from products-concepts) ===== */
 #products{--cyan:#00f0ff;--blue:#2f7ff7;--muted:#b9c8e4;--line:rgba(140,180,255,.12);background:transparent;position:relative}
-#products .stack-intro{display:flex;align-items:center;justify-content:center;text-align:center;padding:110px 28px 46px}
+#products .stack-intro{display:flex;align-items:center;justify-content:center;text-align:center;padding:48px 28px 46px}
 #products .stack-intro h2{font-size:clamp(38px,6vw,72px);font-weight:900;letter-spacing:-1.5px;margin-bottom:18px;color:#0a1428}
 #products .stack-intro h2 span{color:var(--cyan)}
 #products .stack-intro p{color:#475569;font-size:17px;max-width:560px;margin:0 auto 30px;line-height:1.65}
@@ -733,7 +733,7 @@ body{background:#ffffff!important;color:#0a1428}
 .ln-strip-label{color:#5f6c8c;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;margin-bottom:26px}
 .ln-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent)}
 .ln-track{display:flex;gap:72px;width:max-content;animation:lnScroll 30s linear infinite;padding-right:72px}
-.ln-track span{color:#aeb9d4;font-weight:600;font-size:16.5px;white-space:nowrap;letter-spacing:.01em}
+.ln-track span{color:#64748b;font-weight:600;font-size:26px;white-space:nowrap;letter-spacing:.01em}
 @keyframes lnScroll{to{transform:translateX(-50%)}}
 /* ---------- statement ---------- */
 .ln-state{padding:110px 0 24px;text-align:center}
@@ -800,6 +800,7 @@ body{background:#ffffff!important;color:#0a1428}
 }@media(max-width:560px){
 .ln-cards{grid-template-columns:1fr}
 .ln-track{gap:44px;padding-right:44px}
+.ln-track span{font-size:20px}
 }@media(prefers-reduced-motion:reduce){
 .ln-track{animation:none}
 .ln-live i,.ln-typing i{animation:none}
