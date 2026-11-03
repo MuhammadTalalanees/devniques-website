@@ -539,7 +539,7 @@ section{padding:96px 0}
 }
 
 /* ===== Products stack section (transplanted from products-concepts) ===== */
-#products{--cyan:#00f0ff;--blue:#2f7ff7;--muted:#b9c8e4;--line:rgba(140,180,255,.12);background:transparent;position:relative}
+#products{--cyan:#00f0ff;--blue:#2f7ff7;--muted:#b9c8e4;--line:rgba(140,180,255,.12);background:transparent;position:relative;padding-top:20px}
 #products .stack-intro{display:flex;align-items:center;justify-content:center;text-align:center;padding:48px 28px 46px}
 #products .stack-intro h2{font-size:clamp(38px,6vw,72px);font-weight:900;letter-spacing:-1.5px;margin-bottom:18px;color:#0a1428}
 #products .stack-intro h2 span{color:var(--cyan)}
@@ -730,7 +730,7 @@ body{background:#ffffff!important;color:#0a1428}
 .ln-chart{width:100%;height:120px;display:block;background:rgba(255,255,255,.018);border:1px solid rgba(148,184,255,.1);border-radius:12px}
 /* ---------- logo strip ---------- */
 .ln-strip{padding:64px 0 10px;text-align:center}
-.ln-strip-label{color:#5f6c8c;font-size:12.5px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;margin-bottom:26px}
+.ln-strip-label{color:#5f6c8c;font-size:clamp(19px,2.4vw,26px);letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:30px}
 .ln-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent)}
 .ln-track{display:flex;gap:72px;width:max-content;animation:lnScroll 30s linear infinite;padding-right:72px}
 .ln-track span{color:#64748b;font-weight:600;font-size:26px;white-space:nowrap;letter-spacing:.01em}
@@ -802,7 +802,7 @@ body{background:#ffffff!important;color:#0a1428}
 .ln-track{gap:44px;padding-right:44px}
 .ln-track span{font-size:20px}
 }@media(prefers-reduced-motion:reduce){
-.ln-track{animation:none}
+.ln-track{animation:lnScroll 30s linear infinite!important;animation-duration:30s!important;animation-iteration-count:infinite!important}
 .ln-live i,.ln-typing i{animation:none}
 }
 
