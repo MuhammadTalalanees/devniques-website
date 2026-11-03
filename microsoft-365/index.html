@@ -44,6 +44,7 @@ a{text-decoration:none;color:inherit}
 .lx-hero{position:relative;height:100svh;min-height:620px;overflow:hidden;background:#04070e;isolation:isolate}
 .lx-hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
 .lx-hero-bg .hs-bgimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:hsKenburns 8s ease-out forwards}
+.lx-hero-bg .hs-bgvideo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 @keyframes hsKenburns{from{transform:scale(1.12)}to{transform:scale(1)}}
 .lx-hero-bg .hs-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,7,14,.94) 0%,rgba(4,7,14,.72) 32%,rgba(4,7,14,.28) 58%,rgba(4,7,14,0) 82%)}
 .lx-hero-bg .hs-shade2{position:absolute;inset:0;background:linear-gradient(0deg,rgba(4,7,14,.6) 0%,rgba(4,7,14,0) 32%)}
@@ -115,6 +116,7 @@ a{text-decoration:none;color:inherit}
   .lx-hero{display:flex;flex-direction:column;height:auto;min-height:0}
   .lx-hero-bg{position:relative;aspect-ratio:16/9}
   .lx-hero-bg .hs-bgimg{position:static;width:100%;height:100%;object-fit:cover;animation:none}
+  .lx-hero-bg .hs-bgvideo{position:static;width:100%;height:100%;object-fit:cover}
   .lx-hero-bg .hs-shade,.lx-hero-bg .hs-shade2{display:none}
   .lx-hero .hs-content{height:auto;padding:30px 24px 56px}
 }
@@ -143,7 +145,7 @@ a{text-decoration:none;color:inherit}
 <!-- ===== HERO ===== -->
 <section class="lx-hero">
   <div class="lx-hero-bg" aria-hidden="true">
-    <img class="hs-bgimg" src="/videos/m365-poster-v2.jpg" alt="Microsoft 365">
+    <video class="hs-bgvideo" src="/videos/m365-hero.mp4" poster="/videos/m365-poster-v2.jpg" autoplay muted loop playsinline preload="auto"></video>
     <div class="hs-shade"></div><div class="hs-shade2"></div>
   </div>
   <div class="hs-content">
