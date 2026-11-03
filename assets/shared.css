@@ -27,7 +27,8 @@ body::before{
   background:
     radial-gradient(900px 500px at 15% 10%, rgba(47,127,247,.14), transparent 60%),
     radial-gradient(800px 500px at 85% 20%, rgba(0,240,255,.10), transparent 60%),
-    #ffffff;
+    radial-gradient(1000px 700px at 50% 100%, rgba(22,41,92,.55), transparent 70%),
+    var(--dv-navy);
   filter:blur(2px);
 }
 /* Navbar links/buttons slightly right */
@@ -164,9 +165,3 @@ body::before{
 footer{border-top:1px solid var(--line-soft);background:#050d24;padding:72px 0 32px}
 
 .f-social a svg{width:17px;height:17px;fill:currentColor;display:block}
-
-/* Footer stays dark: keep its text light even though page text is dark now. */
-footer{color:#b9c8e4}
-.f-brand p{color:#b9c8e4}
-.footer-col ul a{color:#b9c8e4}
-.f-contact p{color:#b9c8e4}
