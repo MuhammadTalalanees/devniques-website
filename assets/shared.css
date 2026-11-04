@@ -109,7 +109,7 @@ body::before{
 }
 
 
-.ln-nav{position:fixed;top:0;left:0;right:0;z-index:200;background:#002237;border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
+.ln-nav{position:fixed;top:0;left:0;right:0;z-index:200;border-bottom:1px solid transparent;transition:background .3s,border-color .3s}
 
 
 .ln-nav.scrolled{background:#002237;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom-color:rgba(148,184,255,.1)}
