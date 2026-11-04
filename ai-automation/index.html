@@ -486,7 +486,7 @@ a{text-decoration:none;color:inherit}
 <section class="lx-sec lx-links-sec" style="padding:40px 0 28px">
   <div class="wrap"><div class="link-row rv">
     <div class="link-card"><h3>Custom Software</h3><a class="more" href="/#products">Explore <i class="fa-solid fa-arrow-right"></i></a></div>
-    <div class="link-card"><h3>Devniques MDM</h3><a class="more" href="/windows-mdm/">Explore <i class="fa-solid fa-arrow-right"></i></a></div>
+    <div class="link-card"><h3>Devniques MDM</h3><a class="more" href="/devniques-mdm/">Explore <i class="fa-solid fa-arrow-right"></i></a></div>
     <div class="link-card"><h3>AI Automation</h3><a class="more" href="#top">You are here <i class="fa-solid fa-arrow-up"></i></a></div>
     <div class="link-card"><h3>Get a Quote</h3><a class="more" href="/contact/">Contact us <i class="fa-solid fa-arrow-right"></i></a></div>
   </div></div>
@@ -517,7 +517,7 @@ a{text-decoration:none;color:inherit}
       if(after) after(el);
     }).catch(function(){});
   }
-  loadInto('navbar', '/assets/Navbar.html?v=4', function(nav){
+  loadInto('navbar', '/assets/Navbar.html?v=5', function(nav){
     if(location.pathname.indexOf('ai-automation') !== -1){
       nav.querySelectorAll('a[href^="#"]').forEach(function(a){
         var h = a.getAttribute('href');
@@ -542,8 +542,8 @@ a{text-decoration:none;color:inherit}
       });
     }
   });
-  loadInto('footer', '/assets/Footer.html?v=13', function(ft){
-    if(location.pathname.indexOf('ai-automation') !== -1 || location.pathname.indexOf('windows-mdm') !== -1){
+  loadInto('footer', '/assets/Footer.html?v=14', function(ft){
+    if(location.pathname.indexOf('ai-automation') !== -1 || location.pathname.indexOf('devniques-mdm') !== -1){
       ft.querySelectorAll('a[href^="#"]').forEach(function(a){
         var h = a.getAttribute('href');
         if(h.length > 1) a.setAttribute('href', '/' + h);

@@ -7,7 +7,7 @@ Devniques is an IT services and technology company in Karachi, Pakistan. Its wor
 ## Key pages
 
 - [Home](https://devniques.com/): Devniques – Smart Technology Solutions.
-- [Devniques MDM](https://devniques.com/windows-mdm/): Mobile Device Management (MDM) for businesses.
+- [Devniques MDM](https://devniques.com/devniques-mdm/): Mobile Device Management (MDM) for businesses.
 - [AI Automation & Chatbots](https://devniques.com/ai-automation/): AI automation and chatbots, from everyday tasks to intelligent workflows.
 - [Blog](https://devniques.com/blog/): What Devniques does, in short.
 - [Book Your MDM Demo](https://devniques.com/mdm-demo/): Book a demo of Devniques MDM.
@@ -22,7 +22,7 @@ Devniques is an IT services and technology company in Karachi, Pakistan. Its wor
 
 ## Products
 
-- [Devniques MDM](https://devniques.com/windows-mdm/): Manage and secure phones, tablets, laptops and POS devices from one console — enrollment, policies, apps and remote lock/wipe. One Platform. Total Device Control. Enterprise-Grade Security.
+- [Devniques MDM](https://devniques.com/devniques-mdm/): Manage and secure phones, tablets, laptops and POS devices from one console — enrollment, policies, apps and remote lock/wipe. One Platform. Total Device Control. Enterprise-Grade Security.
 - [Buzzflo Suite](https://devniques.com/#products): Part of the Devniques product suite.
 - [Signvero](https://devniques.com/#products): Part of the Devniques product suite.
 - [Post Marrow Email](https://devniques.com/#products): Devniques email product.

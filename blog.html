@@ -93,7 +93,7 @@ a{text-decoration:none;color:inherit}
 <p class="lede">Devniques is an IT company in Karachi, Pakistan. We build software, manage devices, and automate work — so your business can grow.</p>
 
 <h2>Devniques MDM</h2>
-<p><a href="/windows-mdm/">Devniques MDM</a> is a mobile device management (MDM) solution that manages and secures your phones, tablets, laptops, and POS devices from one console. Enroll devices, set policies, and lock or wipe them remotely. One platform. Total device control.</p>
+<p><a href="/devniques-mdm/">Devniques MDM</a> is a mobile device management (MDM) solution that manages and secures your phones, tablets, laptops, and POS devices from one console. Enroll devices, set policies, and lock or wipe them remotely. One platform. Total device control.</p>
 
 <h2>AI Automation &amp; Chatbots</h2>
 <p><a href="/ai-automation/">AI automation and chatbots</a> handle everyday tasks for you. Less manual work. Faster replies. Happier customers.</p>
@@ -152,7 +152,7 @@ a{text-decoration:none;color:inherit}
       if(after) after(el);
     }).catch(function(){});
   }
-  loadInto('navbar', '/assets/Navbar.html?v=4', function(nav){
+  loadInto('navbar', '/assets/Navbar.html?v=5', function(nav){
     nav.querySelectorAll('.ln-links a').forEach(function(a){
       if(a.getAttribute('href') === '/blog/') a.classList.add('on');
     });
@@ -170,7 +170,7 @@ a{text-decoration:none;color:inherit}
       });
     }
   });
-  loadInto('footer', '/assets/Footer.html?v=13', function(ft){
+  loadInto('footer', '/assets/Footer.html?v=14', function(ft){
     ft.querySelectorAll('a[href^="#"]').forEach(function(a){
       var h = a.getAttribute('href');
       if(h.length > 1) a.setAttribute('href', '/' + h);

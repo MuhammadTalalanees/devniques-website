@@ -278,7 +278,7 @@ a{text-decoration:none;color:inherit}
         <a class="hs-cta" href="/contact/?service=Microsoft%20365&plan=Business%20Premium">Get a Quote</a>
       </div>
     </div>
-    <p class="plan-note rv">Pricing depends on the plan and the number of users and changes over time — request a quote and we will confirm the current partner pricing for your team. Premium includes Intune device management; for deeper device control across phones, tablets and POS, see <a href="/windows-mdm/">Devniques MDM</a>.</p>
+    <p class="plan-note rv">Pricing depends on the plan and the number of users and changes over time — request a quote and we will confirm the current partner pricing for your team. Premium includes Intune device management; for deeper device control across phones, tablets and POS, see <a href="/devniques-mdm/">Devniques MDM</a>.</p>
   </div>
 </section>
 
@@ -325,8 +325,8 @@ a{text-decoration:none;color:inherit}
       if(after) after(el);
     }).catch(function(){});
   }
-  loadInto('navbar', '/assets/Navbar.html?v=4', function(nav){
-    if(location.pathname.indexOf('ai-automation') !== -1 || location.pathname.indexOf('windows-mdm') !== -1 || location.pathname.indexOf('microsoft-365') !== -1){
+  loadInto('navbar', '/assets/Navbar.html?v=5', function(nav){
+    if(location.pathname.indexOf('ai-automation') !== -1 || location.pathname.indexOf('devniques-mdm') !== -1 || location.pathname.indexOf('microsoft-365') !== -1){
       nav.querySelectorAll('a[href^="#"]').forEach(function(a){
         var h = a.getAttribute('href');
         if(h.length > 1) a.setAttribute('href', '/' + h);
@@ -350,8 +350,8 @@ a{text-decoration:none;color:inherit}
       });
     }
   });
-  loadInto('footer', '/assets/Footer.html?v=13', function(ft){
-    if(location.pathname.indexOf('ai-automation') !== -1 || location.pathname.indexOf('windows-mdm') !== -1 || location.pathname.indexOf('microsoft-365') !== -1){
+  loadInto('footer', '/assets/Footer.html?v=14', function(ft){
+    if(location.pathname.indexOf('ai-automation') !== -1 || location.pathname.indexOf('devniques-mdm') !== -1 || location.pathname.indexOf('microsoft-365') !== -1){
       ft.querySelectorAll('a[href^="#"]').forEach(function(a){
         var h = a.getAttribute('href');
         if(h.length > 1) a.setAttribute('href', '/' + h);

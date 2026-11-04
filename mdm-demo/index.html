@@ -79,7 +79,7 @@ header.ln-nav.scrolled{background:rgba(4,10,26,.98)}
 <div class="demo-info">
 <div class="demo-card"><h3>Want a live demo?</h3>
 <p style="color:var(--lx-muted);font-size:14.5px;line-height:1.65">See Devniques MDM in action on your own devices — enrollment, policies, and security controls, walked through by our engineers.</p>
-<p style="margin-top:14px"><a href="/windows-mdm/" style="color:var(--lx-cyan);font-weight:600;font-size:14.5px">Explore Devniques MDM <i class="fa-solid fa-arrow-right"></i></a></p>
+<p style="margin-top:14px"><a href="/devniques-mdm/" style="color:var(--lx-cyan);font-weight:600;font-size:14.5px">Explore Devniques MDM <i class="fa-solid fa-arrow-right"></i></a></p>
 </div>
 <div class="demo-card"><h3>What you'll see</h3>
 <div class="demo-item"><i class="fa-solid fa-user-plus"></i><span><b>Enrollment</b>Enroll devices quickly using secure onboarding methods with minimal effort and consistent setup.</span></div>
@@ -110,13 +110,13 @@ el.innerHTML = html;
 if(after) after(el);
 }).catch(function(){});
 }
-loadInto('navbar', '/assets/Navbar.html?v=4', function(nav){
+loadInto('navbar', '/assets/Navbar.html?v=5', function(nav){
 nav.querySelectorAll('a[href^="#"]').forEach(function(a){
 var h = a.getAttribute('href');
 if(h.length > 1) a.setAttribute('href', '/' + h);
 });
 nav.querySelectorAll('.ln-links a').forEach(function(a){
-if((a.getAttribute('href') || '') === '/windows-mdm/') a.classList.add('on');
+if((a.getAttribute('href') || '') === '/devniques-mdm/') a.classList.add('on');
 });
 var burger = nav.querySelector('#burger');
 var links = nav.querySelector('#navLinks');
@@ -128,7 +128,7 @@ if(n) n.classList.toggle('open');
 });
 }
 });
-loadInto('footer', '/assets/Footer.html?v=13', function(ft){
+loadInto('footer', '/assets/Footer.html?v=14', function(ft){
 ft.querySelectorAll('a[href^="#"]').forEach(function(a){
 var h = a.getAttribute('href');
 if(h.length > 1) a.setAttribute('href', '/' + h);
