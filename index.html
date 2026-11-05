@@ -744,6 +744,8 @@ body{background:#ffffff!important;color:#0a1428}
 .ln-marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent)}
 .ln-track{display:flex;gap:72px;width:max-content;animation:lnScroll 30s linear infinite;padding-right:72px}
 .ln-track span{color:#475569;font-weight:600;font-size:26px;white-space:nowrap;letter-spacing:.01em}
+.ln-track img.ln-logo{height:26px;width:auto;flex-shrink:0;display:block;align-self:center}
+.ln-track .ln-item{display:inline-flex;align-items:center;gap:10px;align-self:center}
 @keyframes lnScroll{to{transform:translateX(-50%)}}
 /* ---------- statement ---------- */
 .ln-state{padding:110px 0 24px;text-align:center}
@@ -811,6 +813,7 @@ body{background:#ffffff!important;color:#0a1428}
 .ln-cards{grid-template-columns:1fr}
 .ln-track{gap:44px;padding-right:44px}
 .ln-track span{font-size:20px}
+.ln-track img.ln-logo{height:20px}
 }@media(prefers-reduced-motion:reduce){
 .ln-track{animation:lnScroll 30s linear infinite!important;animation-duration:30s!important;animation-iteration-count:infinite!important}
 .ln-live i,.ln-typing i{animation:none}
@@ -969,8 +972,8 @@ body{background:#ffffff!important;color:#0a1428}
   <div class="wrap">
     <p class="ln-strip-label rv">Solutions across industries</p>
     <div class="ln-marquee rv"><div class="ln-track">
-      <span>Ship Flow</span><span>TrackOnMoves</span><span>Itmenaan</span><span>Hospital Management</span><span>Microsoft 365</span><span>ERP &amp; CRM</span><span>Mobilient MDM</span><span>Signvero</span><span>Post Marrow</span><span>Buzzflo</span>
-      <span>Ship Flow</span><span>TrackOnMoves</span><span>Itmenaan</span><span>Hospital Management</span><span>Microsoft 365</span><span>ERP &amp; CRM</span><span>Mobilient MDM</span><span>Signvero</span><span>Post Marrow</span><span>Buzzflo</span>
+      <span>Ship Flow</span><span>TrackOnMoves</span><span class="ln-item"><img src="/assets/icons/itmenaan-mark.png" alt="Itmenaan" class="ln-logo">Itmenaan</span><span>Hospital Management</span><img src="/assets/icons/microsoft-365.svg" alt="Microsoft 365" class="ln-logo"><span>Mobilient MDM</span><span>Signvero</span><span>Post Marrow</span><span>Buzzflo</span>
+      <span>Ship Flow</span><span>TrackOnMoves</span><span class="ln-item"><img src="/assets/icons/itmenaan-mark.png" alt="Itmenaan" class="ln-logo">Itmenaan</span><span>Hospital Management</span><img src="/assets/icons/microsoft-365.svg" alt="Microsoft 365" class="ln-logo"><span>Mobilient MDM</span><span>Signvero</span><span>Post Marrow</span><span>Buzzflo</span>
     </div></div>
   </div>
 </section>
