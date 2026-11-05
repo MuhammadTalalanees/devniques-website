@@ -407,6 +407,9 @@ a{text-decoration:none;color:inherit}
 })();
 </script>
 <script>
+addEventListener('scroll', () => { const n = document.getElementById('nav'); if(n) n.classList.toggle('scrolled', scrollY > 8); }, {passive:true});
+</script>
+<script>
 (function(){
   var loader = document.getElementById('loader');
   function hideLoader(){

@@ -245,6 +245,9 @@ header.ln-nav.scrolled{background:#002237}
 })();
 </script>
 <script>
+addEventListener('scroll', () => { const n = document.getElementById('nav'); if(n) n.classList.toggle('scrolled', scrollY > 8); }, {passive:true});
+</script>
+<script>
 /* Clean URLs: same-page anchors scroll without leaving a # in the address bar;
    a cross-page /#section link scrolls on load, then the # is removed. */
 (function(){
