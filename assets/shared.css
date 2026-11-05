@@ -170,3 +170,12 @@ footer{color:#b9c8e4}
 .f-brand p{color:#b9c8e4}
 .footer-col ul a{color:#b9c8e4}
 .f-contact p{color:#b9c8e4}
+
+/* Mobile menu fix (2026-11-05): the base rule ".ln-nav-inner .ln-links{position:static}"
+   above outranks the max-width:900px "position:fixed" dropdown by specificity, so the
+   open menu rendered vertically centred inside the 68px header — its top links sat
+   above the viewport and could not be reached. Re-assert the fixed dropdown here,
+   after that rule, so it wins at mobile widths. Desktop (>900px) is untouched. */
+@media(max-width:900px){
+  .ln-nav-inner .ln-links{position:fixed;top:68px;left:12px;right:12px;transform:none;}
+}

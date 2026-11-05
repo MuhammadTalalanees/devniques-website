@@ -1330,7 +1330,9 @@ body{background:#ffffff!important;color:#0a1428}
 addEventListener('scroll', () => { const n = document.getElementById('nav'); if(n) n.classList.toggle('scrolled', scrollY > 8); }, {passive:true});
 // Mobile menu
 const burger = document.getElementById('burger'), navLinks = document.getElementById('navLinks');
-if(burger && navLinks){ burger.addEventListener('click', () => navLinks.classList.toggle('open')); }
+// (Burger toggle lives in the shared nav script below — it toggles 'open' on both
+// #navLinks and #nav. A second toggle here double-toggled #navLinks and the menu
+// never opened, so this line was removed.)
 if(navLinks){ navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open'))); }
 // Minimal scrollspy (active nav link)
 const spyLinks = [...document.querySelectorAll('.nav-links a[href^="#"]')];
