@@ -11,7 +11,7 @@ FOOT = (ROOT / 'assets/Footer.html').read_text()
 SYNC_SCRIPT = """<script>
 (function(){
   // Navbar/footer are inlined in the HTML (no fetch), so every bot sees the links.
-  var nav = document.getElementById('navbar');
+  var nav = document.getElementById('nav');
   if(nav){
     // On AI page, point fragment links back to homepage
     if(location.pathname.indexOf('ai-automation') !== -1){
