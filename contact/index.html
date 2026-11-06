@@ -145,13 +145,19 @@ header.ln-nav.scrolled{background:#002237}
         <select name="Service" id="serviceSelect">
           <option value="">Select a service…</option>
           <option>Devniques MDM</option>
+          <option>Buzzflo</option>
+          <option>Signvero</option>
+          <option>Post Marrow</option>
           <option>AI Automation</option>
           <option>Microsoft 365</option>
+          <option>TrackOnMoves</option>
+          <option>Ship Flow</option>
+          <option>Hospital Management</option>
+          <option>Itmenaan</option>
           <option>Custom Software</option>
           <option>Website Development</option>
           <option>Mobile App Development</option>
           <option>Digital Marketing &amp; SEO</option>
-          <option>ERP &amp; CRM</option>
           <option>Other</option>
         </select>
       </div>
@@ -259,6 +265,22 @@ addEventListener('scroll', () => { const n = document.getElementById('nav'); if(
   }
   window.addEventListener('load', function(){ setTimeout(hideLoader, 900); });
   setTimeout(hideLoader, 4000);
+})();
+</script>
+<script>
+/* Show the Microsoft 365 plan dropdown only when Microsoft 365 is the selected service. */
+(function(){
+  var svc = document.getElementById('serviceSelect');
+  var grp = document.getElementById('planGroup');
+  var plan = document.getElementById('planSelect');
+  if(!svc || !grp) return;
+  function sync(){
+    var show = svc.value === 'Microsoft 365';
+    grp.style.display = show ? '' : 'none';
+    if(!show && plan) plan.value = '';
+  }
+  svc.addEventListener('change', sync);
+  sync();
 })();
 </script>
 <script>
