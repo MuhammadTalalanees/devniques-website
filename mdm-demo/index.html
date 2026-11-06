@@ -195,6 +195,20 @@ header.ln-nav.scrolled{background:#002237}
 addEventListener('scroll', () => { const n = document.getElementById('nav'); if(n) n.classList.toggle('scrolled', scrollY > 8); }, {passive:true});
 </script>
 <script>
+/* Loader: hide the splash overlay (this page had no hide code — the loader stayed forever). */
+(function(){
+  var loader = document.getElementById('loader');
+  function hideLoader(){
+    if(loader && !loader.classList.contains('done')){
+      loader.classList.add('done');
+      setTimeout(function(){ loader.style.display = 'none'; }, 1000);
+    }
+  }
+  window.addEventListener('load', function(){ setTimeout(hideLoader, 900); });
+  setTimeout(hideLoader, 4000);
+})();
+</script>
+<script>
 /* Clean URLs: same-page anchors scroll without leaving a # in the address bar;
    a cross-page /#section link scrolls on load, then the # is removed. */
 (function(){
