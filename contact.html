@@ -73,6 +73,12 @@ header.ln-nav.scrolled{background:#002237}
 .ct-note{color:#7a8a9c;font-size:12.5px;text-align:center;margin-top:14px}
 .ct-ok{display:none;background:#ecfdf5;border:1px solid #86efac;color:#15803d;border-radius:12px;padding:14px 18px;margin-bottom:20px;font-size:14.5px}
 .ct-ok.show{display:block}
+.ct-fail{display:none;background:#fef2f2;border:1px solid #fca5a5;color:#991b1b;border-radius:12px;padding:16px 18px;margin-bottom:20px;font-size:14.5px}
+.ct-fail strong{display:block;margin-bottom:6px}
+.ct-fail-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+.ct-fail-btn{display:inline-block;background:#2563eb;color:#fff;border-radius:8px;padding:10px 16px;font-weight:600;text-decoration:none;border:0;cursor:pointer;font-size:14px}
+.ct-fail-btn-wa{background:#25d366}
+.ct-fail-btn-ghost{background:transparent;color:#991b1b;border:1px solid #fca5a5}
 .hp{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
 #loader{position:fixed;inset:0;z-index:10000;background:#002237;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:opacity .5s}
 #loader.done{opacity:0;pointer-events:none}
@@ -125,6 +131,15 @@ header.ln-nav.scrolled{background:#002237}
   </div>
   <div class="ct-form">
     <div class="ct-ok" id="sentOk">Thank you! Your message has been sent. Our team will get back to you soon.</div>
+    <div class="ct-fail" id="sendFail">
+      <strong>Message could not be sent right now.</strong>
+      <span>Our form service is temporarily down, so your message did not go through. You can still reach us in one click — your message is already filled in:</span>
+      <div class="ct-fail-actions">
+        <a id="failMailto" class="ct-fail-btn" href="mailto:info@devniques.com">Email us instead</a>
+        <a class="ct-fail-btn ct-fail-btn-wa" href="https://wa.me/923302287775" target="_blank" rel="noopener">WhatsApp us</a>
+        <button type="button" id="failRetry" class="ct-fail-btn ct-fail-btn-ghost">Try sending again</button>
+      </div>
+    </div>
     <h2>Contact Us</h2>
     <p>Connect with our team to discuss our products, services, or partnership opportunities.</p>
     <form id="ctForm" action="https://formsubmit.co/info@devniques.com" method="POST">
@@ -282,6 +297,54 @@ addEventListener('scroll', () => { const n = document.getElementById('nav'); if(
   }
   svc.addEventListener('change', sync);
   sync();
+})();
+</script>
+<script>
+/* Contact form: send via FormSubmit AJAX (12s timeout) so a FormSubmit outage
+   never dumps the visitor on an error page. On success show #sentOk; on failure
+   show #sendFail with a prefilled mailto + WhatsApp fallback. No-JS still posts natively. */
+(function(){
+  var form = document.getElementById('ctForm');
+  var ok = document.getElementById('sentOk');
+  var fail = document.getElementById('sendFail');
+  var planGroup = document.getElementById('planGroup');
+  if(!form) return;
+  if(ok && /[?&]sent=1/.test(location.search)) ok.classList.add('show');
+  if(!window.fetch || !window.AbortController) return;
+  var btn = form.querySelector('button[type="submit"]');
+  var mailto = document.getElementById('failMailto');
+  var retry = document.getElementById('failRetry');
+  function field(n){ var el = form.querySelector('[name="' + n + '"]'); return el ? el.value : ''; }
+  function showFail(){
+    if(!fail) return;
+    var lines = ['Name: ' + field('Name'), 'Email: ' + field('Email'), 'Phone: ' + (field('Country Code') + ' ' + field('Phone')).trim(), 'Company: ' + field('Company'), 'Service: ' + field('Service'), 'Plan: ' + field('Plan'), '', field('Message')];
+    if(mailto) mailto.href = 'mailto:info@devniques.com?subject=' + encodeURIComponent('Website enquiry — ' + (field('Service') || 'General')) + '&body=' + encodeURIComponent(lines.join('\n'));
+    fail.style.display = 'block';
+    fail.scrollIntoView({behavior:'smooth', block:'center'});
+  }
+  if(retry) retry.addEventListener('click', function(){
+    if(fail) fail.style.display = 'none';
+    if(btn){ btn.disabled = false; btn.innerHTML = 'Send Message <i class="fa-solid fa-paper-plane"></i>'; }
+  });
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(fail) fail.style.display = 'none';
+    if(ok) ok.classList.remove('show');
+    var original = btn ? btn.innerHTML : '';
+    if(btn){ btn.disabled = true; btn.textContent = 'Sending…'; }
+    var ctrl = new AbortController();
+    var timer = setTimeout(function(){ ctrl.abort(); }, 12000);
+    fetch('https://formsubmit.co/ajax/info@devniques.com', { method: 'POST', body: new FormData(form), signal: ctrl.signal, headers: { 'Accept': 'application/json' } })
+      .then(function(r){ clearTimeout(timer); if(!r.ok) throw new Error('HTTP ' + r.status); return r.json().catch(function(){ return {}; }); })
+      .then(function(){
+        form.reset();
+        if(planGroup) planGroup.style.display = 'none';
+        if(ok){ ok.classList.add('show'); ok.scrollIntoView({behavior:'smooth', block:'center'}); }
+        history.replaceState(null, '', location.pathname + '?sent=1');
+      })
+      .catch(function(){ clearTimeout(timer); showFail(); })
+      .finally(function(){ if(btn){ btn.disabled = false; btn.innerHTML = original; } });
+  });
 })();
 </script>
 <script>
