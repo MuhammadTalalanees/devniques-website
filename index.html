@@ -1592,13 +1592,14 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
   // Navbar/footer are inlined in the HTML (no fetch), so every bot sees the links.
   var nav = document.getElementById('nav');
   if(nav){
-    // On AI page, point fragment links back to homepage
-    if(location.pathname.indexOf('ai-automation') !== -1){
-      nav.querySelectorAll('a[href^="#"]').forEach(function(a){
-        var h = a.getAttribute('href');
-        if(h.length > 1) a.setAttribute('href', '/' + h);
-      });
-    }
+    // Fragment links (#products, #offer, #ai-feature, #top) live on the home page.
+    // From any other page, point them back home — but leave alone any fragment
+    // whose target exists on THIS page (e.g. #apps on the MS365 page).
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      var h = a.getAttribute('href');
+      if(h.length < 2) return;
+      if(!document.getElementById(h.slice(1))) a.setAttribute('href', '/' + h);
+    });
     // Burger menu (null-safe)
     var burger = nav.querySelector('#burger');
     var links = nav.querySelector('#navLinks');

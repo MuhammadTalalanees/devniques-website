@@ -387,13 +387,14 @@ a{text-decoration:none;color:inherit}
   // Navbar/footer are inlined in the HTML (no fetch), so every bot sees the links.
   var nav = document.getElementById('nav');
   if(nav){
-    // On AI page, point fragment links back to homepage
-    if(location.pathname.indexOf('ai-automation') !== -1){
-      nav.querySelectorAll('a[href^="#"]').forEach(function(a){
-        var h = a.getAttribute('href');
-        if(h.length > 1) a.setAttribute('href', '/' + h);
-      });
-    }
+    // Fragment links (#products, #offer, #ai-feature, #top) live on the home page.
+    // From any other page, point them back home — but leave alone any fragment
+    // whose target exists on THIS page (e.g. #apps on the MS365 page).
+    document.querySelectorAll('a[href^="#"]').forEach(function(a){
+      var h = a.getAttribute('href');
+      if(h.length < 2) return;
+      if(!document.getElementById(h.slice(1))) a.setAttribute('href', '/' + h);
+    });
     // Burger menu (null-safe)
     var burger = nav.querySelector('#burger');
     var links = nav.querySelector('#navLinks');
