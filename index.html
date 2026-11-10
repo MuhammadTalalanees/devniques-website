@@ -836,6 +836,7 @@ body{background:#ffffff!important;color:#0a1428}
 {"@type":"SiteNavigationElement","name":"Contact Us","url":"https://devniques.com/contact/"}
 ]}
 </script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What does Devniques do?", "acceptedAnswer": {"@type": "Answer", "text": "Devniques is an IT company in Karachi, Pakistan. We build custom software, websites and mobile apps, provide Devniques MDM device management, Microsoft 365, AI automation and digital marketing — all from one team."}}, {"@type": "Question", "name": "Where is Devniques based?", "acceptedAnswer": {"@type": "Answer", "text": "Devniques is based in Karachi, Pakistan, and works with businesses across Pakistan. You can reach us on WhatsApp at +92 330 2287775 or landline 021-36275379, Monday to Saturday, 9:00 AM to 6:00 PM."}}, {"@type": "Question", "name": "What is Devniques MDM?", "acceptedAnswer": {"@type": "Answer", "text": "Devniques MDM (UEM/MDM/DLP) manages and secures phones, tablets, laptops and POS devices from one console — enrolment, security policies, remote lock and wipe, and full audit logs for offices, field teams, retail and hospitals."}}, {"@type": "Question", "name": "Is Devniques a Microsoft partner?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — Devniques is a Microsoft partner, and Microsoft 365 is its partner offering for businesses in Pakistan, with Business Basic, Standard and Premium plans."}}, {"@type": "Question", "name": "How can I get a quote for my project?", "acceptedAnswer": {"@type": "Answer", "text": "Tell us about your project through the contact form, email info@devniques.com, or WhatsApp +92 330 2287775 — we will confirm the right plan and pricing for you."}}, {"@type": "Question", "name": "Does Devniques work with businesses outside Karachi?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — Devniques works with businesses across Pakistan, on site in Karachi and remotely everywhere else."}}]}</script>
 </head>
 <body id="top" class="loaded">
 <div id="loader"><img src="logo-white.png" alt="Devniques"><div class="ld-bar"><i></i></div><small>Smart Technology Solutions</small></div>
@@ -1241,6 +1242,20 @@ body{background:#ffffff!important;color:#0a1428}
       </div>
     </div>
 
+<!-- ===== FAQ ===== -->
+<section id="faq" style="background:#f0edee;padding:80px 0">
+  <div class="wrap">
+    <div class="sec-head" style="text-align:center"><span class="eyebrow rv">FAQ</span><h2 class="rv">Questions, answered.</h2></div>
+    <div class="faq-list">
+      <div class="faq-item rv"><button class="faq-q">What does Devniques do?<i class="fa-solid fa-chevron-down"></i></button><div class="faq-a"><p>Devniques is an IT company in Karachi, Pakistan. We build custom software, websites and mobile apps, provide Devniques MDM device management, Microsoft 365, AI automation and digital marketing — all from one team.</p></div></div>
+      <div class="faq-item rv"><button class="faq-q">Where is Devniques based?<i class="fa-solid fa-chevron-down"></i></button><div class="faq-a"><p>Devniques is based in Karachi, Pakistan, and works with businesses across Pakistan. You can reach us on WhatsApp at +92 330 2287775 or landline 021-36275379, Monday to Saturday, 9:00 AM to 6:00 PM.</p></div></div>
+      <div class="faq-item rv"><button class="faq-q">What is Devniques MDM?<i class="fa-solid fa-chevron-down"></i></button><div class="faq-a"><p>Devniques MDM (UEM/MDM/DLP) manages and secures phones, tablets, laptops and POS devices from one console — enrolment, security policies, remote lock and wipe, and full audit logs for offices, field teams, retail and hospitals.</p></div></div>
+      <div class="faq-item rv"><button class="faq-q">Is Devniques a Microsoft partner?<i class="fa-solid fa-chevron-down"></i></button><div class="faq-a"><p>Yes — Devniques is a Microsoft partner, and Microsoft 365 is its partner offering for businesses in Pakistan, with Business Basic, Standard and Premium plans.</p></div></div>
+      <div class="faq-item rv"><button class="faq-q">How can I get a quote for my project?<i class="fa-solid fa-chevron-down"></i></button><div class="faq-a"><p>Tell us about your project through the contact form, email info@devniques.com, or WhatsApp +92 330 2287775 — we will confirm the right plan and pricing for you.</p></div></div>
+      <div class="faq-item rv"><button class="faq-q">Does Devniques work with businesses outside Karachi?<i class="fa-solid fa-chevron-down"></i></button><div class="faq-a"><p>Yes — Devniques works with businesses across Pakistan, on site in Karachi and remotely everywhere else.</p></div></div>
+    </div>
+  </div>
+</section>
 <section id="cta">
   <div class="wrap">
     <div class="demo-banner rv">
@@ -1830,5 +1845,30 @@ const CHARTS={"mdm": {"line": "M0,95 C33,95 67,82 100,82 C133,82 167,68 200,68 C
 #serviceModal .m-sec{background:#f1f5f9;border-color:#e2e8f0;color:#0f172a}
 </style>
 <style>h1,h2,h3,h4{font-family:'Montserrat',sans-serif!important;font-weight:300!important}</style>
+<style>
+/* FAQ (light, home theme) */
+.faq-list{display:flex;flex-direction:column;gap:14px;max-width:860px;margin:0 auto}
+.faq-item{background:#fff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden}
+.faq-q{width:100%;background:none;border:none;color:#0f172a;font-family:'Inter',sans-serif;font-size:16.5px;font-weight:600;text-align:left;padding:22px 26px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq-q i{color:#f97316;transition:transform .3s;flex-shrink:0}
+.faq-item.open .faq-q i{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a p{padding:0 26px 24px;color:#475569;font-size:15px;line-height:1.7}
+</style>
+<script>
+/* FAQ accordion */
+(function(){
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q = item.querySelector('.faq-q'), a = item.querySelector('.faq-a');
+    q.addEventListener('click', function(){
+      var open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){
+        o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!open){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+    });
+  });
+})();
+</script>
 </body>
 </html>

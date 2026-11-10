@@ -12,12 +12,12 @@
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Book Your MDM Demo – Devniques</title>
-<meta name="description" content="Book a live demo of Devniques MDM. See enrollment, policies, and security controls in action on your own devices.">
+<title>Book a Devniques MDM Demo in Karachi, Pakistan</title>
+<meta name="description" content="Book a live demo of Devniques MDM in Karachi, Pakistan. See enrollment, policies, and security controls in action on your own devices.">
 <link rel="canonical" href="https://devniques.com/mdm-demo/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Book Your MDM Demo – Devniques">
-<meta property="og:description" content="Book a live demo of Devniques MDM. See enrollment, policies, and security controls in action on your own devices.">
+<meta property="og:title" content="Book a Devniques MDM Demo in Karachi, Pakistan">
+<meta property="og:description" content="Book a live demo of Devniques MDM in Karachi, Pakistan. See enrollment, policies, and security controls in action on your own devices.">
 <meta property="og:url" content="https://devniques.com/mdm-demo/">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,7 +64,8 @@ header.ln-nav.scrolled{background:#002237}
 @media(max-width:900px){.demo-grid{grid-template-columns:1fr}.demo-book{padding:24px 20px}.demo-hero{padding-top:140px}}
 
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Book Your MDM Demo – Devniques", "url": "https://devniques.com/mdm-demo/", "description": "Book a live demo of Devniques MDM. See enrollment, policies, and security controls in action on your own devices."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "name": "Book a Devniques MDM Demo in Karachi, Pakistan", "url": "https://devniques.com/mdm-demo/", "description": "Book a live demo of Devniques MDM in Karachi, Pakistan. See enrollment, policies, and security controls in action on your own devices."}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What will I see in the MDM demo?", "acceptedAnswer": {"@type": "Answer", "text": "Enrollment, security policies and controls in action on your own devices — see how Devniques MDM manages phones, tablets, laptops and POS devices from one console."}}, {"@type": "Question", "name": "How do I book the demo?", "acceptedAnswer": {"@type": "Answer", "text": "Fill in the form on the contact page, email info@devniques.com, or call / WhatsApp +92 330 2287775 — we reply within one business day."}}, {"@type": "Question", "name": "Is Devniques MDM suitable for small businesses?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — it works for both SMBs and enterprises, scaling with your business needs and device count."}}]}</script>
 </head>
 <body id="top">
 <div id="loader"><img src="logo-white.png" alt="Devniques"><small>Smart Technology Solutions</small></div>
@@ -117,6 +118,18 @@ header.ln-nav.scrolled{background:#002237}
 </div>
 </div></div></section>
 </main>
+<!-- ===== FAQ ===== -->
+<section id="faq" style="background:#f0edee;padding:70px 0">
+  <div class="wrap">
+    <div class="eyebrow" style="text-align:center">FAQ</div>
+    <h2 style="text-align:center">Questions, answered.</h2>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q">What will I see in the MDM demo?<i class="fa-solid fa-chevron-down"></i></button><div class="faq-a"><p>Enrollment, security policies and controls in action on your own devices — see how Devniques MDM manages phones, tablets, laptops and POS devices from one console.</p></div></div>
+      <div class="faq-item"><button class="faq-q">How do I book the demo?<i class="fa-solid fa-chevron-down"></i></button><div class="faq-a"><p>Fill in the form on the contact page, email info@devniques.com, or call / WhatsApp +92 330 2287775 — we reply within one business day.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Is Devniques MDM suitable for small businesses?<i class="fa-solid fa-chevron-down"></i></button><div class="faq-a"><p>Yes — it works for both SMBs and enterprises, scaling with your business needs and device count.</p></div></div>
+    </div>
+  </div>
+</section>
 <footer id="contact">
   <div class="wrap">
     <div class="footer-grid">
@@ -232,5 +245,30 @@ addEventListener('scroll', () => { const n = document.getElementById('nav'); if(
 })();
 </script>
 <style>h1,h2,h3,h4{font-family:'Montserrat',sans-serif!important;font-weight:300!important}</style>
+<style>
+/* FAQ (light) */
+.faq-list{display:flex;flex-direction:column;gap:14px;max-width:860px;margin:0 auto}
+.faq-item{background:#fff;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden}
+.faq-q{width:100%;background:none;border:none;color:#0f172a;font-family:'Inter',sans-serif;font-size:16.5px;font-weight:600;text-align:left;padding:22px 26px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
+.faq-q i{color:#2f7ff7;transition:transform .3s;flex-shrink:0}
+.faq-item.open .faq-q i{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-a p{padding:0 26px 24px;color:#475569;font-size:15px;line-height:1.7}
+</style>
+<script>
+/* FAQ accordion */
+(function(){
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    var q = item.querySelector('.faq-q'), a = item.querySelector('.faq-a');
+    q.addEventListener('click', function(){
+      var open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){
+        o.classList.remove('open'); o.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if(!open){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight + 'px'; }
+    });
+  });
+})();
+</script>
 </body>
 </html>
