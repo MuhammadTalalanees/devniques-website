@@ -69,6 +69,8 @@ a{text-decoration:none;color:inherit}
 .hs-cta.hs-cta-ghost:hover{background:rgba(255,255,255,.12);box-shadow:none}
 /* ===== SECTIONS ===== */
 .lx-sec{padding:104px 0;position:relative}
+#apps{background:#f0edee}
+#faq{background:#f0edee}
 .sec-head{max-width:720px;margin-bottom:48px}
 .sec-eyebrow{color:#00f0ff;text-transform:uppercase;letter-spacing:4px;font-size:13px;font-weight:600;margin-bottom:16px}
 .sec-head h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,3.4vw,42px);font-weight:700;letter-spacing:-.02em;line-height:1.15;margin-bottom:14px}
@@ -76,7 +78,7 @@ a{text-decoration:none;color:inherit}
 /* ===== APPS GRID (text tiles only — no Microsoft logos) ===== */
 .app-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
 .app-grid>*{min-width:0}
-.app-card{background:var(--lx-card);border:1px solid var(--lx-line-soft);border-radius:var(--lx-radius);padding:28px 26px;transition:transform .25s,background .25s}
+.app-card{background:#fff;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(10,20,40,.06);border-radius:var(--lx-radius);padding:28px 26px;transition:transform .25s,background .25s,box-shadow .25s}
 .app-card:hover{background:rgba(47,127,247,.06);transform:translateY(-3px)}
 .app-card h3{font-size:19px;font-weight:700;margin-bottom:10px;letter-spacing:-.01em}
 .app-card p{color:var(--lx-muted);font-size:14.5px;line-height:1.65}
@@ -84,7 +86,7 @@ a{text-decoration:none;color:inherit}
 /* ===== PLANS ===== */
 .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;align-items:stretch}
 .plan-grid>*{min-width:0}
-.plan-card{background:var(--lx-card);border:1px solid var(--lx-line-soft);border-radius:18px;padding:34px 30px;display:flex;flex-direction:column;position:relative}
+.plan-card{background:#fff;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(10,20,40,.06);border-radius:18px;padding:34px 30px;display:flex;flex-direction:column;position:relative}
 .plan-card.hot{border-color:rgba(47,127,247,.55);background:rgba(47,127,247,.07)}
 .plan-badge{position:absolute;top:-13px;left:30px;background:linear-gradient(135deg,#3d8bff,#1f6ae0);color:#fff;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:99px}
 .plan-card h3{font-family:'Space Grotesk',sans-serif;font-size:23px;font-weight:700;margin-bottom:8px}
@@ -99,7 +101,7 @@ a{text-decoration:none;color:inherit}
 .plan-note a{color:var(--lx-cyan);font-weight:600}
 /* ===== FAQ ===== */
 .faq-list{display:flex;flex-direction:column;gap:14px;max-width:860px;margin:0 auto}
-.faq-item{background:rgba(255,255,255,.045);border:1px solid rgba(140,180,255,.09);border-radius:var(--lx-radius);overflow:hidden}
+.faq-item{background:#fff;border:1px solid #e2e8f0;box-shadow:0 1px 3px rgba(10,20,40,.05);border-radius:var(--lx-radius);overflow:hidden}
 .faq-q{width:100%;background:none;border:none;color:var(--lx-ink);font-family:'Inter',sans-serif;font-size:16.5px;font-weight:600;text-align:left;padding:22px 26px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px}
 .faq-q i{color:var(--lx-cyan);transition:transform .3s;flex-shrink:0}
 .faq-item.open .faq-q i{transform:rotate(180deg)}
@@ -159,7 +161,7 @@ a{text-decoration:none;color:inherit}
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
     <ul class="ln-links" id="navLinks">
-      <li><a href="#top">Home</a></li>
+      <li><a href="/">Home</a></li>
       <li><a href="/blog/">Blog</a></li>
       <li><a href="#products">Products</a></li>
       <li><a href="#ai-feature">AI Automation</a></li>
@@ -389,7 +391,7 @@ a{text-decoration:none;color:inherit}
     <div class="footer-bottom">
       <div>&copy; 2026 Devniques Technology Solutions. All Rights Reserved.</div>
       <div class="fb-links">
-        <a href="#top">Home</a>
+        <a href="/">Home</a>
         <a href="#products">Products</a>
         <a href="/contact/">Contact Us</a>
       </div>
